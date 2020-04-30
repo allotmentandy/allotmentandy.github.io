@@ -1,0 +1,2649 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="AllotmentAndy.github.io - Thoughts about Debian, Gardening, Aircraft and other interests of mine">
+
+        <meta property="og:title" content="AllotmentAndy"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://localhost:3000/tailwind"/>
+        <meta property="og:description" content="AllotmentAndy.github.io - Thoughts about Debian, Gardening, Aircraft and other interests of mine" />
+
+        <title>AllotmentAndy</title>
+
+        <link rel="home" href="http://localhost:3000">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="AllotmentAndy Atom Feed">
+
+        
+                    <!-- Insert analytics code here -->
+        
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=d9384aeceb830d3f7459">
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-800 leading-normal font-sans">
+        <header class="flex items-center shadow bg-white border-b h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
+                <div class="flex items-center">
+                    <a href="/" title="AllotmentAndy home" class="inline-flex items-center">
+                        <img class="h-8 md:h-10 mr-3" src="/assets/img/logo.svg" alt="AllotmentAndy logo" />
+
+                        <h1 class="text-lg md:text-2xl text-blue-800 font-semibold hover:text-blue-600 my-0 font-sans">AllotmentAndy</h1>
+                    </a>
+                </div>
+
+                <div id="vue-search" class="flex flex-1 justify-end items-center">
+                    <search></search>
+
+                    <nav class="hidden lg:flex items-center justify-end text-lg">
+    <a title="AllotmentAndy Blog" href="/blog"
+        class="ml-6 text-gray-700 hover:text-blue-600 ">
+        Blog
+    </a>
+
+    <a title="AllotmentAndy About" href="/pages/about"
+        class="ml-6 text-gray-700 hover:text-blue-600 ">
+        About
+    </a>
+</nav>
+
+                    <button class="flex justify-center items-center bg-blue-500 border border-blue-500 h-10 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+                </div>
+            </div>
+        </header>
+
+        <nav id="js-nav-menu" class="nav-menu hidden lg:hidden">
+    <ul class="my-0">
+        <li class="pl-4">
+            <a
+                title="AllotmentAndy Blog"
+                href="/blog"
+                class="nav-menu__item hover:text-blue-500 "
+            >Blog</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="AllotmentAndy About"
+                href="/pages/about"
+                class="nav-menu__item hover:text-blue-500 "
+            >About</a>
+        </li>
+    </ul>
+</nav>
+
+        <main role="main" class="flex-auto w-full container max-w-4xl mx-auto py-16 px-6">
+            <div class="flex flex-col md:flex-row md:-mx-0 bg-yellow-200">
+	<button class="block m-2 px-1 py-1 text-lg font-bold no-underline hover:shadow-lg hover:shadow-lg bg-black-600 text-black border rounded"><a href="/">Home</a></button>
+	<button class="block m-2 px-1 py-1 text-xs font-bold rounded no-underline hover:shadow bg-green-600 hover:bg-green-300 text-black">Small</button>
+	<button class="block m-2 px-1 py-1 text-xs font-bold rounded no-underline hover:shadow bg-red-600 hover:bg-green-300 text-black">Small Button</button>
+	
+	<button class="block m-2 px-1 py-1 text-xs font-bold rounded no-underline hover:shadow bg-blue-600 hover:bg-green-300 text-black">Small Button</button>
+	
+	<button class="block m-2 px-1 py-1 text-xs font-bold rounded no-underline hover:shadow bg-yellow-600 hover:bg-green-300 text-black">Small Button</button>
+	<button class="block m-2 px-1 py-1 text-xs font-bold rounded no-underline hover:shadow bg-purple-600 hover:bg-green-300 text-black">Small Button</button>
+</div>
+<div class="flex flex-col md:flex-row md:-mx-0 bg-yellow-200">
+	<button class="block mb-4 px-3 py-2 text-xs font-bold rounded-full no-underline hover:shadow bg-green-600 text-white">Small Button</button>
+	
+	<button class="block mb-4 px-3 py-2 text-xs font-bold rounded-full no-underline hover:shadow bg-red-300 text-white">Small </button>
+	
+	<button class="block mb-4 px-3 py-2 text-xs font-bold rounded-full no-underline hover:shadow bg-blue-600 text-white">Small Button</button>
+	
+	<button class="block mb-4 px-3 py-2 text-xs font-bold rounded-full no-underline hover:shadow bg-yellow-600 text-white">Small </button>
+	<button class="block mb-4 px-3 py-2 text-xs font-bold rounded-full no-underline hover:shadow bg-purple-600 text-white">Small Button</button>
+</div>
+
+
+	<div class="block">
+
+	<table class="codes" border="0" cellspacing="0" cellpadding="0" width="95%" align="center">
+<tbody>
+<tr>
+<td class="first" colspan="4">
+<h3>Section 1</h3>
+</td>
+</tr>
+<tr>
+<th class="first">Tag</th> <th>Attributes</th> <th>Browsers</th> <th>Closing tag</th>
+</tr>
+<tr>
+<td class="first">&lt;!DOCTYPE&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;HTML&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;HEAD&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;TITLE&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;META&gt;</td>
+<td>content, http-equiv, name, scheme</td>
+<td>All</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;STYLE&gt;</td>
+<td>no attributes</td>
+<td>NN4, IE45</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;BODY&gt;</td>
+<td>alink, background, bgcolor, bgproperties, leftmargin, link, text, topmargin, vlink</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;P&gt;</td>
+<td>align</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;BR&gt;</td>
+<td>clear</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;HR&gt;</td>
+<td>align, noshade, size, width</td>
+<td>All</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;OL&gt;</td>
+<td>compact, start, type</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;UL&gt;</td>
+<td>compact, type</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;LI&gt;</td>
+<td>type, vlaue</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;DT&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;DD&gt;</td>
+<td>no attributes</td>
+<td>&nbsp;</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;ADDRESS&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;BLOCKQUOTES&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;CENTER&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;!-- --&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;COMMENT&gt;</td>
+<td>no attributes</td>
+<td>IE345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;DIV&gt;</td>
+<td>align</td>
+<td>NN234, IE345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;PRE&gt;</td>
+<td>width</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;B&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;BASEFONT&gt;</td>
+<td>color, face, size</td>
+<td>All</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;BIG&gt;</td>
+<td>no attributes</td>
+<td>NN234, IE345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;BLINK&gt;</td>
+<td>no attributes</td>
+<td>NN234</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;CITE&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;CODE&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;DFN&gt;</td>
+<td>no attributes</td>
+<td>&nbsp;</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;EM&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;FONT&gt;</td>
+<td>color, face, size</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;I&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;KBD&gt;</td>
+<td>no attributes</td>
+<td>NN234, IE245</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;S&gt;</td>
+<td>no attributes</td>
+<td>NN34, IE45</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;STRIKE&gt;</td>
+<td>no attributes</td>
+<td>NN34, IE2345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;SAMP&gt;</td>
+<td>no attributes</td>
+<td>NN234, IE245</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;SMALL&gt;</td>
+<td>no attributes</td>
+<td>NN234, IE245</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;STRONG&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;SUB&gt;</td>
+<td>no attributes</td>
+<td>NN234, IE345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;SUP&gt;</td>
+<td>no attributes</td>
+<td>NN234, IE345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;TT&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;U&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;IMG&gt;</td>
+<td>align, alt, border, height, hspace, ismap, src, usemap, vspace, width, dynsrc, start, controls, loop, loopdelay</td>
+<td>All</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;A&gt;</td>
+<td>href, name, target, title, method, rel, rev, urn</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;MAP&gt;</td>
+<td>name</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;AREA&gt;</td>
+<td>shape, coords, href, nohref</td>
+<td>All</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td class="first">&lt;FORM&gt;</td>
+<td>action, enctype, method</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;INPUT&gt;</td>
+<td>type, name, value, align, checked, maxlength, size, src</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;SELECT&gt;</td>
+<td>name, multiple, size</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;OPTION&gt;</td>
+<td>selected, value</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;TABLE&gt;</td>
+<td>align, background, bgcolor, border, bordercolor, bordercolorlight, bordercolordark, cellspacing, cellpadding, cols, frame, height, rules, style, width</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;TR&gt;</td>
+<td>align, valign, backgroundcolor, bgcolor, bordercolor, bordercolorlight, bordercolordark, height, style</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;TD&gt;</td>
+<td>align, colspan, rowspan, nowrap, background, bgcolor, brodercolor, bordercolorlight, bordercolordark, height, width, style, valign</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;CAPTION&gt;</td>
+<td>align, valign</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;FRAMESET&gt;</td>
+<td>cols, rows, frameborder, framespacing, bordercolor</td>
+<td>NN234, IE345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;FRAME&gt;</td>
+<td>frameborder, framespacing, marginwidth, marginheight, name, noresize, scrolling, src, bordercolor</td>
+<td>NN234, IE345</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;NOFRAMES&gt;</td>
+<td>no attributes</td>
+<td>NN234, IE345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;IFRAME&gt;</td>
+<td>width, height, hspace, vspace, align, frameborder, marginheight, marginwidth, noresize</td>
+<td>IE345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;BGSOUND&gt;</td>
+<td>src, loop</td>
+<td>IE2345</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;MARQUEE&gt;</td>
+<td>align, behavior, bgcolor, direction, height, hspace, loop, scrollamount, scrolldelay, vspace, width</td>
+<td>IE2345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;EMBED&gt;</td>
+<td>src, width, height, border, hspace, vspace, align, name, units</td>
+<td>NN234, IE345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;DEL&gt;</td>
+<td>no attributes</td>
+<td>IE45</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;INS&gt;</td>
+<td>no attributes</td>
+<td>IE45</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;Q&gt;</td>
+<td>cite</td>
+<td>IE45</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;BASE&gt;</td>
+<td>href, target,</td>
+<td>All</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;LINK&gt;</td>
+<td>href, methods, rev, rel, title, type, urn</td>
+<td>NN4, IE2345</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;ABBR&gt;</td>
+<td>title</td>
+<td>None</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;ACRONYM&gt;</td>
+<td>title</td>
+<td>None</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;SPAN&gt;</td>
+<td>no attributes</td>
+<td>NN4, IE45</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;VAR&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;MULTICOL&gt;</td>
+<td>cols, gutter, width</td>
+<td>NN234</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;NOBR&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;WBR&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;DIR&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;DL&gt;</td>
+<td>compact</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;MENU&gt;</td>
+<td>compact, type</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;APPLET&gt;</td>
+<td>align, alt, code, codebase, height, hspace, name, vspace, width</td>
+<td>NN234, IE345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;NOEMBED&gt;</td>
+<td>no attributes</td>
+<td>NN234</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;NOSCRIPT&gt;</td>
+<td>no attributes</td>
+<td>NN34, IE345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;OBJECT&gt;</td>
+<td>align, border, classid, codebase, data, height, hspace, name, type, uesmap, vspace, width</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;PARAM&gt;</td>
+<td>name, value, type</td>
+<td>NN234, IE345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;SCRIPT&gt;</td>
+<td>type, language, src</td>
+<td>NN34, IE345</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;SPACER&gt;</td>
+<td>type, size, height, width, align</td>
+<td>NN34</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;COL&gt;</td>
+<td>align, char, charoff, span, valign, width</td>
+<td>IE45</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;COLGROUP&gt;</td>
+<td>align, char, charoff, span, valign, width</td>
+<td>IE45</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;TBODY&gt;</td>
+<td>align, char, charoff, valign</td>
+<td>IE45</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;TFOOT&gt;</td>
+<td>align, char, charoff, valign</td>
+<td>IE45</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;TH&gt;</td>
+<td>align, colspan, rowspan, nowrap, background, bgcolor, brodercolor, bordercolorlight, bordercolordark, height, width, style, valign</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;THEAD&gt;</td>
+<td>align, char, charoff, valign</td>
+<td>IE45</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;BUTTON&gt;</td>
+<td>name, value, type</td>
+<td>NN4, IE45</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;FIELDSET&gt;</td>
+<td>no attributes</td>
+<td>IE45</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td class="first">&lt;ISINDEX&gt;</td>
+<td>no attributes</td>
+<td>All</td>
+<td>no</td>
+</tr>
+<tr>
+<td class="first">&lt;LABEL&gt;</td>
+<td>no attributes</td>
+<td>IE45</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;LEGEND&gt;</td>
+<td>no attributes</td>
+<td>IE45</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;OPTGROUP&gt;</td>
+<td>no attributes</td>
+<td>None</td>
+<td>yes</td>
+</tr>
+<tr>
+<td class="first">&lt;TEXTAREA&gt;</td>
+<td>cols, name, rows, wrap</td>
+<td>All</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<table class="codes" border="0" cellspacing="0" cellpadding="0" width="95%" align="center">
+<tbody>
+<tr>
+<td class="first" colspan="4" align="left">
+<h3>Section 2</h3>
+</td>
+</tr>
+<tr>
+<th class="first">Name</th> <th>Symbol</th> <th>Alpha Code</th> <th>Numerical Code</th>
+</tr>
+<tr>
+<td class="first" valign="top">exclaimation mark</td>
+<td valign="top">!</td>
+<td valign="top">&amp;excl;</td>
+<td valign="top">&amp;#33;</td>
+</tr>
+<tr>
+<td class="first" valign="top">double quotes</td>
+<td valign="top">"</td>
+<td valign="top">&amp;quot;</td>
+<td valign="top">&amp;#34;</td>
+</tr>
+<tr>
+<td class="first" valign="top">number sign</td>
+<td valign="top">#</td>
+<td valign="top">&amp;num;</td>
+<td valign="top">&amp;#35;</td>
+</tr>
+<tr>
+<td class="first" valign="top">dollar sign</td>
+<td valign="top">$</td>
+<td valign="top">&amp;dollar;</td>
+<td valign="top">&amp;#36;</td>
+</tr>
+<tr>
+<td class="first" valign="top">percent sign</td>
+<td valign="top">%</td>
+<td valign="top">&amp;percnt;</td>
+<td valign="top">&amp;#37;</td>
+</tr>
+<tr>
+<td class="first" valign="top">ampersand</td>
+<td valign="top">&amp;</td>
+<td valign="top">&amp;amp;</td>
+<td valign="top">&amp;#38;</td>
+</tr>
+<tr>
+<td class="first" valign="top">apostrophe</td>
+<td valign="top">'</td>
+<td valign="top">&amp;apos;</td>
+<td valign="top">&amp;#39;</td>
+</tr>
+<tr>
+<td class="first" valign="top">left parenthesis</td>
+<td valign="top">(</td>
+<td valign="top">&amp;lpar;</td>
+<td valign="top">&amp;#40;</td>
+</tr>
+<tr>
+<td class="first" valign="top">right parenthesis</td>
+<td valign="top">)</td>
+<td valign="top">&amp;rpar;</td>
+<td valign="top">&amp;#41;</td>
+</tr>
+<tr>
+<td class="first" valign="top">asterisk</td>
+<td valign="top">*</td>
+<td valign="top">&amp;ast;</td>
+<td valign="top">&amp;#42</td>
+</tr>
+<tr>
+<td class="first" valign="top">plus sign</td>
+<td valign="top">+</td>
+<td valign="top">&amp;plus;</td>
+<td valign="top">&amp;#43;</td>
+</tr>
+<tr>
+<td class="first" valign="top">comma</td>
+<td valign="top">,</td>
+<td valign="top">&amp;comma;</td>
+<td valign="top">&amp;#44;</td>
+</tr>
+<tr>
+<td class="first" valign="top">minus or hyphen</td>
+<td valign="top">-</td>
+<td valign="top">&amp;minus; or &amp;hyphen;</td>
+<td valign="top">&amp;#45;</td>
+</tr>
+<tr>
+<td class="first" valign="top">period</td>
+<td valign="top">.</td>
+<td valign="top">&amp;period;</td>
+<td valign="top">&amp;#46;</td>
+</tr>
+<tr>
+<td class="first" valign="top">slash</td>
+<td valign="top">/</td>
+<td valign="top">&amp;sol;</td>
+<td valign="top">&amp;#47;</td>
+</tr>
+<tr>
+<td class="first" valign="top">colon</td>
+<td valign="top">:</td>
+<td valign="top">&amp;colon;</td>
+<td valign="top">&amp;#58;</td>
+</tr>
+<tr>
+<td class="first" valign="top">semicolon</td>
+<td valign="top">;</td>
+<td valign="top">&amp;semi;</td>
+<td valign="top">&amp;#59;</td>
+</tr>
+<tr>
+<td class="first" valign="top">less than</td>
+<td valign="top">&lt;</td>
+<td valign="top">&amp;lt;</td>
+<td valign="top">&amp;#60;</td>
+</tr>
+<tr>
+<td class="first" valign="top">equals sign</td>
+<td valign="top">=</td>
+<td valign="top">&amp;equals;</td>
+<td valign="top">&amp;#61;</td>
+</tr>
+<tr>
+<td class="first" valign="top">greater than</td>
+<td valign="top">&gt;</td>
+<td valign="top">&amp;gt;</td>
+<td valign="top">&amp;#62;</td>
+</tr>
+<tr>
+<td class="first" valign="top">question mark</td>
+<td valign="top">?</td>
+<td valign="top">&amp;quest;</td>
+<td valign="top">&amp;#63;</td>
+</tr>
+<tr>
+<td class="first" valign="top">at sign</td>
+<td valign="top">@</td>
+<td valign="top">&amp;commat;</td>
+<td valign="top">&amp;#64;</td>
+</tr>
+<tr>
+<td class="first" valign="top">left square bracket</td>
+<td valign="top">[</td>
+<td valign="top">&amp;lsqb;</td>
+<td valign="top">&amp;#91;</td>
+</tr>
+<tr>
+<td class="first" valign="top">backslash</td>
+<td valign="top">&nbsp;</td>
+<td valign="top">&amp;bsol;</td>
+<td valign="top">&amp;#92;</td>
+</tr>
+<tr>
+<td class="first" valign="top">right square bracket</td>
+<td valign="top">]</td>
+<td valign="top">&amp;rsqb;</td>
+<td valign="top">&amp;#93;</td>
+</tr>
+<tr>
+<td class="first" valign="top">caret</td>
+<td valign="top">^</td>
+<td valign="top">&amp;circ;</td>
+<td valign="top">&amp;#94;</td>
+</tr>
+<tr>
+<td class="first" valign="top">underscore</td>
+<td valign="top">_</td>
+<td valign="top">&amp;lowbar;</td>
+<td valign="top">&amp;#95;</td>
+</tr>
+<tr>
+<td class="first" valign="top">acute accent</td>
+<td valign="top">`</td>
+<td valign="top">&amp;grave;</td>
+<td valign="top">&amp;#96;</td>
+</tr>
+<tr>
+<td class="first" valign="top">left curly brace</td>
+<td valign="top">{</td>
+<td valign="top">&amp;lcub;</td>
+<td valign="top">&amp;#123;</td>
+</tr>
+<tr>
+<td class="first" valign="top">vertical bar</td>
+<td valign="top">|</td>
+<td valign="top">&amp;verbar;</td>
+<td valign="top">&amp;#124;</td>
+</tr>
+<tr>
+<td class="first" valign="top">right curly brace</td>
+<td valign="top">}</td>
+<td valign="top">&amp;rcub;</td>
+<td valign="top">&amp;#125;</td>
+</tr>
+<tr>
+<td class="first" valign="top">tilde</td>
+<td valign="top">~</td>
+<td valign="top">&amp;tilde;</td>
+<td valign="top">&amp;#126;</td>
+</tr>
+<tr>
+<td class="first" valign="top">low horizontal ellipsis</td>
+<td valign="top">&hellip;</td>
+<td valign="top">&amp;hellip;</td>
+<td valign="top">&amp;#133;</td>
+</tr>
+<tr>
+<td class="first" valign="top">dagger mark</td>
+<td valign="top">&dagger;</td>
+<td valign="top">&amp;dagger;</td>
+<td valign="top">&amp;#134;</td>
+</tr>
+<tr>
+<td class="first" valign="top">double dagger mark</td>
+<td valign="top">&Dagger;</td>
+<td valign="top">&amp;Dagger;</td>
+<td valign="top">&amp;#135;</td>
+</tr>
+<tr>
+<td class="first" valign="top">left single quote</td>
+<td valign="top">&lsquo;</td>
+<td valign="top">&amp;lsquo;</td>
+<td valign="top">&amp;#145;</td>
+</tr>
+<tr>
+<td class="first" valign="top">right single quote</td>
+<td valign="top">&rsquo;</td>
+<td valign="top">&amp;rsquo;</td>
+<td valign="top">&amp;#146;</td>
+</tr>
+<tr>
+<td class="first" valign="top">left double quote</td>
+<td valign="top">&ldquo;</td>
+<td valign="top">&amp;ldquo;</td>
+<td valign="top">&amp;#147;</td>
+</tr>
+<tr>
+<td class="first" valign="top">right double quote</td>
+<td valign="top">&rdquo;</td>
+<td valign="top">&amp;rdquo;</td>
+<td valign="top">&amp;#148;</td>
+</tr>
+<tr>
+<td class="first" valign="top">round filled bullet</td>
+<td valign="top">&bull;</td>
+<td valign="top">&amp;bull;</td>
+<td valign="top">&amp;#149;</td>
+</tr>
+<tr>
+<td class="first" valign="top">en dash</td>
+<td valign="top">&ndash;</td>
+<td valign="top">&amp;ndash;</td>
+<td valign="top">&amp;#150;</td>
+</tr>
+<tr>
+<td class="first" valign="top">em dash</td>
+<td valign="top">&mdash;</td>
+<td valign="top">&amp;mdash;</td>
+<td valign="top">&amp;#151;</td>
+</tr>
+<tr>
+<td class="first" valign="top">trademark</td>
+<td valign="top">&trade;</td>
+<td valign="top">&amp;trade;</td>
+<td valign="top">&amp;#153;</td>
+</tr>
+<tr>
+<td class="first" valign="top">non-breaking space</td>
+<td valign="top">&nbsp;</td>
+<td valign="top">&amp;nbsp;</td>
+<td valign="top">&amp;#160;</td>
+</tr>
+<tr>
+<td class="first" valign="top">inverted exclamation</td>
+<td valign="top">&iexcl;</td>
+<td valign="top">&amp;iexcl;</td>
+<td valign="top">&amp;#161;</td>
+</tr>
+<tr>
+<td class="first" valign="top">cent sign</td>
+<td valign="top">&cent;</td>
+<td valign="top">&amp;cent;</td>
+<td valign="top">&amp;#162;</td>
+</tr>
+<tr>
+<td class="first" valign="top">broken vertical bar</td>
+<td valign="top">&brvbar;</td>
+<td valign="top">&amp;brvbar;</td>
+<td valign="top">&amp;#166;</td>
+</tr>
+<tr>
+<td class="first" valign="top">section sign</td>
+<td valign="top">&sect;</td>
+<td valign="top">&amp;sect;</td>
+<td valign="top">&amp;#167;</td>
+</tr>
+<tr>
+<td class="first" valign="top">umlaut</td>
+<td valign="top">&uml;</td>
+<td valign="top">&amp;uml;</td>
+<td valign="top">&amp;#168;</td>
+</tr>
+<tr>
+<td class="first" valign="top">copyright symbol</td>
+<td valign="top">&copy;</td>
+<td valign="top">&amp;copy;</td>
+<td valign="top">&amp;#169;</td>
+</tr>
+<tr>
+<td class="first" valign="top">left angle quote</td>
+<td valign="top">&laquo;</td>
+<td valign="top">&amp;laquo;</td>
+<td valign="top">&amp;#171;</td>
+</tr>
+<tr>
+<td class="first" valign="top">not sign</td>
+<td valign="top">&not;</td>
+<td valign="top">&amp;not;</td>
+<td valign="top">&amp;#172;</td>
+</tr>
+<tr>
+<td class="first" valign="top">registered trademark</td>
+<td valign="top">&reg;</td>
+<td valign="top">&amp;reg;</td>
+<td valign="top">&amp;#174;</td>
+</tr>
+<tr>
+<td class="first" valign="top">degree sign</td>
+<td valign="top">&deg;</td>
+<td valign="top">&amp;deg;</td>
+<td valign="top">&amp;#176;</td>
+</tr>
+<tr>
+<td class="first" valign="top">plus or minus</td>
+<td valign="top">&plusmn;</td>
+<td valign="top">&amp;plusmn;</td>
+<td valign="top">&amp;#177;</td>
+</tr>
+<tr>
+<td class="first" valign="top">superscript two</td>
+<td valign="top">&sup2;</td>
+<td valign="top">&amp;sup2;</td>
+<td valign="top">&amp;#178;</td>
+</tr>
+<tr>
+<td class="first" valign="top">superscript three</td>
+<td valign="top">&sup3;</td>
+<td valign="top">&amp;sup3;</td>
+<td valign="top">&amp;#179;</td>
+</tr>
+<tr>
+<td class="first" valign="top">acute accent</td>
+<td valign="top">&acute;</td>
+<td valign="top">&amp;acute;</td>
+<td valign="top">&amp;#180;</td>
+</tr>
+<tr>
+<td class="first" valign="top">paragraph sign</td>
+<td valign="top">&para;</td>
+<td valign="top">&amp;para;</td>
+<td valign="top">&amp;#182;</td>
+</tr>
+<tr>
+<td class="first" valign="top">middle dot</td>
+<td valign="top">&middot;</td>
+<td valign="top">&amp;middot;</td>
+<td valign="top">&amp;#183;</td>
+</tr>
+<tr>
+<td class="first" valign="top">cedilla</td>
+<td valign="top">&cedil;</td>
+<td valign="top">&amp;cedil;</td>
+<td valign="top">&amp;#184;</td>
+</tr>
+<tr>
+<td class="first" valign="top">superscript one</td>
+<td valign="top">&sup1;</td>
+<td valign="top">&amp;sup1;</td>
+<td valign="top">&amp;#185;</td>
+</tr>
+<tr>
+<td class="first" valign="top">right angle quote</td>
+<td valign="top">&raquo;</td>
+<td valign="top">&amp;raquo;</td>
+<td valign="top">&amp;#187</td>
+</tr>
+<tr>
+<td class="first" valign="top">one-fourth</td>
+<td valign="top">&frac14;</td>
+<td valign="top">&amp;frac14;</td>
+<td valign="top">&amp;#188;</td>
+</tr>
+<tr>
+<td class="first" valign="top">one-half</td>
+<td valign="top">&frac12;</td>
+<td valign="top">&amp;frac12;</td>
+<td valign="top">&amp;#189;</td>
+</tr>
+<tr>
+<td class="first" valign="top">three-fourths</td>
+<td valign="top">&frac34;</td>
+<td valign="top">&amp;frac34;</td>
+<td valign="top">&amp;#190;</td>
+</tr>
+<tr>
+<td class="first" valign="top">inverted question mark</td>
+<td valign="top">&iquest;</td>
+<td valign="top">&amp;iquest;</td>
+<td valign="top">&amp;#191;</td>
+</tr>
+<tr>
+<td class="first" valign="top">multiply sign</td>
+<td valign="top">&times;</td>
+<td valign="top">&amp;times;</td>
+<td valign="top">&amp;#215;</td>
+</tr>
+<tr>
+<td class="first" valign="top">division sign</td>
+<td valign="top">&divide;</td>
+<td valign="top">&amp;divide;</td>
+<td valign="top">&amp;#247;</td>
+</tr>
+</tbody>
+</table>
+<table class="codes" border="0" cellspacing="0" cellpadding="0" width="95%" align="center">
+<tbody>
+<tr>
+<td class="first" colspan="4">
+<h3>Section 3</h3>
+</td>
+</tr>
+<tr>
+<th class="first">Alpha Code</th> <th>Numerical Code</th> <th>Symbol</th> <th>Name</th>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#09;</td>
+<td>&nbsp;</td>
+<td>Horizontal Tab</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#10;</td>
+<td>&nbsp;</td>
+<td>Line feed</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#32;</td>
+<td>&nbsp;</td>
+<td>space</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#33;</td>
+<td>!</td>
+<td>Exclamation point</td>
+</tr>
+<tr>
+<td class="first">&amp;quot;</td>
+<td>&amp;#34;</td>
+<td>"</td>
+<td>Double quote</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#35;</td>
+<td>#</td>
+<td>Number sign</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#36;</td>
+<td>$</td>
+<td>Dollar sign</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#37;</td>
+<td>%</td>
+<td>Percent sign</td>
+</tr>
+<tr>
+<td class="first">&amp;amp;</td>
+<td>&amp;#38;</td>
+<td>&amp;</td>
+<td>Ampersand (and sign)</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#39;</td>
+<td>'</td>
+<td>Single quote</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#40;</td>
+<td>(</td>
+<td>Left parenthesis</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#41;</td>
+<td>)</td>
+<td>Right parenthesis</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#42;</td>
+<td>*</td>
+<td>Asterix (star)</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#43;</td>
+<td>+</td>
+<td>Plus</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#44;</td>
+<td>,</td>
+<td>Comma</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#45;</td>
+<td>-</td>
+<td>Minus</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#46;</td>
+<td>.</td>
+<td>Period</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#47;</td>
+<td>/</td>
+<td>Forward slash</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#48;</td>
+<td>0</td>
+<td>Zero</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#49;</td>
+<td>1</td>
+<td>One</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#50;</td>
+<td>2</td>
+<td>Two</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#51;</td>
+<td>3</td>
+<td>Three</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#52;</td>
+<td>4</td>
+<td>Four</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#53;</td>
+<td>5</td>
+<td>Five</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#54;</td>
+<td>6</td>
+<td>Six</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#55;</td>
+<td>7</td>
+<td>Seven</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#56;</td>
+<td>8</td>
+<td>Eight</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#57;</td>
+<td>9</td>
+<td>Nine</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#58;</td>
+<td>:</td>
+<td>Colon</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#59;</td>
+<td>;</td>
+<td>Semi-colon</td>
+</tr>
+<tr>
+<td class="first">&amp;lt;</td>
+<td>&amp;#60;</td>
+<td>&lt;</td>
+<td>Less-than sign</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#61;</td>
+<td>=</td>
+<td>Equal sign</td>
+</tr>
+<tr>
+<td class="first">&amp;gt;</td>
+<td>&amp;#62;</td>
+<td>&gt;</td>
+<td>Greater-than sign</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#63;</td>
+<td>?</td>
+<td>Question mark</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#64;</td>
+<td>@</td>
+<td>At-sign</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#65;</td>
+<td>A</td>
+<td>Capital a</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#66;</td>
+<td>B</td>
+<td>Capital b</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#67;</td>
+<td>C</td>
+<td>Capital c</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#68;</td>
+<td>D</td>
+<td>Capital d</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#69;</td>
+<td>E</td>
+<td>Capital e</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#70;</td>
+<td>F</td>
+<td>Capital f</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#71;</td>
+<td>G</td>
+<td>Capital g</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#72;</td>
+<td>H</td>
+<td>Capital h</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#73;</td>
+<td>I</td>
+<td>Capital i</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#74;</td>
+<td>J</td>
+<td>Capital j</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#75;</td>
+<td>K</td>
+<td>Capital k</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#76;</td>
+<td>L</td>
+<td>Capital l</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#77;</td>
+<td>M</td>
+<td>Capital m</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#78;</td>
+<td>N</td>
+<td>Capital n</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#79;</td>
+<td>O</td>
+<td>Capital o</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#80;</td>
+<td>P</td>
+<td>Capital p</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#81;</td>
+<td>Q</td>
+<td>Capital q</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#82;</td>
+<td>R</td>
+<td>Capital r</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#83;</td>
+<td>S</td>
+<td>Capital s</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#84;</td>
+<td>T</td>
+<td>Capital t</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#85;</td>
+<td>U</td>
+<td>Capital u</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#86;</td>
+<td>V</td>
+<td>Capital v</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#87;</td>
+<td>W</td>
+<td>Capital w</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#88;</td>
+<td>X</td>
+<td>Capital x</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#89;</td>
+<td>Y</td>
+<td>Capital y</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#90;</td>
+<td>Z</td>
+<td>Capital z</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#91;</td>
+<td>[</td>
+<td>Left square bracket</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#92;</td>
+<td>&nbsp;</td>
+<td>Back slash</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#93;</td>
+<td>]</td>
+<td>Right square bracket</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#94;</td>
+<td>^</td>
+<td>Caret</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#95;</td>
+<td>_</td>
+<td>Underscore</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#96;</td>
+<td>`</td>
+<td>Grave accent</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#97;</td>
+<td>a</td>
+<td>Lowercase a</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#98;</td>
+<td>b</td>
+<td>Lowercase b</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#99;</td>
+<td>c</td>
+<td>Lowercase c</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#100;</td>
+<td>d</td>
+<td>Lowercase d</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#101;</td>
+<td>e</td>
+<td>Lowercase e</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#102;</td>
+<td>f</td>
+<td>Lowercase f</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#103;</td>
+<td>g</td>
+<td>Lowercase g</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#104;</td>
+<td>h</td>
+<td>Lowercase h</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#105;</td>
+<td>i</td>
+<td>Lowercase i</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#106;</td>
+<td>j</td>
+<td>Lowercase j</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#107;</td>
+<td>k</td>
+<td>Lowercase k</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#108;</td>
+<td>l</td>
+<td>Lowercase l</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#109;</td>
+<td>m</td>
+<td>Lowercase m</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#110;</td>
+<td>n</td>
+<td>Lowercase n</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#111;</td>
+<td>o</td>
+<td>Lowercase o</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#112;</td>
+<td>p</td>
+<td>Lowercase p</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#113;</td>
+<td>q</td>
+<td>Lowercase q</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#114;</td>
+<td>r</td>
+<td>Lowercase r</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#115;</td>
+<td>s</td>
+<td>Lowercase s</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#116;</td>
+<td>t</td>
+<td>Lowercase t</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#117;</td>
+<td>u</td>
+<td>Lowercase u</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#118;</td>
+<td>v</td>
+<td>Lowercase v</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#119;</td>
+<td>w</td>
+<td>Lowercase w</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#120;</td>
+<td>x</td>
+<td>Lowercase x</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#121;</td>
+<td>y</td>
+<td>Lowercase y</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#122;</td>
+<td>z</td>
+<td>Lowercase z</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#123;</td>
+<td>{</td>
+<td>Left curly brace</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#124;</td>
+<td>|</td>
+<td>Vertical bar</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#125;</td>
+<td>}</td>
+<td>Right curly brace</td>
+</tr>
+<tr>
+<td class="first">&amp;tilde;</td>
+<td>&amp;#126;</td>
+<td>~</td>
+<td>tilde</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#127;</td>
+<td></td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#128;</td>
+<td>&euro;</td>
+<td>Euro</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#129;</td>
+<td>�</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td class="first">&amp;sbquo;</td>
+<td>&amp;#130;</td>
+<td>&sbquo;</td>
+<td>Single low-quote</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#131;</td>
+<td>&fnof;</td>
+<td>Script f</td>
+</tr>
+<tr>
+<td class="first">&amp;dbquo;</td>
+<td>&amp;#132;</td>
+<td>&bdquo;</td>
+<td>Double low-quote</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#133;</td>
+<td>&hellip;</td>
+<td>Elipsis</td>
+</tr>
+<tr>
+<td class="first">&amp;dagger;</td>
+<td>&amp;#134;</td>
+<td>&dagger;</td>
+<td>Dagger</td>
+</tr>
+<tr>
+<td class="first">&amp;Dagger;</td>
+<td>&amp;#135;</td>
+<td>&Dagger;</td>
+<td>Double dagger</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#136;</td>
+<td>&circ;</td>
+<td>Hatchek</td>
+</tr>
+<tr>
+<td class="first">&amp;permil;</td>
+<td>&amp;#137;</td>
+<td>&permil;</td>
+<td>Per million symbol</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#138;</td>
+<td>&Scaron;</td>
+<td>Capital esh</td>
+</tr>
+<tr>
+<td class="first">&amp;lsaquo;</td>
+<td>&amp;#139;</td>
+<td>&lsaquo;</td>
+<td>Left single angle quote</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#140;</td>
+<td>&OElig;</td>
+<td>OE ligature</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#141;</td>
+<td>�</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#142;</td>
+<td>Ž</td>
+<td>Capital ž</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#143;</td>
+<td>�</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#144;</td>
+<td>�</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td class="first">&amp;lsquo;</td>
+<td>&amp;#145;</td>
+<td>&lsquo;</td>
+<td>Left single-quote</td>
+</tr>
+<tr>
+<td class="first">&amp;rsquo;</td>
+<td>&amp;#146;</td>
+<td>&rsquo;</td>
+<td>Right single-quote</td>
+</tr>
+<tr>
+<td class="first">&amp;ldquo;</td>
+<td>&amp;#147;</td>
+<td>&ldquo;</td>
+<td>Left double-quote</td>
+</tr>
+<tr>
+<td class="first">&amp;rdquo;</td>
+<td>&amp;#148;</td>
+<td>&rdquo;</td>
+<td>Right double-quote</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#149;</td>
+<td>&bull;</td>
+<td>Small bullet</td>
+</tr>
+<tr>
+<td class="first">&amp;ndash;</td>
+<td>&amp;#150;</td>
+<td>&ndash;</td>
+<td>En dash</td>
+</tr>
+<tr>
+<td class="first">&amp;mdash;</td>
+<td>&amp;#151;</td>
+<td>&mdash;</td>
+<td>Em dash</td>
+</tr>
+<tr>
+<td class="first">&amp;tilde</td>
+<td>&amp;#152;</td>
+<td>&tilde;</td>
+<td>Tilde</td>
+</tr>
+<tr>
+<td class="first">&amp;trade;</td>
+<td>&amp;#153;</td>
+<td>&trade;</td>
+<td>Trademark</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#154;</td>
+<td>&scaron;</td>
+<td>Lowercase esh</td>
+</tr>
+<tr>
+<td class="first">&amp;rsaquo;</td>
+<td>&amp;#155;</td>
+<td>&rsaquo;</td>
+<td>Right single angle quote</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#156;</td>
+<td>&oelig;</td>
+<td>oe ligature</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#157;</td>
+<td>�</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#158;</td>
+<td>ž</td>
+<td>Lowercase ž</td>
+</tr>
+<tr>
+<td class="first">&amp;Yuml;</td>
+<td>&amp;#159;</td>
+<td>&Yuml;</td>
+<td>Uppercase y-umlaut</td>
+</tr>
+<tr>
+<td class="first">&amp;nbsp;</td>
+<td>&amp;#160;</td>
+<td>&nbsp;</td>
+<td>Non-breaking space</td>
+</tr>
+<tr>
+<td class="first">&amp;iexcl;</td>
+<td>&amp;#161;</td>
+<td>&iexcl;</td>
+<td>Inverted exclamation point</td>
+</tr>
+<tr>
+<td class="first">&amp;cent;</td>
+<td>&amp;#162;</td>
+<td>&cent;</td>
+<td>Cent</td>
+</tr>
+<tr>
+<td class="first">&amp;pound;</td>
+<td>&amp;#163;</td>
+<td>&pound;</td>
+<td>Pound currency sign</td>
+</tr>
+<tr>
+<td class="first">&amp;curren;</td>
+<td>&amp;#164;</td>
+<td>&curren;</td>
+<td>Currency sign</td>
+</tr>
+<tr>
+<td class="first">&amp;yen;</td>
+<td>&amp;#165;</td>
+<td>&yen;</td>
+<td>Yen currency sign</td>
+</tr>
+<tr>
+<td class="first">&amp;brvbar;</td>
+<td>&amp;#166;</td>
+<td>&brvbar;</td>
+<td>Broken vertical bar</td>
+</tr>
+<tr>
+<td class="first">&amp;sect;</td>
+<td>&amp;#167;</td>
+<td>&sect;</td>
+<td>Section symbol</td>
+</tr>
+<tr>
+<td class="first">&amp;uml;</td>
+<td>&amp;#168;</td>
+<td>&uml;</td>
+<td>Umlaut (Diaeresis)</td>
+</tr>
+<tr>
+<td class="first">&amp;copy;</td>
+<td>&amp;#169;</td>
+<td>&copy;</td>
+<td>Copyright</td>
+</tr>
+<tr>
+<td class="first">&amp;ordf;</td>
+<td>&amp;#170;</td>
+<td>&ordf;</td>
+<td>Feminine ordinal indicator (superscript lowercase a)</td>
+</tr>
+<tr>
+<td class="first">&amp;laquo;</td>
+<td>&amp;#171;</td>
+<td>&laquo;</td>
+<td>Left angle quote</td>
+</tr>
+<tr>
+<td class="first">&amp;not;</td>
+<td>&amp;#172;</td>
+<td>&not;</td>
+<td>Not sign</td>
+</tr>
+<tr>
+<td class="first">&amp;shy;</td>
+<td>&amp;#173;</td>
+<td>&shy;</td>
+<td>Soft hyphen</td>
+</tr>
+<tr>
+<td class="first">&amp;reg;</td>
+<td>&amp;#174;</td>
+<td>&reg;</td>
+<td>Registered sign</td>
+</tr>
+<tr>
+<td class="first">&amp;macr;</td>
+<td>&amp;#175;</td>
+<td>&macr;</td>
+<td>Macron</td>
+</tr>
+<tr>
+<td class="first">&amp;deg;</td>
+<td>&amp;#176;</td>
+<td>&deg;</td>
+<td>Degree sign</td>
+</tr>
+<tr>
+<td class="first">&amp;plusmn;</td>
+<td>&amp;#177;</td>
+<td>&plusmn;</td>
+<td>Plus/minus sign</td>
+</tr>
+<tr>
+<td class="first">&amp;sup2;</td>
+<td>&amp;#178;</td>
+<td>&sup2;</td>
+<td>Superscript 2</td>
+</tr>
+<tr>
+<td class="first">&amp;sup3;</td>
+<td>&amp;#179;</td>
+<td>&sup3;</td>
+<td>Superscript 3</td>
+</tr>
+<tr>
+<td class="first">&nbsp;</td>
+<td>&amp;#180;</td>
+<td>&acute;</td>
+<td>Acute accent</td>
+</tr>
+<tr>
+<td class="first">&amp;micro;</td>
+<td>&amp;#181;</td>
+<td>&micro;</td>
+<td>Micro sign</td>
+</tr>
+<tr>
+<td class="first">&amp;para;</td>
+<td>&amp;#182;</td>
+<td>&para;</td>
+<td>Pilcrow sign (paragraph)</td>
+</tr>
+<tr>
+<td class="first">&amp;middot;</td>
+<td>&amp;#183;</td>
+<td>&middot;</td>
+<td>Middle dot</td>
+</tr>
+<tr>
+<td class="first">&amp;cedil;</td>
+<td>&amp;#184;</td>
+<td>&cedil;</td>
+<td>Cedilla</td>
+</tr>
+<tr>
+<td class="first">&amp;sup1;</td>
+<td>&amp;#185;</td>
+<td>&sup1;</td>
+<td>Superscript 1</td>
+</tr>
+<tr>
+<td class="first">&amp;ordm;</td>
+<td>&amp;#186;</td>
+<td>&ordm;</td>
+<td>Masculine ordinal indicator (superscript o)</td>
+</tr>
+<tr>
+<td class="first">&amp;raquo;</td>
+<td>&amp;#187;</td>
+<td>&raquo;</td>
+<td>Right angle quote</td>
+</tr>
+<tr>
+<td class="first">&amp;frac14;</td>
+<td>&amp;#188;</td>
+<td>&frac14;</td>
+<td>One quarter fraction</td>
+</tr>
+<tr>
+<td class="first">&amp;frac12;</td>
+<td>&amp;#189;</td>
+<td>&frac12;</td>
+<td>One half fraction</td>
+</tr>
+<tr>
+<td class="first">&amp;frac34;</td>
+<td>&amp;#190;</td>
+<td>&frac34;</td>
+<td>Three quarters fraction</td>
+</tr>
+<tr>
+<td class="first">&iquest;</td>
+<td>&amp;#191;</td>
+<td>&iquest;</td>
+<td>Inverted question mark</td>
+</tr>
+<tr>
+<td class="first">&amp;Agrave;</td>
+<td>&amp;#192;</td>
+<td>&Agrave;</td>
+<td>A grave accent</td>
+</tr>
+<tr>
+<td class="first">&amp;Aacute;</td>
+<td>&amp;#193;</td>
+<td>&Aacute;�</td>
+<td>A accute accent</td>
+</tr>
+<tr>
+<td class="first">&amp;Acirc;</td>
+<td>&amp;#194;</td>
+<td>&Acirc;</td>
+<td>A circumflex</td>
+</tr>
+<tr>
+<td class="first">&amp;Atilde;</td>
+<td>&amp;#195;</td>
+<td>&Atilde;</td>
+<td>A tilde</td>
+</tr>
+<tr>
+<td class="first">&amp;Auml;</td>
+<td>&amp;#196;</td>
+<td>&Auml;</td>
+<td>A umlaut</td>
+</tr>
+<tr>
+<td class="first">&amp;Aring;</td>
+<td>&amp;#197;</td>
+<td>&Aring;</td>
+<td>A ring</td>
+</tr>
+<tr>
+<td class="first">&amp;AElig;</td>
+<td>&amp;#198;</td>
+<td>&AElig;</td>
+<td>AE ligature</td>
+</tr>
+<tr>
+<td class="first">&amp;Ccedil;</td>
+<td>&amp;#199;</td>
+<td>&Ccedil;</td>
+<td>C cedilla</td>
+</tr>
+<tr>
+<td class="first">&amp;Egrave;</td>
+<td>&amp;#200;</td>
+<td>&Egrave;</td>
+<td>E grave</td>
+</tr>
+<tr>
+<td class="first">&amp;Eacute;</td>
+<td>&amp;#201;</td>
+<td>&Eacute;</td>
+<td>E acute</td>
+</tr>
+<tr>
+<td class="first">&amp;Ecirc;</td>
+<td>&amp;#202;</td>
+<td>&Ecirc;</td>
+<td>E circumflex</td>
+</tr>
+<tr>
+<td class="first">&amp;Euml;</td>
+<td>&amp;#203;</td>
+<td>&Euml;</td>
+<td>E umlaut</td>
+</tr>
+<tr>
+<td class="first">&amp;Igrave;</td>
+<td>&amp;#204;</td>
+<td>&Igrave;</td>
+<td>I grave</td>
+</tr>
+<tr>
+<td class="first">&amp;Iacute;</td>
+<td>&amp;#205;</td>
+<td>&Iacute;�</td>
+<td>I acute</td>
+</tr>
+<tr>
+<td class="first">&amp;Icirc;</td>
+<td>&amp;#206;</td>
+<td>&Icirc;</td>
+<td>I circumflex</td>
+</tr>
+<tr>
+<td class="first">&amp;Iuml;</td>
+<td>&amp;#207;</td>
+<td>&Iuml;</td>
+<td>I umlaut</td>
+</tr>
+<tr>
+<td class="first">&amp;ETH;</td>
+<td>&amp;#208;</td>
+<td>&ETH;</td>
+<td>Eth</td>
+</tr>
+<tr>
+<td class="first">&amp;Ntilde;</td>
+<td>&amp;#209;</td>
+<td>&Ntilde;</td>
+<td>N tilde (enye)</td>
+</tr>
+<tr>
+<td class="first">&amp;Ograve;</td>
+<td>&amp;#210;</td>
+<td>&Ograve;</td>
+<td>O grave</td>
+</tr>
+<tr>
+<td class="first">&amp;Oacute;</td>
+<td>&amp;#211;</td>
+<td>&Oacute;</td>
+<td>O acute</td>
+</tr>
+<tr>
+<td class="first">&amp;Ocirc;</td>
+<td>&amp;#212;</td>
+<td>&Ocirc;</td>
+<td>O circumflex</td>
+</tr>
+<tr>
+<td class="first">&amp;Otilde;</td>
+<td>&amp;#213;</td>
+<td>&Otilde;</td>
+<td>O tilde</td>
+</tr>
+<tr>
+<td class="first">&amp;Ouml;</td>
+<td>&amp;#214;</td>
+<td>&Ouml;</td>
+<td>O umlaut</td>
+</tr>
+<tr>
+<td class="first">&amp;times;</td>
+<td>&amp;#215;</td>
+<td>&times;</td>
+<td>Multiplication sign</td>
+</tr>
+<tr>
+<td class="first">&amp;Oslash;</td>
+<td>&amp;#216;</td>
+<td>&Oslash;</td>
+<td>O slash</td>
+</tr>
+<tr>
+<td class="first">&amp;Ugrave;</td>
+<td>&amp;#217;</td>
+<td>&Ugrave;</td>
+<td>U grave</td>
+</tr>
+<tr>
+<td class="first">&amp;Uacute;</td>
+<td>&amp;#218;</td>
+<td>&Uacute;</td>
+<td>U acute</td>
+</tr>
+<tr>
+<td class="first">&amp;Ucirc;</td>
+<td>&amp;#219;</td>
+<td>&Ucirc;</td>
+<td>U circumflex</td>
+</tr>
+<tr>
+<td class="first">&amp;Uuml;</td>
+<td>&amp;#220;</td>
+<td>&Uuml;</td>
+<td>U umlaut</td>
+</tr>
+<tr>
+<td class="first">&amp;Yacute;</td>
+<td>&amp;#221;</td>
+<td>&Yacute;�</td>
+<td>Y acute</td>
+</tr>
+<tr>
+<td class="first">&amp;THORN;</td>
+<td>&amp;#222;</td>
+<td>&THORN;</td>
+<td>Thorn</td>
+</tr>
+<tr>
+<td class="first">&amp;szlig;</td>
+<td>&amp;#223;</td>
+<td>&szlig;</td>
+<td>SZ ligature</td>
+</tr>
+<tr>
+<td class="first">&amp;agrave;</td>
+<td>&amp;#224;</td>
+<td>&agrave;</td>
+<td>a grave</td>
+</tr>
+<tr>
+<td class="first">&amp;aacute;</td>
+<td>&amp;#225;</td>
+<td>&aacute;</td>
+<td>a acute</td>
+</tr>
+<tr>
+<td class="first">&amp;acirc;</td>
+<td>&amp;#226;</td>
+<td>&acirc;</td>
+<td>a circumflex</td>
+</tr>
+<tr>
+<td class="first">&amp;atilde;</td>
+<td>&amp;#227;</td>
+<td>&atilde;</td>
+<td>a tilde</td>
+</tr>
+<tr>
+<td class="first">&amp;auml;</td>
+<td>&amp;#228;</td>
+<td>&auml;</td>
+<td>a umlaut</td>
+</tr>
+<tr>
+<td class="first">&amp;aring;</td>
+<td>&amp;#229;</td>
+<td>&aring;</td>
+<td>a ring</td>
+</tr>
+<tr>
+<td class="first">&amp;aelig;</td>
+<td>&amp;#230;</td>
+<td>&aelig;</td>
+<td>ae ligature</td>
+</tr>
+<tr>
+<td class="first">&amp;ccedil;</td>
+<td>&amp;#231;</td>
+<td>&ccedil;</td>
+<td>c cedilla</td>
+</tr>
+<tr>
+<td class="first">&amp;egrave;</td>
+<td>&amp;#232;</td>
+<td>&egrave;</td>
+<td>e grave</td>
+</tr>
+<tr>
+<td class="first">&amp;eacute;</td>
+<td>&amp;#233;</td>
+<td>&eacute;</td>
+<td>e acute</td>
+</tr>
+<tr>
+<td class="first">&amp;ecirc;</td>
+<td>&amp;#234;</td>
+<td>&ecirc;</td>
+<td>e circumflex</td>
+</tr>
+<tr>
+<td class="first">&amp;euml;</td>
+<td>&amp;#235;</td>
+<td>&euml;</td>
+<td>e umlaut</td>
+</tr>
+<tr>
+<td class="first">&amp;igrave;</td>
+<td>&amp;#236;</td>
+<td>&igrave;</td>
+<td>i grave</td>
+</tr>
+<tr>
+<td class="first">&amp;iacute;</td>
+<td>&amp;#237;</td>
+<td>&iacute;</td>
+<td>i acute</td>
+</tr>
+<tr>
+<td class="first">&amp;icirc;</td>
+<td>&amp;#238;</td>
+<td>&icirc;</td>
+<td>i circumflex</td>
+</tr>
+<tr>
+<td class="first">&amp;iuml;</td>
+<td>&amp;#239;</td>
+<td>&iuml;</td>
+<td>i umlaut</td>
+</tr>
+<tr>
+<td class="first">&amp;eth;</td>
+<td>&amp;#240;</td>
+<td>&eth;</td>
+<td>eth</td>
+</tr>
+<tr>
+<td class="first">&amp;ntilde;</td>
+<td>&amp;#241;</td>
+<td>&ntilde;</td>
+<td>n tilde</td>
+</tr>
+<tr>
+<td class="first">&amp;ograve;</td>
+<td>&amp;#242;</td>
+<td>&ograve;</td>
+<td>o grave</td>
+</tr>
+<tr>
+<td class="first">&amp;oacute;</td>
+<td>&amp;#243;</td>
+<td>&oacute;</td>
+<td>o acute</td>
+</tr>
+<tr>
+<td class="first">&amp;ocirc;</td>
+<td>&amp;#244;</td>
+<td>&ocirc;</td>
+<td>o circumflex</td>
+</tr>
+<tr>
+<td class="first">&amp;otilde;</td>
+<td>&amp;#245;</td>
+<td>&otilde;</td>
+<td>o tilde</td>
+</tr>
+<tr>
+<td class="first">&amp;ouml;</td>
+<td>&amp;#246;</td>
+<td>&ouml;</td>
+<td>o umlaut</td>
+</tr>
+<tr>
+<td class="first">&amp;divide;</td>
+<td>&amp;#247;</td>
+<td>&divide;</td>
+<td>Division symbol</td>
+</tr>
+<tr>
+<td class="first">&amp;oslash;</td>
+<td>&amp;#248;</td>
+<td>&oslash;</td>
+<td>o slash</td>
+</tr>
+<tr>
+<td class="first">&amp;ugrave;</td>
+<td>&amp;#249;</td>
+<td>&ugrave;</td>
+<td>u grave</td>
+</tr>
+<tr>
+<td class="first">&amp;uacute;</td>
+<td>&amp;#250;</td>
+<td>&uacute;</td>
+<td>u acute</td>
+</tr>
+<tr>
+<td class="first">&amp;ucirc;</td>
+<td>&amp;#251;</td>
+<td>&ucirc;</td>
+<td>u circumflex</td>
+</tr>
+<tr>
+<td class="first">&amp;uuml;</td>
+<td>&amp;#252;</td>
+<td>&uuml;</td>
+<td>u umlaut</td>
+</tr>
+<tr>
+<td class="first">&amp;yacute;</td>
+<td>&amp;#253;</td>
+<td>&yacute;</td>
+<td>y acute</td>
+</tr>
+<tr>
+<td class="first">&amp;thorn;</td>
+<td>&amp;#254;</td>
+<td>&thorn;</td>
+<td>thorn</td>
+</tr>
+<tr>
+<td class="first">&amp;yuml;</td>
+<td>&amp;#255;</td>
+<td>&yuml;</td>
+<td>y umlaut</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+          <div class="caption">
+                    <h2>Serif Fonts</h2>
+                    <div class="w3-responsive">
+                    <table class="w3-table-all notranslate">
+                    <tbody><tr>
+                    <th style="width:55%">font-family</th>
+                    <th>Example text</th>
+                    </tr>
+                    <tr>
+                    <td>Georgia, serif</td>
+                    <td><h2 style="margin-top:0px;font-family: Georgia, serif">This is a heading</h2><p style="margin-bottom:0px;font-family: Georgia, serif">This is a paragraph</p></td>
+                    </tr>
+                    <tr>
+                    <td>"Palatino Linotype", "Book Antiqua", Palatino, serif</td>
+                    <td><h2 style="margin-top:0px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif">This is a heading</h2><p style="margin-bottom:0px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif">This is a paragraph</p></td>
+                    </tr>
+                    <tr>
+                    <td>"Times New Roman", Times, serif</td>
+                    <td><h2 style="margin-top:0px;font-family: 'Times New Roman', Times, serif">This is a heading</h2><p style="margin-bottom:0px;font-family: 'Times New Roman', Times, serif">This is a paragraph</p></td>
+                    </tr>
+                    </tbody></table>
+                    </div>
+                    <h2>Sans-Serif Fonts</h2>
+                    <div class="w3-responsive">
+                    <table class="w3-table-all notranslate">
+                    <tbody><tr>
+                    <th style="width:55%">font-family</th>
+                    <th>Example text</th>
+                    </tr>
+                    <tr>
+                    <td>Arial, Helvetica, sans-serif</td>
+                    <td><h2 style="margin-top:0px;font-family: Arial, Helvetica, sans-serif;">This is a heading</h2><p style="margin-bottom:0px;font-family: Arial, Helvetica, sans-serif;">This is a paragraph</p></td>
+                    </tr>
+                    <tr>
+                    <td>"Arial Black", Gadget, sans-serif</td>
+                    <td><h2 style="margin-top:0px;font-family: Arial Black, Gadget, sans-serif;font-weight:normal;">This is a heading</h2><p style="margin-bottom:0px;font-family: Arial Black, Gadget, sans-serif">This is a paragraph</p></td>
+                    </tr>
+                    <tr>
+                    <td>"Comic Sans MS", cursive, sans-serif</td>
+                    <td><h2 style="margin-top:0px;font-family: 'Comic Sans MS', cursive, sans-serif">This is a heading</h2><p style="margin-bottom:0px;font-family: 'Comic Sans MS', cursive, sans-serif">This is a paragraph</p></td>
+                    </tr>
+                    <tr>
+                    <td>Impact, Charcoal, sans-serif</td>
+                    <td><h2 style="margin-top:0px;font-family: Impact, Charcoal, sans-serif;font-weight:normal">This is a heading</h2><p style="margin-bottom:0px;font-family: Impact, Charcoal, sans-serif">This is a paragraph</p></td>
+                    </tr>
+                    <tr>
+                    <td>"Lucida Sans Unicode", "Lucida Grande", sans-serif</td>
+                    <td><h2 style="margin-top:0px;font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif">This is a heading</h2><p style="margin-bottom:0px;font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif">This is a paragraph</p></td>
+                    </tr>
+                    <tr>
+                    <td>Tahoma, Geneva, sans-serif</td>
+                    <td><h2 style="margin-top:0px;font-family: Tahoma, Geneva, sans-serif">This is a heading</h2><p style="margin-bottom:0px;font-family: Tahoma, Geneva, sans-serif">This is a paragraph</p></td>
+                    </tr>
+                    <tr>
+                    <td>"Trebuchet MS", Helvetica, sans-serif</td>
+                    <td><h2 style="margin-top:0px;font-family: 'Trebuchet MS', Helvetica, sans-serif">This is a heading</h2><p style="margin-bottom:0px;font-family: 'Trebuchet MS', Helvetica, sans-serif">This is a paragraph</p></td>
+                    </tr>
+                    <tr>
+                    <td>Verdana, Geneva, sans-serif</td>
+                    <td><h2 style="margin-top:0px;font-family: Verdana, Geneva, sans-serif">This is a heading</h2><p style="margin-bottom:0px;font-family: Verdana, Geneva, sans-serif">This is a paragraph</p></td>
+                    </tr>
+                    </tbody></table>
+                    </div>
+                    <h2>Monospace Fonts</h2>
+                    <div class="w3-responsive">
+                    <table class="w3-table-all notranslate">
+                    <tbody><tr>
+                    <th style="width:55%">font-family</th>
+                    <th>Example text</th>
+                    </tr>
+                    <tr>
+                    <td>"Courier New", Courier, monospace</td>
+                    <td><h2 style="margin-top:0px;font-family: 'Courier New', Courier, monospace">This is a heading</h2><p style="margin-bottom:0px;font-family: 'Courier New', Courier, monospace">This is a paragraph</p></td>
+                    </tr>
+                    <tr>
+                    <td>"Lucida Console", Monaco, monospace</td>
+                    <td><h2 style="margin-top:0px;font-family: 'Lucida Console', Monaco, monospace">This is a heading</h2><p style="margin-bottom:0px;font-family: 'Lucida Console', Monaco, monospace">This is a paragraph</p></td>
+                    </tr>
+                    </tbody></table>
+                    </div>
+                     </div>
+
+        </main>
+
+        <!-- footer -->
+        <footer class="w-full bg-gray-300 border-t">
+            <div class="container mx-auto max-w-4xl h-full flex flex-wrap md:flex-no-wrap justify-between items-start text-sm p-6 pt-8 pb-4">
+                <div class="mb-8">
+                    <h4 class="mb-4">Categories</h4>
+                                                    <div>
+                                                                <div class="btn"><a href="http://localhost:3000/blog/categories/cooking">Cooking</a></div>
+                                                            </div>
+                                                    <div>
+                                                                <div class="btn"><a href="http://localhost:3000/blog/categories/debian">Debian Linux</a></div>
+                                                            </div>
+                                                    <div>
+                                                                <div class="btn"><a href="http://localhost:3000/blog/categories/gardening">Gardening</a></div>
+                                                            </div>
+                                                    <div>
+                                                                <div class="btn"><a href="http://localhost:3000/blog/categories/jigsaw">Jigsaw</a></div>
+                                                            </div>
+                                                    <div>
+                                                                <div class="btn"><a href="http://localhost:3000/blog/categories/laravel">Laravel</a></div>
+                                                            </div>
+                                                    <div>
+                                                                <div class="btn"><a href="http://localhost:3000/blog/categories/markdown">Markdown</a></div>
+                                                            </div>
+                                        </div>
+                <div class="mb-4">
+                    <h4 class="mb-4">AllotmentAndys.github.io</h4>
+
+                    <div><a href="https://www.github.com/allotmentandy">Github</a></div>
+                    <div><a href="https://allotmentandy.github.io/">Github.io</a></div>
+                    <div><a class="text-sm">Stack Overflow</a></div>
+                    <div><a href="/blog/feed.atom" class="text-sm">RSS Feed</a></div>
+
+                </div>
+            </div>
+        </footer>
+        <!-- /footer -->
+
+        <!-- footer -->
+        <footer class="w-full bg-white px-6 border-t">
+            <div class="container mx-auto max-w-4xl py-6 flex flex-wrap md:flex-no-wrap justify-between items-center text-sm">
+                &copy;2020.
+                <div class="pt-4 md:p-0 text-center md:text-right text-xs">
+                    <a href="#" class="text-black no-underline hover:underline">Privacy Policy</a>
+                    <a href="#" class="text-black no-underline hover:underline ml-4">Terms &amp; Conditions</a>
+                    <a href="#" class="text-black no-underline hover:underline ml-4">Contact Us</a>
+                </div>
+            </div>
+        </footer>
+        <!-- /footer -->
+
+        <script src="/assets/build/js/main.js?id=cfb528a5e0c7c3c5b4ca"></script>
+
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </body>
+</html>
