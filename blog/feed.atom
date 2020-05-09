@@ -1,17 +1,237 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>AllotmentAndy</title>
-    <link href="http://localhost:3000" />
-    <link type="application/atom+xml" rel="self" href="http://localhost:3000/blog/feed.atom" />
-    <updated>2020-04-30T15:09:36+01:00</updated>
-    <id>http://localhost:3000/blog/feed.atom</id>
+    <title>Allotmentandy</title>
+    <link href="http://allotmentandy.github.io/" />
+    <link type="application/atom+xml" rel="self" href="http://allotmentandy.github.io/blog/feed.atom" />
+    <updated>2020-05-08T10:38:09+01:00</updated>
+    <id>http://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
-    <id>http://localhost:3000/blog/2020-04-30</id>
-    <link type="text/html" rel="alternate" href="http://localhost:3000/blog/2020-04-30" />
-    <title>Cooking day</title>
+    <id>http://allotmentandy.github.io/blog/2020-05-08-friday-8th-may-2020</id>
+    <link type="text/html" rel="alternate" href="http://allotmentandy.github.io/blog/2020-05-08-friday-8th-may-2020" />
+    <title>Today, no more</title>
+    <published>2020-05-08T01:00:00+01:00</published>
+    <updated>2020-05-08T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I used to love listening to the radio, over 20 years ago i would listen to the BBC World Service and it was great. I lived in Italy and I used to enjoy programmes like &#039;World Business Report&#039; and also John Peal presenting &#039;Home Truths.&#039;
+
+Today, i dont......</summary>
+    <content type="html"><![CDATA[
+        <p>I used to love listening to the radio, over 20 years ago i would listen to the BBC World Service and it was great. I lived in Italy and I used to enjoy programmes like 'World Business Report' and also John Peal presenting 'Home Truths.'</p>
+
+<p>Today, i dont turn on the radio in the morning, BBC Radio 4 is unlistenable, a steam of wet lefties lying with nothing much to say. It is an outrage that residents of the UK must pay (with force of prison) to fund the BBC which is so far removed from their beliefs.</p>
+
+<p>In fact, where i am, we hardely even turn on the telly news anymore. The bbc has become unwatchable with its mix of wet leftism and bias by omission.</p>
+
+<p>And having worked recently at a major UK newspaper which is infested with the same sort of wets. How the expect to survive over time is not a problem for me, like all things infected with leftism, i hope they just fade away.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://allotmentandy.github.io/blog/2020-05-08-markdown</id>
+    <link type="text/html" rel="alternate" href="http://allotmentandy.github.io/blog/2020-05-08-markdown" />
+    <title>markdown</title>
+    <published>2020-05-08T01:00:00+01:00</published>
+    <updated>2020-05-08T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">https://guides.github.com/features/mastering-markdown/
+
+bold
+
+italic
+
+Hello there &lt;code&gt;people&lt;/code&gt;, how are you?
+
+
+
+link to Google!
+
+
+  Hello there people
+  How are you?
+
+
+
+[x] This is a complete item
+[ ] This is an incomplete item
+
+
+Hello @damusix......</summary>
+    <content type="html"><![CDATA[
+        <h1>Markdown syntax</h1>
+
+<p>https://guides.github.com/features/mastering-markdown/</p>
+
+<p><strong>bold</strong></p>
+
+<p><em>italic</em></p>
+
+<p>Hello there <code>people</code>, how are you?</p>
+
+<p><img src="https://www.w3schools.com/angular/pic_angular.jpg" alt="Image of Angular" /></p>
+
+<p><a href="http://google.com">link to Google!</a></p>
+
+<blockquote>
+  <p>Hello there people
+  How are you?</p>
+</blockquote>
+
+<ul>
+<li>[x] This is a complete item</li>
+<li>[ ] This is an incomplete item</li>
+</ul>
+
+<p>Hello @damusix this is just some markdown examples!</p>
+
+<p>emojis :sparkles: :camel: :boom:</p>
+
+<p>https://www.webpagefx.com/tools/emoji-cheat-sheet/</p>
+
+<h1>This is an <code>&lt;h1&gt;</code> tag</h1>
+
+<h2>This is an <code>&lt;h2&gt;</code> tag</h2>
+
+<h6>This is an <code>&lt;h6&gt;</code> tag</h6>
+
+<p><em>This text will be italic</em>
+<em>This will also be italic</em></p>
+
+<p><strong>This text will be bold</strong>
+<strong>This will also be bold</strong></p>
+
+<p><em>You <strong>can</strong> combine them</em></p>
+
+<h6>Lists</h6>
+
+<ul>
+<li>Item 1</li>
+<li>Item 2
+
+<ul>
+<li>Item 2a</li>
+<li>Item 2b</li>
+</ul></li>
+</ul>
+
+<ol>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3
+
+<ol>
+<li>Item 3a</li>
+<li>Item 3b</li>
+</ol></li>
+</ol>
+
+<p><img src="/images/logo.png" alt="An Image from this repo" />
+Format: <img src="url" alt="Alt Text" /></p>
+
+<p>http://github.com - automatic!
+<a href="http://github.com">GitHub</a></p>
+
+<h6>Checklists</h6>
+
+<ul>
+<li>[x] @mentions, #refs, <a href="google.com">links</a>, <strong>formatting</strong>, and <del>del tags</del> supported</li>
+<li>[x] list syntax required (any unordered or ordered list supported)</li>
+<li>[x] this is a complete item</li>
+<li>[ ] this is an incomplete item</li>
+</ul>
+
+<h6>Tables</h6>
+
+<table>
+<thead>
+<tr>
+  <th>First Header</th>
+  <th>Second Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Content from cell 1</td>
+  <td>Content from cell 2</td>
+</tr>
+<tr>
+  <td>Content in the first column</td>
+  <td>Content in the second column</td>
+</tr>
+</tbody>
+</table>
+
+<p>Any URL (like http://www.github.com/) will be automatically converted into a clickable link.</p>
+
+<p>Any word wrapped with two tildes (like ~~this~~) will appear crossed out.</p>
+
+<h6>numbered lists:</h6>
+
+<ol>
+<li>One</li>
+<li>Two</li>
+<li>Three</li>
+</ol>
+
+<h6>bullet points:</h6>
+
+<ul>
+<li>Start a line with a star</li>
+<li>Profit!</li>
+</ul>
+
+<h6>dashes for lists</h6>
+
+<ul>
+<li>Dashes work just as well</li>
+<li>And if you have sub points, put two spaces before the dash or star:
+
+<ul>
+<li>Like this</li>
+<li>And this</li>
+</ul></li>
+</ul>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://allotmentandy.github.io/blog/2020-04-30-laravel</id>
+    <link type="text/html" rel="alternate" href="http://allotmentandy.github.io/blog/2020-04-30-laravel" />
+    <title>Laravel</title>
+    <published>2020-05-08T01:00:00+01:00</published>
+    <updated>2020-05-08T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Laravel is a great PHP Framework which i have used for many years.
+
+There are a number of Laravel projects I am enjoying using at the moment
+
+Laravel Boilerplate
+
+Laravel Auth
+
+I am looking to create a dual language website in English and Portuguese to......</summary>
+    <content type="html"><![CDATA[
+        <p>Laravel is a great PHP Framework which i have used for many years.</p>
+
+<p>There are a number of Laravel projects I am enjoying using at the moment</p>
+
+<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
+
+<p><a href="https://github.com/jeremykenedy/laravel-auth/">Laravel Auth</a></p>
+
+<p>I am looking to create a dual language website in English and Portuguese to help me learn portuguese and as a playground to learn about internationalization and multi-language websites.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://allotmentandy.github.io/blog/2020-04-30</id>
+    <link type="text/html" rel="alternate" href="http://allotmentandy.github.io/blog/2020-04-30" />
+    <title>Cooking Day</title>
     <published>2020-04-30T01:00:00+01:00</published>
     <updated>2020-04-30T01:00:00+01:00</updated>
     <author>
@@ -20,82 +240,110 @@
     <summary type="html">Yesterday i made a tray of yeast following this recipe
 WikiHow
 
-This create 27 yeast blocks of around 0.6 ounces each. I left these drying overnight and today i will make bread and freeze a load of these....</summary>
+This create 27 yeast blocks of around 0.6 ounces each. I left these drying
+overnight and today i will make bread and freeze a load of these....</summary>
     <content type="html"><![CDATA[
         <p>Yesterday i made a tray of yeast following this recipe
 <a href="https://www.wikihow.com/Create-Yeast-for-Baking">WikiHow</a></p>
 
-<p>This create 27 yeast blocks of around 0.6 ounces each. I left these drying overnight and today i will make bread and freeze a load of these.</p>
+<p>This create 27 yeast blocks of around 0.6 ounces each. I left these drying
+overnight and today i will make bread and freeze a load of these.</p>
     ]]></content>
 </entry>
             <entry>
-    <id>http://localhost:3000/blog/2020-04-30-laravel</id>
-    <link type="text/html" rel="alternate" href="http://localhost:3000/blog/2020-04-30-laravel" />
-    <title>Laravel</title>
-    <published>2020-04-30T01:00:00+01:00</published>
-    <updated>2020-04-30T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Laravel is a great PHP Framework which i have used for many years....</summary>
-    <content type="html"><![CDATA[
-        <p>Laravel is a great PHP Framework which i have used for many years.</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>http://localhost:3000/blog/2020-04-29-jigsaw-static-site-thoughts</id>
-    <link type="text/html" rel="alternate" href="http://localhost:3000/blog/2020-04-29-jigsaw-static-site-thoughts" />
+    <id>http://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts</id>
+    <link type="text/html" rel="alternate" href="http://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts" />
     <title>Jigsaw Static Site Thoughts</title>
-    <published>2020-04-30T00:59:59+01:00</published>
-    <updated>2020-04-30T00:59:59+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">I was looking for a project to help me do a few things. write a blog, store reference material for things I am interested in, create a database of plants I like to grow, learn about markdown &amp;amp; JSON and also expand my use of shell scripts.
-
-Having......</summary>
-    <content type="html"><![CDATA[
-        <p>I was looking for a project to help me do a few things. write a blog, store reference material for things I am interested in, create a database of plants I like to grow, learn about markdown &amp; JSON and also expand my use of shell scripts.</p>
-
-<p>Having been online for 25 years, I have gone from an all rounder managing CSS, graphics, code and servers back to being an all rounder doing the same thing. In the intervening years, I have worked with PHP, Codeigniter and now mainly Laravel and have set up this system to allow me to entertain myself whilst (re)learning CSS, Javascript, Markdown, JSON, Bash Scripting and Graphic Design, something I have ignore for too long.</p>
-
-<p>Having moved to using Debian Linux as my main daily machine, I have enjoyed setting up a number of projects but wanted somewhere to combine and publish my writing and experiments for all to see.</p>
-
-<p>So although I had known about Jigsaw for years as a Laravel developer, i recently took the plunge and installed it. I have tried a number of other static site generators including Hugo and Jekyll but they didn't really click with me for a number of reasons. Although I have 'played' with Ruby, Go and Python, I tend to fall back to bash and PHP as the languages i like. I also wanted something that wasn't huge, but powerful enough for me get stuff done without a huge learning curve.</p>
-
-<p>So Jigsaw uses the Laravel Blade syntax that I have used in many other projects and comes with a neat quick start blog with a nifty search facility from fuse.js which uses json. I created a site with a blog (_posts) and static pages (_pages), but the search facility only indexed the blog. No problem, i created a new collection in the generateIndex handle method and merged the 2 collections, then hey presto, it worked.</p>
-
-<p>There are a number of features I liked 'out of the box' there was a RSS/ATOM feed included. This is great as I am a big fan of the RSS feed concept.</p>
-
-<p>The basic app also had a category system which I have included via an autogenerated collection in the config file.</p>
-
-<p>The Jigsaw blog system also uses Tailwind CSS, Webpack and Laravel Mix to process the CSS and Js with the <code>npm run dev</code> and <code>npm run production</code> commands.</p>
-
-<p>I have really quite enjoyed the experience and will publish this all on github.io and github.com/allotmentandy in the near future. Enjoying working with CSS and next for the imagery.</p>
-
-<p>Playing with the SVG image format is also on the to-do list.</p>
-
-<h4>Observations</h4>
-
-<p>[ ] fuse.js search json generator only takes the first 255 chars of the page content.</p>
-
-<p>[ ] the build process is very fast, taking about 0.2 seconds to build the site.</p>
-
-<p>[ ] Tailwind CSS is really nice once you get your head around it, it is like CSS used to be.</p>
-
-<p>[ ] I miss the 'php artisan' commands, i want a script to create a blog page for today, with the date and time now, the filename i give it and a basic div. like this <code>php artisan make:post 'title of post'</code> but i will make it in bash</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>http://localhost:3000/blog/2020-04-29</id>
-    <link type="text/html" rel="alternate" href="http://localhost:3000/blog/2020-04-29" />
-    <title>Templates, Markdown and Shell Scripts for Jigsaw</title>
     <published>2020-04-29T01:00:00+01:00</published>
     <updated>2020-04-29T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
-    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt working.
+    <summary type="html">I was looking for a project to help me do a few things. write a blog, store
+reference material for things I am interested in, create a database of plants
+I like to grow, learn about markdown &amp;amp; JSON and also expand my use of shell
+scripts.
+
+Having......</summary>
+    <content type="html"><![CDATA[
+        <p>I was looking for a project to help me do a few things. write a blog, store
+reference material for things I am interested in, create a database of plants
+I like to grow, learn about markdown &amp; JSON and also expand my use of shell
+scripts.</p>
+
+<p>Having been online for 25 years, I have gone from an all rounder managing CSS,
+graphics, code and servers back to being an all rounder doing the same thing.
+In the intervening years, I have worked with PHP, Codeigniter and now mainly
+Laravel and have set up this system to allow me to entertain myself whilst
+(re)learning CSS, Javascript, Markdown, JSON, Bash Scripting and Graphic
+Design, something I have ignore for too long.</p>
+
+<p>Having moved to using Debian Linux as my main daily machine, I have enjoyed
+setting up a number of projects but wanted somewhere to combine and publish my
+writing and experiments for all to see.</p>
+
+<p>So although I had known about Jigsaw for years as a Laravel developer, i
+recently took the plunge and installed it. I have tried a number of other
+static site generators including Hugo and Jekyll but they didn't really click
+with me for a number of reasons. Although I have 'played' with Ruby, Go and
+Python, I tend to fall back to bash and PHP as the languages i like. I also
+wanted something that wasn't huge, but powerful enough for me get stuff done
+without a huge learning curve.</p>
+
+<p>So Jigsaw uses the Laravel Blade syntax that I have used in many other
+projects and comes with a neat quick start blog with a nifty search facility
+from fuse.js which uses json. I created a site with a blog (_posts) and static
+pages (_pages), but the search facility only indexed the blog. No problem, i
+created a new collection in the generateIndex handle method and merged the 2
+collections, then hey presto, it worked.</p>
+
+<p>There are a number of features I liked 'out of the box' there was a RSS/ATOM
+feed included. This is great as I am a big fan of the RSS feed concept.</p>
+
+<p>The basic app also had a category system which I have included via an
+autogenerated collection in the config file.</p>
+
+<p>The Jigsaw blog system also uses Tailwind CSS, Webpack and Laravel Mix to
+process the CSS and Js with the <code>npm run dev</code> and <code>npm run production</code>
+commands.</p>
+
+<p>I have really quite enjoyed the experience and will publish this all on
+github.io and github.com/allotmentandy in the near future. Enjoying working
+with CSS and next for the imagery.</p>
+
+<p>Playing with the SVG image format is also on the to-do list.</p>
+
+<h4>Observations</h4>
+
+<p>[ ] fuse.js search json generator only takes the first 255 chars of the page
+content.</p>
+
+<p>[ ] the build process is very fast, taking about 0.2 seconds to build the
+site.</p>
+
+<p>[ ] Tailwind CSS is really nice once you get your head around it, it is like
+CSS used to be.</p>
+
+<p>[ ] I miss the 'php artisan' commands, i want a script to create a blog page
+for today, with the date and time now, the filename i give it and a basic div.
+like this <code>php artisan make:post 'title of post'</code> but i will make it in bash</p>
+
+<p><a href="http://localhost:3000/blog/2020-04-29" title="Older Post: Templates, Markdown and
+Shell Scripts for Jigsaw"> ← Templates, Markdown and Shell Scripts for Jigsaw
+</a></p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>http://allotmentandy.github.io/blog/2020-04-29</id>
+    <link type="text/html" rel="alternate" href="http://allotmentandy.github.io/blog/2020-04-29" />
+    <title>jigsaw templates</title>
+    <published>2020-04-29T01:00:00+01:00</published>
+    <updated>2020-04-29T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
+working.
 
 
 
@@ -111,7 +359,8 @@ Having......</summary>
     <content type="html"><![CDATA[
         <h3>7.35 am</h3>
 
-<p>Working on templates for this static site. The mix of markdown and HTML isnt working.</p>
+<p>Working on templates for this static site. The mix of markdown and HTML isnt
+working.</p>
 
 <h4>Templates to make</h4>
 
@@ -135,8 +384,8 @@ Having......</summary>
     ]]></content>
 </entry>
             <entry>
-    <id>http://localhost:3000/blog/2020-04-28-raining</id>
-    <link type="text/html" rel="alternate" href="http://localhost:3000/blog/2020-04-28-raining" />
+    <id>http://allotmentandy.github.io/blog/2020-04-28-raining</id>
+    <link type="text/html" rel="alternate" href="http://allotmentandy.github.io/blog/2020-04-28-raining" />
     <title>Rainy Day</title>
     <published>2020-04-28T01:00:00+01:00</published>
     <updated>2020-04-28T01:00:00+01:00</updated>
@@ -147,13 +396,19 @@ Having......</summary>
 
 
 
-I have been using Debian Linux for years, I guess about version 5. Recently I found the 4.9 kernel caused the computer to lock / freeze completely, with an upgrade to the 4.19 kernel even......</summary>
+I have been using Debian Linux for years, I guess about version 5. Recently I
+found the 4.9 kernel caused the computer to lock / freeze completely, with an
+upgrade to the 4.19 kernel even......</summary>
     <content type="html"><![CDATA[
         <p>8.15am in bed, it is raining, wondering what to do today.</p>
 
 <h2>Thoughts about Debian</h2>
 
-<p>I have been using Debian Linux for years, I guess about version 5. Recently I found the 4.9 kernel caused the computer to lock / freeze completely, with an upgrade to the 4.19 kernel even worse. So I backed up my machine and installed Debian testing! This fixed the freezing issue and the computer has not crashed in weeks.</p>
+<p>I have been using Debian Linux for years, I guess about version 5. Recently I
+found the 4.9 kernel caused the computer to lock / freeze completely, with an
+upgrade to the 4.19 kernel even worse. So I backed up my machine and installed
+Debian testing! This fixed the freezing issue and the computer has not crashed
+in weeks.</p>
 
 <h2>Today i learnt</h2>
 
@@ -164,25 +419,15 @@ I have been using Debian Linux for years, I guess about version 5. Recently I fo
 
 <h2>Jigsaw</h2>
 
-<p>Building this website using the jigsaw static site, but as default the search only worked for the _posts pages, so i added a new collection to the search json and merged them together. now you can search all the pages. Must look into the Fuse.js that is making it.</p>
+<p>Building this website using the jigsaw static site, but as default the search
+only worked for the _posts pages, so i added a new collection to the search
+json and merged them together. now you can search all the pages. Must look
+into the Fuse.js that is making it.</p>
 
 <h3>Update - 23.05pm -</h3>
 
-<p>Have had a good day, learning Markdown, Tailwind CSS, Jigsaw Static Site development. Found some good docs on the internet to help me learn all this.</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>http://localhost:3000/blog/my-first-post</id>
-    <link type="text/html" rel="alternate" href="http://localhost:3000/blog/my-first-post" />
-    <title>Allotment Andy&#039;s Blog</title>
-    <published>2020-04-24T01:00:00+01:00</published>
-    <updated>2020-04-24T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Allotment Andy is good at computers. He writes this blog as a collection of writing and resources to do with Debian Linux, Laravel Web Development, Jigsaw Static Sites, Gardening, Herbs, Cooking and life in general....</summary>
-    <content type="html"><![CDATA[
-        
+<p>Have had a good day, learning Markdown, Tailwind CSS, Jigsaw Static Site
+development. Found some good docs on the internet to help me learn all this.</p>
     ]]></content>
 </entry>
     </feed>
