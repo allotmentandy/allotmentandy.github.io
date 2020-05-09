@@ -3,12 +3,58 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-05-09T12:21:24+01:00</updated>
+    <updated>2020-05-09T12:41:55+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked" />
+    <title>Yesterday I Cooked</title>
+    <published>2020-05-09T01:00:00+01:00</published>
+    <updated>2020-05-09T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Yesterday it was my turn to cook. I made a Focaccia. for lunch, a  2 pound loaf and a lemon maderia cake.
+
+lunch was a smorgasbord of fresh salad with the nice focaccia.
+
+Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabbage......</summary>
+    <content type="html"><![CDATA[
+        <p>Yesterday it was my turn to cook. I made a Focaccia. for lunch, a  2 pound loaf and a lemon maderia cake.</p>
+
+<p>lunch was a smorgasbord of fresh salad with the nice focaccia.</p>
+
+<p>Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabbage and mizuna.</p>
+
+<p>It was all very nice</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
+    <title>GRR, Duplicate Github Pages</title>
+    <published>2020-05-09T01:00:00+01:00</published>
+    <updated>2020-05-09T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">12.26pm
+
+It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
+
+I deleted that repo and now it is working as expected....</summary>
+    <content type="html"><![CDATA[
+        <p>12.26pm</p>
+
+<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
+
+<p>I deleted that repo and now it is working as expected.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-08-friday-8th-may-2020</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-08-friday-8th-may-2020" />
     <title>Today, no more</title>
