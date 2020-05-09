@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Allotment Andy</title>
-    <link href="https://allotmentandy.github.io/" />
-    <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-05-09T12:07:21+01:00</updated>
-    <id>https://allotmentandy.github.io/blog/feed.atom</id>
+    <link href="" />
+    <link type="application/atom+xml" rel="self" href="/blog/feed.atom" />
+    <updated>2020-05-09T12:10:40+01:00</updated>
+    <id>/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-08-friday-8th-may-2020</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-08-friday-8th-may-2020" />
+    <id>/blog/2020-05-08-friday-8th-may-2020</id>
+    <link type="text/html" rel="alternate" href="/blog/2020-05-08-friday-8th-may-2020" />
     <title>Today, no more</title>
     <published>2020-05-08T01:00:00+01:00</published>
     <updated>2020-05-08T01:00:00+01:00</updated>
@@ -31,8 +31,8 @@ Today, i dont......</summary>
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-08-markdown</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-08-markdown" />
+    <id>/blog/2020-05-08-markdown</id>
+    <link type="text/html" rel="alternate" href="/blog/2020-05-08-markdown" />
     <title>markdown</title>
     <published>2020-05-08T01:00:00+01:00</published>
     <updated>2020-05-08T01:00:00+01:00</updated>
@@ -199,8 +199,8 @@ Format: <img src="url" alt="Alt Text" /></p>
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-30-laravel</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30-laravel" />
+    <id>/blog/2020-04-30-laravel</id>
+    <link type="text/html" rel="alternate" href="/blog/2020-04-30-laravel" />
     <title>Laravel</title>
     <published>2020-05-08T01:00:00+01:00</published>
     <updated>2020-05-08T01:00:00+01:00</updated>
@@ -229,8 +229,8 @@ I am looking to create a dual language website in English and Portuguese to.....
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-30</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30" />
+    <id>/blog/2020-04-30</id>
+    <link type="text/html" rel="alternate" href="/blog/2020-04-30" />
     <title>Cooking Day</title>
     <published>2020-04-30T01:00:00+01:00</published>
     <updated>2020-04-30T01:00:00+01:00</updated>
@@ -251,8 +251,8 @@ overnight and today i will make bread and freeze a load of these.</p>
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts" />
+    <id>/blog/2020-04-29-jigsaw-static-site-thoughts</id>
+    <link type="text/html" rel="alternate" href="/blog/2020-04-29-jigsaw-static-site-thoughts" />
     <title>Jigsaw Static Site Thoughts</title>
     <published>2020-04-29T01:00:00+01:00</published>
     <updated>2020-04-29T01:00:00+01:00</updated>
@@ -334,8 +334,8 @@ Shell Scripts for Jigsaw"> ← Templates, Markdown and Shell Scripts for Jigsaw
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
+    <id>/blog/2020-04-29</id>
+    <link type="text/html" rel="alternate" href="/blog/2020-04-29" />
     <title>jigsaw templates</title>
     <published>2020-04-29T01:00:00+01:00</published>
     <updated>2020-04-29T01:00:00+01:00</updated>
@@ -384,8 +384,8 @@ working.</p>
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-28-raining</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-28-raining" />
+    <id>/blog/2020-04-28-raining</id>
+    <link type="text/html" rel="alternate" href="/blog/2020-04-28-raining" />
     <title>Rainy Day</title>
     <published>2020-04-28T01:00:00+01:00</published>
     <updated>2020-04-28T01:00:00+01:00</updated>
