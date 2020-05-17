@@ -5,18 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues.">
-        <meta property="og:title" content="GRR, Duplicate Github Pages | AllotmentAndy"/>
+        <meta property="og:title" content="My New Post Bash Shell Script | AllotmentAndy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-17-my-newPost-bash-script"/>
         <meta property="og:description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues." />
-        <title>GRR, Duplicate Github Pages | AllotmentAndy</title>
+        <title>My New Post Bash Shell Script | AllotmentAndy</title>
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="AllotmentAndy Atom Feed">
-            <meta property="og:title" content="GRR, Duplicate Github Pages" />
+            <meta property="og:title" content="My New Post Bash Shell Script" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages"/>
-    <meta property="og:description" content="fixed the deploy issue, there was 2 github pages sites!!" />
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-17-my-newPost-bash-script"/>
+    <meta property="og:description" content="" />
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=65ef9273326275c09d4a">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -85,34 +85,65 @@
                     <div class=" mb-4 bg-gray-100 px-4 py-4 rounded-lg">
 
     
-    <h1 class="leading-none mb-2">GRR, Duplicate Github Pages</h1>
+    <h1 class="leading-none mb-2">My New Post Bash Shell Script</h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">May 9, 2020</p>
+    <p class="text-gray-700 text-sm md:mt-0">May 17, 2020</p>
 
                         <a
                 href="/blog/categories/jigsaw"
                 title="View posts in jigsaw"
                 class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
             >jigsaw</a>
+                    <a
+                href="/blog/categories/bash"
+                title="View posts in bash"
+                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
+            >bash</a>
             
     <div class="border-b border-blue-200 mb-10 pb-4" v-pre>
-        <p>12.26pm</p>
+        <p>I like to make shell scripts to make my life easier. this is my current newPost script. It isnt very comlicated, but gives me a simple blank post, quickly.</p>
 
-<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
+<p>I would like it to format the $something in camel case with the dashs removed by spaces.</p>
 
-<p>I deleted that repo and now it is working as expected.</p>
+<p>Also, I could add a line to open it in sublime</p>
+
+<pre><code class="language-bash">#!/bin/bash
+
+echo -n "New File Name:"
+read something
+
+echo "You Entered: $something"
+
+FILE="source/_posts/$(date +%F)-$something.md"
+
+touch $FILE
+
+cat &gt; $FILE &lt;&lt; EOF
+---
+extends: _layouts.post
+section: content
+title: $something
+date: $(date +%F)
+description: 
+cover_image: 
+excerpt: 
+categories: []
+---
+EOF
+
+</code></pre>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-04-30-laravel" title="Older Post: Laravel">
-                    &LeftArrow; Laravel
+                            <a href="https://allotmentandy.github.io/blog/2020-05-17-highlight-js" title="Older Post: Using highlight.js">
+                    &LeftArrow; Using highlight.js
                 </a>
                     </div>
 
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked" title="Newer Post: Yesterday I Cooked">
-                    Yesterday I Cooked &RightArrow;
+                            <a href="https://allotmentandy.github.io/blog/2020-05-17-tailwind-css" title="Newer Post: Tailwind CSS">
+                    Tailwind CSS &RightArrow;
                 </a>
                     </div>
     </nav>
