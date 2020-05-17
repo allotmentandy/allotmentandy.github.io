@@ -1,14 +1,221 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>Allotment Andy</title>
+    <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-05-09T13:17:01+01:00</updated>
+    <updated>2020-05-17T17:56:47+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-17-tailwind-css</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-tailwind-css" />
+    <title>Tailwind CSS</title>
+    <published>2020-05-17T12:42:57+01:00</published>
+    <updated>2020-05-17T12:42:57+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">One thing i really liked about this Jigsaw static site generator is it comes with Tailwind Css and a working Laravel Mix / Webpack / PurgeCSS solution.
+
+Tailwind CSS is much more like coding CSS / HTML about 20 years ago. But the difference being you can......</summary>
+    <content type="html"><![CDATA[
+        <p>One thing i really liked about this Jigsaw static site generator is it comes with Tailwind Css and a working Laravel Mix / Webpack / PurgeCSS solution.</p>
+
+<p>Tailwind CSS is much more like coding CSS / HTML about 20 years ago. But the difference being you can do soo much with a core set of standard css options.</p>
+
+<p>The advantage is that you just write the html with classes that make sense to the context of what you are doing with the html element.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-17-my-newPost-bash-script</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-my-newPost-bash-script" />
+    <title>My New Post Bash Shell Script</title>
+    <published>2020-05-17T11:46:57+01:00</published>
+    <updated>2020-05-17T11:46:57+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I like to make shell scripts to make my life easier. this is my current newPost script. It isnt very comlicated, but gives me a simple blank post, quickly.
+
+I would like it to format the $something in camel case with the dashs removed by spaces.
+
+Also, I......</summary>
+    <content type="html"><![CDATA[
+        <p>I like to make shell scripts to make my life easier. this is my current newPost script. It isnt very comlicated, but gives me a simple blank post, quickly.</p>
+
+<p>I would like it to format the $something in camel case with the dashs removed by spaces.</p>
+
+<p>Also, I could add a line to open it in sublime</p>
+
+<pre><code class="language-bash">#!/bin/bash
+
+echo -n "New File Name:"
+read something
+
+echo "You Entered: $something"
+
+FILE="source/_posts/$(date +%F)-$something.md"
+
+touch $FILE
+
+cat &gt; $FILE &lt;&lt; EOF
+---
+extends: _layouts.post
+section: content
+title: $something
+date: $(date +%F)
+description: 
+cover_image: 
+excerpt: 
+categories: []
+---
+EOF
+
+</code></pre>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-17-highlight-js</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-highlight-js" />
+    <title>Using highlight.js</title>
+    <published>2020-05-17T03:02:02+01:00</published>
+    <updated>2020-05-17T03:02:02+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Jigsaw comes with highlightjs to show code blocks in colour, here is a CSS, HTML and Bash output for the jigsaw command...</summary>
+    <content type="html"><![CDATA[
+        <p>Jigsaw comes with highlightjs to show code blocks in colour, here is a CSS, HTML and Bash output for the jigsaw command</p>
+
+<h3>CSS</h3>
+
+<pre><code class="language-css"><br />{
+    body: 
+}
+
+</code></pre>
+
+<h3>HTML</h3>
+
+<pre><code class="language-html"><br />&lt;a href='#'&gt;link&lt;/a&gt;
+
+</code></pre>
+
+<h3>bash ./vendor/bin/jigsaw</h3>
+
+<pre><code class="language-bash">Jigsaw 1.3.27
+
+Usage:
+  command [options] [arguments]
+
+Options:
+  -h, --help            Display this help message
+  -q, --quiet           Do not output any message
+  -V, --version         Display this application version
+      --ansi            Force ANSI output
+      --no-ansi         Disable ANSI output
+  -n, --no-interaction  Do not ask any interactive question
+  -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Available commands:
+  build  Build your site.
+  help   Displays help for a command
+  init   Scaffold a new Jigsaw project.
+  list   Lists commands
+  serve  Serve local site with php built-in server.
+
+</code></pre>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site" />
+    <title>Internationalization Of A Jigsaw Static Site</title>
+    <published>2020-05-17T01:00:00+01:00</published>
+    <updated>2020-05-17T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Alongside playing with code, i like to learn Portuguese. So i was wondering this morning the best way to make a Portuguese version of the site.
+
+I would like a language switcher to swap between EN and PT at first. This would change the nav, footer and......</summary>
+    <content type="html"><![CDATA[
+        <p>Alongside playing with code, i like to learn Portuguese. So i was wondering this morning the best way to make a Portuguese version of the site.</p>
+
+<p>I would like a language switcher to swap between EN and PT at first. This would change the nav, footer and buttons across the site. Perhaps there could be a posts_pt directory for tranlsated posts, which i would like to have auto-translated by some online gizmo (google)?</p>
+
+<p>I wonder if this the way others have tackled this problem in the past.</p>
+
+<p>Can javascript detect the locale? i need to search this next.</p>
+
+<p>I have created an <a href="/about-pt/">/about_pt</a> page to experiment with this</p>
+
+<p>https://lokalise.com/blog/localizing-apps-jquery/</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
+    <title>Testing a blade.md template for a post</title>
+    <published>2020-05-17T01:00:00+01:00</published>
+    <updated>2020-05-17T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Trying to get a blade.md template to work as i expect....</summary>
+    <content type="html"><![CDATA[
+        
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-13-jigsaw-experiment</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-13-jigsaw-experiment" />
+    <title>Jigsaw experiment with ~20,000 pages</title>
+    <published>2020-05-13T01:00:00+01:00</published>
+    <updated>2020-05-13T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I wanted to try and experiment to see how many pages i can make in jigsaw, how long it would take to build and also would the search take it.
+
+My idea is to output markdown pages for the 20,000 private jets in my laravel54 package. i think it will be......</summary>
+    <content type="html"><![CDATA[
+        <p>I wanted to try and experiment to see how many pages i can make in jigsaw, how long it would take to build and also would the search take it.</p>
+
+<p>My idea is to output markdown pages for the 20,000 private jets in my laravel54 package. i think it will be easiest to make a laravel command to output it, then copy them to the jigsaw _posts directory to build.</p>
+
+<p>Will it be able to handle it?</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-09-jigsaw-ideas</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-jigsaw-ideas" />
+    <title>Jigsaw Ideas</title>
+    <published>2020-05-09T15:00:00+01:00</published>
+    <updated>2020-05-09T15:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I am still enjoying jigsaw and have a couple of ideas to improve my site with it.
+
+
+
+I really like the search provided out of the box with the jigsaw blog template. but I want to add the about page to the search.
+
+The collection in the config.php file......</summary>
+    <content type="html"><![CDATA[
+        <p>I am still enjoying jigsaw and have a couple of ideas to improve my site with it.</p>
+
+<h3>Adding about page to the search json</h3>
+
+<p>I really like the search provided out of the box with the jigsaw blog template. but I want to add the about page to the search.</p>
+
+<p>The collection in the config.php file needs to have the about page added.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked" />
     <title>Yesterday I Cooked</title>
@@ -52,196 +259,6 @@ I deleted that repo and now it is working as expected....</summary>
 <p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
 
 <p>I deleted that repo and now it is working as expected.</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-08-friday-8th-may-2020</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-08-friday-8th-may-2020" />
-    <title>Today, no more</title>
-    <published>2020-05-08T01:00:00+01:00</published>
-    <updated>2020-05-08T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">I used to love listening to the radio, over 20 years ago i would listen to the BBC World Service and it was great. I lived in Italy and I used to enjoy programmes like &#039;World Business Report&#039; and also John Peal presenting &#039;Home Truths.&#039;
-
-Today, i dont......</summary>
-    <content type="html"><![CDATA[
-        <p>I used to love listening to the radio, over 20 years ago i would listen to the BBC World Service and it was great. I lived in Italy and I used to enjoy programmes like 'World Business Report' and also John Peal presenting 'Home Truths.'</p>
-
-<p>Today, i dont turn on the radio in the morning, BBC Radio 4 is unlistenable, a steam of wet lefties lying with nothing much to say. It is an outrage that residents of the UK must pay (with force of prison) to fund the BBC which is so far removed from their beliefs.</p>
-
-<p>In fact, where i am, we hardely even turn on the telly news anymore. The bbc has become unwatchable with its mix of wet leftism and bias by omission.</p>
-
-<p>And having worked recently at a major UK newspaper which is infested with the same sort of wets. How the expect to survive over time is not a problem for me, like all things infected with leftism, i hope they just fade away.</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-08-markdown</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-08-markdown" />
-    <title>markdown</title>
-    <published>2020-05-08T01:00:00+01:00</published>
-    <updated>2020-05-08T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">https://guides.github.com/features/mastering-markdown/
-
-bold
-
-italic
-
-Hello there &lt;code&gt;people&lt;/code&gt;, how are you?
-
-
-
-link to Google!
-
-
-  Hello there people
-  How are you?
-
-
-
-[x] This is a complete item
-[ ] This is an incomplete item
-
-
-Hello @damusix......</summary>
-    <content type="html"><![CDATA[
-        <h1>Markdown syntax</h1>
-
-<p>https://guides.github.com/features/mastering-markdown/</p>
-
-<p><strong>bold</strong></p>
-
-<p><em>italic</em></p>
-
-<p>Hello there <code>people</code>, how are you?</p>
-
-<p><img src="https://www.w3schools.com/angular/pic_angular.jpg" alt="Image of Angular" /></p>
-
-<p><a href="http://google.com">link to Google!</a></p>
-
-<blockquote>
-  <p>Hello there people
-  How are you?</p>
-</blockquote>
-
-<ul>
-<li>[x] This is a complete item</li>
-<li>[ ] This is an incomplete item</li>
-</ul>
-
-<p>Hello @damusix this is just some markdown examples!</p>
-
-<p>emojis :sparkles: :camel: :boom:</p>
-
-<p>https://www.webpagefx.com/tools/emoji-cheat-sheet/</p>
-
-<h1>This is an <code>&lt;h1&gt;</code> tag</h1>
-
-<h2>This is an <code>&lt;h2&gt;</code> tag</h2>
-
-<h6>This is an <code>&lt;h6&gt;</code> tag</h6>
-
-<p><em>This text will be italic</em>
-<em>This will also be italic</em></p>
-
-<p><strong>This text will be bold</strong>
-<strong>This will also be bold</strong></p>
-
-<p><em>You <strong>can</strong> combine them</em></p>
-
-<h6>Lists</h6>
-
-<ul>
-<li>Item 1</li>
-<li>Item 2
-
-<ul>
-<li>Item 2a</li>
-<li>Item 2b</li>
-</ul></li>
-</ul>
-
-<ol>
-<li>Item 1</li>
-<li>Item 2</li>
-<li>Item 3
-
-<ol>
-<li>Item 3a</li>
-<li>Item 3b</li>
-</ol></li>
-</ol>
-
-<p><img src="/images/logo.png" alt="An Image from this repo" />
-Format: <img src="url" alt="Alt Text" /></p>
-
-<p>http://github.com - automatic!
-<a href="http://github.com">GitHub</a></p>
-
-<h6>Checklists</h6>
-
-<ul>
-<li>[x] @mentions, #refs, <a href="google.com">links</a>, <strong>formatting</strong>, and <del>del tags</del> supported</li>
-<li>[x] list syntax required (any unordered or ordered list supported)</li>
-<li>[x] this is a complete item</li>
-<li>[ ] this is an incomplete item</li>
-</ul>
-
-<h6>Tables</h6>
-
-<table>
-<thead>
-<tr>
-  <th>First Header</th>
-  <th>Second Header</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Content from cell 1</td>
-  <td>Content from cell 2</td>
-</tr>
-<tr>
-  <td>Content in the first column</td>
-  <td>Content in the second column</td>
-</tr>
-</tbody>
-</table>
-
-<p>Any URL (like http://www.github.com/) will be automatically converted into a clickable link.</p>
-
-<p>Any word wrapped with two tildes (like ~~this~~) will appear crossed out.</p>
-
-<h6>numbered lists:</h6>
-
-<ol>
-<li>One</li>
-<li>Two</li>
-<li>Three</li>
-</ol>
-
-<h6>bullet points:</h6>
-
-<ul>
-<li>Start a line with a star</li>
-<li>Profit!</li>
-</ul>
-
-<h6>dashes for lists</h6>
-
-<ul>
-<li>Dashes work just as well</li>
-<li>And if you have sub points, put two spaces before the dash or star:
-
-<ul>
-<li>Like this</li>
-<li>And this</li>
-</ul></li>
-</ul>
     ]]></content>
 </entry>
             <entry>
@@ -382,7 +399,7 @@ Shell Scripts for Jigsaw"> ← Templates, Markdown and Shell Scripts for Jigsaw
             <entry>
     <id>https://allotmentandy.github.io/blog/2020-04-29</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
-    <title>jigsaw templates</title>
+    <title>Jigsaw Templates</title>
     <published>2020-04-29T01:00:00+01:00</published>
     <updated>2020-04-29T01:00:00+01:00</updated>
     <author>
@@ -432,7 +449,7 @@ working.</p>
             <entry>
     <id>https://allotmentandy.github.io/blog/2020-04-28-raining</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-28-raining" />
-    <title>Rainy Day</title>
+    <title>Rainy Day - Thoughts about Debian</title>
     <published>2020-04-28T01:00:00+01:00</published>
     <updated>2020-04-28T01:00:00+01:00</updated>
     <author>
@@ -440,15 +457,11 @@ working.</p>
     </author>
     <summary type="html">8.15am in bed, it is raining, wondering what to do today.
 
-
-
 I have been using Debian Linux for years, I guess about version 5. Recently I
 found the 4.9 kernel caused the computer to lock / freeze completely, with an
-upgrade to the 4.19 kernel even......</summary>
+upgrade to the 4.19 kernel even worse.......</summary>
     <content type="html"><![CDATA[
         <p>8.15am in bed, it is raining, wondering what to do today.</p>
-
-<h2>Thoughts about Debian</h2>
 
 <p>I have been using Debian Linux for years, I guess about version 5. Recently I
 found the 4.9 kernel caused the computer to lock / freeze completely, with an
