@@ -3,12 +3,129 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-05-17T17:56:47+01:00</updated>
+    <updated>2020-06-06T11:04:09+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-17-rss-feeds-debian</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-rss-feeds-debian" />
+    <title>RSS Feeds with Debian Linux</title>
+    <published>2020-06-06T11:29:57+01:00</published>
+    <updated>2020-06-06T11:29:57+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I have always been a fan of RSS feeds going back years. In case you don&#039;t know, RSS feeds (and ATOM feeds) are text files that provide the latest pages from a website. I use them for News, website statuses and more.
+
+I use a number of RSS feed readers on......</summary>
+    <content type="html"><![CDATA[
+        <p>I have always been a fan of RSS feeds going back years. In case you don't know, RSS feeds (and ATOM feeds) are text files that provide the latest pages from a website. I use them for News, website statuses and more.</p>
+
+<p>I use a number of RSS feed readers on my Debian machine and wanted to highlight what I like about each one.</p>
+
+<h3>QuiteRSS</h3>
+
+<p>My main RSS feed reader, i like it, but it is a little slow to open and close. One small problem I have is that when i open it, it is always set to "ALWAYS ON TOP". Everytime I open QuiteRSS, i have to untick the "ALWAYS ON TOP" setting in the right click. I cannot find how this has been set in the settings/options panels. Maybe this is a feature I discovered in another window manager, as i used LXDE earlier. Any ideas how to unset this?</p>
+
+<p>All round, i like QuiteRSS, it doesnt have a progress box to show downloads, something I would like to see as i often work with sporadic internet connections.</p>
+
+<p>There is an ability to search within one feed, but thats not how I need to search.</p>
+
+<p>One really annoying feature is if you click on the line between the news items in a feed, it decides to open in a browser. This also tends to open a new browser window, but as i am offline, it just gives an error page.</p>
+
+<p>Another strange feature is that many articles are marked as read, even thou i havent had a chance to read the feeds. I tend to go to the wireless hotspot, download all the feeds and go back to my desk to read them. But they are often marked read.</p>
+
+<p>I use QuiteRSS as my main feed reader, but am open to new ways. So i tried the following apps, but none quite did it for me!</p>
+
+<h3>Liferea</h3>
+
+<p>I like the way you can read the unread feeds across all the feeds in the app. This is how i have gone through the feeds, but it is a little unnerving when they disappear after you click on the next one. But i suppose this is now not unread!</p>
+
+<p>I also liked the way there was a make folder option, QuiteRSS doesnt offer folders for the feeds, so they are all in one long list. The problem with Liferea is that any folder I make, doesn't actually appear.</p>
+
+<h3>Akregator</h3>
+
+<p>After finding a number of OPML files (rss backups) on github, I wanted to see what these feeds offered, but didnt want to clog up QuiteRSS or Liferea with other peoples feeds, so i used Akregator.</p>
+
+<p>Akregator was quite minimal, but let me import 5 opml files with ease and read the feeds.</p>
+
+<p>However, after shutting down Akregator (or so i thought) It seems to keep a background process running which created errors as i am offline a lot.</p>
+
+<p>So now i dont use Akregator much as that background process wasnt what i wanted.</p>
+
+<h3>Newsboat</h3>
+
+<p>I installed a Command Line (CLI) to test out what RSS feeds were like from the command line. I imported my main opml file to give it a whirl, but on reopening the app after the first feed update, all the feeds were gone. So i gave up on that one.</p>
+
+<h3>Conclusion</h3>
+
+<p>I would be interested in any solutions to issues i have written about here. You can contact me via <a href="https://www.github.com/allotmentandy1">twitter</a>
+If you can share your feeds via .OPML files I would love to see what you read.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-06-05-looking-for-work</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-06-05-looking-for-work" />
+    <title>Looking for work</title>
+    <published>2020-06-05T01:00:00+01:00</published>
+    <updated>2020-06-05T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I am available and looking for work, here is a summary of what I can do for you....</summary>
+    <content type="html"><![CDATA[
+        
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-30-testing</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-30-testing" />
+    <title>Testing</title>
+    <published>2020-05-30T01:00:00+01:00</published>
+    <updated>2020-05-30T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">There was a website a long time ago called the World Question Centre, where they asked famous people to ask one question. One of the respondents asked Why is music such a pleasure? I always loved this questions as I see it as perfect.
+
+I have also used......</summary>
+    <content type="html"><![CDATA[
+        <h3>Why is music such a pleasure?</h3>
+
+<p>There was a website a long time ago called the World Question Centre, where they asked famous people to ask one question. One of the respondents asked <em>Why is music such a pleasure?</em> I always loved this questions as I see it as perfect.</p>
+
+<p>I have also used this question to test people. If I say this to you and you try to answer it, you have missed the point. The answer isnt in something in the ears and brain or any other reason. It is just a great question, it is not a test to answer. I am looking for people who say, <em>What a great question</em>.</p>
+
+<p>IBM used to test people like this, if you were looking for work at IBM, they would take you to dinner to sillently test you. Once you got your food, if you put salt and pepper on before tasting it, you failed! They are looking for people who fit a high quality culture. I notice people putting on salt and pepper often and think of this.</p>
+
+<p>There are a number of other questions i like to ask to test people and see what they are made of. For example, another question is, <em>Where does money come from, how is it made?</em></p>
+
+<p>This sort of testing people is to route out people who do not think and just live in a bubble of ignorance. I am not trying to say I am right here, just it is a waste of time to engage with people who cannot question what they think they know. How can these help you improve if they do not improve themselves.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-23-idea-days-work-days</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-23-idea-days-work-days" />
+    <title>Idea Days Work Days</title>
+    <published>2020-05-23T01:00:00+01:00</published>
+    <updated>2020-05-23T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Some days I can be really creative, other days I am to be really productive. It&#039;s a nice mix as one has to work out what to do, then do it. I like to experiment a lot, so there is a lot of research one can do.
+
+Today I started an article on RSS viewers......</summary>
+    <content type="html"><![CDATA[
+        <p>Some days I can be really creative, other days I am to be really productive. It's a nice mix as one has to work out what to do, then do it. I like to experiment a lot, so there is a lot of research one can do.</p>
+
+<p>Today I started an article on RSS viewers that are easy to install with Debian. I found a cool command line app called newsboat, which i have been using today.</p>
+
+<p>On a personal note, i was given a nickname last year, WOODY, which was the name of the 3rd version of Debian! Lovely...</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-17-tailwind-css</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-tailwind-css" />
     <title>Tailwind CSS</title>
@@ -216,6 +333,28 @@ The collection in the config.php file......</summary>
     ]]></content>
 </entry>
             <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
+    <title>GRR, Duplicate Github Pages</title>
+    <published>2020-05-09T01:00:00+01:00</published>
+    <updated>2020-05-09T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">12.26pm
+
+It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
+
+I deleted that repo and now it is working as expected....</summary>
+    <content type="html"><![CDATA[
+        <p>12.26pm</p>
+
+<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
+
+<p>I deleted that repo and now it is working as expected.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked" />
     <title>Yesterday I Cooked</title>
@@ -237,28 +376,6 @@ Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabb
 <p>Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabbage and mizuna.</p>
 
 <p>It was all very nice</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
-    <title>GRR, Duplicate Github Pages</title>
-    <published>2020-05-09T01:00:00+01:00</published>
-    <updated>2020-05-09T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">12.26pm
-
-It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
-
-I deleted that repo and now it is working as expected....</summary>
-    <content type="html"><![CDATA[
-        <p>12.26pm</p>
-
-<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
-
-<p>I deleted that repo and now it is working as expected.</p>
     ]]></content>
 </entry>
             <entry>
