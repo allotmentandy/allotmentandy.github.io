@@ -3,12 +3,34 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-06-07T15:19:06+01:00</updated>
+    <updated>2020-06-24T14:59:30+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2020-06-24-relaunching-my-directory</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-06-24-relaunching-my-directory" />
+    <title>Relaunching my directory</title>
+    <published>2020-06-24T01:00:00+01:00</published>
+    <updated>2020-06-24T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Back in 1998, i registered a url, londinium.com and built a website directory. Over the years, i built quite a nice website, with over 100,000 links to mainly London based information. However in 2015, it started to be bought down daily by DDOS attacks.......</summary>
+    <content type="html"><![CDATA[
+        <h3>Restarting my website</h3>
+
+<p>Back in 1998, i registered a url, londinium.com and built a website directory. Over the years, i built quite a nice website, with over 100,000 links to mainly London based information. However in 2015, it started to be bought down daily by DDOS attacks. It was also removed from google searches and the revenue went down towards zero. So i shut it down.</p>
+
+<p>Since then, i have tried with a shopify online store, but that hasnt worked.</p>
+
+<p>So i come back to the idea of a London directory website, but want to make it more useful.</p>
+
+<p>So i am going to look at some sort of laravel or wordpress solutions to re-launch londinium.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-06-06-rss-feeds-debian</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-06-06-rss-feeds-debian" />
     <title>RSS Feeds with Debian Linux</title>
