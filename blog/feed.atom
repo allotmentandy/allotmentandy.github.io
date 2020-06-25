@@ -3,7 +3,7 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-06-25T21:22:33+01:00</updated>
+    <updated>2020-06-25T21:37:53+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -525,6 +525,136 @@ I am looking to create a dual language website in English and Portuguese to.....
 <p><a href="https://github.com/jeremykenedy/laravel-auth/">Laravel Auth</a></p>
 
 <p>I am looking to create a dual language website in English and Portuguese to help me learn portuguese and as a playground to learn about internationalization and multi-language websites.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-08-markdown</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-08-markdown" />
+    <title>Markdown</title>
+    <published>2020-05-08T01:00:00+01:00</published>
+    <updated>2020-05-08T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">A list of examples of markdown in action...</summary>
+    <content type="html"><![CDATA[
+        <p>Markdown</p>
+
+<p><a href="https://daringfireball.net/projects/markdown/syntax">Daring Fireball</a> The most comprehensive guide to markdown I have seen</p>
+
+<pre><code class="language-markdown"># Markdown syntax
+
+https://guides.github.com/features/mastering-markdown/
+
+**bold**
+
+*italic*
+
+Hello there `people`, how are you?
+
+![Image of Angular](https://www.w3schools.com/angular/pic_angular.jpg)
+
+[link to Google!](http://google.com)
+
+&gt; Hello there people
+&gt; How are you?
+
+- [x] This is a complete item
+- [ ] This is an incomplete item
+
+Hello @damusix this is just some markdown examples!
+
+emojis :sparkles: :camel: :boom:
+
+https://www.webpagefx.com/tools/emoji-cheat-sheet/
+
+
+
+# This is an `&lt;h1&gt;` tag
+## This is an `&lt;h2&gt;` tag
+###### This is an `&lt;h6&gt;` tag
+
+
+
+*This text will be italic*
+_This will also be italic_
+
+
+**This text will be bold**
+__This will also be bold__
+
+
+_You **can** combine them_
+
+###### Lists
+
+* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b
+
+
+1. Item 1
+1. Item 2
+1. Item 3
+   1. Item 3a
+   1. Item 3b
+
+
+![An Image from this repo](/images/logo.png)
+Format: ![Alt Text](url)
+
+
+http://github.com - automatic!
+[GitHub](http://github.com)
+
+
+
+
+
+###### Checklists
+
+- [x] @mentions, #refs, [links](google.com), **formatting**, and &lt;del&gt;del tags&lt;/del&gt; supported
+- [x] list syntax required (any unordered or ordered list supported)
+- [x] this is a complete item
+- [ ] this is an incomplete item
+
+
+###### Tables
+
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+
+
+
+
+
+Any URL (like http://www.github.com/) will be automatically converted into a clickable link.
+
+Any word wrapped with two tildes (like ~~this~~) will appear crossed out.
+
+
+
+###### numbered lists:
+
+1. One
+2. Two
+3. Three
+
+###### bullet points:
+
+* Start a line with a star
+* Profit!
+
+###### dashes for lists
+
+- Dashes work just as well
+- And if you have sub points, put two spaces before the dash or star:
+  - Like this
+  - And this
+</code></pre>
     ]]></content>
 </entry>
             <entry>
