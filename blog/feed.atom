@@ -3,12 +3,42 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-06-25T14:17:08+01:00</updated>
+    <updated>2020-06-25T21:08:44+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2020-06-25-getting-your-github-pages-sites-into-google</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-06-25-getting-your-github-pages-sites-into-google" />
+    <title>Getting your Github Pages site into Google</title>
+    <published>2020-06-25T21:52:00+01:00</published>
+    <updated>2020-06-25T21:52:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I have been running this website for a few months and what started as an experiment I am rather enjoying as a place to write and play around with Code and more.
+
+But one thing I checked yesterday, was how many pages were indexed by Google.
+
+Google search......</summary>
+    <content type="html"><![CDATA[
+        <p>I have been running this website for a few months and what started as an experiment I am rather enjoying as a place to write and play around with Code and more.</p>
+
+<p>But one thing I checked yesterday, was how many pages were indexed by Google.</p>
+
+<p>Google search for "site:http://allotmentandy.github.io/" and the answer was NONE - ZERO - ZILCH - NADA!!</p>
+
+<p>But Google provided a handy link to its Google Search console. So i managed to login to my Google account, added a meta tag to the layout template and managed to get Google to index the site. Today there are 8 pages in the Google index. Which is better.</p>
+
+<p>Small wins each day! Of those 8 pages, 3 only have 'AllotmentAndy' as the title, The blog index page has 'AllotmentAndy - GitHub Pages' as the title and the others have 'AllotmentAndy - PAGE TITLE'</p>
+
+<p>Will see how this changes over the next few days.</p>
+
+<p>Would like to improve the Title tags for the static pages in the root. I have added some yaml to the top of the web safe fonts page to improve the title tag. Lets see how long it takes Google to notice!</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-06-25-laravel-starter-projects</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-06-25-laravel-starter-projects" />
     <title>Laravel starter projects</title>
@@ -342,6 +372,20 @@ Available commands:
     ]]></content>
 </entry>
             <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
+    <title>Testing a blade.md template for a post</title>
+    <published>2020-05-17T01:00:00+01:00</published>
+    <updated>2020-05-17T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Trying to get a blade.md template to work as i expect....</summary>
+    <content type="html"><![CDATA[
+        
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site" />
     <title>Internationalization Of A Jigsaw Static Site</title>
@@ -365,20 +409,6 @@ I would like a language switcher to swap between EN and PT at first. This would 
 <p>I have created an <a href="/about-pt/">/about_pt</a> page to experiment with this</p>
 
 <p>https://lokalise.com/blog/localizing-apps-jquery/</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
-    <title>Testing a blade.md template for a post</title>
-    <published>2020-05-17T01:00:00+01:00</published>
-    <updated>2020-05-17T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Trying to get a blade.md template to work as i expect....</summary>
-    <content type="html"><![CDATA[
-        
     ]]></content>
 </entry>
             <entry>
