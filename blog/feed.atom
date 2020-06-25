@@ -3,7 +3,7 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-06-25T09:28:46+01:00</updated>
+    <updated>2020-06-25T14:00:20+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -17,9 +17,35 @@
     <author>
         <name>Allotment Andy</name>
     </author>
-    <summary type="html">Yesterday i wrote about how i was looking at wordpress and laravel starter projects to build a website directory. I installed a number of wordpress projects but non of them seemed to be what I am looking for....</summary>
+    <summary type="html">Yesterday i wrote about how i was looking at wordpress and laravel starter projects to build a website directory. I installed a number of wordpress projects but non of them seemed to be what I am looking for.
+
+So I started to look for a Laravel starter......</summary>
     <content type="html"><![CDATA[
         <p>Yesterday i wrote about how i was looking at wordpress and laravel starter projects to build a website directory. I installed a number of wordpress projects but non of them seemed to be what I am looking for.</p>
+
+<p>So I started to look for a Laravel starter project that i can work with.</p>
+
+<p>I am going to install each one and write a blog on the experience of each.</p>
+
+<h4>Jeremy Kenedy / laravel-auth</h4>
+
+<p>I have used this project in the past and found it great.</p>
+
+<p><a href="https://github.com/jeremykenedy/laravel-auth" title="" target="_blank">laravel-auth</a></p>
+
+<h4>innocenzi / laravel-boilerplate</h4>
+
+<p><a href="https://github.com/innocenzi/laravel-boilerplate" title="" target="_blank">laravel-boilerplate</a></p>
+
+<h4>nasirkhan / laravel-starter</h4>
+
+<p><a href="https://github.com/nasirkhan/laravel-starter" title="" target="_blank">nasirkhan/laravel-starter</a></p>
+
+<h4>laraship-laravel-directory</h4>
+
+<p><a href="https://www.laraship.com/product/laraship-laravel-directory/" title="" target="_blank">laraship laravel directory</a></p>
+
+<p>Not really a starter project, more of a solution of what i am trying to offer.</p>
     ]]></content>
 </entry>
             <entry>
@@ -49,30 +75,30 @@
 
 <h4>Geo-directory</h4>
 
-<p><a href="https://wpgeodirectory.com/">Geo-directory</a><br />
-<a href="https://wordpress.org/plugins/geodirectory/">Geo-directory on Wordpress</a></p>
+<p><a href="https://wpgeodirectory.com/" title="" target="_blank">Geo-directory</a><br />
+<a href="https://wordpress.org/plugins/geodirectory/" title="" target="_blank">Geo-directory on Wordpress</a></p>
 
 <h4>Business Directory</h4>
 
-<p><a href="https://businessdirectoryplugin.com/">Business Directory</a><br />
-<a href="https://wordpress.org/plugins/business-directory-plugin/">Business Directory on Wordpress</a></p>
+<p><a href="https://businessdirectoryplugin.com/" title="" target="_blank">Business Directory</a><br />
+<a href="https://wordpress.org/plugins/business-directory-plugin/" title="" target="_blank">Business Directory on Wordpress</a></p>
 
 <h4>Advanced Classifieds &amp; Directory Pro</h4>
 
-<p><a href="https://pluginsware.com/">Pluginsware</a><br />
-<a href="https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/">Advanced Classifieds &amp; Directory Pro on Wordpress</a></p>
+<p><a href="https://pluginsware.com/" title="" target="_blank">Pluginsware</a><br />
+<a href="https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/" title="" target="_blank">Advanced Classifieds &amp; Directory Pro on Wordpress</a></p>
 
 <h4>Hivepress</h4>
 
 <p>This looked the most impressive on first glimpse, but the demo content wouldnt import and after a few tries i gave up.</p>
 
-<p><a href="https://hivepress.io/">Hivepress</a><br />
-<a href="https://wordpress.org/plugins/hivepress/">Hivepress on Wordpress</a></p>
+<p><a href="https://hivepress.io/" title="" target="_blank">Hivepress</a><br />
+<a href="https://wordpress.org/plugins/hivepress/" title="" target="_blank">Hivepress on Wordpress</a></p>
 
 <h4>Web Directory Free</h4>
 
-<p><a href="https://www.salephpscripts.com/wordpress_directory/demo/">Web Directory Free</a><br />
-<a href="[https://wordpress.org/plugins/web-directory-free/]">Web Directory Free on Wordpress</a></p>
+<p><a href="https://www.salephpscripts.com/wordpress_directory/demo/" title="" target="_blank">Web Directory Free</a><br />
+<a href="[https://wordpress.org/plugins/web-directory-free/]" title="" target="_blank">Web Directory Free on Wordpress</a></p>
 
 <p>I would be interested in seeing websites that use any of these plugins and chat to users of these plugins, but it looks like I am going to have to build something myself.</p>
     ]]></content>
