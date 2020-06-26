@@ -3,7 +3,7 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-06-25T21:37:53+01:00</updated>
+    <updated>2020-06-26T12:32:40+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -64,6 +64,10 @@
 <h4>nasirkhan / laravel-starter</h4>
 
 <p><a href="https://github.com/nasirkhan/laravel-starter" title="" target="_blank">nasirkhan/laravel-starter</a></p>
+
+<h4>rappasoft / Laravel Boilerplate</h4>
+
+<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
 
 <h4>laraship-laravel-directory</h4>
 
@@ -193,7 +197,7 @@ If you can share your feeds via .OPML files I would love to see what you read.</
     <author>
         <name>Allotment Andy</name>
     </author>
-    <summary type="html">I am available and looking for work, here is a summary of what I can do for you....</summary>
+    <summary type="html">I am looking for work in London or remotely. I have years of experience in web development, web design and in IT in general. Also available in West London on an hourly basis to help you fix your IT problems, like wifi, virus removal, updates, installation and more......</summary>
     <content type="html"><![CDATA[
         
     ]]></content>
@@ -541,6 +545,8 @@ I am looking to create a dual language website in English and Portuguese to.....
         <p>Markdown</p>
 
 <p><a href="https://daringfireball.net/projects/markdown/syntax">Daring Fireball</a> The most comprehensive guide to markdown I have seen</p>
+
+<p><a href="https://michelf.ca/projects/php-markdown/extra/#spe-attr">markdown extra</a></p>
 
 <pre><code class="language-markdown"># Markdown syntax
 
