@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues.">
-        <meta property="og:title" content="Jigsaw Templates | AllotmentAndy"/>
+        <meta property="og:title" content="Playing with PDFs | AllotmentAndy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-04-29"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-07-04-pdf-making-pdfs-extracting-pages-from-pdfs"/>
         <meta property="og:description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="AllotmentAndy Atom Feed">
-            <meta property="og:title" content="Jigsaw Templates" />
+            <meta property="og:title" content="Playing with PDFs" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-04-29"/>
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-07-04-pdf-making-pdfs-extracting-pages-from-pdfs"/>
     <meta property="og:description" content="" />
-        <title>AllotmentAndy | Jigsaw Templates</title>
+        <title>AllotmentAndy | Playing with PDFs</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=65ef9273326275c09d4a">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -87,47 +87,74 @@
 
     
     <h1 class="leading-none mb-2">
-                Jigsaw Templates
+                <img src="/assets/img/Pdf.svg" alt="Playing with PDFs" class=" w-16 h-16 inline-block">
+                Playing with PDFs
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">April 29, 2020</p>
+    <p class="text-gray-700 text-sm md:mt-0">July 4, 2020</p>
 
                         <a
-                href="/blog/categories/jigsaw"
-                title="View posts in jigsaw"
+                href="/blog/categories/debian"
+                title="View posts in debian"
                 class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >jigsaw</a>
-                    <a
-                href="/blog/categories/markdown"
-                title="View posts in markdown"
-                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >markdown</a>
+            >debian</a>
             
     <div class="border-b border-blue-200 mb-10 pb-4" v-pre>
-        <h3>7.35 am</h3>
+        
+<p>I have always loved reading, on my computer, phone, books, magazines and newspapers. I have collected a huge number of PDFs over the years.</p>
 
-<p>Working on templates for this static site. The mix of markdown and HTML isnt
-working.</p>
+<h2>Printing a webpage to a PDF</h2>
 
-<h4>Templates to make</h4>
+<p>I regularly save webpages as PDFs to keep a copy of a webpage I want to read, often on my tablet or phone. These are my favourite Addons / Extensions to print webpages directly from the browser:</p>
 
-<p>[ ] Daily page - template for each day, with a shell script to create it</p>
+<p><img src="/assets/img/Firefox.svg" alt="Firefox" class=" w-16 h-16 mr-4 inline-block"><strong>Firefox Add-on</strong> <a href="https://addons.mozilla.org/en-GB/firefox/addon/save-pdf-pro/" target="_blank">Adobe's Save PDF / Print PDF</a></p>
 
-<p>[ ] Code page - with examples of code blocks</p>
+<p><img src="/assets/img/Chrome.svg" alt="Chrome" class=" w-16 h-16 mr-4 inline-block"><strong>Google Chrome Extension</strong> <a href="https://chrome.google.com/webstore/detail/print-friendly-pdf/ohlencieiipommannpdfcmfdpjjmeolj" target="_blank">Print Friendly PDF</a></p>
 
-<p>[ ] Markdown Examples</p>
+<h2>Scanning pages to PDF</h2>
 
-<h4>Shell Scripts</h4>
+<p>Recently i have acquired a scanner and on my debian linux laptop, I have been using
+<strong>gscan2pdf</strong> to scan pages straight into a pdf document. To install this on debian use: </p>
 
-<p>[x] Build.sh - build both the local and production sites</p>
+<code>apt-get install gscan2pdf</code>
 
-<p>[ ] Deploy to github.io</p>
+<p>This opens a simple GUI which found the HP Scanner and was really simple to use. It allows you to keep scanning pages into a single PDF, which was exactly what i wanted.</p>
 
-<p>[ ] Create daily post page</p>
+<h2>Converting EPUB to PDF</h2>
 
-<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
+<p>Recently, I also wanted to convert an EPUB book into a PDF. Installing Calibre provides the Command Line tool - ebook convert. To Install use</p>
 
-<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
+<code>apt-get install calibre</code>
+
+<p>And then to convert the document from the epub format to pdf was simply running</p>
+
+<code>ebook-convert <file>.epub <file>.pdf</code>
+
+<h2>Command line HTML to PDF</h2>
+
+I have a large html document that I wanted to save to a pdf. I used wkhtmltopdf to save the page as a pdf. To install
+
+<code>apt-get install wkhtmltopdf</code>
+
+<p>Then to create the pdf locally I run</p>
+
+<code>	
+	wkhtmltopdf  --page-size A4 --lowquality --encoding UTF-8 --no-pdf-compression --disable-javascript  --orientation Portrait --dpi 65 --margin-top 0.2in --margin-right 0in --margin-bottom 0.3in --margin-left 0in --footer-center "[page]"  --print-media-type  --no-outline --image-quality 100 --user-style-sheet "http://localhost/bizjet.css" cover "http://localhost/cover.html" "http://localhost/planes/txt" "planes.pdf"
+</code>
+
+<h2>Extracting pages from a PDF</h2>
+<p>I wanted to extract 2 pages from a pdf file using pdftk </p>
+
+<code>apt-get install pdftk </code>
+
+<p>then to extract pages 5 and 6 use</p>
+
+<code>pdftk source.pdf cat 5 6 output output.pdf</code> 
+
+<h2>Looking for more info about PDF's</h2>
+
+<p>Whilst writing this article, I tried to find cheatsheets and books about PDF's but I couldn't find anything. If you know any books about PDF's, cheatsheets or documents about them, please contact me on twitter <a href="https://www.twitter.com/allotmentandy1">@allotmentandy1</a>. Hope you find this article useful. </p>
+
 
     <p>I would like to hear from you about this, if you can contact me on twitter <a href="https://www.twitter.com/allotmentandy1">@allotmentandy1</a> thats an easy way to start a discussion.</p>
 
@@ -136,15 +163,12 @@ working.</p>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts" title="Older Post: Jigsaw Static Site Thoughts">
-                    &LeftArrow; Jigsaw Static Site Thoughts
+                            <a href="https://allotmentandy.github.io/blog/2020-06-25-getting-your-github-pages-sites-into-google" title="Older Post: Getting your Github Pages site into Google">
+                    &LeftArrow; Getting your Github Pages site into Google
                 </a>
                     </div>
 
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-04-30" title="Newer Post: Cooking Day">
-                    Cooking Day &RightArrow;
-                </a>
                     </div>
     </nav>
 </div>
