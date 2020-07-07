@@ -3,12 +3,62 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-07-04T22:03:52+01:00</updated>
+    <updated>2020-07-07T16:29:58+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2020-06-25-laravel-starter-projects</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-06-25-laravel-starter-projects" />
+    <title>Laravel starter projects</title>
+    <published>2020-07-06T01:00:00+01:00</published>
+    <updated>2020-07-06T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Looking at Laravel starter projects which offer more than a basic install including an admin system, login and more....</summary>
+    <content type="html"><![CDATA[
+        <p>Yesterday i wrote about how i was looking at wordpress and laravel starter projects to build a website directory. I installed a number of wordpress projects but non of them seemed to be what I am looking for.</p>
+
+<p>So I started to look for a Laravel starter project that i can work with.</p>
+
+<p>I am going to install each one and write a blog on the experience of each.</p>
+
+<h4>https://github.com/laravel-frontend-presets/tailwindcss</h4>
+
+<p>I was looking for something simple with just tailwind and laravel so i also found this:</p>
+
+<p><a href="https://github.com/laravel-frontend-presets/tailwindcss">laravel frontend presets / tailwindcss</a></p>
+
+<p>You start with a default laravel install and justs add the presets on top.</p>
+
+<h4>Jeremy Kenedy / laravel-auth</h4>
+
+<p>I have used this project in the past and found it great.</p>
+
+<p><a href="https://github.com/jeremykenedy/laravel-auth" title="" target="_blank">laravel-auth</a></p>
+
+<h4>innocenzi / laravel-boilerplate</h4>
+
+<p><a href="https://github.com/innocenzi/laravel-boilerplate" title="" target="_blank">laravel-boilerplate</a></p>
+
+<h4>nasirkhan / laravel-starter</h4>
+
+<p><a href="https://github.com/nasirkhan/laravel-starter" title="" target="_blank">nasirkhan/laravel-starter</a></p>
+
+<h4>rappasoft / Laravel Boilerplate</h4>
+
+<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
+
+<h4>laraship-laravel-directory</h4>
+
+<p><a href="https://www.laraship.com/product/laraship-laravel-directory/" title="" target="_blank">laraship laravel directory</a></p>
+
+<p>Not really a starter project, more of a solution of what i am trying to offer.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-07-04-pdf-making-pdfs-extracting-pages-from-pdfs</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-07-04-pdf-making-pdfs-extracting-pages-from-pdfs" />
     <title>Playing with PDFs</title>
@@ -46,48 +96,6 @@
 <p>Will see how this changes over the next few days.</p>
 
 <p>Would like to improve the Title tags for the static pages in the root. I have added some yaml to the top of the web safe fonts page to improve the title tag. Lets see how long it takes Google to notice!</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-06-25-laravel-starter-projects</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-06-25-laravel-starter-projects" />
-    <title>Laravel starter projects</title>
-    <published>2020-06-25T01:00:00+01:00</published>
-    <updated>2020-06-25T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Looking at Laravel starter projects which offer more than a basic install including an admin system, login and more....</summary>
-    <content type="html"><![CDATA[
-        <p>Yesterday i wrote about how i was looking at wordpress and laravel starter projects to build a website directory. I installed a number of wordpress projects but non of them seemed to be what I am looking for.</p>
-
-<p>So I started to look for a Laravel starter project that i can work with.</p>
-
-<p>I am going to install each one and write a blog on the experience of each.</p>
-
-<h4>Jeremy Kenedy / laravel-auth</h4>
-
-<p>I have used this project in the past and found it great.</p>
-
-<p><a href="https://github.com/jeremykenedy/laravel-auth" title="" target="_blank">laravel-auth</a></p>
-
-<h4>innocenzi / laravel-boilerplate</h4>
-
-<p><a href="https://github.com/innocenzi/laravel-boilerplate" title="" target="_blank">laravel-boilerplate</a></p>
-
-<h4>nasirkhan / laravel-starter</h4>
-
-<p><a href="https://github.com/nasirkhan/laravel-starter" title="" target="_blank">nasirkhan/laravel-starter</a></p>
-
-<h4>rappasoft / Laravel Boilerplate</h4>
-
-<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
-
-<h4>laraship-laravel-directory</h4>
-
-<p><a href="https://www.laraship.com/product/laraship-laravel-directory/" title="" target="_blank">laraship laravel directory</a></p>
-
-<p>Not really a starter project, more of a solution of what i am trying to offer.</p>
     ]]></content>
 </entry>
             <entry>
