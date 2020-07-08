@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues.">
-        <meta property="og:title" content="Using highlight.js | AllotmentAndy"/>
+        <meta property="og:title" content="Extracting RSS Feeds | AllotmentAndy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-17-highlight-js"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-07-08-extract-rss-feeds"/>
         <meta property="og:description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="AllotmentAndy Atom Feed">
-            <meta property="og:title" content="Using highlight.js" />
+            <meta property="og:title" content="Extracting RSS Feeds" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-17-highlight-js"/>
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-07-08-extract-rss-feeds"/>
     <meta property="og:description" content="" />
-        <title>AllotmentAndy | Using highlight.js</title>
+        <title>AllotmentAndy | Extracting RSS Feeds</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=65ef9273326275c09d4a">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -87,59 +87,31 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/Jigsaw.svg" alt="Using highlight.js" class=" w-16 h-16 inline-block">
-                Using highlight.js
+                <img src="/assets/img/Rss.svg" alt="Extracting RSS Feeds" class=" w-16 h-16 inline-block">
+                Extracting RSS Feeds
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">May 17, 2020</p>
+    <p class="text-gray-700 text-sm md:mt-0">July 8, 2020</p>
 
-                        <a
-                href="/blog/categories/jigsaw"
-                title="View posts in jigsaw"
-                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >jigsaw</a>
-            
+    
     <div class="border-b border-blue-200 mb-10 pb-4" v-pre>
-        <p>Jigsaw comes with highlightjs to show code blocks in colour, here is a CSS, HTML and Bash output for the jigsaw command</p>
+        <p>This morning I decided to look into getting the RSS/ATOM feed links from websites. I am building a new Spider for Londinium.com and have made this simple package for PHP to extract links.</p>
 
-<h3>CSS</h3>
+<p><a href="https://github.com/allotmentandy/SocialMediaLinkExtractor">Social Media Link Extractor</a></p>
 
-<pre><code class="language-css"><br />{
-    body: 
-}
+<p>I updated the package this morning but then realised it wont really work as RSS feeds (and ATOM feeds) are linked in the head of the html like so:</p>
 
+<pre><code class="language-html">&lt;link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://example.org/rss" /&gt;
+
+&lt;link rel="alternate" type="application/atom+xml" title="RSS Feed" href="http://example.org/feed" /&gt;
 </code></pre>
 
-<h3>HTML</h3>
+<p>you can see here how i added code to the spider to get these rss feeds and it works.</p>
 
-<pre><code class="language-html"><br />&lt;a href='#'&gt;link&lt;/a&gt;
+<p><a href="https://github.com/allotmentandy/laravel54/blob/master/app/Http/Controllers/LondiniumController.php#L405">laravel54</a></p>
 
-</code></pre>
-
-<h3>bash ./vendor/bin/jigsaw</h3>
-
-<pre><code class="language-bash">Jigsaw 1.3.27
-
-Usage:
-  command [options] [arguments]
-
-Options:
-  -h, --help            Display this help message
-  -q, --quiet           Do not output any message
-  -V, --version         Display this application version
-      --ansi            Force ANSI output
-      --no-ansi         Disable ANSI output
-  -n, --no-interaction  Do not ask any interactive question
-  -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
-
-Available commands:
-  build  Build your site.
-  help   Displays help for a command
-  init   Scaffold a new Jigsaw project.
-  list   Lists commands
-  serve  Serve local site with php built-in server.
-
-</code></pre>
+<p>Having run the spider, I can now see that some sites dont put the full URL on, so you get /rss.xml 
+which isnt great as now i have to combine the domain name with the feed, dealing with any directories, filenames and .types. but it is better than nowt.</p>
 
     <p>I would like to hear from you about this, if you can contact me on twitter <a href="https://www.twitter.com/allotmentandy1">@allotmentandy1</a> thats an easy way to start a discussion.</p>
 
@@ -148,15 +120,12 @@ Available commands:
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-05-17-blade" title="Older Post: Testing a blade.md template for a post">
-                    &LeftArrow; Testing a blade.md template for a post
+                            <a href="https://allotmentandy.github.io/blog/2020-06-25-laravel-starter-projects" title="Older Post: Laravel starter projects">
+                    &LeftArrow; Laravel starter projects
                 </a>
                     </div>
 
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-05-17-my-newPost-bash-script" title="Newer Post: My New Post Bash Shell Script">
-                    My New Post Bash Shell Script &RightArrow;
-                </a>
                     </div>
     </nav>
 </div>
