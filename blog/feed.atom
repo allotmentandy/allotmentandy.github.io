@@ -3,12 +3,36 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-07-08T10:00:38+01:00</updated>
+    <updated>2020-07-16T11:32:55+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2020-07-16-general-thoughts</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-07-16-general-thoughts" />
+    <title>General Thoughts</title>
+    <published>2020-07-16T01:00:00+01:00</published>
+    <updated>2020-07-16T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I have been trying a number of new things to try and get work.
+
+Firstly i discovered nextdoor.co.uk a localised website for helping people communicate with each other. The site excited me at first and I managed to post a number of messages about......</summary>
+    <content type="html"><![CDATA[
+        <p>I have been trying a number of new things to try and get work.</p>
+
+<p>Firstly i discovered <a href="http://www.nextdoor.co.uk">nextdoor.co.uk</a> a localised website for helping people communicate with each other. The site excited me at first and I managed to post a number of messages about potential jobs/work. The first one about IT work got one response, I elderly gentleman who wanted help 'in the future' with setting up a laptop, security and more. However, he has never got back to me and I dont hold out much hope that he will. The second post was offering gardening work, something I can do and enjoy. This too had one response, from a lady nearby. I wondered round, to find a tiny garden, but alas the women had no money to pay for the work and was just trying to get me to do it as a portfolio piece. Hmm. Further posts have gotten me nowhere except I guy that asked for a day or twos labour, and then cancelled the day before as his cousin was coming and would do it for free. Great.</p>
+
+<p>Yesterday, I emailed / contacted around 10 local gardening firms about gardening work and have got zero replies. Great.</p>
+
+<p>Yesterday I also looked at finding potential work on <a href="https://www.upwork.com">Upwork.com</a> A website for freelancers and companies to content for work. I have used this website before and also elance which they have taken over in the past. I preferred elance as it worked better without all the fancy javascript which doesn't quite work. Now though, Upwork has created a type of currency called 'connects' which you have to buy for the right to connect with potential jobs. I have used this site to hire programmers in the past, and the spam was very high.</p>
+
+<p>So still trying to find work, any ideas?</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-07-08-extract-rss-feeds</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-07-08-extract-rss-feeds" />
     <title>Extracting RSS Feeds</title>
