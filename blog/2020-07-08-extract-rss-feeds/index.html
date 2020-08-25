@@ -87,7 +87,7 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/Rss.svg" alt="Extracting RSS Feeds" class=" w-16 h-16 inline-block">
+                <img src="/assets/img/Debian.svg" alt="Extracting RSS Feeds" class=" w-16 h-16 inline-block">
                 Extracting RSS Feeds
     </h1>
 
@@ -95,24 +95,7 @@
 
     
     <div class="border-b border-blue-200 mb-10 pb-4" v-pre>
-        <p>This morning I decided to look into getting the RSS/ATOM feed links from websites. I am building a new Spider for Londinium.com and have made this simple package for PHP to extract links.</p>
-
-<p><a href="https://github.com/allotmentandy/SocialMediaLinkExtractor">Social Media Link Extractor</a></p>
-
-<p>I updated the package this morning but then realised it wont really work as RSS feeds (and ATOM feeds) are linked in the head of the html like so:</p>
-
-<pre><code class="language-html">&lt;link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://example.org/rss" /&gt;
-
-&lt;link rel="alternate" type="application/atom+xml" title="RSS Feed" href="http://example.org/feed" /&gt;
-</code></pre>
-
-<p>you can see here how i added code to the spider to get these rss feeds and it works.</p>
-
-<p><a href="https://github.com/allotmentandy/laravel54/blob/master/app/Http/Controllers/LondiniumController.php#L405">laravel54</a></p>
-
-<p>Having run the spider, I can now see that some sites dont put the full URL on, so you get /rss.xml 
-which isnt great as now i have to combine the domain name with the feed, dealing with any directories, filenames and .types. but it is better than nowt.</p>
-
+        
     <p>I would like to hear from you about this, if you can contact me on twitter <a href="https://www.twitter.com/allotmentandy1">@allotmentandy1</a> thats an easy way to start a discussion.</p>
 
     </div>
@@ -139,11 +122,17 @@ which isnt great as now i have to combine the domain name with the feed, dealing
             <div class="container mx-auto bg-gray-100 max-w-5xl flex flex-wrap md:flex-no-wrap justify-between items-start text-sm p-6 pt-8 pb-2">
                 <div class="mb-8">
                     <h4 class="mb-4">Categories</h4>
-                    <div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/bash">Bash</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/cooking">Cooking</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/debian">Debian</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/jigsaw">Jigsaw</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/laravel">Laravel</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/markdown">Markdown</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/portuguese">Portuguese</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/tailwindcss">Tailwindcss</a></div>
+                    <div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/bash">Bash</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/cooking">Cooking</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/debian">Debian</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/devops">Devops</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/jigsaw">Jigsaw</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/laravel">Laravel</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/markdown">Markdown</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/portuguese">Portuguese</a></div><div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px"><a href="/blog/categories/tailwindcss">Tailwindcss</a></div>
                     <h4 class="mb-4">Resources</h4>
-                    <div>
-                        <a class="text-sm" href="/fonts">Web Safe Fonts</a>
-                        
+
+                    <div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px">
+                        <a href="/fonts">Web Safe Fonts</a>
+                    </div>
+                    <div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px">
+                    <a href="/bash_shortcuts">Bash Shortcuts</a>   
+                    </div>
+                    <div class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 capitalise font-bold rounded mr-4 px-3 my-2 pt-px">
+                    <a href="/portuguese_chars">Portuguese Characaters</a>   
                     </div>
                 </div>
             <div class="mb-4">

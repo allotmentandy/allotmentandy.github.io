@@ -3,12 +3,217 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-07-27T12:36:38+01:00</updated>
+    <updated>2020-08-25T12:42:53+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2020-08-25-bash-scripts-for-laravel-php-linux-devops</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-08-25-bash-scripts-for-laravel-php-linux-devops" />
+    <title>Bash Scripts for Laravel PHP Linux Devops</title>
+    <published>2020-08-25T01:00:00+01:00</published>
+    <updated>2020-08-25T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Having spent the summer learning more of the Devops toolkit, I often come back to bash shell scripts to achieve something.
+
+
+
+I wanted a little script to import the values of the .env file to use in the bash scripts. This works as i expect.
+
+
+
+
+
+This is......</summary>
+    <content type="html"><![CDATA[
+        <p>Having spent the summer learning more of the Devops toolkit, I often come back to bash shell scripts to achieve something.</p>
+
+<h3>importEnv.sh</h3>
+
+<p>I wanted a little script to import the values of the .env file to use in the bash scripts. This works as i expect.</p>
+
+<pre><code class="language-bash">#!/bin/bash
+
+source /var/www/laravel/.env
+echo $DB_USERNAME
+</code></pre>
+
+<h3>mysqlBackup</h3>
+
+<p>This is a one liner to backup all the mysql databases.</p>
+
+<pre><code>mysql -u root -p -N -e 'show databases' | while read dbname; do mysqldump -u root -p --complete-insert --routines --triggers --single-transaction "$dbname" &gt; "$dbname".sql; done
+
+</code></pre>
+
+<h3>deploy.sh</h3>
+
+<p>Working with the jigsaw static site builder, i wrote this simple script to copy the production version of the site to another directory and deploy it to the github pages site.</p>
+
+<pre><code class="language-bash">#!/bin/bash -e
+
+echo "Deploying build_production to allotmentandy.github.io"
+echo "---------"
+
+cd build_production 
+cp -r * /var/www/allotmentandy.github.io
+
+cd /var/www/allotmentandy.github.io
+
+git add .
+git commit -m "update"
+git push
+
+echo 'finished'
+</code></pre>
+
+<h3>clearLaravelCaches.sh</h3>
+
+<pre><code class="language-bash">#!/bin/bash
+
+echo "This a bash script to run composer clear the caches)"
+echo "--------------"
+php -v
+#echo "--------------"
+
+cd /var/www/laravel
+
+php artisan down
+
+composer dump-autoload -o
+
+php artisan view:clear
+php artisan config:clear
+php artisan cache:clear
+php artisan route:clear
+php artisan clear-compiled
+php artisan config:cache
+php artisan optimize
+
+php artisan up
+</code></pre>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-07-27-moving-into-devops</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-07-27-moving-into-devops" />
+    <title>Moving into Devops</title>
+    <published>2020-07-27T01:00:00+01:00</published>
+    <updated>2020-07-27T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">In my last contract role, I spent more time working with the Devops team than the frontend team. I really enjoyed it and now feel that this is a better path for me. I have been using the command line to build, manage and test servers for many many years......</summary>
+    <content type="html"><![CDATA[
+        <p>In my last contract role, I spent more time working with the Devops team than the frontend team. I really enjoyed it and now feel that this is a better path for me. I have been using the command line to build, manage and test servers for many many years and feel this is somewhere I can offer more to companies in the future.</p>
+
+<p>I was on twitter and I found this article <a href="https://www.freecodecamp.org/news/alternative-career-paths/">about alternative career paths from freecodecamp</a> and the Devops idea was one most appealing to me.</p>
+
+<p>I have spent a lot of the last few months learning more and more about linux and the Command line. Including learning Bash Scripting and Python.</p>
+
+<h3>ssh</h3>
+
+<p>create a ssh key and copy it to the raspberry pi:</p>
+
+<pre><code>root@linuxtechi:~# ssh-keygen
+root@linuxtechi:~# ssh-copy-id root@192.168.1.156
+</code></pre>
+
+<p>This allows you to ssh into the machine without a password.</p>
+
+<h3>Bash Cheat sheet</h3>
+
+<p>Back in the days as an Apple Mac user, i really like Applescript. With these little scripts you could get stuff done quickly and easily. Laravel also provides a need way to write command line scripts which allow me to download and process the data.</p>
+
+<p>Bash scripting is similar, i now have scripts to create new posts for this blog, build the css/js with webpack, deploy the site to github and many more.</p>
+
+<p>To help, I have added a <a href="/bash_shortcuts">Bash Cheat cheet</a> to this blog.</p>
+
+<h3>Ansible</h3>
+
+<p>Ansible is a tool to software provisioning, configuration management, and application-deployment tool. <a href="https://en.m.wikipedia.org/wiki/Ansible_(software)">wikipedia</a></p>
+
+<p><a href="https://opensource.com/resources/what-ansible">opensource.com intro to ansible</a></p>
+
+<p>I do like learning from videos and I found this series of videos 
+<a href="https://www.youtube.com/playlist?list=PL2_OBreMn7FplshFCWYlaN2uS8et9RjNG">Ansible with Jeff Geerling</a></p>
+
+<p>Cheatsheets</p>
+
+<p><a href="https://github.com/germainlefebvre4/ansible-cheatsheet">github.com/germainlefebvre4/ansible-cheatsheet</a></p>
+
+<p><a href="https://armoucar.github.io/ansible-cheatsheet/">armoucar.github.io/ansible-cheatsheet/</a></p>
+
+<p>Now i can setup a hosts file like so:</p>
+
+<pre><code>[raspberrypi]
+192.168.1.166 ansible_ssh_user=pi hostname=raspberrypi
+
+</code></pre>
+
+<p>Once i set up the ssh login (see above), i can now test the server connection with</p>
+
+<pre><code>ansible -i hosts -m ping raspberrypi
+</code></pre>
+
+<p>i have setup a new github repo which i run like this:</p>
+
+<pre><code>ansible-playbook site.yml -i hosts
+</code></pre>
+
+<h3>Vagrant and Virtualbox</h3>
+
+<p>With Laravel there is Homestead which provides an easy vagrant box with all the linux tools to run a website. I have also used Virtualbox for years to run debian boxes from around the time of Debian 6.</p>
+
+<pre><code>vagrant up
+vagrant halt
+vagrant ssh
+</code></pre>
+
+<h3>Docker</h3>
+
+<p>Docker takes the whole Vagrant VM forward and makes an entire container which you can deploy as the finished website. I have used it before in my last contract role and found it very powerful.</p>
+
+<p><a href="https://www.youtube.com/watch?v=BvDXzyOP3NE">Kickass Laravel Development with Docker - David McKay - Laracon EU 2018 Amsterdam</a></p>
+
+<h3>Jenkins</h3>
+
+<p>Jenkins is a Continuous Integration and testing environment which allows you to test your code as it is pushed to Github.</p>
+
+<p><a href="https://www.youtube.com/watch?v=kuBD3p20oyE">PHP UK Conference 2018 - Michael Heap - Zero to Jenkins: Automatic builds + deploys
+</a></p>
+
+<p>I am installing Jenkins on my Raspberry Pi using this tutorial from 
+<a href="https://pimylifeup.com/jenkins-raspberry-pi/">https://pimylifeup.com/jenkins-raspberry-pi/</a></p>
+
+<p><a href="http://jenkins-php.org/installation.html">jenkins-php.org</a></p>
+
+<p><a href="https://github.com/amochohan/laravel-jenkins-ci-boilerplate">https://github.com/amochohan/laravel-jenkins-ci-boilerplate</a></p>
+
+<p>To install jenkins add this to the playbook</p>
+
+<pre><code>   tasks:
+    - name: ensure the jenkins apt repository key is installed
+      apt_key: url=https://pkg.jenkins.io/debian-stable/jenkins.io.key state=present
+      become: yes
+
+    - name: ensure the repository is configured
+      apt_repository: repo='deb https://pkg.jenkins.io/debian-stable binary/' state=present
+      become: yes
+
+    - name: ensure jenkins is installed
+      apt: name=jenkins update_cache=yes
+      become: yes
+
+    - name: ensure jenkins is running
+      service: name=jenkins state=started
+</code></pre>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-07-26-Looking-for-land-in-portugal</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-07-26-Looking-for-land-in-portugal" />
     <title>Looking for land in Portugal</title>
@@ -71,23 +276,7 @@
     </author>
     <summary type="html">Getting the RSS and ATOM feeds from a website....</summary>
     <content type="html"><![CDATA[
-        <p>This morning I decided to look into getting the RSS/ATOM feed links from websites. I am building a new Spider for Londinium.com and have made this simple package for PHP to extract links.</p>
-
-<p><a href="https://github.com/allotmentandy/SocialMediaLinkExtractor">Social Media Link Extractor</a></p>
-
-<p>I updated the package this morning but then realised it wont really work as RSS feeds (and ATOM feeds) are linked in the head of the html like so:</p>
-
-<pre><code class="language-html">&lt;link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://example.org/rss" /&gt;
-
-&lt;link rel="alternate" type="application/atom+xml" title="RSS Feed" href="http://example.org/feed" /&gt;
-</code></pre>
-
-<p>you can see here how i added code to the spider to get these rss feeds and it works.</p>
-
-<p><a href="https://github.com/allotmentandy/laravel54/blob/master/app/Http/Controllers/LondiniumController.php#L405">laravel54</a></p>
-
-<p>Having run the spider, I can now see that some sites dont put the full URL on, so you get /rss.xml 
-which isnt great as now i have to combine the domain name with the feed, dealing with any directories, filenames and .types. but it is better than nowt.</p>
+        
     ]]></content>
 </entry>
             <entry>
@@ -474,20 +663,6 @@ Available commands:
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
-    <title>Testing a blade.md template for a post</title>
-    <published>2020-05-17T01:00:00+01:00</published>
-    <updated>2020-05-17T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Trying to get a blade.md template to work as i expect....</summary>
-    <content type="html"><![CDATA[
-        
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site" />
     <title>Internationalization Of A Jigsaw Static Site</title>
@@ -511,6 +686,20 @@ I would like a language switcher to swap between EN and PT at first. This would 
 <p>I have created an <a href="/about-pt/">/about_pt</a> page to experiment with this</p>
 
 <p>https://lokalise.com/blog/localizing-apps-jquery/</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
+    <title>Testing a blade.md template for a post</title>
+    <published>2020-05-17T01:00:00+01:00</published>
+    <updated>2020-05-17T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Trying to get a blade.md template to work as i expect....</summary>
+    <content type="html"><![CDATA[
+        
     ]]></content>
 </entry>
             <entry>
@@ -790,6 +979,56 @@ overnight and today i will make bread and freeze a load of these.</p>
     ]]></content>
 </entry>
             <entry>
+    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
+    <title>Jigsaw Templates</title>
+    <published>2020-04-29T01:00:00+01:00</published>
+    <updated>2020-04-29T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
+working.
+
+
+
+[ ] Daily page - template for each day, with a shell script to create it
+
+[ ] Code page - with examples of code blocks
+
+[ ] Markdown Examples
+
+
+
+[x] Build.sh - build......</summary>
+    <content type="html"><![CDATA[
+        <h3>7.35 am</h3>
+
+<p>Working on templates for this static site. The mix of markdown and HTML isnt
+working.</p>
+
+<h4>Templates to make</h4>
+
+<p>[ ] Daily page - template for each day, with a shell script to create it</p>
+
+<p>[ ] Code page - with examples of code blocks</p>
+
+<p>[ ] Markdown Examples</p>
+
+<h4>Shell Scripts</h4>
+
+<p>[x] Build.sh - build both the local and production sites</p>
+
+<p>[ ] Deploy to github.io</p>
+
+<p>[ ] Create daily post page</p>
+
+<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
+
+<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts" />
     <title>Jigsaw Static Site Thoughts</title>
@@ -870,56 +1109,6 @@ like this <code>php artisan make:post 'title of post'</code> but i will make it 
 <p><a href="http://localhost:3000/blog/2020-04-29" title="Older Post: Templates, Markdown and
 Shell Scripts for Jigsaw"> ← Templates, Markdown and Shell Scripts for Jigsaw
 </a></p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
-    <title>Jigsaw Templates</title>
-    <published>2020-04-29T01:00:00+01:00</published>
-    <updated>2020-04-29T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
-working.
-
-
-
-[ ] Daily page - template for each day, with a shell script to create it
-
-[ ] Code page - with examples of code blocks
-
-[ ] Markdown Examples
-
-
-
-[x] Build.sh - build......</summary>
-    <content type="html"><![CDATA[
-        <h3>7.35 am</h3>
-
-<p>Working on templates for this static site. The mix of markdown and HTML isnt
-working.</p>
-
-<h4>Templates to make</h4>
-
-<p>[ ] Daily page - template for each day, with a shell script to create it</p>
-
-<p>[ ] Code page - with examples of code blocks</p>
-
-<p>[ ] Markdown Examples</p>
-
-<h4>Shell Scripts</h4>
-
-<p>[x] Build.sh - build both the local and production sites</p>
-
-<p>[ ] Deploy to github.io</p>
-
-<p>[ ] Create daily post page</p>
-
-<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
-
-<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
     ]]></content>
 </entry>
             <entry>

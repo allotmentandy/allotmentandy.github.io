@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues.">
-        <meta property="og:title" content="Jigsaw Ideas | AllotmentAndy"/>
+        <meta property="og:title" content="Moving into Devops | AllotmentAndy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-09-jigsaw-ideas"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-07-27-moving-into-devops"/>
         <meta property="og:description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="AllotmentAndy Atom Feed">
-            <meta property="og:title" content="Jigsaw Ideas" />
+            <meta property="og:title" content="Moving into Devops" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-09-jigsaw-ideas"/>
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-07-27-moving-into-devops"/>
     <meta property="og:description" content="" />
-        <title>AllotmentAndy | Jigsaw Ideas</title>
+        <title>AllotmentAndy | Moving into Devops</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=65ef9273326275c09d4a">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -85,33 +85,134 @@
                 <main role="main" class="flex-auto w-full container max-w-5xl mx-auto py-16 px-6">
                     <div class=" mb-4 bg-gray-100 px-4 py-4 rounded-lg">
 
-            <img src="/assets/img/apacheconf.svg" alt="Jigsaw Ideas cover image" class="mb-2">
     
     <h1 class="leading-none mb-2">
-                Jigsaw Ideas
+                <img src="/assets/img/Devops.svg" alt="Moving into Devops" class=" w-16 h-16 inline-block">
+                Moving into Devops
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">May 9, 2020</p>
+    <p class="text-gray-700 text-sm md:mt-0">July 27, 2020</p>
 
                         <a
-                href="/blog/categories/jigsaw"
-                title="View posts in jigsaw"
+                href="/blog/categories/debian"
+                title="View posts in debian"
                 class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >jigsaw</a>
+            >debian</a>
                     <a
-                href="/blog/categories/laravel"
-                title="View posts in laravel"
+                href="/blog/categories/bash"
+                title="View posts in bash"
                 class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >laravel</a>
+            >bash</a>
+                    <a
+                href="/blog/categories/devops"
+                title="View posts in devops"
+                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
+            >devops</a>
             
     <div class="border-b border-blue-200 mb-10 pb-4" v-pre>
-        <p>I am still enjoying jigsaw and have a couple of ideas to improve my site with it.</p>
+        <p>In my last contract role, I spent more time working with the Devops team than the frontend team. I really enjoyed it and now feel that this is a better path for me. I have been using the command line to build, manage and test servers for many many years and feel this is somewhere I can offer more to companies in the future.</p>
 
-<h3>Adding about page to the search json</h3>
+<p>I was on twitter and I found this article <a href="https://www.freecodecamp.org/news/alternative-career-paths/">about alternative career paths from freecodecamp</a> and the Devops idea was one most appealing to me.</p>
 
-<p>I really like the search provided out of the box with the jigsaw blog template. but I want to add the about page to the search.</p>
+<p>I have spent a lot of the last few months learning more and more about linux and the Command line. Including learning Bash Scripting and Python.</p>
 
-<p>The collection in the config.php file needs to have the about page added.</p>
+<h3>ssh</h3>
+
+<p>create a ssh key and copy it to the raspberry pi:</p>
+
+<pre><code>root@linuxtechi:~# ssh-keygen
+root@linuxtechi:~# ssh-copy-id root@192.168.1.156
+</code></pre>
+
+<p>This allows you to ssh into the machine without a password.</p>
+
+<h3>Bash Cheat sheet</h3>
+
+<p>Back in the days as an Apple Mac user, i really like Applescript. With these little scripts you could get stuff done quickly and easily. Laravel also provides a need way to write command line scripts which allow me to download and process the data.</p>
+
+<p>Bash scripting is similar, i now have scripts to create new posts for this blog, build the css/js with webpack, deploy the site to github and many more.</p>
+
+<p>To help, I have added a <a href="/bash_shortcuts">Bash Cheat cheet</a> to this blog.</p>
+
+<h3>Ansible</h3>
+
+<p>Ansible is a tool to software provisioning, configuration management, and application-deployment tool. <a href="https://en.m.wikipedia.org/wiki/Ansible_(software)">wikipedia</a></p>
+
+<p><a href="https://opensource.com/resources/what-ansible">opensource.com intro to ansible</a></p>
+
+<p>I do like learning from videos and I found this series of videos 
+<a href="https://www.youtube.com/playlist?list=PL2_OBreMn7FplshFCWYlaN2uS8et9RjNG">Ansible with Jeff Geerling</a></p>
+
+<p>Cheatsheets</p>
+
+<p><a href="https://github.com/germainlefebvre4/ansible-cheatsheet">github.com/germainlefebvre4/ansible-cheatsheet</a></p>
+
+<p><a href="https://armoucar.github.io/ansible-cheatsheet/">armoucar.github.io/ansible-cheatsheet/</a></p>
+
+<p>Now i can setup a hosts file like so:</p>
+
+<pre><code>[raspberrypi]
+192.168.1.166 ansible_ssh_user=pi hostname=raspberrypi
+
+</code></pre>
+
+<p>Once i set up the ssh login (see above), i can now test the server connection with</p>
+
+<pre><code>ansible -i hosts -m ping raspberrypi
+</code></pre>
+
+<p>i have setup a new github repo which i run like this:</p>
+
+<pre><code>ansible-playbook site.yml -i hosts
+</code></pre>
+
+<h3>Vagrant and Virtualbox</h3>
+
+<p>With Laravel there is Homestead which provides an easy vagrant box with all the linux tools to run a website. I have also used Virtualbox for years to run debian boxes from around the time of Debian 6.</p>
+
+<pre><code>vagrant up
+vagrant halt
+vagrant ssh
+</code></pre>
+
+<h3>Docker</h3>
+
+<p>Docker takes the whole Vagrant VM forward and makes an entire container which you can deploy as the finished website. I have used it before in my last contract role and found it very powerful.</p>
+
+<p><a href="https://www.youtube.com/watch?v=BvDXzyOP3NE">Kickass Laravel Development with Docker - David McKay - Laracon EU 2018 Amsterdam</a></p>
+
+<h3>Jenkins</h3>
+
+<p>Jenkins is a Continuous Integration and testing environment which allows you to test your code as it is pushed to Github.</p>
+
+<p><a href="https://www.youtube.com/watch?v=kuBD3p20oyE">PHP UK Conference 2018 - Michael Heap - Zero to Jenkins: Automatic builds + deploys
+</a></p>
+
+<p>I am installing Jenkins on my Raspberry Pi using this tutorial from 
+<a href="https://pimylifeup.com/jenkins-raspberry-pi/">https://pimylifeup.com/jenkins-raspberry-pi/</a></p>
+
+<p><a href="http://jenkins-php.org/installation.html">jenkins-php.org</a></p>
+
+<p><a href="https://github.com/amochohan/laravel-jenkins-ci-boilerplate">https://github.com/amochohan/laravel-jenkins-ci-boilerplate</a></p>
+
+<p>To install jenkins add this to the playbook</p>
+
+<pre><code>   tasks:
+    - name: ensure the jenkins apt repository key is installed
+      apt_key: url=https://pkg.jenkins.io/debian-stable/jenkins.io.key state=present
+      become: yes
+
+    - name: ensure the repository is configured
+      apt_repository: repo='deb https://pkg.jenkins.io/debian-stable binary/' state=present
+      become: yes
+
+    - name: ensure jenkins is installed
+      apt: name=jenkins update_cache=yes
+      become: yes
+
+    - name: ensure jenkins is running
+      service: name=jenkins state=started
+</code></pre>
 
     <p>I would like to hear from you about this, if you can contact me on twitter <a href="https://www.twitter.com/allotmentandy1">@allotmentandy1</a> thats an easy way to start a discussion.</p>
 
@@ -120,14 +221,14 @@
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" title="Older Post: GRR, Duplicate Github Pages">
-                    &LeftArrow; GRR, Duplicate Github Pages
+                            <a href="https://allotmentandy.github.io/blog/2020-07-26-Looking-for-land-in-portugal" title="Older Post: Looking for land in Portugal">
+                    &LeftArrow; Looking for land in Portugal
                 </a>
                     </div>
 
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-05-13-jigsaw-experiment" title="Newer Post: Jigsaw experiment with ~20,000 pages">
-                    Jigsaw experiment with ~20,000 pages &RightArrow;
+                            <a href="https://allotmentandy.github.io/blog/2020-08-25-bash-scripts-for-laravel-php-linux-devops" title="Newer Post: Bash Scripts for Laravel PHP Linux Devops">
+                    Bash Scripts for Laravel PHP Linux Devops &RightArrow;
                 </a>
                     </div>
     </nav>
