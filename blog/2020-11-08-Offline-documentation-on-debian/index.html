@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues.">
-        <meta property="og:title" content="AllotmentAndy"/>
+        <meta property="og:title" content="Offline Documentation on Debian | AllotmentAndy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/about_pt"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian"/>
         <meta property="og:description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="AllotmentAndy Atom Feed">
-            <meta property="og:title" content="About AllotmentAndy" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://allotmentandy.github.io/about_pt"/>
-    <meta property="og:description" content="A little bit about AllotmentAndy" />
-        <title>AllotmentAndy | </title>
+            <meta property="og:title" content="Offline Documentation on Debian" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian"/>
+    <meta property="og:description" content="" />
+        <title>AllotmentAndy | Offline Documentation on Debian</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=65ef9273326275c09d4a">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -83,23 +83,83 @@
 </nav>
         <div class="flex"  >
                 <main role="main" class="flex-auto w-full container max-w-5xl mx-auto py-16 px-6">
-                        <h1>About</h1>
+                    <div class=" mb-4 bg-gray-100 px-4 py-4 rounded-lg">
 
-    <img src="/assets/img/about.png"
-        alt="About image"
-        class="flex rounded-full h-64 w-64 bg-contain mx-auto md:float-right my-6 md:ml-10">
+    
+    <h1 class="leading-none mb-2">
+                <img src="/assets/img/Debian.svg" alt="Offline Documentation on Debian" class=" w-16 h-16 inline-block">
+                Offline Documentation on Debian
+    </h1>
 
-    <p>Uma coleção de escrita e recursos para trabalhar com Linux, especailly Debian, PHP Web Development com Laravel, Construindo este site como um Site Estático com Jigsaw e tornando tudo bonito com Tailwind CSS.</p>
+    <p class="text-gray-700 text-sm md:mt-0">November 8, 2020</p>
 
-    <p>Espero que goste. Por favor, sinta-se livre para me contactar através
-    Twitter e Github</p>
+                        <a
+                href="/blog/categories/debian"
+                title="View posts in debian"
+                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
+            >debian</a>
+                    <a
+                href="/blog/categories/tailwindcss"
+                title="View posts in tailwindcss"
+                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
+            >tailwindcss</a>
+            
+    <div class="border-b border-blue-200 mb-10 pb-4" v-pre>
+        <p>A lot of the time I work offline, learning, reading, watching and playing to learn more and more.</p>
 
-    <p>Este é o início de um blog de escrita para mim e um lugar para manter referência e links interessantes.</p>
+<p>One thing i really like to use is offline tools to help me access info offline. However I am looking for info on a wide range of topics including devops, webdev, frontend, backend and linux in general. There is no one super tool which covers everything so here is a list of my favourite souces.</p>
 
-    <p> Também tenho interesses em Jardinagem, Ervas, Cozinha e Aviação, por isso vou começar a escrever sobre isso também.</p>
+<h3>man</h3>
 
-    <p>Trabalho há mais de vinte anos online. E agora encontro-me offline muito mais, por isso tenho aprendido mais habilidades. </p><p>
+<p>The <code>man</code> command provides a great starting point to read the manpages for a command. eg. <code>man ansible</code> gives a good intro, but it isnt the most readable or user friendly.</p>
 
+<h3>apropos</h3>
+
+<p>Finding what <code>man apropos</code> pages are available is possible with <code>apropos ansible</code></p>
+
+<h3>gman</h3>
+
+<p>Alongside the command line tools above, <code>gman</code> is a neat GUI tool to show an index of the man pages on the system.</p>
+
+<h3>tldr</h3>
+
+<p>tldr is similar to the man pages above, but gives examples of usage. <code>tldr git</code> or <code>tldr ansible</code> all provide a neat list of the most common commands you want to use. You have to update the database of info with the <code>tldr --update</code> command</p>
+
+<h3>eg</h3>
+
+<p>In a similar vain to tldr above, eg, provides even more examples of how to use a command, with a bit more detail.</p>
+
+<h3>Zeal</h3>
+
+<p>Zeal is a GUI which allows one to download docs to read offline. It doesnt cover as much, for example it has the docs for Ansible, Docker and Laravel, but not Terraform</p>
+
+<h3>devdocs.io</h3>
+
+<p>devdocs.io is an offline website which allows you to download the docs to read offline. It does cover Terraform, Ansible, Laravel and more. I use it with Chrome with a plugin</p>
+
+<hr />
+
+<p>I would be interested in anymore tools people use for offline documentation, especially one that covers Tailwind CSS.</p>
+
+    <p>I would like to hear from you about this, if you can contact me on twitter <a href="https://www.twitter.com/allotmentandy1">@allotmentandy1</a> thats an easy way to start a discussion.</p>
+
+    </div>
+
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://allotmentandy.github.io/blog/2020-08-25-bash-scripts-for-laravel-php-linux-devops" title="Older Post: Bash Scripts for Laravel PHP Linux Devops">
+                    &LeftArrow; Bash Scripts for Laravel PHP Linux Devops
+                </a>
+                    </div>
+
+        <div>
+                            <a href="https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger" title="Newer Post: Bash fwf ranger">
+                    Bash fwf ranger &RightArrow;
+                </a>
+                    </div>
+    </nav>
+</div>
                 </main>
         </div>
         <!-- footer -->
