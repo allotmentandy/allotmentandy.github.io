@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues.">
-        <meta property="og:title" content="Bash fwf ranger | AllotmentAndy"/>
+        <meta property="og:title" content="Ansible Ansible Ansible - Part 1 | AllotmentAndy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-11-14-Ansible-Ansible-Ansible-part-1"/>
         <meta property="og:description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="AllotmentAndy Atom Feed">
-            <meta property="og:title" content="Bash fwf ranger" />
+            <meta property="og:title" content="Ansible Ansible Ansible - Part 1" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger"/>
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-11-14-Ansible-Ansible-Ansible-part-1"/>
     <meta property="og:description" content="" />
-        <title>AllotmentAndy | Bash fwf ranger</title>
+        <title>AllotmentAndy | Ansible Ansible Ansible - Part 1</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=dc8cbf613285e6e9e71c">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -87,17 +87,22 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/Debian.svg" alt="Bash fwf ranger" class=" w-16 h-16 inline-block">
-                Bash fwf ranger
+                <img src="/assets/img/Ansible.svg" alt="Ansible Ansible Ansible - Part 1" class=" w-16 h-16 inline-block">
+                Ansible Ansible Ansible - Part 1
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">November 8, 2020</p>
+    <p class="text-gray-700 text-sm md:mt-0">November 14, 2020</p>
 
                         <a
-                href="/blog/categories/bash"
-                title="View posts in bash"
+                href="/blog/categories/ansible"
+                title="View posts in ansible"
                 class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >bash</a>
+            >ansible</a>
+                    <a
+                href="/blog/categories/devops"
+                title="View posts in devops"
+                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
+            >devops</a>
                     <a
                 href="/blog/categories/debian"
                 title="View posts in debian"
@@ -105,29 +110,114 @@
             >debian</a>
             
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4" v-pre>
-        <p>I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle <a href="https://www.youtube.com/watch?v=BFKT7aj-i80" title="" target="_blank">Fun tools to simplify your life in the command line</a></p>
+        <p>Of all the Devops tools I have learnt this year, Ansible is my favourite. The ability to connect to different servers and perform different tasks in a way you can expect is superb. I have installed different flavour Linux Virtual Machines alongside my Raspberry Pi's and it connects to each one and does its thing as I expect.</p>
 
-<p>The two tools i really liked and have found really useful are <code>fzf</code> and <code>ranger</code>.</p>
+<p>The idea of automating everything, having it act in an expected and repeatable way is superb. I have written bash scripts that try to do this in the past, but fall over at scale and repeatability. Ansible is great for this.</p>
 
-<h3>fzf</h3>
+<p>In the process of learning ansible I have an inventory with 1 control node and 4 machines</p>
 
-<p>fzf is a fuzzy search for the terminal. To search for docs in the directory which contain ansible  run <code>ls | fzf</code> and i can type ansible and it shows the files that contain ansible.</p>
-
-<p>To search for ansible only use:</p>
-
-<pre><code>ls | fzf -e -q "ansible"
+<pre><code>[x] localhost (debian 10) [Control node]
+[x] virtual machine (centos 8)
+[x] virtual machine (ubuntu 20)
+[x] virtual machine (alpine linux 3.12)
+[x] raspberry pi (raspbian)
 </code></pre>
 
-<h3>ranger</h3>
+<p>With this as my personal cloud, i can connect with ansible via ssh and run a whole range of tasks including:</p>
 
-<p><code>ranger</code> is a terminal file manager that is nice and quick and lets me navigate and view the file content.</p>
-
-<p>both of these tools can be installed with</p>
-
-<pre><code>apt-get install fzf ranger
+<pre><code>[x] install and configure a webserver, mysql and install a laravel github repo
+[x] run a git pull to update the repo
+[x] update the OS and software
+[x] install a docker container on a server 
+[x] check the status of the machines 
 </code></pre>
 
-<p>I am always on the lookout for more tools that improve and speed up the workflow.</p>
+<p>Ansible provides a number of Facts for a machine which can be seen with this command:</p>
+
+<pre><code>ansible localhost -m setup --tree /tmp/facts
+</code></pre>
+
+<p>it is a json file of around 600 lines of Facts including for my localhost machine:</p>
+
+<pre><code>    "ansible_facts":
+    {
+        "ansible_os_family": "Debian",
+        "ansible_architecture": "x86_64",
+        "ansible_memtotal_mb": 7417,
+
+    }
+</code></pre>
+
+<p>There is also extensive details about hardrives, IP addresses, python versions, users and the computer in general.</p>
+
+<p>Similarly, Ansible provides details of the services running on the machine:</p>
+
+<pre><code>ansible localhost -m service_facts --tree /tmp/services
+</code></pre>
+
+<p>it provides a 1000 line Json file, with details of the services running on the machine, here is an example of the result:</p>
+
+<pre><code>    "ansible_facts":
+    {
+        "services":
+            "apache2":
+            {
+                "name": "apache2",
+                "source": "sysv",
+                "state": "running"
+            },
+            "apache2.service":
+            {
+                "name": "apache2.service",
+                "source": "systemd",
+                "state": "running",
+                "status": "enabled"
+            },
+    }
+</code></pre>
+
+<p>Also available is a list of package facts</p>
+
+<pre><code>ansible localhost -m package_facts --tree /tmp/package
+</code></pre>
+
+<p>This resulted in a json file with over 20000 lines, with details of everything installed on the machine, here is a section from the result:</p>
+
+<pre><code>    "ansible_facts":
+    {
+        "packages":
+        {
+            "apache2": [
+            {
+                "arch": "amd64",
+                "category": "httpd",
+                "name": "apache2",
+                "origin": "Debian",
+                "source": "apt",
+                "version": "2.4.46-1"
+            }],
+            "zeal": [
+            {
+                "arch": "amd64",
+                "category": "doc",
+                "name": "zeal",
+                "origin": "",
+                "source": "apt",
+                "version": "1:0.6.1-1+b1"
+            }],
+        }
+    }
+</code></pre>
+
+<p>This provides a great deal of info about the machine, from which you could manage the the machines with conditionals like this.</p>
+
+<pre><code>- hosts: localhost
+  roles:
+     - role: debian_stock_config
+       when: ansible_facts['os_family'] == 'Debian'
+</code></pre>
+
+<p>One thing I really like about Ansible is it is pretty obvious what the code is doing, and logical in how it does it. All these commands in this first part are ad-hoc, as in they are single commands you run in the command line.</p>
 
     <p>I would like to hear from you about this, if you can contact me on twitter <a href="https://www.twitter.com/allotmentandy1">@allotmentandy1</a> thats an easy way to start a discussion.</p>
 
@@ -136,15 +226,12 @@
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian" title="Older Post: Offline Documentation on Debian">
-                    &LeftArrow; Offline Documentation on Debian
+                            <a href="https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger" title="Older Post: Bash fwf ranger">
+                    &LeftArrow; Bash fwf ranger
                 </a>
                     </div>
 
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-11-14-Ansible-Ansible-Ansible-part-1" title="Newer Post: Ansible Ansible Ansible - Part 1">
-                    Ansible Ansible Ansible - Part 1 &RightArrow;
-                </a>
                     </div>
     </nav>
 </div>

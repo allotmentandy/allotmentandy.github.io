@@ -3,12 +3,133 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-11-08T14:47:34+00:00</updated>
+    <updated>2020-11-14T17:40:35+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2020-11-14-Ansible-Ansible-Ansible-part-1</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-11-14-Ansible-Ansible-Ansible-part-1" />
+    <title>Ansible Ansible Ansible - Part 1</title>
+    <published>2020-11-14T00:00:00+00:00</published>
+    <updated>2020-11-14T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">my first article in a series on Ansible, covering the Facts ansible can tell you about your machines and how I have been learning Ansible....</summary>
+    <content type="html"><![CDATA[
+        <p>Of all the Devops tools I have learnt this year, Ansible is my favourite. The ability to connect to different servers and perform different tasks in a way you can expect is superb. I have installed different flavour Linux Virtual Machines alongside my Raspberry Pi's and it connects to each one and does its thing as I expect.</p>
+
+<p>The idea of automating everything, having it act in an expected and repeatable way is superb. I have written bash scripts that try to do this in the past, but fall over at scale and repeatability. Ansible is great for this.</p>
+
+<p>In the process of learning ansible I have an inventory with 1 control node and 4 machines</p>
+
+<pre><code>[x] localhost (debian 10) [Control node]
+[x] virtual machine (centos 8)
+[x] virtual machine (ubuntu 20)
+[x] virtual machine (alpine linux 3.12)
+[x] raspberry pi (raspbian)
+</code></pre>
+
+<p>With this as my personal cloud, i can connect with ansible via ssh and run a whole range of tasks including:</p>
+
+<pre><code>[x] install and configure a webserver, mysql and install a laravel github repo
+[x] run a git pull to update the repo
+[x] update the OS and software
+[x] install a docker container on a server 
+[x] check the status of the machines 
+</code></pre>
+
+<p>Ansible provides a number of Facts for a machine which can be seen with this command:</p>
+
+<pre><code>ansible localhost -m setup --tree /tmp/facts
+</code></pre>
+
+<p>it is a json file of around 600 lines of Facts including for my localhost machine:</p>
+
+<pre><code>    "ansible_facts":
+    {
+        "ansible_os_family": "Debian",
+        "ansible_architecture": "x86_64",
+        "ansible_memtotal_mb": 7417,
+
+    }
+</code></pre>
+
+<p>There is also extensive details about hardrives, IP addresses, python versions, users and the computer in general.</p>
+
+<p>Similarly, Ansible provides details of the services running on the machine:</p>
+
+<pre><code>ansible localhost -m service_facts --tree /tmp/services
+</code></pre>
+
+<p>it provides a 1000 line Json file, with details of the services running on the machine, here is an example of the result:</p>
+
+<pre><code>    "ansible_facts":
+    {
+        "services":
+            "apache2":
+            {
+                "name": "apache2",
+                "source": "sysv",
+                "state": "running"
+            },
+            "apache2.service":
+            {
+                "name": "apache2.service",
+                "source": "systemd",
+                "state": "running",
+                "status": "enabled"
+            },
+    }
+</code></pre>
+
+<p>Also available is a list of package facts</p>
+
+<pre><code>ansible localhost -m package_facts --tree /tmp/package
+</code></pre>
+
+<p>This resulted in a json file with over 20000 lines, with details of everything installed on the machine, here is a section from the result:</p>
+
+<pre><code>    "ansible_facts":
+    {
+        "packages":
+        {
+            "apache2": [
+            {
+                "arch": "amd64",
+                "category": "httpd",
+                "name": "apache2",
+                "origin": "Debian",
+                "source": "apt",
+                "version": "2.4.46-1"
+            }],
+            "zeal": [
+            {
+                "arch": "amd64",
+                "category": "doc",
+                "name": "zeal",
+                "origin": "",
+                "source": "apt",
+                "version": "1:0.6.1-1+b1"
+            }],
+        }
+    }
+</code></pre>
+
+<p>This provides a great deal of info about the machine, from which you could manage the the machines with conditionals like this.</p>
+
+<pre><code>- hosts: localhost
+  roles:
+     - role: debian_stock_config
+       when: ansible_facts['os_family'] == 'Debian'
+</code></pre>
+
+<p>One thing I really like about Ansible is it is pretty obvious what the code is doing, and logical in how it does it. All these commands in this first part are ad-hoc, as in they are single commands you run in the command line.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger" />
     <title>Bash fwf ranger</title>
@@ -28,6 +149,11 @@ The two tools i really liked and have found really useful are &lt;code&gt;fzf&lt
 <h3>fzf</h3>
 
 <p>fzf is a fuzzy search for the terminal. To search for docs in the directory which contain ansible  run <code>ls | fzf</code> and i can type ansible and it shows the files that contain ansible.</p>
+
+<p>To search for ansible only use:</p>
+
+<pre><code>ls | fzf -e -q "ansible"
+</code></pre>
 
 <h3>ranger</h3>
 
@@ -834,36 +960,6 @@ Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabb
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-30-laravel</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30-laravel" />
-    <title>Laravel</title>
-    <published>2020-05-08T00:00:00+00:00</published>
-    <updated>2020-05-08T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Laravel is a great PHP Framework which i have used for many years.
-
-There are a number of Laravel projects I am enjoying using at the moment
-
-Laravel Boilerplate
-
-Laravel Auth
-
-I am looking to create a dual language website in English and Portuguese to......</summary>
-    <content type="html"><![CDATA[
-        <p>Laravel is a great PHP Framework which i have used for many years.</p>
-
-<p>There are a number of Laravel projects I am enjoying using at the moment</p>
-
-<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
-
-<p><a href="https://github.com/jeremykenedy/laravel-auth/">Laravel Auth</a></p>
-
-<p>I am looking to create a dual language website in English and Portuguese to help me learn portuguese and as a playground to learn about internationalization and multi-language websites.</p>
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-08-markdown</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-08-markdown" />
     <title>Markdown</title>
@@ -996,6 +1092,36 @@ Any word wrapped with two tildes (like ~~this~~) will appear crossed out.
     ]]></content>
 </entry>
             <entry>
+    <id>https://allotmentandy.github.io/blog/2020-04-30-laravel</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30-laravel" />
+    <title>Laravel</title>
+    <published>2020-05-08T00:00:00+00:00</published>
+    <updated>2020-05-08T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Laravel is a great PHP Framework which i have used for many years.
+
+There are a number of Laravel projects I am enjoying using at the moment
+
+Laravel Boilerplate
+
+Laravel Auth
+
+I am looking to create a dual language website in English and Portuguese to......</summary>
+    <content type="html"><![CDATA[
+        <p>Laravel is a great PHP Framework which i have used for many years.</p>
+
+<p>There are a number of Laravel projects I am enjoying using at the moment</p>
+
+<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
+
+<p><a href="https://github.com/jeremykenedy/laravel-auth/">Laravel Auth</a></p>
+
+<p>I am looking to create a dual language website in English and Portuguese to help me learn portuguese and as a playground to learn about internationalization and multi-language websites.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-04-30</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30" />
     <title>Cooking Day</title>
@@ -1015,56 +1141,6 @@ overnight and today i will make bread and freeze a load of these....</summary>
 
 <p>This create 27 yeast blocks of around 0.6 ounces each. I left these drying
 overnight and today i will make bread and freeze a load of these.</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
-    <title>Jigsaw Templates</title>
-    <published>2020-04-29T00:00:00+00:00</published>
-    <updated>2020-04-29T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
-working.
-
-
-
-[ ] Daily page - template for each day, with a shell script to create it
-
-[ ] Code page - with examples of code blocks
-
-[ ] Markdown Examples
-
-
-
-[x] Build.sh - build......</summary>
-    <content type="html"><![CDATA[
-        <h3>7.35 am</h3>
-
-<p>Working on templates for this static site. The mix of markdown and HTML isnt
-working.</p>
-
-<h4>Templates to make</h4>
-
-<p>[ ] Daily page - template for each day, with a shell script to create it</p>
-
-<p>[ ] Code page - with examples of code blocks</p>
-
-<p>[ ] Markdown Examples</p>
-
-<h4>Shell Scripts</h4>
-
-<p>[x] Build.sh - build both the local and production sites</p>
-
-<p>[ ] Deploy to github.io</p>
-
-<p>[ ] Create daily post page</p>
-
-<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
-
-<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
     ]]></content>
 </entry>
             <entry>
@@ -1148,6 +1224,56 @@ like this <code>php artisan make:post 'title of post'</code> but i will make it 
 <p><a href="http://localhost:3000/blog/2020-04-29" title="Older Post: Templates, Markdown and
 Shell Scripts for Jigsaw"> ← Templates, Markdown and Shell Scripts for Jigsaw
 </a></p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
+    <title>Jigsaw Templates</title>
+    <published>2020-04-29T00:00:00+00:00</published>
+    <updated>2020-04-29T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
+working.
+
+
+
+[ ] Daily page - template for each day, with a shell script to create it
+
+[ ] Code page - with examples of code blocks
+
+[ ] Markdown Examples
+
+
+
+[x] Build.sh - build......</summary>
+    <content type="html"><![CDATA[
+        <h3>7.35 am</h3>
+
+<p>Working on templates for this static site. The mix of markdown and HTML isnt
+working.</p>
+
+<h4>Templates to make</h4>
+
+<p>[ ] Daily page - template for each day, with a shell script to create it</p>
+
+<p>[ ] Code page - with examples of code blocks</p>
+
+<p>[ ] Markdown Examples</p>
+
+<h4>Shell Scripts</h4>
+
+<p>[x] Build.sh - build both the local and production sites</p>
+
+<p>[ ] Deploy to github.io</p>
+
+<p>[ ] Create daily post page</p>
+
+<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
+
+<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
     ]]></content>
 </entry>
             <entry>
