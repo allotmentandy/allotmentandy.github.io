@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues.">
-        <meta property="og:title" content="Bash Scripts for Laravel PHP Linux Devops | AllotmentAndy"/>
+        <meta property="og:title" content="Tailwind CSS | AllotmentAndy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-08-25-bash-scripts-for-laravel-php-linux-devops"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-02-21-Tailwind-CSS"/>
         <meta property="og:description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="AllotmentAndy Atom Feed">
-            <meta property="og:title" content="Bash Scripts for Laravel PHP Linux Devops" />
+            <meta property="og:title" content="Tailwind CSS" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-08-25-bash-scripts-for-laravel-php-linux-devops"/>
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-02-21-Tailwind-CSS"/>
     <meta property="og:description" content="" />
-        <title>AllotmentAndy | Bash Scripts for Laravel PHP Linux Devops</title>
+        <title>AllotmentAndy | Tailwind CSS</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=f752597274ed5a969a4b">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -87,100 +87,34 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/Bash.svg" alt="Bash Scripts for Laravel PHP Linux Devops" class=" w-16 h-16 inline-block">
-                Bash Scripts for Laravel PHP Linux Devops
+                <img src="/assets/img/Tailwindcss.svg" alt="Tailwind CSS" class=" w-16 h-16 inline-block">
+                Tailwind CSS
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">August 25, 2020</p>
+    <p class="text-gray-700 text-sm md:mt-0">February 21, 2021</p>
 
                         <a
-                href="/blog/categories/bash"
-                title="View posts in bash"
+                href="/blog/categories/tailwindcss"
+                title="View posts in tailwindcss"
                 class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >bash</a>
-                    <a
-                href="/blog/categories/debian"
-                title="View posts in debian"
-                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >debian</a>
-                    <a
-                href="/blog/categories/devops"
-                title="View posts in devops"
-                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >devops</a>
-                    <a
-                href="/blog/categories/laravel"
-                title="View posts in laravel"
-                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >laravel</a>
+            >tailwindcss</a>
             
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4" v-pre>
-        <p>Having spent the summer learning more of the Devops toolkit, I often come back to bash shell scripts to achieve something.</p>
+        <p>The original version of Tailwind CSS used jigsaw for the docs, the same project i use for this blog, which was lovely. However the latest version (2.0.3 at the time of writing) has migrated to next.js so it was time to investigate and install.</p>
 
-<h3>importEnv.sh</h3>
+<p><a href="https://github.com/tailwindlabs/tailwindcss.com">github.com/tailwindlabs/tailwindcss.com</a></p>
 
-<p>I wanted a little script to import the values of the .env file to use in the bash scripts. This works as i expect.</p>
+<p>I prefer to have apache serve all my pages locally, so i followed the instructions adding a</p>
 
-<pre><code class="language-bash">#!/bin/bash
+<p><code>yarnpkg export</code></p>
 
-source /var/www/laravel/.env
-echo $DB_USERNAME
-</code></pre>
+<p>to create an html static site of the documentation into an 'out' directory which apache can serve, which all worked well (if a little slow to generate it all). But it all works locally, which i like.</p>
 
-<h3>mysqlBackup</h3>
+<h3>Awesome TailwindCSS</h3>
 
-<p>This is a one liner to backup all the mysql databases.</p>
+<p>As the Tailwind CSS project has grown and matured, a great <a href="https://github.com/aniftyco/awesome-tailwindcss">Awesome TailwindCSS</a> github page has grown and grown.</p>
 
-<pre><code>mysql -u root -p -N -e 'show databases' | while read dbname; do mysqldump -u root -p --complete-insert --routines --triggers --single-transaction "$dbname" &gt; "$dbname".sql; done
-
-</code></pre>
-
-<h3>deploy.sh</h3>
-
-<p>Working with the jigsaw static site builder, i wrote this simple script to copy the production version of the site to another directory and deploy it to the github pages site.</p>
-
-<pre><code class="language-bash">#!/bin/bash -e
-
-echo "Deploying build_production to allotmentandy.github.io"
-echo "---------"
-
-cd build_production 
-cp -r * /var/www/allotmentandy.github.io
-
-cd /var/www/allotmentandy.github.io
-
-git add .
-git commit -m "update"
-git push
-
-echo 'finished'
-</code></pre>
-
-<h3>clearLaravelCaches.sh</h3>
-
-<pre><code class="language-bash">#!/bin/bash
-
-echo "This a bash script to run composer clear the caches)"
-echo "--------------"
-php -v
-#echo "--------------"
-
-cd /var/www/laravel
-
-php artisan down
-
-composer dump-autoload -o
-
-php artisan view:clear
-php artisan config:clear
-php artisan cache:clear
-php artisan route:clear
-php artisan clear-compiled
-php artisan config:cache
-php artisan optimize
-
-php artisan up
-</code></pre>
+<p>https://tail-animista.vercel.app/</p>
 
     <p>I would like to hear from you about this, if you can contact me on twitter <a href="https://www.twitter.com/allotmentandy1">@allotmentandy1</a> thats an easy way to start a discussion.</p>
 
@@ -189,15 +123,12 @@ php artisan up
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-07-27-moving-into-devops" title="Older Post: Moving into Devops">
-                    &LeftArrow; Moving into Devops
+                            <a href="https://allotmentandy.github.io/blog/2020-11-15-Ansible-Ansible-Ansible-part-2" title="Older Post: Ansible Ansible Ansible - Part 2">
+                    &LeftArrow; Ansible Ansible Ansible - Part 2
                 </a>
                     </div>
 
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian" title="Newer Post: Offline Documentation on Debian">
-                    Offline Documentation on Debian &RightArrow;
-                </a>
                     </div>
     </nav>
 </div>

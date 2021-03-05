@@ -3,12 +3,70 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2020-11-14T17:44:28+00:00</updated>
+    <updated>2021-03-05T14:00:22+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-02-21-Tailwind-CSS</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-02-21-Tailwind-CSS" />
+    <title>Tailwind CSS</title>
+    <published>2021-02-21T00:00:00+00:00</published>
+    <updated>2021-02-21T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">The original version of Tailwind CSS used jigsaw for the docs, the same project i use for this blog, which was lovely. However the latest version (2.0.3 at the time of writing) has migrated to next.js so it was time to investigate and install.......</summary>
+    <content type="html"><![CDATA[
+        <p>The original version of Tailwind CSS used jigsaw for the docs, the same project i use for this blog, which was lovely. However the latest version (2.0.3 at the time of writing) has migrated to next.js so it was time to investigate and install.</p>
+
+<p><a href="https://github.com/tailwindlabs/tailwindcss.com">github.com/tailwindlabs/tailwindcss.com</a></p>
+
+<p>I prefer to have apache serve all my pages locally, so i followed the instructions adding a</p>
+
+<p><code>yarnpkg export</code></p>
+
+<p>to create an html static site of the documentation into an 'out' directory which apache can serve, which all worked well (if a little slow to generate it all). But it all works locally, which i like.</p>
+
+<h3>Awesome TailwindCSS</h3>
+
+<p>As the Tailwind CSS project has grown and matured, a great <a href="https://github.com/aniftyco/awesome-tailwindcss">Awesome TailwindCSS</a> github page has grown and grown.</p>
+
+<p>https://tail-animista.vercel.app/</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-11-15-Ansible-Ansible-Ansible-part-2</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-11-15-Ansible-Ansible-Ansible-part-2" />
+    <title>Ansible Ansible Ansible - Part 2</title>
+    <published>2020-11-15T00:00:00+00:00</published>
+    <updated>2020-11-15T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Ansible resources online, Ansible cheatsheets and Ansible Videos I really enjoyed....</summary>
+    <content type="html"><![CDATA[
+        <p>The other day I wrote an post about the offline resources I use for learning, especially about Ansible which you can read here <a href="https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian" title="" target="_blank_">Offline documentation on Debian</a> Zeal and Devdocs.io are very useful.</p>
+
+<h3>Ansible Websites and Websites</h3>
+
+<p>I have now been using and learning Ansible for a good few months and wanted to list all the resources I regularly use.</p>
+
+<p><a href="https://www.ansible.com/" title="" target="_blank_">www.ansible.com</a></p>
+
+<p><a href="https://docs.ansible.com/ansible/2.9/user_guide/" title="" target="_blank_">docs.ansible.com</a></p>
+
+<p><a href="https://stackoverflow.com/questions/tagged/ansible" title="" target="_blank_">Stack Overflow questions tagged with Ansible</a></p>
+
+<h3>Ansible Videos</h3>
+
+<p>I really like learning videos in the evening to find out more about a topic. Jeff is a great Ansible guru and this playlist has taught me a lot. His books are also superb resources for learning about the world of Ansible.</p>
+
+<iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/goclfp6a2IQ?autoplay=0&origin=http://example.com" frameborder="0"></iframe>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-11-14-Ansible-Ansible-Ansible-part-1</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-11-14-Ansible-Ansible-Ansible-part-1" />
     <title>Ansible Ansible Ansible - Part 1</title>
@@ -828,6 +886,20 @@ Available commands:
     ]]></content>
 </entry>
             <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
+    <title>Testing a blade.md template for a post</title>
+    <published>2020-05-17T00:00:00+00:00</published>
+    <updated>2020-05-17T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Trying to get a blade.md template to work as i expect....</summary>
+    <content type="html"><![CDATA[
+        
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site" />
     <title>Internationalization Of A Jigsaw Static Site</title>
@@ -851,20 +923,6 @@ I would like a language switcher to swap between EN and PT at first. This would 
 <p>I have created an <a href="/about-pt/">/about_pt</a> page to experiment with this</p>
 
 <p>https://lokalise.com/blog/localizing-apps-jquery/</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
-    <title>Testing a blade.md template for a post</title>
-    <published>2020-05-17T00:00:00+00:00</published>
-    <updated>2020-05-17T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Trying to get a blade.md template to work as i expect....</summary>
-    <content type="html"><![CDATA[
-        
     ]]></content>
 </entry>
             <entry>
@@ -914,6 +972,30 @@ The collection in the config.php file......</summary>
     ]]></content>
 </entry>
             <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked" />
+    <title>Yesterday I Cooked</title>
+    <published>2020-05-09T00:00:00+00:00</published>
+    <updated>2020-05-09T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Yesterday it was my turn to cook. I made a Focaccia. for lunch, a  2 pound loaf and a lemon maderia cake.
+
+lunch was a smorgasbord of fresh salad with the nice focaccia.
+
+Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabbage......</summary>
+    <content type="html"><![CDATA[
+        <p>Yesterday it was my turn to cook. I made a Focaccia. for lunch, a  2 pound loaf and a lemon maderia cake.</p>
+
+<p>lunch was a smorgasbord of fresh salad with the nice focaccia.</p>
+
+<p>Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabbage and mizuna.</p>
+
+<p>It was all very nice</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
     <title>GRR, Duplicate Github Pages</title>
@@ -936,27 +1018,33 @@ I deleted that repo and now it is working as expected....</summary>
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked" />
-    <title>Yesterday I Cooked</title>
-    <published>2020-05-09T00:00:00+00:00</published>
-    <updated>2020-05-09T00:00:00+00:00</updated>
+    <id>https://allotmentandy.github.io/blog/2020-04-30-laravel</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30-laravel" />
+    <title>Laravel</title>
+    <published>2020-05-08T00:00:00+00:00</published>
+    <updated>2020-05-08T00:00:00+00:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
-    <summary type="html">Yesterday it was my turn to cook. I made a Focaccia. for lunch, a  2 pound loaf and a lemon maderia cake.
+    <summary type="html">Laravel is a great PHP Framework which i have used for many years.
 
-lunch was a smorgasbord of fresh salad with the nice focaccia.
+There are a number of Laravel projects I am enjoying using at the moment
 
-Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabbage......</summary>
+Laravel Boilerplate
+
+Laravel Auth
+
+I am looking to create a dual language website in English and Portuguese to......</summary>
     <content type="html"><![CDATA[
-        <p>Yesterday it was my turn to cook. I made a Focaccia. for lunch, a  2 pound loaf and a lemon maderia cake.</p>
+        <p>Laravel is a great PHP Framework which i have used for many years.</p>
 
-<p>lunch was a smorgasbord of fresh salad with the nice focaccia.</p>
+<p>There are a number of Laravel projects I am enjoying using at the moment</p>
 
-<p>Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabbage and mizuna.</p>
+<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
 
-<p>It was all very nice</p>
+<p><a href="https://github.com/jeremykenedy/laravel-auth/">Laravel Auth</a></p>
+
+<p>I am looking to create a dual language website in English and Portuguese to help me learn portuguese and as a playground to learn about internationalization and multi-language websites.</p>
     ]]></content>
 </entry>
             <entry>
@@ -1092,36 +1180,6 @@ Any word wrapped with two tildes (like ~~this~~) will appear crossed out.
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-30-laravel</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30-laravel" />
-    <title>Laravel</title>
-    <published>2020-05-08T00:00:00+00:00</published>
-    <updated>2020-05-08T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Laravel is a great PHP Framework which i have used for many years.
-
-There are a number of Laravel projects I am enjoying using at the moment
-
-Laravel Boilerplate
-
-Laravel Auth
-
-I am looking to create a dual language website in English and Portuguese to......</summary>
-    <content type="html"><![CDATA[
-        <p>Laravel is a great PHP Framework which i have used for many years.</p>
-
-<p>There are a number of Laravel projects I am enjoying using at the moment</p>
-
-<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
-
-<p><a href="https://github.com/jeremykenedy/laravel-auth/">Laravel Auth</a></p>
-
-<p>I am looking to create a dual language website in English and Portuguese to help me learn portuguese and as a playground to learn about internationalization and multi-language websites.</p>
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2020-04-30</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30" />
     <title>Cooking Day</title>
@@ -1141,6 +1199,56 @@ overnight and today i will make bread and freeze a load of these....</summary>
 
 <p>This create 27 yeast blocks of around 0.6 ounces each. I left these drying
 overnight and today i will make bread and freeze a load of these.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
+    <title>Jigsaw Templates</title>
+    <published>2020-04-29T00:00:00+00:00</published>
+    <updated>2020-04-29T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
+working.
+
+
+
+[ ] Daily page - template for each day, with a shell script to create it
+
+[ ] Code page - with examples of code blocks
+
+[ ] Markdown Examples
+
+
+
+[x] Build.sh - build......</summary>
+    <content type="html"><![CDATA[
+        <h3>7.35 am</h3>
+
+<p>Working on templates for this static site. The mix of markdown and HTML isnt
+working.</p>
+
+<h4>Templates to make</h4>
+
+<p>[ ] Daily page - template for each day, with a shell script to create it</p>
+
+<p>[ ] Code page - with examples of code blocks</p>
+
+<p>[ ] Markdown Examples</p>
+
+<h4>Shell Scripts</h4>
+
+<p>[x] Build.sh - build both the local and production sites</p>
+
+<p>[ ] Deploy to github.io</p>
+
+<p>[ ] Create daily post page</p>
+
+<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
+
+<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
     ]]></content>
 </entry>
             <entry>
@@ -1224,56 +1332,6 @@ like this <code>php artisan make:post 'title of post'</code> but i will make it 
 <p><a href="http://localhost:3000/blog/2020-04-29" title="Older Post: Templates, Markdown and
 Shell Scripts for Jigsaw"> ← Templates, Markdown and Shell Scripts for Jigsaw
 </a></p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
-    <title>Jigsaw Templates</title>
-    <published>2020-04-29T00:00:00+00:00</published>
-    <updated>2020-04-29T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
-working.
-
-
-
-[ ] Daily page - template for each day, with a shell script to create it
-
-[ ] Code page - with examples of code blocks
-
-[ ] Markdown Examples
-
-
-
-[x] Build.sh - build......</summary>
-    <content type="html"><![CDATA[
-        <h3>7.35 am</h3>
-
-<p>Working on templates for this static site. The mix of markdown and HTML isnt
-working.</p>
-
-<h4>Templates to make</h4>
-
-<p>[ ] Daily page - template for each day, with a shell script to create it</p>
-
-<p>[ ] Code page - with examples of code blocks</p>
-
-<p>[ ] Markdown Examples</p>
-
-<h4>Shell Scripts</h4>
-
-<p>[x] Build.sh - build both the local and production sites</p>
-
-<p>[ ] Deploy to github.io</p>
-
-<p>[ ] Create daily post page</p>
-
-<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
-
-<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
     ]]></content>
 </entry>
             <entry>
