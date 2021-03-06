@@ -3,7 +3,7 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-03-06T13:01:04+00:00</updated>
+    <updated>2021-03-06T13:26:50+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -30,7 +30,7 @@ I have been meaning......</summary>
     find /var/www/jigsaw-blog/source/_posts/   | entr sh -c './build.sh';
 </code></pre>
 
-<p>One problem i found was the max_user_watches was set to low, so run the following as root to increase the number of file nodes this is allowed to watch. And it worked perfectly after that.</p>
+<p>One problem i found was the max_user_watches was set too low, so running the following command as root, increases the number of file nodes this is allowed to watch. And it worked perfectly after that.</p>
 
 <pre><code class="language-sh">    echo 100000 | tee /proc/sys/fs/inotify/max_user_watches
 </code></pre>
@@ -43,7 +43,7 @@ I have been meaning......</summary>
 --production    generates the production build
 </code></pre>
 
-<p>It uses espeak to tell me it is building (a bit like command and conquer!) and then xdotool to reload the firefox browser.</p>
+<p>It uses espeak to announce it is building (a bit like command and conquer!) and then xdotool to reload the firefox browser.</p>
 
 <pre><code class="language-sh">#!/bin/bash -e
 

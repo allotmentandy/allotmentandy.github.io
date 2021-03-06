@@ -119,7 +119,7 @@
     find /var/www/jigsaw-blog/source/_posts/   | entr sh -c './build.sh';
 </code></pre>
 
-<p>One problem i found was the max_user_watches was set to low, so run the following as root to increase the number of file nodes this is allowed to watch. And it worked perfectly after that.</p>
+<p>One problem i found was the max_user_watches was set too low, so running the following command as root, increases the number of file nodes this is allowed to watch. And it worked perfectly after that.</p>
 
 <pre><code class="language-sh">    echo 100000 | tee /proc/sys/fs/inotify/max_user_watches
 </code></pre>
@@ -132,7 +132,7 @@
 --production    generates the production build
 </code></pre>
 
-<p>It uses espeak to tell me it is building (a bit like command and conquer!) and then xdotool to reload the firefox browser.</p>
+<p>It uses espeak to announce it is building (a bit like command and conquer!) and then xdotool to reload the firefox browser.</p>
 
 <pre><code class="language-sh">#!/bin/bash -e
 
