@@ -3,12 +3,89 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-03-05T14:07:45+00:00</updated>
+    <updated>2021-03-06T12:29:29+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-03-05-command-to-run-build-script-on-save</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-03-05-command-to-run-build-script-on-save" />
+    <title>Script to run build script on save</title>
+    <published>2021-03-05T00:00:00+00:00</published>
+    <updated>2021-03-05T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Today I decided I wanted a script to auto build the site on each save of this jigsaw blog. I was playing with the css yesterday and liked the simplicity of the npm watch command, but wanted something similar for the build.sh script.
+
+I have been meaning......</summary>
+    <content type="html"><![CDATA[
+        <p>Today I decided I wanted a script to auto build the site on each save of this jigsaw blog. I was playing with the css yesterday and liked the simplicity of the <em>npm watch</em> command, but wanted something similar for the build.sh script.</p>
+
+<p>I have been meaning to use <em>entr</em> for a while <a href="http://eradman.com/entrproject/" title="" target="_blank_">see entr docs</a> and this seemed perfect for the job.</p>
+
+<pre><code class="language-sh">    #!/bin/bash
+
+    find /var/www/jigsaw-blog/source/_posts/   | entr sh -c './build.sh';
+</code></pre>
+
+<p>One problem i found was the max_user_watches was set to low, so run the following as root to increase the number of file nodes this is allowed to watch. And it worked perfectly after that.</p>
+
+<pre><code class="language-sh">    echo 100000 | tee /proc/sys/fs/inotify/max_user_watches
+</code></pre>
+
+<p>Another problem i found is that it breaks if you rename a file, as it monitors for changes, but i can deal with that.</p>
+
+<p>This is my build.sh script. It runs the local build but can also run with these flags too:</p>
+
+<pre><code>--npm           runs the laravel mix webpack build
+--production    generates the production build
+</code></pre>
+
+<p>It uses espeak to tell me it is building (a bit like command and conquer!) and then xdotool to reload the firefox browser.</p>
+
+<pre><code class="language-sh">#!/bin/bash -e
+
+# espeak "Building"
+
+for arg in "$@"
+do
+    if [ "$arg" == "--npm" ] 
+    then
+        echo "Running npm run production"
+        espeak " running en pee em "
+        npm run production
+    fi
+done
+
+espeak "building Local"
+
+ ./vendor/bin/jigsaw -vvv build 
+
+for arg in "$@"
+do
+    if [ "$arg" == "--production" ] 
+    then
+        espeak "building production"
+        ./vendor/bin/jigsaw build production -vvv
+    fi
+done
+
+espeak "Finished"
+
+# reload firefox in background
+CURRENT_WID=$(xdotool getwindowfocus)
+WID=$(xdotool search --name "Mozilla Firefox")
+xdotool windowactivate $WID
+xdotool key F5
+# return to the editor (i prefer it to keep the browser at the front so comment this out!)
+xdotool windowactivate $CURRENT_WID
+
+</code></pre>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-02-21-Tailwind-CSS</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-02-21-Tailwind-CSS" />
     <title>Tailwind CSS</title>
@@ -188,44 +265,6 @@
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger" />
-    <title>Bash fwf ranger</title>
-    <published>2020-11-08T00:00:00+00:00</published>
-    <updated>2020-11-08T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle Fun tools to simplify your life in the command line
-
-The two tools i really liked and have found really useful are &lt;code&gt;fzf&lt;/code&gt;......</summary>
-    <content type="html"><![CDATA[
-        <p>I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle <a href="https://www.youtube.com/watch?v=BFKT7aj-i80" title="" target="_blank">Fun tools to simplify your life in the command line</a></p>
-
-<p>The two tools i really liked and have found really useful are <code>fzf</code> and <code>ranger</code>.</p>
-
-<h3>fzf</h3>
-
-<p>fzf is a fuzzy search for the terminal. To search for docs in the directory which contain ansible  run <code>ls | fzf</code> and i can type ansible and it shows the files that contain ansible.</p>
-
-<p>To search for ansible only use:</p>
-
-<pre><code>ls | fzf -e -q "ansible"
-</code></pre>
-
-<h3>ranger</h3>
-
-<p><code>ranger</code> is a terminal file manager that is nice and quick and lets me navigate and view the file content.</p>
-
-<p>both of these tools can be installed with</p>
-
-<pre><code>apt-get install fzf ranger
-</code></pre>
-
-<p>I am always on the lookout for more tools that improve and speed up the workflow.</p>
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian" />
     <title>Offline Documentation on Debian</title>
@@ -273,6 +312,44 @@ One thing i really like to use is offline tools to help me access info offline. 
 <hr />
 
 <p>I would be interested in anymore tools people use for offline documentation, especially one that covers Tailwind CSS.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger" />
+    <title>Bash fwf ranger</title>
+    <published>2020-11-08T00:00:00+00:00</published>
+    <updated>2020-11-08T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle Fun tools to simplify your life in the command line
+
+The two tools i really liked and have found really useful are &lt;code&gt;fzf&lt;/code&gt;......</summary>
+    <content type="html"><![CDATA[
+        <p>I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle <a href="https://www.youtube.com/watch?v=BFKT7aj-i80" title="" target="_blank">Fun tools to simplify your life in the command line</a></p>
+
+<p>The two tools i really liked and have found really useful are <code>fzf</code> and <code>ranger</code>.</p>
+
+<h3>fzf</h3>
+
+<p>fzf is a fuzzy search for the terminal. To search for docs in the directory which contain ansible  run <code>ls | fzf</code> and i can type ansible and it shows the files that contain ansible.</p>
+
+<p>To search for ansible only use:</p>
+
+<pre><code>ls | fzf -e -q "ansible"
+</code></pre>
+
+<h3>ranger</h3>
+
+<p><code>ranger</code> is a terminal file manager that is nice and quick and lets me navigate and view the file content.</p>
+
+<p>both of these tools can be installed with</p>
+
+<pre><code>apt-get install fzf ranger
+</code></pre>
+
+<p>I am always on the lookout for more tools that improve and speed up the workflow.</p>
     ]]></content>
 </entry>
             <entry>
@@ -972,6 +1049,28 @@ The collection in the config.php file......</summary>
     ]]></content>
 </entry>
             <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
+    <title>GRR, Duplicate Github Pages</title>
+    <published>2020-05-09T00:00:00+00:00</published>
+    <updated>2020-05-09T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">12.26pm
+
+It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
+
+I deleted that repo and now it is working as expected....</summary>
+    <content type="html"><![CDATA[
+        <p>12.26pm</p>
+
+<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
+
+<p>I deleted that repo and now it is working as expected.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked" />
     <title>Yesterday I Cooked</title>
@@ -993,28 +1092,6 @@ Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabb
 <p>Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabbage and mizuna.</p>
 
 <p>It was all very nice</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
-    <title>GRR, Duplicate Github Pages</title>
-    <published>2020-05-09T00:00:00+00:00</published>
-    <updated>2020-05-09T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">12.26pm
-
-It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
-
-I deleted that repo and now it is working as expected....</summary>
-    <content type="html"><![CDATA[
-        <p>12.26pm</p>
-
-<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
-
-<p>I deleted that repo and now it is working as expected.</p>
     ]]></content>
 </entry>
             <entry>
@@ -1202,56 +1279,6 @@ overnight and today i will make bread and freeze a load of these.</p>
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
-    <title>Jigsaw Templates</title>
-    <published>2020-04-29T00:00:00+00:00</published>
-    <updated>2020-04-29T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
-working.
-
-
-
-[ ] Daily page - template for each day, with a shell script to create it
-
-[ ] Code page - with examples of code blocks
-
-[ ] Markdown Examples
-
-
-
-[x] Build.sh - build......</summary>
-    <content type="html"><![CDATA[
-        <h3>7.35 am</h3>
-
-<p>Working on templates for this static site. The mix of markdown and HTML isnt
-working.</p>
-
-<h4>Templates to make</h4>
-
-<p>[ ] Daily page - template for each day, with a shell script to create it</p>
-
-<p>[ ] Code page - with examples of code blocks</p>
-
-<p>[ ] Markdown Examples</p>
-
-<h4>Shell Scripts</h4>
-
-<p>[x] Build.sh - build both the local and production sites</p>
-
-<p>[ ] Deploy to github.io</p>
-
-<p>[ ] Create daily post page</p>
-
-<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
-
-<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts" />
     <title>Jigsaw Static Site Thoughts</title>
@@ -1332,6 +1359,56 @@ like this <code>php artisan make:post 'title of post'</code> but i will make it 
 <p><a href="http://localhost:3000/blog/2020-04-29" title="Older Post: Templates, Markdown and
 Shell Scripts for Jigsaw"> ← Templates, Markdown and Shell Scripts for Jigsaw
 </a></p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
+    <title>Jigsaw Templates</title>
+    <published>2020-04-29T00:00:00+00:00</published>
+    <updated>2020-04-29T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
+working.
+
+
+
+[ ] Daily page - template for each day, with a shell script to create it
+
+[ ] Code page - with examples of code blocks
+
+[ ] Markdown Examples
+
+
+
+[x] Build.sh - build......</summary>
+    <content type="html"><![CDATA[
+        <h3>7.35 am</h3>
+
+<p>Working on templates for this static site. The mix of markdown and HTML isnt
+working.</p>
+
+<h4>Templates to make</h4>
+
+<p>[ ] Daily page - template for each day, with a shell script to create it</p>
+
+<p>[ ] Code page - with examples of code blocks</p>
+
+<p>[ ] Markdown Examples</p>
+
+<h4>Shell Scripts</h4>
+
+<p>[x] Build.sh - build both the local and production sites</p>
+
+<p>[ ] Deploy to github.io</p>
+
+<p>[ ] Create daily post page</p>
+
+<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
+
+<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
     ]]></content>
 </entry>
             <entry>
