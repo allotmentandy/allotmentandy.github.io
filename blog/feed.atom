@@ -3,7 +3,7 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-04-15T14:00:08+01:00</updated>
+    <updated>2021-04-15T14:52:20+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -55,6 +55,39 @@
         "fzaninotto/faker": "^1.9.1",
         "phpunit/phpunit": "^9.3"    
 </code></pre>
+
+<p>I still have a laravel 5.5 app that i like to use, to downgrade back to php7.4</p>
+
+<pre><code>a2dismod php8.0
+a2enmod php7.4
+systemctl restart apache2
+</code></pre>
+
+<p>and to re-enable php 8.0</p>
+
+<pre><code>a2enmod php8.0
+a2dismod php7.4
+systemctl restart apache2
+</code></pre>
+
+<p>But there is a better way, edit the apache2-site-74.conf and add this to the virtual host conf</p>
+
+<pre><code>        &lt;FilesMatch \.php$&gt;
+                # Apache 2.4.10+ can proxy to unix socket
+                SetHandler "proxy:unix:/var/run/php/php7.4-fpm.sock|fcgi://localhost/"
+        &lt;/FilesMatch&gt;
+
+</code></pre>
+
+<p>and enable the proxy module</p>
+
+<pre><code>a2enmod proxy_fcgi
+systemctl restart apache2
+</code></pre>
+
+<p>and viola! both versions work, php8 is the default, with php7.4 enabled for the site.</p>
+
+<p>Perfect!</p>
     ]]></content>
 </entry>
             <entry>
