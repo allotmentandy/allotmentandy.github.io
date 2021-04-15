@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues.">
-        <meta property="og:title" content="Jigsaw experiment with ~20,000 pages | AllotmentAndy"/>
+        <meta property="og:title" content="Debian commands to clean up after apt-get | AllotmentAndy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-13-jigsaw-experiment"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-04-14-debian-commands-to-clean-up-after-apt-get"/>
         <meta property="og:description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="AllotmentAndy Atom Feed">
-            <meta property="og:title" content="Jigsaw experiment with ~20,000 pages" />
+            <meta property="og:title" content="Debian commands to clean up after apt-get" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-13-jigsaw-experiment"/>
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-04-14-debian-commands-to-clean-up-after-apt-get"/>
     <meta property="og:description" content="" />
-        <title>AllotmentAndy | Jigsaw experiment with ~20,000 pages</title>
+        <title>AllotmentAndy | Debian commands to clean up after apt-get</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=04ef319281112663b762">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,23 +88,48 @@
 
     
     <h1 class="leading-none mb-2">
-                Jigsaw experiment with ~20,000 pages
+                <img src="/assets/img/Bash.svg" alt="Debian commands to clean up after apt-get" class=" w-16 h-16 inline-block">
+                Debian commands to clean up after apt-get
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">May 13, 2020</p>
+    <p class="text-gray-700 text-sm md:mt-0">April 14, 2021</p>
 
                         <a
-                href="/blog/categories/jigsaw"
-                title="View posts in jigsaw"
+                href="/blog/categories/debian"
+                title="View posts in debian"
                 class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >jigsaw</a>
+            >debian</a>
+                    <a
+                href="/blog/categories/bash"
+                title="View posts in bash"
+                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
+            >bash</a>
             
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4" v-pre>
-        <p>I wanted to try and experiment to see how many pages i can make in jigsaw, how long it would take to build and also would the search take it.</p>
+        <p>I like to keep my Debian Linux machine clean and up-to-date. I regularly run the update to get the latest versions and security patches. (I have disabled the default auto-update as it open happened when i was on a limited interenet connection)</p>
 
-<p>My idea is to output markdown pages for the 20,000 private jets in my laravel54 package. i think it will be easiest to make a laravel command to output it, then copy them to the jigsaw _posts directory to build.</p>
+<p>After running</p>
 
-<p>Will it be able to handle it?</p>
+<pre><code>apt-get update
+apt-get upgrade
+OR
+apt-get dist-upgrade
+</code></pre>
+
+<p>Regularly find that a lot of files are left behind. So i started a script to cleanup afterwards.</p>
+
+<pre><code>apt-get clean
+apt-get autoclean
+apt-get autoremove
+apt-get purge
+</code></pre>
+
+<p>using docker, there is also space to reclain using (WARNING: adding the -a at the end deletes all of them!)</p>
+
+<pre><code>docker system prune 
+</code></pre>
+
+<p>Interested to hear from everyone about how else they clean up space after installing and upgrading their computers...</p>
 
     <p>I would like to hear from you about this, if you can contact me on twitter <a href="https://www.twitter.com/allotmentandy1">@allotmentandy1</a> thats an easy way to start a discussion.</p>
 
@@ -113,14 +138,14 @@
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-05-09-jigsaw-ideas" title="Older Post: Jigsaw Ideas">
-                    &LeftArrow; Jigsaw Ideas
+                            <a href="https://allotmentandy.github.io/blog/2021-03-05-command-to-run-build-script-on-save" title="Older Post: Script to run build script on save">
+                    &LeftArrow; Script to run build script on save
                 </a>
                     </div>
 
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site" title="Newer Post: Internationalization Of A Jigsaw Static Site">
-                    Internationalization Of A Jigsaw Static Site &RightArrow;
+                            <a href="https://allotmentandy.github.io/blog/2021-04-15-Upgrading-to-php-8" title="Newer Post: Upgrading to PHP 8">
+                    Upgrading to PHP 8 &RightArrow;
                 </a>
                     </div>
     </nav>

@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues.">
-        <meta property="og:title" content="Jigsaw experiment with ~20,000 pages | AllotmentAndy"/>
+        <meta property="og:title" content="Upgrading to PHP 8 | AllotmentAndy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-13-jigsaw-experiment"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-04-15-Upgrading-to-php-8"/>
         <meta property="og:description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="AllotmentAndy Atom Feed">
-            <meta property="og:title" content="Jigsaw experiment with ~20,000 pages" />
+            <meta property="og:title" content="Upgrading to PHP 8" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-13-jigsaw-experiment"/>
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-04-15-Upgrading-to-php-8"/>
     <meta property="og:description" content="" />
-        <title>AllotmentAndy | Jigsaw experiment with ~20,000 pages</title>
+        <title>AllotmentAndy | Upgrading to PHP 8</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=04ef319281112663b762">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,23 +88,60 @@
 
     
     <h1 class="leading-none mb-2">
-                Jigsaw experiment with ~20,000 pages
+                <img src="/assets/img/php.svg" alt="Upgrading to PHP 8" class=" w-16 h-16 inline-block">
+                Upgrading to PHP 8
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">May 13, 2020</p>
+    <p class="text-gray-700 text-sm md:mt-0">April 15, 2021</p>
 
                         <a
-                href="/blog/categories/jigsaw"
-                title="View posts in jigsaw"
+                href="/blog/categories/laravel"
+                title="View posts in laravel"
                 class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >jigsaw</a>
+            >laravel</a>
+                    <a
+                href="/blog/categories/debian"
+                title="View posts in debian"
+                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
+            >debian</a>
             
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4" v-pre>
-        <p>I wanted to try and experiment to see how many pages i can make in jigsaw, how long it would take to build and also would the search take it.</p>
+        <p>With the launch of Laravel Octane, I decided it was time to update to PHP 8 on my debian box. This was the process, compiled from a number of webpages which seemed to have cut and paste the wget line wrongly. The php extensions are those needed for Laravel.</p>
 
-<p>My idea is to output markdown pages for the 20,000 private jets in my laravel54 package. i think it will be easiest to make a laravel command to output it, then copy them to the jigsaw _posts directory to build.</p>
+<p>update-alternatives is a lovely little tool to select which php version to use.</p>
 
-<p>Will it be able to handle it?</p>
+<pre><code>    apt-get install lsb-release apt-transport-https ca-certificates
+    wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+    echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+    apt-get update
+    apt-cache search php 8
+    apt install -y php8.0-{mysql,cli,common,snmp,ldap,curl,mbstring,zip,tidy,xml,opcache}
+    update-alternatives --config php
+    php -v
+</code></pre>
+
+<p>However, this only worked at the command line, to get apache to work with php8.0 i also ran</p>
+
+<pre><code>    apt-get install php8.0-fpm libapache2-mod-php8.0
+    a2dismod php7.4
+    a2enmod php-8.0
+    systemctl restart apache2
+</code></pre>
+
+<p>and viola! the phpinfo() was now version 8.0.3!</p>
+
+<p>However, a tested a Laravel 5 app and it errored with a blank screen. So had to update composer to version 2 and run a composer upgrade like so</p>
+
+<pre><code>    composer self-update --2
+    composer upgrade 
+</code></pre>
+
+<p>What an improvement in speed for composer! I had to update these lines in the composer json to</p>
+
+<pre><code>        "php": "^7.4|^8.0",
+        "fzaninotto/faker": "^1.9.1",
+        "phpunit/phpunit": "^9.3"    
+</code></pre>
 
     <p>I would like to hear from you about this, if you can contact me on twitter <a href="https://www.twitter.com/allotmentandy1">@allotmentandy1</a> thats an easy way to start a discussion.</p>
 
@@ -113,15 +150,12 @@
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-05-09-jigsaw-ideas" title="Older Post: Jigsaw Ideas">
-                    &LeftArrow; Jigsaw Ideas
+                            <a href="https://allotmentandy.github.io/blog/2021-04-14-debian-commands-to-clean-up-after-apt-get" title="Older Post: Debian commands to clean up after apt-get">
+                    &LeftArrow; Debian commands to clean up after apt-get
                 </a>
                     </div>
 
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site" title="Newer Post: Internationalization Of A Jigsaw Static Site">
-                    Internationalization Of A Jigsaw Static Site &RightArrow;
-                </a>
                     </div>
     </nav>
 </div>
