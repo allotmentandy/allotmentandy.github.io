@@ -3,7 +3,7 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-05-15T22:43:45+01:00</updated>
+    <updated>2021-05-15T23:42:10+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -35,6 +35,7 @@ I have created a demo page to show the map features from the list above. Try ent
 <li>amenity=restaurant</li>
 <li>sport=soccer</li>
 <li>highway=bus_stop</li>
+<li>name=Morrisons</li>
 </ul>
 
 <p>What I would like to do is create 2 subpage templates which pull the query from the url</p>
@@ -57,37 +58,8 @@ I have created a demo page to show the map features from the list above. Try ent
 <li>What is the difference between tags and map features. I wanted to show a friend an asian supermarket in hammersmith called <a href="https://www.openstreetmap.org/search?query=hammersmith#map=19/51.49335/-0.23940" title="" target="_blank">Thai Smile</a> - was wondering what is the tags/info for this place. Is this all the data that is stored for <a href="https://www.openstreetmap.org/node/313617786">Thai Smile</a></li>
 <li>I would like to see a map with all the tags / map features and ALL data for an area to see what is available. Would this be easier to do offline / locally?</li>
 <li>Can I use tags on the <a href="/overpassMap" title="" target="_blank">demo page</a> map?</li>
-<li>What are the best tools i can easily install on debian linux? Here is an edited list for apt:</li>
+<li>What are the best tools i can easily install on debian linux? I installed <strong>merkaartor</strong> a map editor for OpenStreetMap.org, and this allowed me to see the data stored for each entry. But where is this info actually visible on a map? There are shops that say they have a bing:photograph, but where is this visible? This is the data I would like to access and use. I would also update it too if I can use this how I hope I can.</li>
 </ol>
-
-<pre><code>    gis-osm - OpenStreetMap related programs
-    gis-web - Present geographic information via web map server
-    foxtrotgps - GTK+ mapping and GPS application
-    gambas3-gb-map - Gambas online map viewer
-    gnuaisgui - OpenStreetMap GUI for gnuais
-    gpsprune - visualize, edit, convert and prune GPS data
-    gpxviewer - views GPS traces collected in the GPX format
-    icingaweb2-module-map - Displays host objects as markers on openstreetmap
-    jmapviewer - Java OpenStreetMap Tile Viewer
-    josm - Editor for OpenStreetMap
-    josm-l10n - Editor for OpenStreetMap - translation files
-    kongress - companion application for conferences made by KDE
-    merkaartor - map editor for OpenStreetMap.org
-    mkgmap - Generate Garmin maps from OpenStreetMap data
-    mkgmap-splitter - Tile splitter for mkgmap
-    mkgmapgui - Graphical User Interface for mkgmap
-    maptool - Converts OpenStreetMap maps to Navit
-    gir1.2-osmgpsmap-1.0 - GTK+ library to embed OpenStreetMap maps - Python bindings
-    osm2pgrouting - Tool to import OpenStreetMap data into a pgRouting database
-    osm2pgsql - OpenStreetMap data to PostgreSQL converter
-    osmcoastline - Extract coastline data from OpenStreetMap planet file
-    osmctools - Some tools to manipulate OpenStreetMap files
-    osmosis - Command line OpenStreetMap data processor
-    osmpbf-bin - OpenStreetMap PBF file format library - tools
-    sosi2osm - SOSI to OSM converter
-    viking - GPS data editor, analyzer and viewer
-    josm-installer - Editor for OpenStreetMap (installer)
-</code></pre>
 
 <hr />
     ]]></content>
