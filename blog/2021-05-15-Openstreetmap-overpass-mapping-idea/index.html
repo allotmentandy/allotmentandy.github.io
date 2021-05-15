@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues.">
-        <meta property="og:title" content="Testing a blade.md template for a post | AllotmentAndy"/>
+        <meta property="og:title" content="Openstreetmap/Overpass Mapping Project | AllotmentAndy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-17-blade"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-05-15-Openstreetmap-overpass-mapping-idea"/>
         <meta property="og:description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="AllotmentAndy Atom Feed">
-            <meta property="og:title" content="Testing a blade.md template for a post" />
+            <meta property="og:title" content="Openstreetmap/Overpass Mapping Project" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-17-blade"/>
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-05-15-Openstreetmap-overpass-mapping-idea"/>
     <meta property="og:description" content="" />
-        <title>AllotmentAndy | Testing a blade.md template for a post</title>
+        <title>AllotmentAndy | Openstreetmap/Overpass Mapping Project</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=fe32cb5728cd9dfe4a30">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,35 +88,45 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/Laravel.svg" alt="Testing a blade.md template for a post" class=" w-16 h-16 inline-block">
-                Testing a blade.md template for a post
+                <img src="/assets/img/UK.svg" alt="Openstreetmap/Overpass Mapping Project" class=" w-16 h-16 inline-block">
+                Openstreetmap/Overpass Mapping Project
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">May 17, 2020</p>
+    <p class="text-gray-700 text-sm md:mt-0">May 15, 2021</p>
 
-                        <a
-                href="/blog/categories/jigsaw"
-                title="View posts in jigsaw"
-                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >jigsaw</a>
-                    <a
-                href="/blog/categories/laravel"
-                title="View posts in laravel"
-                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >laravel</a>
-            
+    
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4" v-pre>
-            <p>Originally i thought i could use .html files in the posts, but i dont think it is possible. But having read a few blog posts about jigsaw, I discovered you can use .blade.md!</p>
+        <p>I am looking at re-launching my <strong>London</strong> website using Openstreetmap with overpass data.</p>
 
-    <p>So this is my first experiment with that.</p> 
+<p><a href="https://wiki.openstreetmap.org/wiki/Map_features" title="" target="_blank">Openstreetmap tags / map features</a></p>
 
-    <strong>AND IT WORKS!!! </strong>
+<p>I have created a <a href="/overpassMap.php" title="" target="_blank">demo page</a> to show the tags from the list above. Try</p>
 
-    this is the sitename variable:AllotmentAndy
+<ul>
+<li>shop=butchers</li>
+<li>landuse=allotments</li>
+</ul>
 
-    <p>The mistake i made at first was calling the file date-blade.md it has to be date-blade.blade.md</p>
+<p>What I would like to do is create 2 subpage templates which pull the query from the url</p>
 
-    <p>I am not sure i need any blade features at the moment, but at least it is working now.
+<ul>
+<li>local area eg. Chiswick  /location/chiswick</li>
+<li>features eg. Butchers /shop/butchers</li>
+</ul>
+
+<p>At first i would like to start with a simple site, but structure it, so it is easy to add features in the future.</p>
+
+<p>I had Laravel in mind as I am used to developing with that, but not sure the best way to get this mapping included.</p>
+
+<h3>Questions</h3>
+
+<ol>
+<li>What mapping framework would you use to build this? I have looked into Leaflet.js for this demo.</li>
+<li>Is there an easy way to output all tags that apply to the UK? eg. aerialway=t-bar isnt really relevant as there are no ski-resorts in London</li>
+<li>How can I update the details for each business? whats the best way to get involved with the data here.</li>
+</ol>
+
+<hr />
 
     <p>I would like to hear from you about this, you can contact me on Twitter <a href="https://www.twitter.com/andylondon">@andylondon</a> thats an easy way to start a discussion.</p>
 
@@ -125,15 +135,12 @@
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-05-13-jigsaw-experiment" title="Older Post: Jigsaw experiment with ~20,000 pages">
-                    &LeftArrow; Jigsaw experiment with ~20,000 pages
+                            <a href="https://allotmentandy.github.io/blog/2021-04-16-Looking-for-work" title="Older Post: Looking for work">
+                    &LeftArrow; Looking for work
                 </a>
                     </div>
 
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site" title="Newer Post: Internationalization Of A Jigsaw Static Site">
-                    Internationalization Of A Jigsaw Static Site &RightArrow;
-                </a>
                     </div>
     </nav>
 </div>

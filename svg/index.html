@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues.">
+        <meta property="og:title" content="Welcome to my blog about Laravel, Jigsaw, Debian Linux, Cooking, Gardening and trying to find work... | AllotmentAndy"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues." />
+        <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="AllotmentAndy Atom Feed">
+                <title>AllotmentAndy | Welcome to my blog about Laravel, Jigsaw, Debian Linux, Cooking, Gardening and trying to find work...</title>
+                <link rel="stylesheet" href="/assets/build/css/main.css?id=e177a2a3d15eefc8157d">
+        <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
+    </head>
+    <body onload="drawGrid()" class="flex flex-col min-h-screen bg-blue-100 text-gray-800 leading-normal font-sans">
+   
+        <div class="flex">
+            <main role="main" class="flex-auto w-full container max-w-5xl ">
+                
+    <canvas id="cnv" width="1344" height="1344" class="p-0 m-0 block border-2 border-black">
+    
+    </canvas>
+    <a href="/">
+    <img src="http://s.cdpn.io/3/kiwi.svg" 
+       style="position: absolute; 
+              left: 155px; 
+              top:122px;
+              z-index: 2;
+              width: 24px;
+       " /></a>
+
+<form action="">
+<a href="/">
+    <input type="submit" value="Go" 
+    class="bg-blue-500 hover:bg-blue-700 border border-black text-white text-xs py-0 px-0 rounded"
+        style="position: absolute; 
+            left: 180px; 
+            top:122px;
+        z-index: 2;
+        width: 24px;
+        "
+       > <a href="/">
+</form>
+
+
+<a href="/"
+class="bg-blue-500 hover:bg-blue-700 border border-black text-white text-xs py-0 px-0 rounded"
+style="position: absolute; 
+            left: 217px; 
+            top:122px;
+        z-index: 2;
+        width: 24px;
+        "
+alt="2345"
+>
+123
+</a> 
+
+           </main>
+        </div>
+            <script src="/assets/build/js/main.js?id=7729ea0c4f66746536c8"></script>
+            <script>
+function drawGrid() {
+            var cnv, ctx, gridOptions;
+        
+            cnv = document.getElementById("cnv");
+            
+            gridOptions = {
+                minorLines: {
+                    separation: 336,
+                    color: '#444'
+                },
+                majorLines: {
+                    separation: 24,
+                    color: '#ADADAD'
+                }
+            };
+        
+            ctx = cnv.getContext('2d');
+            
+            ctx.translate(0.5, 0.5);
+
+            drawGridLines(cnv, gridOptions.majorLines);
+            drawGridLines(cnv, gridOptions.minorLines);
+
+            return;
+        }
+
+        function drawGridLines(cnv, lineOptions) {
+
+
+            var iWidth = cnv.width;
+            var iHeight = cnv.height;
+
+            var ctx = cnv.getContext('2d');
+
+            ctx.strokeStyle = lineOptions.color;
+            ctx.lineWidth = 1;
+            
+            ctx.beginPath();
+
+            var iCount = null;
+            var i = null;
+            var x = null;
+            var y = null;
+
+            iCount = Math.floor(iWidth / lineOptions.separation);
+
+            for (i = 1; i <= iCount; i++) {
+                x = (i * lineOptions.separation);
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, iHeight);
+                ctx.stroke();
+            }
+
+
+            iCount = Math.floor(iHeight / lineOptions.separation);
+
+            for (i = 1; i <= iCount; i++) {
+                y = (i * lineOptions.separation);
+                ctx.moveTo(0, y);
+                ctx.lineTo(iWidth, y);
+                ctx.stroke();
+            }
+
+            ctx.closePath();
+
+            return;
+        }
+
+function drawRectangles() {
+    const canvas = document.querySelector('#cnv');
+
+    if (!canvas.getContext) {
+        return;
+    }
+
+    const ctx = canvas.getContext('2d');
+    
+    var width = 23
+
+    
+
+
+
+
+ctx.font = '25px Times';
+
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0,  50, 1344, width);
+    ctx.fillRect(0,  25, 1344, width);
+    ctx.fillRect(0,  2, 1344, width);
+    // ctx.fillRect(363,  0, width, 1344);
+
+
+    ctx.fillStyle = '#4169e1';
+
+    ctx.fillRect(25,  25, width, width);
+    ctx.fillRect(49,  25, width, width);
+    ctx.fillRect(73,  25, width, width);
+    ctx.fillRect(97,  25, width, width);
+    ctx.fillRect(121, 25, width, width);
+    ctx.fillRect(145, 25, width, width);
+    ctx.fillRect(169, 25, width, width);
+    ctx.fillRect(193, 25, width, width);
+    ctx.fillRect(217, 25, width, width);
+
+    ctx.font = '25px Times';
+    ctx.fillStyle = '#000';
+    ctx.fillText("L", 30, 44);
+    ctx.fillText("O", 52, 44);
+    ctx.fillText("N", 75, 44);
+    ctx.fillText("D", 100, 44);
+    ctx.fillText("I", 128, 44);
+    ctx.fillText("N", 148, 44);
+    ctx.fillText("I", 175, 44);
+    ctx.fillText("U", 195, 44);
+    ctx.fillText("M", 217, 44);
+
+
+
+    ctx.fillStyle = '#4169e1';
+    ctx.fillText(".", 248, 44);
+    ctx.fillText("c", 275, 44);
+    ctx.fillText("o", 295, 44);
+    ctx.fillText("m", 317, 44);
+    
+    ctx.fillStyle = '#fff';
+
+    //corners
+    ctx.fillRect(0,  0, width, width);
+    ctx.fillRect(0,  1320, width, width);
+    ctx.fillRect(1320,  0, width, width);
+    ctx.fillRect(1320,  1320, width, width);
+
+    //centerpoint
+    ctx.fillRect(650, 650, width, width);
+
+
+    // nesw
+    ctx.fillStyle = '#ffff00';
+    ctx.fillStyle = '#cccc00';
+
+ctx.fillRect(672,  0, width, width);
+ctx.fillRect(1320, 672, width, width);
+ctx.fillRect(0, 672, width, width);
+ctx.fillRect(672,  1320, width, width);
+
+ 
+}
+
+
+
+drawRectangles();
+</script>
+        </body>
+    </html>

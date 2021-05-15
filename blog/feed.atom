@@ -3,12 +3,130 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-04-15T14:52:20+01:00</updated>
+    <updated>2021-05-15T18:55:17+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-05-15-Openstreetmap-overpass-mapping-idea</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-05-15-Openstreetmap-overpass-mapping-idea" />
+    <title>Openstreetmap/Overpass Mapping Project</title>
+    <published>2021-05-15T01:00:00+01:00</published>
+    <updated>2021-05-15T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I am looking at re-launching my London website using Openstreetmap with overpass data.
+
+Openstreetmap tags / map features
+
+I have created a demo page to show the tags from the list above. Try
+
+
+shop=butchers
+landuse=allotments
+
+
+What I would like to do......</summary>
+    <content type="html"><![CDATA[
+        <p>I am looking at re-launching my <strong>London</strong> website using Openstreetmap with overpass data.</p>
+
+<p><a href="https://wiki.openstreetmap.org/wiki/Map_features" title="" target="_blank">Openstreetmap tags / map features</a></p>
+
+<p>I have created a <a href="/overpassMap.php" title="" target="_blank">demo page</a> to show the tags from the list above. Try</p>
+
+<ul>
+<li>shop=butchers</li>
+<li>landuse=allotments</li>
+</ul>
+
+<p>What I would like to do is create 2 subpage templates which pull the query from the url</p>
+
+<ul>
+<li>local area eg. Chiswick  /location/chiswick</li>
+<li>features eg. Butchers /shop/butchers</li>
+</ul>
+
+<p>At first i would like to start with a simple site, but structure it, so it is easy to add features in the future.</p>
+
+<p>I had Laravel in mind as I am used to developing with that, but not sure the best way to get this mapping included.</p>
+
+<h3>Questions</h3>
+
+<ol>
+<li>What mapping framework would you use to build this? I have looked into Leaflet.js for this demo.</li>
+<li>Is there an easy way to output all tags that apply to the UK? eg. aerialway=t-bar isnt really relevant as there are no ski-resorts in London</li>
+<li>How can I update the details for each business? whats the best way to get involved with the data here.</li>
+</ol>
+
+<hr />
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2021-04-16-Looking-for-work</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-04-16-Looking-for-work" />
+    <title>Looking for work</title>
+    <published>2021-04-16T01:00:00+01:00</published>
+    <updated>2021-04-16T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Looking for work in Devops, Linux, Web development, Web Design mainly using Laravel, PHP, Ansible, Terraform, Tailwind CSS and Debian Linux....</summary>
+    <content type="html"><![CDATA[
+        <p>Over the lockdown period I have been learning and improving my skill set. Based in London (or remote) with years of experience in web development, web design and in IT in general.</p>
+
+<h3>Tailwind CSS</h3>
+
+<p>A modern CSS framwork which brings joy to the way webpages are designed. I have spent a lot of time working with both versions 1 and 2 of tailwind.</p>
+
+<p>read more <a href="/blog/categories/tailwindcss">Tailwind CSS posts</a></p>
+
+<h3>Linux</h3>
+
+<p>I moved to using Debian Linux as my main computer 2 years ago, and have built my knowledge. As part of my focus on Devops, I have also experience with Centos, Ubuntu and other Linux systems (alongside Windows and Apple Mac)</p>
+
+<p>read more <a href="/blog/categories/debian">Debian</a> posts</p>
+
+<h3>DEVOPS - Cloud Server Support</h3>
+
+<ul>
+<li>Google Cloud - GCP management including setting up servers</li>
+<li>Ansible - A great config management tool</li>
+<li>Terraform - A great tool for infrastructure creation with code</li>
+<li>Amazon Web Servics - AWS - The biggest cloud platform</li>
+</ul>
+
+<p>read more <a href="/blog/categories/ansible">Ansible</a> posts
+read more <a href="/blog/categories/devops">Devops</a> posts</p>
+
+<h3>Bash Scripting and Automation</h3>
+
+<ul>
+<li>Managing Linux servers with ansible and the Command Line</li>
+<li>Web services, scraping and API integration</li>
+</ul>
+
+<p>read more <a href="/blog/categories/bash">Bash</a> posts</p>
+
+<h3>PHP Laravel and Wordpress development</h3>
+
+<ul>
+<li>using Laravel since version 4.2 (currently version 8)</li>
+<li>managed a number of Wordpress blogs over the past 20 years</li>
+</ul>
+
+<p>read more <a href="/blog/categories/laravel">Laravel</a> posts</p>
+
+<h3>Testing Websites</h3>
+
+<p>using
+- Laravel Dusk - for front end testing
+- PHPUnit - for code testing
+- Selenium - for website testing.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-04-15-Upgrading-to-php-8</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-04-15-Upgrading-to-php-8" />
     <title>Upgrading to PHP 8</title>
@@ -1082,20 +1200,6 @@ Available commands:
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
-    <title>Testing a blade.md template for a post</title>
-    <published>2020-05-17T01:00:00+01:00</published>
-    <updated>2020-05-17T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Trying to get a blade.md template to work as i expect....</summary>
-    <content type="html"><![CDATA[
-        
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site" />
     <title>Internationalization Of A Jigsaw Static Site</title>
@@ -1119,6 +1223,20 @@ I would like a language switcher to swap between EN and PT at first. This would 
 <p>I have created an <a href="/about-pt/">/about_pt</a> page to experiment with this</p>
 
 <p>https://lokalise.com/blog/localizing-apps-jquery/</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
+    <title>Testing a blade.md template for a post</title>
+    <published>2020-05-17T01:00:00+01:00</published>
+    <updated>2020-05-17T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Trying to get a blade.md template to work as i expect....</summary>
+    <content type="html"><![CDATA[
+        
     ]]></content>
 </entry>
             <entry>
@@ -1168,6 +1286,28 @@ The collection in the config.php file......</summary>
     ]]></content>
 </entry>
             <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
+    <title>GRR, Duplicate Github Pages</title>
+    <published>2020-05-09T01:00:00+01:00</published>
+    <updated>2020-05-09T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">12.26pm
+
+It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
+
+I deleted that repo and now it is working as expected....</summary>
+    <content type="html"><![CDATA[
+        <p>12.26pm</p>
+
+<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
+
+<p>I deleted that repo and now it is working as expected.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked" />
     <title>Yesterday I Cooked</title>
@@ -1189,28 +1329,6 @@ Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabb
 <p>Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabbage and mizuna.</p>
 
 <p>It was all very nice</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
-    <title>GRR, Duplicate Github Pages</title>
-    <published>2020-05-09T01:00:00+01:00</published>
-    <updated>2020-05-09T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">12.26pm
-
-It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
-
-I deleted that repo and now it is working as expected....</summary>
-    <content type="html"><![CDATA[
-        <p>12.26pm</p>
-
-<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
-
-<p>I deleted that repo and now it is working as expected.</p>
     ]]></content>
 </entry>
             <entry>
@@ -1398,56 +1516,6 @@ overnight and today i will make bread and freeze a load of these.</p>
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
-    <title>Jigsaw Templates</title>
-    <published>2020-04-29T01:00:00+01:00</published>
-    <updated>2020-04-29T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
-working.
-
-
-
-[ ] Daily page - template for each day, with a shell script to create it
-
-[ ] Code page - with examples of code blocks
-
-[ ] Markdown Examples
-
-
-
-[x] Build.sh - build......</summary>
-    <content type="html"><![CDATA[
-        <h3>7.35 am</h3>
-
-<p>Working on templates for this static site. The mix of markdown and HTML isnt
-working.</p>
-
-<h4>Templates to make</h4>
-
-<p>[ ] Daily page - template for each day, with a shell script to create it</p>
-
-<p>[ ] Code page - with examples of code blocks</p>
-
-<p>[ ] Markdown Examples</p>
-
-<h4>Shell Scripts</h4>
-
-<p>[x] Build.sh - build both the local and production sites</p>
-
-<p>[ ] Deploy to github.io</p>
-
-<p>[ ] Create daily post page</p>
-
-<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
-
-<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts" />
     <title>Jigsaw Static Site Thoughts</title>
@@ -1528,6 +1596,56 @@ like this <code>php artisan make:post 'title of post'</code> but i will make it 
 <p><a href="http://localhost:3000/blog/2020-04-29" title="Older Post: Templates, Markdown and
 Shell Scripts for Jigsaw"> ← Templates, Markdown and Shell Scripts for Jigsaw
 </a></p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
+    <title>Jigsaw Templates</title>
+    <published>2020-04-29T01:00:00+01:00</published>
+    <updated>2020-04-29T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
+working.
+
+
+
+[ ] Daily page - template for each day, with a shell script to create it
+
+[ ] Code page - with examples of code blocks
+
+[ ] Markdown Examples
+
+
+
+[x] Build.sh - build......</summary>
+    <content type="html"><![CDATA[
+        <h3>7.35 am</h3>
+
+<p>Working on templates for this static site. The mix of markdown and HTML isnt
+working.</p>
+
+<h4>Templates to make</h4>
+
+<p>[ ] Daily page - template for each day, with a shell script to create it</p>
+
+<p>[ ] Code page - with examples of code blocks</p>
+
+<p>[ ] Markdown Examples</p>
+
+<h4>Shell Scripts</h4>
+
+<p>[x] Build.sh - build both the local and production sites</p>
+
+<p>[ ] Deploy to github.io</p>
+
+<p>[ ] Create daily post page</p>
+
+<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
+
+<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
     ]]></content>
 </entry>
             <entry>
