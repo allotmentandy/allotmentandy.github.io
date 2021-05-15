@@ -81,7 +81,7 @@
               popupContent = popupContent + "<dt>@id</dt><dd>" + feature.properties.type + "/" + feature.properties.id + "</dd>";
               var keys = Object.keys(feature.properties.tags);
               keys.forEach(function (key) {
-                popupContent = popupContent + "<dt>" + key + "</dt><dd>" + feature.properties.tags[key] + "</dd>";
+                popupContent = popupContent + "<p>" + key + ": " + feature.properties.tags[key] + "</p>";
               });
               popupContent = popupContent + "</dl>"
               layer.bindPopup(popupContent);
