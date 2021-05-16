@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues.">
-        <meta property="og:title" content="Yesterday I Cooked | AllotmentAndy"/>
+        <meta property="og:title" content="Openstreetmap / Overpass Continued | AllotmentAndy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-05-16-Openstreetmap-contd"/>
         <meta property="og:description" content="Writing about debian, linux, bash, php, css, scripts, laravel, jigsaw, cooking, aviation and a place for general thoughts on issues." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="AllotmentAndy Atom Feed">
-            <meta property="og:title" content="Yesterday I Cooked" />
+            <meta property="og:title" content="Openstreetmap / Overpass Continued" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked"/>
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-05-16-Openstreetmap-contd"/>
     <meta property="og:description" content="" />
-        <title>AllotmentAndy | Yesterday I Cooked</title>
+        <title>AllotmentAndy | Openstreetmap / Overpass Continued</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=fe32cb5728cd9dfe4a30">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,25 +88,82 @@
 
     
     <h1 class="leading-none mb-2">
-                Yesterday I Cooked
+                <img src="/assets/img/UK.svg" alt="Openstreetmap / Overpass Continued" class=" w-16 h-16 inline-block">
+                Openstreetmap / Overpass Continued
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">May 9, 2020</p>
+    <p class="text-gray-700 text-sm md:mt-0">May 16, 2021</p>
 
-                        <a
-                href="/blog/categories/cooking"
-                title="View posts in cooking"
-                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
-            >cooking</a>
-            
+    
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4" v-pre>
-        <p>Yesterday it was my turn to cook. I made a Focaccia. for lunch, a  2 pound loaf and a lemon maderia cake.</p>
+        <h3>Downloading the data for features in Greater London</h3>
 
-<p>lunch was a smorgasbord of fresh salad with the nice focaccia.</p>
+<p>Yesterday, I uploaded the demo map and got a buggy version of the OSM map working showing the data stored on a map. I wanted to explore what is actually stored in the system already so I got this query to extract multiple tags (website, twitter, facebook) in one <a href="https://overpass-turbo.eu/" title="" target="_blank">overpass-turbo</a> query.</p>
 
-<p>Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabbage and mizuna.</p>
+<pre><code>node[~"^(website|twitter|facebook)$"~"."]  ({{bbox}});
+out;
+</code></pre>
 
-<p>It was all very nice</p>
+<p>This file was exported as .geojson and I then wrote a php script to extract those 3 elements and count them. using <a href="https://github.com/halaxa/json-machine" title="" target="_blank">json machine</a></p>
+
+<pre><code class="language-php">&lt;?php
+use \JsonMachine\JsonMachine;
+
+require 'vendor/autoload.php';
+
+$counter = 0;
+$features = JsonMachine::fromFile('websiteTwitterFacebook.geojson');
+
+foreach ($features as $key=&gt;$value) {
+    if ($key=="features"){
+        foreach ($value as $feature){
+            echo $feature['properties']['@id'];
+            echo " ";
+            if(isset($feature['properties']['website'])) {
+                echo $feature['properties']['website'];
+            }
+            echo " ";
+            if(isset($feature['properties']['twitter'])) {
+                echo $feature['properties']['twitter'];
+            }
+            echo " ";
+            if(isset($feature['properties']['facebook'])) {
+                echo $feature['properties']['facebook'];
+            }
+            echo PHP_EOL;
+            $counter++;
+        }
+    }
+}
+echo "total: ". $counter;
+?&gt;
+</code></pre>
+
+<p>Total entries with any of the three elements was around 16,000, mainly with websites entries only. This data included some phone numbers and other things:</p>
+
+<pre><code>+44 20 3912 9400
++44 20 7584 1363
++44 20 7584 8918
++44 20 7589 0046
++44 20 7589 8851
++44 20 7730 0085
++44 20 7937 5033
++44 20 8743 0336
++44 20 8749 9977
+155
+400rabbits.co.uk/
+HTTP://EVERESTSPICE.CO.UK
+Henry Mayhew
+IDMestates.com
+La Cantina Sociale
+Www.popnrest.com
+htpps://www.lowerladysden.co.uk
+http://countdown.tfl.gov.uk/#|searchTerm=blackstock road|stopCode=49525
+https://docs.google.com/spreadsheets/d/12cLkm_p2ovnebNhQm4NmuTV9A6N6FZgg1SpUZ8phuq0/edit?usp=sharing
+leicestersquare@allbarone.co.uk
+</code></pre>
+
+<p>But apart from these and a few similar ones i removed from the list, it was mainly websites.</p>
 
     <p>I would like to hear from you about this, you can contact me on Twitter <a href="https://www.twitter.com/andylondon">@andylondon</a> thats an easy way to start a discussion.</p>
 
@@ -115,15 +172,12 @@
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" title="Older Post: GRR, Duplicate Github Pages">
-                    &LeftArrow; GRR, Duplicate Github Pages
+                            <a href="https://allotmentandy.github.io/blog/2021-05-15-Openstreetmap-overpass-mapping-idea" title="Older Post: Openstreetmap/Overpass Mapping Project">
+                    &LeftArrow; Openstreetmap/Overpass Mapping Project
                 </a>
                     </div>
 
         <div>
-                            <a href="https://allotmentandy.github.io/blog/2020-05-09-jigsaw-ideas" title="Newer Post: Jigsaw Ideas">
-                    Jigsaw Ideas &RightArrow;
-                </a>
                     </div>
     </nav>
 </div>
