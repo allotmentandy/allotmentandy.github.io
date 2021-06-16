@@ -3,15 +3,108 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-05-16T22:44:01+01:00</updated>
+    <updated>2021-06-16T18:18:57+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-06-15-Open-Ports-On-Debian-and-installing-ssh</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-06-15-Open-Ports-On-Debian-and-installing-ssh" />
+    <title>Open Ports &amp; Installing SSH</title>
+    <published>2021-06-15T11:29:57+01:00</published>
+    <updated>2021-06-15T11:29:57+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">To connect my new Intel NUC computer to my laptop and android phone, I have used SSH with Filezilla as that is faster and easier than bluetooth and more ubiqitous. On my phone i have an app which i use to start and stop the ssh port connection. But not......</summary>
+    <content type="html"><![CDATA[
+        <p>To connect my new Intel NUC computer to my laptop and android phone, I have used SSH with Filezilla as that is faster and easier than bluetooth and more ubiqitous. On my phone i have an app which i use to start and stop the ssh port connection. But not sure this is as easy on the Debian boxes, so...</p>
+
+<p>Firstly, i wanted to check what ports were open on the machine. <a href="https://vitux.com/find-open-ports-on-debian/" title="" target="_blank">https://vitux.com/find-open-ports-on-debian/</a> gives a overview of the options, but installing nmap is my favourite tool for this and running this command gives the output of all open ports.</p>
+
+<pre><code>apt-get install nmap
+
+nmap -p- 127.0.0.1
+
+</code></pre>
+
+<p>Nmap provides the name of the commonly used port as the 'service', port 22 is ssh and it wasnt installed.</p>
+
+<pre><code>Starting Nmap 7.70 ( https://nmap.org ) at 2021-06-15 09:18 BST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000058s latency).
+Not shown: 65533 closed ports
+PORT     STATE SERVICE
+631/tcp  open  ipp
+1716/tcp open  xmsg
+
+Nmap done: 1 IP address (1 host up) scanned in 10.15 seconds
+</code></pre>
+
+<h3>Installing SSH</h3>
+
+<p>Next, to install ssh I ran this command</p>
+
+<pre><code>sudo apt-get install openssh-server
+</code></pre>
+
+<p>then to check on the status</p>
+
+<pre><code>sudo systemctl status sshd
+</code></pre>
+
+<p>This allowed me to ssh into my machine and copy over a few files. Running the nmap command again and you can see it is now working.</p>
+
+<pre><code>Starting Nmap 7.70 ( https://nmap.org ) at 2021-06-15 09:35 BST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000031s latency).
+Not shown: 65532 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+631/tcp  open  ipp
+1716/tcp open  xmsg
+
+Nmap done: 1 IP address (1 host up) scanned in 10.12 seconds
+</code></pre>
+
+<p>to enable / disable ssh i run these commands</p>
+
+<pre><code>systemctl enable ssh
+systemctl disable ssh
+</code></pre>
+
+<p>Next, I will use Ansible to install Apache, PHP, Mysql/MariaDB and more tools ...</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2021-05-17-Openstreetmap-part3</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-05-17-Openstreetmap-part3" />
+    <title>Openstreetmap / Overpass Part 3</title>
+    <published>2021-05-17T01:00:00+01:00</published>
+    <updated>2021-05-17T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I noticed that more entries were using the contact:website links for each of these 3 entities, so i added them to the overpass-turbo query.
+
+
+
+This provided 17406 features with at least 1 of the 3 links, with 202 for twitter and 260 for facebook. Here is......</summary>
+    <content type="html"><![CDATA[
+        <p>I noticed that more entries were using the <strong>contact:website</strong> links for each of these 3 entities, so i added them to the <a href="https://overpass-turbo.eu/" title="" target="_blank">overpass-turbo</a> query.</p>
+
+<pre><code>node[~"^(website|twitter|facebook|contact:website|contact:twitter|contact:facebook)$"~"."]  ({{bbox}});
+out;
+</code></pre>
+
+<p>This provided 17406 features with at least 1 of the 3 links, with 202 for twitter and 260 for facebook. Here is the list of the full contact details <a href="https://wiki.openstreetmap.org/wiki/Key:contact">https://wiki.openstreetmap.org/wiki/Key:contact</a></p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-05-16-Openstreetmap-contd</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-05-16-Openstreetmap-contd" />
-    <title>Openstreetmap / Overpass Continued</title>
+    <title>Openstreetmap / Overpass Part 2</title>
     <published>2021-05-16T01:00:00+01:00</published>
     <updated>2021-05-16T01:00:00+01:00</updated>
     <author>
@@ -1286,20 +1379,6 @@ Available commands:
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
-    <title>Testing a blade.md template for a post</title>
-    <published>2020-05-17T01:00:00+01:00</published>
-    <updated>2020-05-17T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Trying to get a blade.md template to work as i expect....</summary>
-    <content type="html"><![CDATA[
-        
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site" />
     <title>Internationalization Of A Jigsaw Static Site</title>
@@ -1323,6 +1402,20 @@ I would like a language switcher to swap between EN and PT at first. This would 
 <p>I have created an <a href="/about-pt/">/about_pt</a> page to experiment with this</p>
 
 <p>https://lokalise.com/blog/localizing-apps-jquery/</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
+    <title>Testing a blade.md template for a post</title>
+    <published>2020-05-17T01:00:00+01:00</published>
+    <updated>2020-05-17T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Trying to get a blade.md template to work as i expect....</summary>
+    <content type="html"><![CDATA[
+        
     ]]></content>
 </entry>
             <entry>
@@ -1602,6 +1695,56 @@ overnight and today i will make bread and freeze a load of these.</p>
     ]]></content>
 </entry>
             <entry>
+    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
+    <title>Jigsaw Templates</title>
+    <published>2020-04-29T01:00:00+01:00</published>
+    <updated>2020-04-29T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
+working.
+
+
+
+[ ] Daily page - template for each day, with a shell script to create it
+
+[ ] Code page - with examples of code blocks
+
+[ ] Markdown Examples
+
+
+
+[x] Build.sh - build......</summary>
+    <content type="html"><![CDATA[
+        <h3>7.35 am</h3>
+
+<p>Working on templates for this static site. The mix of markdown and HTML isnt
+working.</p>
+
+<h4>Templates to make</h4>
+
+<p>[ ] Daily page - template for each day, with a shell script to create it</p>
+
+<p>[ ] Code page - with examples of code blocks</p>
+
+<p>[ ] Markdown Examples</p>
+
+<h4>Shell Scripts</h4>
+
+<p>[x] Build.sh - build both the local and production sites</p>
+
+<p>[ ] Deploy to github.io</p>
+
+<p>[ ] Create daily post page</p>
+
+<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
+
+<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts" />
     <title>Jigsaw Static Site Thoughts</title>
@@ -1682,56 +1825,6 @@ like this <code>php artisan make:post 'title of post'</code> but i will make it 
 <p><a href="http://localhost:3000/blog/2020-04-29" title="Older Post: Templates, Markdown and
 Shell Scripts for Jigsaw"> ← Templates, Markdown and Shell Scripts for Jigsaw
 </a></p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
-    <title>Jigsaw Templates</title>
-    <published>2020-04-29T01:00:00+01:00</published>
-    <updated>2020-04-29T01:00:00+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
-working.
-
-
-
-[ ] Daily page - template for each day, with a shell script to create it
-
-[ ] Code page - with examples of code blocks
-
-[ ] Markdown Examples
-
-
-
-[x] Build.sh - build......</summary>
-    <content type="html"><![CDATA[
-        <h3>7.35 am</h3>
-
-<p>Working on templates for this static site. The mix of markdown and HTML isnt
-working.</p>
-
-<h4>Templates to make</h4>
-
-<p>[ ] Daily page - template for each day, with a shell script to create it</p>
-
-<p>[ ] Code page - with examples of code blocks</p>
-
-<p>[ ] Markdown Examples</p>
-
-<h4>Shell Scripts</h4>
-
-<p>[x] Build.sh - build both the local and production sites</p>
-
-<p>[ ] Deploy to github.io</p>
-
-<p>[ ] Create daily post page</p>
-
-<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
-
-<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
     ]]></content>
 </entry>
             <entry>
