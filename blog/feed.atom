@@ -3,38 +3,12 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-07-05T18:32:14+01:00</updated>
+    <updated>2021-07-05T18:33:26+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
-    <id>https://allotmentandy.github.io/blog/2021-06-15-Ansible-Installing-Lamp-Server</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-06-15-Ansible-Installing-Lamp-Server" />
-    <title>Ansible Installing Lamp Server</title>
-    <published>2021-06-15T13:14:57+01:00</published>
-    <updated>2021-06-15T13:14:57+01:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Having added ssh access in the last post, now I wanted to use Ansible to install a LAMP Server on my new Debian computer.
-
-I have a root directory for my laravel site on the Desktop in /home/andy/Desktop/laravel...</summary>
-    <content type="html"><![CDATA[
-        <p>Having added ssh access in the last post, now I wanted to use Ansible to install a LAMP Server on my new Debian computer.</p>
-
-<p>I have a root directory for my laravel site on the Desktop in /home/andy/Desktop/laravel</p>
-
-<h3>Linux - Debian 11</h3>
-
-<h3>Apache ()</h3>
-
-<h3>PHP</h3>
-
-<h3>Mysql / MariaDB</h3>
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2021-06-15-Open-Ports-On-Debian-and-installing-ssh</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-06-15-Open-Ports-On-Debian-and-installing-ssh" />
     <title>Open Ports &amp; Installing SSH</title>
