@@ -3,17 +3,66 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-01T11:56:30+00:00</updated>
+    <updated>2021-12-01T12:07:44+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part2</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part2" />
+    <title>AWS Amazon Web Services Cloud computing and PHP (Part 2)</title>
+    <published>2021-12-01T11:46:57+00:00</published>
+    <updated>2021-12-01T11:46:57+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Part 2 - adding a Mysql database server to a debian EC2 instance...</summary>
+    <content type="html"><![CDATA[
+        <h3>Adding the Mysql DB and getting it running</h3>
+
+<p>Installing mysql isnt as simple as the rest of the LAMP stack. It is necessary to run the mysql_secure_installation command to setup the mysql password and the Update command to allowed login from the website for apps like Adminer. <a href="https://dev.to/oscherler/changing-the-mysql-root-user-from-authsocket-to-password-authentication-using-ansible-3l5m">this article</a> is a good explaination to why.</p>
+
+<pre><code># install mysql
+
+sudo apt-get install -y default-mysql-server
+sudo apt-get install -y php8.0-mysql php8.1-mysql
+
+#set the password and setup mysql
+sudo mysql_secure_installation
+
+# questions asked
+# Enter current password for root (enter for none): 
+# Set root password? [Y/n] Y
+# Remove anonymous users? [Y/n] Y   
+# Disallow root login remotely? [Y/n] Y
+# Remove test database and access to it? [Y/n] Y
+# Reload privilege tables now? [Y/n] Y
+
+#test connection with the new password 
+sudo mysql -u root -p
+
+# to allow login for adminer login to mysql and run
+# UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+
+# install adminer
+sudo wget "http://www.adminer.org/latest.php" -O /var/www/html/adminer.php
+sudo chown -R root:root /var/www/html/adminer.php
+sudo chmod 755 /var/www/html/adminer.php
+
+sudo /etc/init.d/mysql restart
+
+</code></pre>
+
+<p>This allows the user to login from the website using adminer and administer the DB tables.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP" />
     <title>AWS Amazon Web Services Cloud computing and PHP (Part 1)</title>
-    <published>2021-12-01T00:00:00+00:00</published>
-    <updated>2021-12-01T00:00:00+00:00</updated>
+    <published>2021-12-01T09:46:57+00:00</published>
+    <updated>2021-12-01T09:46:57+00:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -104,55 +153,6 @@ phpinfo();
 <p>Gives the php info test page.</p>
 
 <p>Next, lets install a mysql database to store some data.</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part2</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part2" />
-    <title>AWS Amazon Web Services Cloud computing and PHP (Part 2)</title>
-    <published>2021-12-01T00:00:00+00:00</published>
-    <updated>2021-12-01T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">A start of a series of blogs on setting up AWS resources to host PHP websites...</summary>
-    <content type="html"><![CDATA[
-        <h3>Adding the Mysql DB and getting it running</h3>
-
-<p>Installing mysql isnt as simple as the rest of the LAMP stack. It is necessary to run the mysql_secure_installation command to setup the mysql password and the Update command to allowed login from the website for apps like Adminer. <a href="https://dev.to/oscherler/changing-the-mysql-root-user-from-authsocket-to-password-authentication-using-ansible-3l5m">this article</a> is a good explaination to why.</p>
-
-<pre><code># install mysql
-
-sudo apt-get install -y default-mysql-server
-sudo apt-get install -y php8.0-mysql php8.1-mysql
-
-#set the password and setup mysql
-sudo mysql_secure_installation
-
-# questions asked
-# Enter current password for root (enter for none): 
-# Set root password? [Y/n] Y
-# Remove anonymous users? [Y/n] Y   
-# Disallow root login remotely? [Y/n] Y
-# Remove test database and access to it? [Y/n] Y
-# Reload privilege tables now? [Y/n] Y
-
-#test connection with the new password 
-sudo mysql -u root -p
-
-# to allow login for adminer login to mysql and run
-# UPDATE user SET plugin='mysql_native_password' WHERE User='root';
-
-# install adminer
-sudo wget "http://www.adminer.org/latest.php" -O /var/www/html/adminer.php
-sudo chown -R root:root /var/www/html/adminer.php
-sudo chmod 755 /var/www/html/adminer.php
-
-sudo /etc/init.d/mysql restart
-
-</code></pre>
-
-<p>This allows the user to login from the website using adminer and administer the DB tables.</p>
     ]]></content>
 </entry>
             <entry>
