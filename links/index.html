@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.js"></script>
+
+</head>
+
+<body>
+
+    <h2>Useful Links</h2>
+    <div id="app">
+        <div v-for="link in linkData">
+            <a :href="link.url" v-text="link.name" target="_blank"></a>
+        </div>
+    </div>
+    <script>
+    var dataURL = '../link.json';
+    var App = new Vue({
+        el: '#app',
+        data: {
+            linkData: [] // initialize empty array
+        },
+        mounted() { // when the Vue app is booted up, this is run automatically.
+            var self = this // create a closure to access component in the callback below
+            $.getJSON(dataURL, function(data) {
+                self.linkData = data.links;
+            });
+        }
+    })
+    </script>
+
+</body>
+
+</html>

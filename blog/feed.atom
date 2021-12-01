@@ -3,12 +3,50 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-01T12:16:37+00:00</updated>
+    <updated>2021-12-01T22:55:52+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part3-using-Ansible</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part3-using-Ansible" />
+    <title>AWS Amazon Web Services Cloud computing and PHP part 3 using Ansible</title>
+    <published>2021-12-01T12:33:01+00:00</published>
+    <updated>2021-12-01T12:33:01+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Using Ansible to setup the LAMP stack on a clean Debian AWS server....</summary>
+    <content type="html"><![CDATA[
+        <p>In parts 1 and 2 of this blog series, I wrote about setting up a LAMP stack by hand using ssh and logging into the server and install and configuring it all.</p>
+
+<p>In my opinion, <a href="https://docs.ansible.com/ansible/latest/index.html">Ansible</a> is a better way to set this up. It uses a set of files locally to login to and setup the server in a repeatable way.</p>
+
+<p>Once again I am going to use the Debian 10 AMI - ami-050949f5d3aede071 setup with a t2-micro instance on the free tier.</p>
+
+<p>Please visit this repo at <a href="https://github.com/allotmentandy/aws">github.com/allotmentandy/aws</a> for the Ansible files to set this up.</p>
+
+<p>I based this on <a href="https://github.com/kdpuvvadi/ansible-lamp">github.com/kdpuvvadi/ansible-lamp</a> repo as it worked well and is nicely structured.</p>
+
+<p>Important files to setup</p>
+
+<ul>
+<li>inventory.ini - set the ip address of the aws debian server</li>
+<li>vars/default.yml - set the passwords for the mysql root user, the name of the apache config and the port</li>
+<li>tasks/packages - the packages to install, php, mysql, apache and ufw</li>
+<li>README.md - notes on setting up the original ansible package.</li>
+</ul>
+
+<p>To run this code use this command where the key is set in the command</p>
+
+<pre><code class="language-bash">  ansible-playbook main.yml --key-file /home/andy/.ssh/aws2021.pem  -e 'ansible_python_interpreter=/usr/bin/python3'
+</code></pre>
+
+<p>visit the ip address to see the apache test page. /info.php to see the php test page. and login to the mysql server to test the database connection.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part2</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part2" />
     <title>AWS Amazon Web Services Cloud computing and PHP (Part 2)</title>
@@ -75,14 +113,15 @@ sudo /etc/init.d/mysql restart
 <p>I my quest to learn more about cloud computing especially using PHP, I am spending the cold winter months developing skills. I am going to write blogs about investigating each of these</p>
 
 <ul>
-<li>EC2 Debian 10 LAMP server</li>
-<li>EC2 Container using a docker container</li>
+<li>EC2 Debian 10 LAMP server by hand</li>
+<li>EC2 Docker Container</li>
 <li>AWS Lambda</li>
 <li>Amazon Lightsail</li>
 <li>Using ansible and terraform to setup a lamp server</li>
+<li>Using the AWS CLI</li>
 </ul>
 
-<h4>Using EC2 Debian 10</h4>
+<h4>Using EC2 Debian 10 LAMP stack server by hand.</h4>
 
 <p>Setting up an instance is pretty easy - i created a private key, downloaded it and connected the first time using</p>
 

@@ -1,0 +1,11 @@
+{
+    "links": [{
+            "name": "Amazon AWS Glossary",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/glos-chap.html"
+        },
+        {
+            "name": "test",
+            "url": "http://kellyk.yopemail.com"
+        }
+    ]
+}
