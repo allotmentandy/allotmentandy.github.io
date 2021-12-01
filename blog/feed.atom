@@ -3,12 +3,205 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-11-05T13:08:11+00:00</updated>
+    <updated>2021-12-01T11:56:30+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP" />
+    <title>AWS Amazon Web Services Cloud computing and PHP (Part 1)</title>
+    <published>2021-12-01T00:00:00+00:00</published>
+    <updated>2021-12-01T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">A start of a series of blogs on setting up AWS resources to host PHP websites...</summary>
+    <content type="html"><![CDATA[
+        <h3>AWS Amazon Web Services Cloud computing and PHP</h3>
+
+<p>I my quest to learn more about cloud computing especially using PHP, I am spending the cold winter months developing skills. I am going to write blogs about investigating each of these</p>
+
+<ul>
+<li>EC2 Debian 10 LAMP server</li>
+<li>EC2 Container using a docker container</li>
+<li>AWS Lambda</li>
+<li>Amazon Lightsail</li>
+<li>Using ansible and terraform to setup a lamp server</li>
+</ul>
+
+<h4>Using EC2 Debian 10</h4>
+
+<p>Setting up an instance is pretty easy - i created a private key, downloaded it and connected the first time using</p>
+
+<pre><code>ssh -i privatekey.pem  admin@ec2-13-40-50-116.eu-west-2.compute.amazonaws.com
+</code></pre>
+
+<p>Note the user is admin, as that is the default for debian</p>
+
+<p>Here is a link to the default usernames for different systems</p>
+
+<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html#TroubleshootingInstancesConnectingPuTTY">aws default users for ssh connections to linux distros</a></p>
+
+<p>To run apt-get you need to use sudo</p>
+
+<p>So to install apache</p>
+
+<pre><code>sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install apache2
+
+sudo a2enmod ssl
+sudo a2enmod rewrite
+sudo /etc/init.d/apache2 restart
+
+# install firewall and setup
+
+sudo apt install ufw
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+
+# to get the https version running
+
+sudo apt install certbot
+sudo apt-get install python-certbot-apache
+
+sudo a2ensite default-ssl
+
+sudo systemctl reload apache2
+
+# installing php 8.0 and 8.1
+
+sudo apt-get install lsb-release apt-transport-https ca-certificates
+sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+sudo echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+sudo apt-get update
+
+sudo apt install -y php8.0-{mysql,cli,common,snmp,ldap,curl,mbstring,zip,tidy,xml,opcache}
+sudo apt install -y php8.1-{mysql,cli,common,snmp,ldap,curl,mbstring,zip,tidy,xml,opcache}
+
+sudo update-alternatives --config php
+
+sudo apt-get install php8.0-fpm libapache2-mod-php8.0
+sudo apt-get install php8.1-fpm libapache2-mod-php8.1
+sudo a2dismod php8.0
+sudo a2enmod php8.1
+sudo systemctl restart apache2
+
+</code></pre>
+
+<p>The default directory for the files is /var/www/html
+Setting up a simple test.php file with the contents</p>
+
+<pre><code>&lt;?php
+
+phpinfo();
+</code></pre>
+
+<p>Gives the php info test page.</p>
+
+<p>Next, lets install a mysql database to store some data.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part2</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part2" />
+    <title>AWS Amazon Web Services Cloud computing and PHP (Part 2)</title>
+    <published>2021-12-01T00:00:00+00:00</published>
+    <updated>2021-12-01T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">A start of a series of blogs on setting up AWS resources to host PHP websites...</summary>
+    <content type="html"><![CDATA[
+        <h3>Adding the Mysql DB and getting it running</h3>
+
+<p>Installing mysql isnt as simple as the rest of the LAMP stack. It is necessary to run the mysql_secure_installation command to setup the mysql password and the Update command to allowed login from the website for apps like Adminer. <a href="https://dev.to/oscherler/changing-the-mysql-root-user-from-authsocket-to-password-authentication-using-ansible-3l5m">this article</a> is a good explaination to why.</p>
+
+<pre><code># install mysql
+
+sudo apt-get install -y default-mysql-server
+sudo apt-get install -y php8.0-mysql php8.1-mysql
+
+#set the password and setup mysql
+sudo mysql_secure_installation
+
+# questions asked
+# Enter current password for root (enter for none): 
+# Set root password? [Y/n] Y
+# Remove anonymous users? [Y/n] Y   
+# Disallow root login remotely? [Y/n] Y
+# Remove test database and access to it? [Y/n] Y
+# Reload privilege tables now? [Y/n] Y
+
+#test connection with the new password 
+sudo mysql -u root -p
+
+# to allow login for adminer login to mysql and run
+# UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+
+# install adminer
+sudo wget "http://www.adminer.org/latest.php" -O /var/www/html/adminer.php
+sudo chown -R root:root /var/www/html/adminer.php
+sudo chmod 755 /var/www/html/adminer.php
+
+sudo /etc/init.d/mysql restart
+
+</code></pre>
+
+<p>This allows the user to login from the website using adminer and administer the DB tables.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2021-11-16-Looking-For-Allrounder-Role-Devops-SEO-Design-Development-Creative</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-11-16-Looking-For-Allrounder-Role-Devops-SEO-Design-Development-Creative" />
+    <title>Looking For Allrounder Role Devops SEO Design Development Creative</title>
+    <published>2021-11-16T00:00:00+00:00</published>
+    <updated>2021-11-16T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I wanted to right a new post about he sort of job role I am looking for. In the past I have had a wide variety of roles from Creative Graphic Designer to Laravel Developer. So I wanted to outline the sort of roles I would be suitable for and to help find......</summary>
+    <content type="html"><![CDATA[
+        <p>I wanted to right a new post about he sort of job role I am looking for. In the past I have had a wide variety of roles from Creative Graphic Designer to Laravel Developer. So I wanted to outline the sort of roles I would be suitable for and to help find a role thats uses a number of these:</p>
+
+<ul>
+<li>Laravel PHP development</li>
+<li>Web Design with CSS, Photos, Graphics and Imagery</li>
+<li>SEO to get the site higher in Search Engines such as Google</li>
+<li>Devops and Server configuration using Ansible, Terraform on Google Cloud (GCP) and Amazon Web Services (AWS)</li>
+<li>Creative Ideas to improve the business</li>
+<li>Writing content for blogs and websites</li>
+<li>Using Mapping technologies such as OpenStreetMap</li>
+<li>Testing websites and code using a range of tools to ensure websites work as expected</li>
+<li>Web Scraping, crawling and indexing content from across the internet.</li>
+</ul>
+
+<p>Some example jobs I would be good at</p>
+
+<h3>Moving CSS to Tailwind CSS</h3>
+
+<p>This site and a number of others I have been working on use Tailwind CSS and I would like to find a role to teleport an old fashioned website into the future.</p>
+
+<h3>Writing content for SEO purposes</h3>
+
+<p>I enjoy writing on a number of topics including technology, gardening, cooking and aviation. Perhaps you need some articles written about something</p>
+
+<h3>Scripting to automate your life</h3>
+
+<p>Another skill I have is writing scripts (bash, php etc.) to automate regular processes in your day-to-day work process. Instead of doing it by hand, perhaps i could write you a script to do it automatically</p>
+
+<h3>Mapping projects</h3>
+
+<p>I have recently been working on a mapping project using OpenStreetMap and have used Google Maps extensively in the past.</p>
+
+<p>This is just a short idea of projects I could do for you.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-10-21-Taking-Devops-Full-Circle-With-Packer-AMI-images-For-AWS</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-10-21-Taking-Devops-Full-Circle-With-Packer-AMI-images-For-AWS" />
     <title>Taking Devops Full Circle With Packer AMI images For AWS</title>
@@ -382,7 +575,7 @@ read more <a href="/blog/categories/devops">Devops</a> posts</p>
 
 <pre><code>    apt-get install php8.0-fpm libapache2-mod-php8.0
     a2dismod php7.4
-    a2enmod php-8.0
+    a2enmod php8.0
     systemctl restart apache2
 </code></pre>
 
