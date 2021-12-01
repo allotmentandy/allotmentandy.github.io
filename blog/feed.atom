@@ -3,7 +3,7 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-01T12:13:50+00:00</updated>
+    <updated>2021-12-01T12:15:04+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -55,6 +55,8 @@ sudo /etc/init.d/mysql restart
 </code></pre>
 
 <p>This allows the user to login from the website using adminer and administer the DB tables.</p>
+
+<p>Please visit this repo at <a href="https://github.com/allotmentandy/aws">github.com/allotmentandy/aws</a> for shell scripts and files to run this code.</p>
     ]]></content>
 </entry>
             <entry>
