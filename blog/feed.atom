@@ -3,12 +3,141 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-01T22:56:53+00:00</updated>
+    <updated>2021-12-03T09:03:39+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-02-AWS-Amazon-Web-Services-Instance-with-Terraform-and-an-Elastic-IP(Part-4)</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-02-AWS-Amazon-Web-Services-Instance-with-Terraform-and-an-Elastic-IP(Part-4)" />
+    <title>AWS Amazon Web Services Instance with Terraform and an Elastic IP (Part 4)</title>
+    <published>2021-12-02T00:00:00+00:00</published>
+    <updated>2021-12-02T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Having used Ansible to setup the server in the last post, I now wanted to use Terraform to launch the instance programatically. As part of the  Infrastructure as Code world I am looking to move into, I am keen to be able to automate as much as posible.......</summary>
+    <content type="html"><![CDATA[
+        <p>Having used Ansible to setup the server in the last post, I now wanted to use Terraform to launch the instance programatically. As part of the  Infrastructure as Code world I am looking to move into, I am keen to be able to automate as much as posible.</p>
+
+<p>Todays blog post is about setting up the instance of the server with Terraform.</p>
+
+<p>It also uses a fixed IP address, which uses the Elastic IP service from Amazon.</p>
+
+<pre><code>variable "awsprops" {
+  type = map(string)
+  default = {
+    region       = "eu-west-2"
+    vpc          = "vpc-04a899695f093e273"
+    ami          = "ami-050949f5d3aede071"
+    itype        = "t2.micro"
+    subnet       = "subnet-071b970b97329866c"
+    publicip     = true
+    keyname      = "amazon nov 2021"
+    secgroupname = "IAC-Sec-Group-Terrform"
+  }
+}
+
+provider "aws" {
+  region = lookup(var.awsprops, "region")
+}
+
+resource "aws_security_group" "project-iac-sg" {
+  name        = lookup(var.awsprops, "secgroupname")
+  description = lookup(var.awsprops, "secgroupname")
+  vpc_id      = lookup(var.awsprops, "vpc")
+
+  // To Allow SSH Transport
+  ingress {
+    from_port   = 22
+    protocol    = "tcp"
+    to_port     = 22
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  // To Allow Port 80 Transport
+  ingress {
+    from_port   = 80
+    protocol    = "tcp"
+    to_port     = 80
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_instance" "project-iac" {
+  ami                         = lookup(var.awsprops, "ami")
+  instance_type               = lookup(var.awsprops, "itype")
+  subnet_id                   = lookup(var.awsprops, "subnet") #FFXsubnet2
+  associate_public_ip_address = lookup(var.awsprops, "publicip")
+  key_name                    = lookup(var.awsprops, "keyname")
+
+
+  vpc_security_group_ids = [
+    aws_security_group.project-iac-sg.id
+  ]
+  root_block_device {
+    delete_on_termination = true
+    iops                  = 150
+    volume_size           = 50
+    volume_type           = "gp3"
+  }
+  tags = {
+    Name        = "SERVER01"
+    Environment = "DEV"
+    OS          = "DEBIAN"
+    Managed     = "IAC"
+  }
+
+  depends_on = [aws_security_group.project-iac-sg]
+}
+
+data "aws_eip" "project-iac" {
+  id = "eipalloc-07a144e8268e6616b"
+}
+
+resource "aws_eip_association" "my_eip_association" {
+  instance_id   = aws_instance.project-iac.id
+  allocation_id = data.aws_eip.project-iac.id
+
+}
+
+output "ec2instance" {
+  value = aws_instance.project-iac.public_ip
+}
+
+</code></pre>
+
+<p>Please visit this repo at <a href="https://github.com/allotmentandy/aws">github.com/allotmentandy/aws</a> to see the terraform code in the directory part 4. The code is in the setup.tf file and the get it to build the instance you run the following 3 commands.</p>
+
+<pre><code>terraform init 
+
+terraform plan
+
+terraform apply
+</code></pre>
+
+<h2>Notes</h2>
+
+<ul>
+<li><p>The ip address is allocated to my account and it id = "eipalloc-07a144e8268e6616b"</p></li>
+<li><p>The keyname is the name in the amazon system, not the local file.</p></li>
+<li><p>The aws credentials are setup using awscli at the command line and stored in .aws/credentials</p></li>
+</ul>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part3-using-Ansible</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part3-using-Ansible" />
     <title>AWS Amazon Web Services Cloud computing and PHP part 3 using Ansible</title>
