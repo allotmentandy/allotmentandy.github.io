@@ -3,12 +3,110 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-03T09:03:39+00:00</updated>
+    <updated>2021-12-04T11:47:52+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-03-AWS-Amazon-Web-Services-Laravel-in-Docker-on-EC2(Part-5)</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-03-AWS-Amazon-Web-Services-Laravel-in-Docker-on-EC2(Part-5)" />
+    <title>AWS Amazon Web Services Laravel in Docker on EC2(Part 5)</title>
+    <published>2021-12-03T00:00:00+00:00</published>
+    <updated>2021-12-03T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Next in this series, I am setting up a docker container to host a laravel website on AWS.
+
+Following this tutorial https://buddy.works/guides/laravel-in-docker
+
+I started with a fresh install of Laravel 8 which is in Part 5 of the repo......</summary>
+    <content type="html"><![CDATA[
+        <p>Next in this series, I am setting up a docker container to host a laravel website on AWS.</p>
+
+<p>Following this tutorial <a href="https://buddy.works/guides/laravel-in-docker">https://buddy.works/guides/laravel-in-docker</a></p>
+
+<p>I started with a fresh install of Laravel 8 which is in Part 5 of the repo <a href="https://github.com/allotmentandy/aws">github.com/allotmentandy/aws</a> with this Dockerfile</p>
+
+<pre><code>FROM php:8.0.5
+RUN apt-get update -y &amp;&amp; apt-get install -y openssl zip unzip git
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN docker-php-ext-install pdo 
+WORKDIR /app
+COPY . /app
+RUN composer install
+
+CMD php artisan serve --host=0.0.0.0 --port=8888
+EXPOSE 8888
+</code></pre>
+
+<h3>BUILD the container</h3>
+
+<pre><code>docker build -t laravelDocker .
+</code></pre>
+
+<h3>RUN the container</h3>
+
+<pre><code>docker run -p 8888:8888 laravelDocker
+</code></pre>
+
+<h3>STOP the container</h3>
+
+<p>The first command shows all the containers, the second stops the container with the id</p>
+
+<pre><code>docker container ls
+
+docker container stop ba0ce2c7575f
+</code></pre>
+
+<p>visiting http://localhost:8888/  see the laravel frontpage</p>
+
+<p>I am  going to set it up on an EC2 server instance, but that doesnt seem the norm with Lightsail, Lambda or ECS seemingly better fits for hosting a container image.</p>
+
+<p>So i have the Debian Instance i setup in part 4 with Terraform, now i am going to manually login via ssh, and setup docker</p>
+
+<pre><code>sudo apt-get update
+sudo apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+sudo apt update
+sudo apt install docker-ce
+</code></pre>
+
+<p>Now i need to add my docker container to <a href="https://hub.docker.com/repository/docker/allotmentandy/laraveldocker">docker hub</a></p>
+
+<pre><code>docker ps # to see the docker images eg. id = 5a6a73bcea26
+
+# docker commit -m "first commit" -a "NAME" laraveldocker allotmentandy/laraveldocker:latest # didnt work :(
+
+docker login
+
+docker tag 5a6a73bcea26 allotmentandy/laraveldocker
+
+docker push allotmentandy/laraveldocker
+</code></pre>
+
+<p>Et voila! <a href="https://hub.docker.com/repository/docker/allotmentandy/laraveldocker">dockerhub / allotmentandy</a></p>
+
+<p>now i ssh into the EC2 instance</p>
+
+<pre><code>docker pull allotmentandy/laraveldocker
+sudo docker run -p 80:80 allotmentandy/laraveldocker
+
+</code></pre>
+
+<p>updating the laravel files / dockerfile means a rebuild:</p>
+
+<pre><code>docker build -t allotmentandy/laraveldocker -f Dockerfile  .
+docker push allotmentandy/laraveldocker
+
+</code></pre>
+
+<p>stopping the container, redoing the pull and running it again. Simples :)</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-12-02-AWS-Amazon-Web-Services-Instance-with-Terraform-and-an-Elastic-IP(Part-4)</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-02-AWS-Amazon-Web-Services-Instance-with-Terraform-and-an-Elastic-IP(Part-4)" />
     <title>AWS Amazon Web Services Instance with Terraform and an Elastic IP (Part 4)</title>
