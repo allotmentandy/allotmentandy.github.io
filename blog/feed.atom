@@ -3,12 +3,93 @@
     <title>AllotmentAndy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-04T11:47:52+00:00</updated>
+    <updated>2021-12-07T13:08:05+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-06-AWS-EC2-Instance-and-Container-setup-with-Ansible-(Part-7)</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-06-AWS-EC2-Instance-and-Container-setup-with-Ansible-(Part-7)" />
+    <title>AWS EC2 Instance and Container setup with Ansible (Part 7)</title>
+    <published>2021-12-06T00:00:00+00:00</published>
+    <updated>2021-12-06T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I started with this tutorial https://www.agix.com.au/build-an-ec2-using-ansible-step-by-step/
+
+The ansible code is in Part 7 of the repo github.com/allotmentandy/aws, this code creates a NEW instance on EC2.
+
+To run the playbook:
+
+
+
+
+
+
+this uses the......</summary>
+    <content type="html"><![CDATA[
+        <p>I started with this tutorial <a href="https://www.agix.com.au/build-an-ec2-using-ansible-step-by-step/">https://www.agix.com.au/build-an-ec2-using-ansible-step-by-step/</a></p>
+
+<p>The ansible code is in Part 7 of the repo <a href="https://github.com/allotmentandy/aws">github.com/allotmentandy/aws</a>, this code creates a NEW instance on EC2.</p>
+
+<p>To run the playbook:</p>
+
+<pre><code>ansible-playbook  -i ./hosts --private-key ~/.ssh/private.pem createEC2.yml
+</code></pre>
+
+<h3>Improvements for the next version:</h3>
+
+<ul>
+<li>this uses the deprecated https://docs.ansible.com/ansible/latest/collections/amazon/aws/ec2_module.html#ansible-collections-amazon-aws-ec2-module</li>
+<li>check if there is an instance first</li>
+<li>destroy the instance script</li>
+<li>add the Elastic IP address</li>
+</ul>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-05-AWS-Docker-improvements-adding-tailwindCss-and-more(Part-6)</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-05-AWS-Docker-improvements-adding-tailwindCss-and-more(Part-6)" />
+    <title>AWS Docker improvements adding tailwindCss and more(Part 6)</title>
+    <published>2021-12-05T00:00:00+00:00</published>
+    <updated>2021-12-05T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Having setup the docker image and got it working on the EC2 instance, I wanted to improve the laravel website within the Docker image.
+
+Installing tailwind into the laraveldocker app i made in Part 5 following this tutorial......</summary>
+    <content type="html"><![CDATA[
+        <p>Having setup the docker image and got it working on the EC2 instance, I wanted to improve the laravel website within the Docker image.</p>
+
+<p>Installing tailwind into the laraveldocker app i made in Part 5 following this tutorial <a href="https://tailwindcss.com/docs/guides/laravel">https://tailwindcss.com/docs/guides/laravel</a></p>
+
+<pre><code>npm install
+
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+
+npx tailwindcss init
+
+</code></pre>
+
+<p>setting up the tailwind config and the webpack config to allow</p>
+
+<pre><code>npm run dev
+</code></pre>
+
+<p>adding the css to the html in /resources/views/welcome.blade.php and hey presto tailwind css is working.</p>
+
+<pre><code>    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;link href="{{ asset('css/app.css') }}" rel="stylesheet"&gt;
+</code></pre>
+
+<p>I also added <a href="https://github.com/laravel/ui">https://github.com/laravel/ui</a> vue js using that link</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-12-03-AWS-Amazon-Web-Services-Laravel-in-Docker-on-EC2(Part-5)</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-03-AWS-Amazon-Web-Services-Laravel-in-Docker-on-EC2(Part-5)" />
     <title>AWS Amazon Web Services Laravel in Docker on EC2(Part 5)</title>
