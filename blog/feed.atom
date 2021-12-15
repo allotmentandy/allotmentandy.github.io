@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>AllotmentAndy</title>
+    <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-07T13:08:05+00:00</updated>
+    <updated>2021-12-15T15:06:53+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -613,7 +613,7 @@ It is a demo of a number of features of using termwind to make the command line 
     <content type="html"><![CDATA[
         <p>To connect my new Intel NUC computer to my laptop and android phone, I have used SSH with Filezilla as that is faster and easier than bluetooth and more ubiqitous. On my phone i have an app which i use to start and stop the ssh port connection. But not sure this is as easy on the Debian boxes, so...</p>
 
-<p>Firstly, i wanted to check what ports were open on the machine. <a href="https://vitux.com/find-open-ports-on-debian/" title="" target="_blank">https://vitux.com/find-open-ports-on-debian/</a> gives a overview of the options, but installing nmap is my favourite tool for this and running this command gives the output of all open ports.</p>
+<p>Firstly, i wanted to check what ports were open on the machine. <a href="https://vitux.com/find-open-ports-on-debian/" target="_blank">https://vitux.com/find-open-ports-on-debian/</a> gives a overview of the options, but installing nmap is my favourite tool for this and running this command gives the output of all open ports.</p>
 
 <pre><code>apt-get install nmap
 
@@ -684,7 +684,7 @@ systemctl disable ssh
 
 This provided 17406 features with at least 1 of the 3 links, with 202 for twitter and 260 for facebook. Here is......</summary>
     <content type="html"><![CDATA[
-        <p>I noticed that more entries were using the <strong>contact:website</strong> links for each of these 3 entities, so i added them to the <a href="https://overpass-turbo.eu/" title="" target="_blank">overpass-turbo</a> query.</p>
+        <p>I noticed that more entries were using the <strong>contact:website</strong> links for each of these 3 entities, so i added them to the <a href="https://overpass-turbo.eu/" target="_blank">overpass-turbo</a> query.</p>
 
 <pre><code>node[~"^(website|twitter|facebook|contact:website|contact:twitter|contact:facebook)$"~"."]  ({{bbox}});
 out;
@@ -706,13 +706,13 @@ out;
     <content type="html"><![CDATA[
         <h3>Downloading the data for features in Greater London</h3>
 
-<p>Yesterday, I uploaded the demo map and got a buggy version of the OSM map working showing the data stored on a map. I wanted to explore what is actually stored in the system already so I got this query to extract multiple tags (website, twitter, facebook) in one <a href="https://overpass-turbo.eu/" title="" target="_blank">overpass-turbo</a> query.</p>
+<p>Yesterday, I uploaded the demo map and got a buggy version of the OSM map working showing the data stored on a map. I wanted to explore what is actually stored in the system already so I got this query to extract multiple tags (website, twitter, facebook) in one <a href="https://overpass-turbo.eu/" target="_blank">overpass-turbo</a> query.</p>
 
 <pre><code>node[~"^(website|twitter|facebook)$"~"."]  ({{bbox}});
 out;
 </code></pre>
 
-<p>This file was exported as .geojson and I then wrote a php script to extract those 3 elements and count them. using <a href="https://github.com/halaxa/json-machine" title="" target="_blank">json machine</a></p>
+<p>This file was exported as .geojson and I then wrote a php script to extract those 3 elements and count them. using <a href="https://github.com/halaxa/json-machine" target="_blank">json machine</a></p>
 
 <pre><code class="language-php">&lt;?php
 use \JsonMachine\JsonMachine;
@@ -791,9 +791,9 @@ I have created a demo page to show the map features from the list above. Try ent
     <content type="html"><![CDATA[
         <p>I am looking at re-launching my <strong>London</strong> website using Openstreetmap with overpass data.</p>
 
-<p><a href="https://wiki.openstreetmap.org/wiki/Map_features" title="" target="_blank">Openstreetmap tags / map features</a></p>
+<p><a href="https://wiki.openstreetmap.org/wiki/Map_features" target="_blank">Openstreetmap tags / map features</a></p>
 
-<p>I have created a <a href="/overpassMap" title="" target="_blank">demo page</a> to show the map features from the list above. Try entering these in the search box on the <a href="/overpassMap" title="" target="_blank">demo page</a></p>
+<p>I have created a <a href="/overpassMap" target="_blank">demo page</a> to show the map features from the list above. Try entering these in the search box on the <a href="/overpassMap" target="_blank">demo page</a></p>
 
 <ul>
 <li>shop=butchers</li>
@@ -825,9 +825,9 @@ I have created a demo page to show the map features from the list above. Try ent
 <li>What mapping framework would you use to build this? I have looked into Leaflet.js for this demo.</li>
 <li>Is there an easy way to output all tags that apply to the UK? eg. aerialway=t-bar isnt really relevant as there are no ski-resorts in London</li>
 <li>How can I update the details for each business? whats the best way to get involved with the data here.</li>
-<li>What is the difference between tags and map features. I wanted to show a friend an asian supermarket in hammersmith called <a href="https://www.openstreetmap.org/search?query=hammersmith#map=19/51.49335/-0.23940" title="" target="_blank">Thai Smile</a> - was wondering what is the tags/info for this place. Is this all the data that is stored for <a href="https://www.openstreetmap.org/node/313617786">Thai Smile</a></li>
+<li>What is the difference between tags and map features. I wanted to show a friend an asian supermarket in hammersmith called <a href="https://www.openstreetmap.org/search?query=hammersmith#map=19/51.49335/-0.23940" target="_blank">Thai Smile</a> - was wondering what is the tags/info for this place. Is this all the data that is stored for <a href="https://www.openstreetmap.org/node/313617786">Thai Smile</a></li>
 <li>I would like to see a map with all the tags / map features and ALL data for an area to see what is available. Would this be easier to do offline / locally?</li>
-<li>Can I use tags on the <a href="/overpassMap" title="" target="_blank">demo page</a> map?</li>
+<li>Can I use tags on the <a href="/overpassMap" target="_blank">demo page</a> map?</li>
 <li>What are the best tools i can easily install on debian linux? I installed <strong>merkaartor</strong> a map editor for OpenStreetMap.org, and this allowed me to see the data stored for each entry. But where is this info actually visible on a map? There are shops that say they have a bing:photograph, but where is this visible? This is the data I would like to access and use. I would also update it too if I can use this how I hope I can.</li>
 </ol>
 
@@ -1031,7 +1031,7 @@ I have been meaning......</summary>
     <content type="html"><![CDATA[
         <p>Today I decided I wanted a script to auto build the site on each save of this jigsaw blog. I was playing with the css yesterday and liked the simplicity of the <em>npm watch</em> command, but wanted something similar for the build.sh script.</p>
 
-<p>I have been meaning to use <em>entr</em> for a while <a href="http://eradman.com/entrproject/" title="" target="_blank_">see entr docs</a> and this seemed perfect for the job.</p>
+<p>I have been meaning to use <em>entr</em> for a while <a href="http://eradman.com/entrproject/" target="_blank_">see entr docs</a> and this seemed perfect for the job.</p>
 
 <pre><code class="language-sh">    #!/bin/bash
 
@@ -1132,17 +1132,17 @@ xdotool windowactivate $CURRENT_WID
     </author>
     <summary type="html">Ansible resources online, Ansible cheatsheets and Ansible Videos I really enjoyed....</summary>
     <content type="html"><![CDATA[
-        <p>The other day I wrote an post about the offline resources I use for learning, especially about Ansible which you can read here <a href="https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian" title="" target="_blank_">Offline documentation on Debian</a> Zeal and Devdocs.io are very useful.</p>
+        <p>The other day I wrote an post about the offline resources I use for learning, especially about Ansible which you can read here <a href="https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian" target="_blank_">Offline documentation on Debian</a> Zeal and Devdocs.io are very useful.</p>
 
 <h3>Ansible Websites and Websites</h3>
 
 <p>I have now been using and learning Ansible for a good few months and wanted to list all the resources I regularly use.</p>
 
-<p><a href="https://www.ansible.com/" title="" target="_blank_">www.ansible.com</a></p>
+<p><a href="https://www.ansible.com/" target="_blank_">www.ansible.com</a></p>
 
-<p><a href="https://docs.ansible.com/ansible/2.9/user_guide/" title="" target="_blank_">docs.ansible.com</a></p>
+<p><a href="https://docs.ansible.com/ansible/2.9/user_guide/" target="_blank_">docs.ansible.com</a></p>
 
-<p><a href="https://stackoverflow.com/questions/tagged/ansible" title="" target="_blank_">Stack Overflow questions tagged with Ansible</a></p>
+<p><a href="https://stackoverflow.com/questions/tagged/ansible" target="_blank_">Stack Overflow questions tagged with Ansible</a></p>
 
 <h3>Ansible Videos</h3>
 
@@ -1285,7 +1285,7 @@ xdotool windowactivate $CURRENT_WID
 
 The two tools i really liked and have found really useful are &lt;code&gt;fzf&lt;/code&gt;......</summary>
     <content type="html"><![CDATA[
-        <p>I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle <a href="https://www.youtube.com/watch?v=BFKT7aj-i80" title="" target="_blank">Fun tools to simplify your life in the command line</a></p>
+        <p>I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle <a href="https://www.youtube.com/watch?v=BFKT7aj-i80" target="_blank">Fun tools to simplify your life in the command line</a></p>
 
 <p>The two tools i really liked and have found really useful are <code>fzf</code> and <code>ranger</code>.</p>
 
@@ -1616,15 +1616,15 @@ vagrant ssh
 
 <p>I have used this project in the past and found it great.</p>
 
-<p><a href="https://github.com/jeremykenedy/laravel-auth" title="" target="_blank">laravel-auth</a></p>
+<p><a href="https://github.com/jeremykenedy/laravel-auth" target="_blank">laravel-auth</a></p>
 
 <h4>innocenzi / laravel-boilerplate</h4>
 
-<p><a href="https://github.com/innocenzi/laravel-boilerplate" title="" target="_blank">laravel-boilerplate</a></p>
+<p><a href="https://github.com/innocenzi/laravel-boilerplate" target="_blank">laravel-boilerplate</a></p>
 
 <h4>nasirkhan / laravel-starter</h4>
 
-<p><a href="https://github.com/nasirkhan/laravel-starter" title="" target="_blank">nasirkhan/laravel-starter</a></p>
+<p><a href="https://github.com/nasirkhan/laravel-starter" target="_blank">nasirkhan/laravel-starter</a></p>
 
 <h4>rappasoft / Laravel Boilerplate</h4>
 
@@ -1632,7 +1632,7 @@ vagrant ssh
 
 <h4>laraship-laravel-directory</h4>
 
-<p><a href="https://www.laraship.com/product/laraship-laravel-directory/" title="" target="_blank">laraship laravel directory</a></p>
+<p><a href="https://www.laraship.com/product/laraship-laravel-directory/" target="_blank">laraship laravel directory</a></p>
 
 <p>Not really a starter project, more of a solution of what i am trying to offer.</p>
     ]]></content>
@@ -1704,30 +1704,30 @@ vagrant ssh
 
 <h4>Geo-directory</h4>
 
-<p><a href="https://wpgeodirectory.com/" title="" target="_blank">Geo-directory</a><br />
-<a href="https://wordpress.org/plugins/geodirectory/" title="" target="_blank">Geo-directory on Wordpress</a></p>
+<p><a href="https://wpgeodirectory.com/" target="_blank">Geo-directory</a><br />
+<a href="https://wordpress.org/plugins/geodirectory/" target="_blank">Geo-directory on Wordpress</a></p>
 
 <h4>Business Directory</h4>
 
-<p><a href="https://businessdirectoryplugin.com/" title="" target="_blank">Business Directory</a><br />
-<a href="https://wordpress.org/plugins/business-directory-plugin/" title="" target="_blank">Business Directory on Wordpress</a></p>
+<p><a href="https://businessdirectoryplugin.com/" target="_blank">Business Directory</a><br />
+<a href="https://wordpress.org/plugins/business-directory-plugin/" target="_blank">Business Directory on Wordpress</a></p>
 
 <h4>Advanced Classifieds &amp; Directory Pro</h4>
 
-<p><a href="https://pluginsware.com/" title="" target="_blank">Pluginsware</a><br />
-<a href="https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/" title="" target="_blank">Advanced Classifieds &amp; Directory Pro on Wordpress</a></p>
+<p><a href="https://pluginsware.com/" target="_blank">Pluginsware</a><br />
+<a href="https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/" target="_blank">Advanced Classifieds &amp; Directory Pro on Wordpress</a></p>
 
 <h4>Hivepress</h4>
 
 <p>This looked the most impressive on first glimpse, but the demo content wouldnt import and after a few tries i gave up.</p>
 
-<p><a href="https://hivepress.io/" title="" target="_blank">Hivepress</a><br />
-<a href="https://wordpress.org/plugins/hivepress/" title="" target="_blank">Hivepress on Wordpress</a></p>
+<p><a href="https://hivepress.io/" target="_blank">Hivepress</a><br />
+<a href="https://wordpress.org/plugins/hivepress/" target="_blank">Hivepress on Wordpress</a></p>
 
 <h4>Web Directory Free</h4>
 
-<p><a href="https://www.salephpscripts.com/wordpress_directory/demo/" title="" target="_blank">Web Directory Free</a><br />
-<a href="[https://wordpress.org/plugins/web-directory-free/]" title="" target="_blank">Web Directory Free on Wordpress</a></p>
+<p><a href="https://www.salephpscripts.com/wordpress_directory/demo/" target="_blank">Web Directory Free</a><br />
+<a href="[https://wordpress.org/plugins/web-directory-free/]" target="_blank">Web Directory Free on Wordpress</a></p>
 
 <p>I would be interested in seeing websites that use any of these plugins and chat to users of these plugins, but it looks like I am going to have to build something myself.</p>
     ]]></content>
