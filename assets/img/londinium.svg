@@ -1,0 +1,64 @@
+<svg width="50" height="50" class="display: inline-block pt-2 mr-0"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    inkscape:version="1.0 (4035a4fb49, 2020-05-01)" sodipodi:docname="londinium.svg" id="svg191"
+    viewBox="0 0 640 640" preserveAspectRatio="xMidYMid meet" version="1.1">
+    <metadata id="metadata195">
+        <rdf:RDF>
+            <cc:Work rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                <dc:title></dc:title>
+            </cc:Work>
+        </rdf:RDF>
+    </metadata>
+    <sodipodi:namedview inkscape:current-layer="svg191" inkscape:window-maximized="1"
+        inkscape:window-y="25" inkscape:window-x="0" inkscape:cy="50" inkscape:cx="61.814845"
+        inkscape:zoom="5.33" showgrid="false" id="namedview193" inkscape:window-height="724"
+        inkscape:window-width="1366" inkscape:pageshadow="2" inkscape:pageopacity="0"
+        guidetolerance="10" gridtolerance="10" objecttolerance="10" borderopacity="1"
+        bordercolor="#666666" pagecolor="#ffffff" />
+    <defs id="defs159">
+        <path id="b2nnqHS3AX" d="M460.89 439.44L222 439.44L222 173.61" />
+        <path id="dEZalReJj"
+            d="M268.11 181.67C268.11 207.12 247.45 227.78 222 227.78C196.55 227.78 175.89 207.12 175.89 181.67C175.89 156.22 196.55 135.56 222 135.56C247.45 135.56 268.11 156.22 268.11 181.67Z" />
+        <path id="b5n8q6SClE"
+            d="M268.11 311.67C268.11 337.12 247.45 357.78 222 357.78C196.55 357.78 175.89 337.12 175.89 311.67C175.89 286.22 196.55 265.56 222 265.56C247.45 265.56 268.11 286.22 268.11 311.67Z" />
+        <path id="c2o9tQiJBj"
+            d="M268.11 439.44C268.11 464.89 247.45 485.56 222 485.56C196.55 485.56 175.89 464.89 175.89 439.44C175.89 414 196.55 393.33 222 393.33C247.45 393.33 268.11 414 268.11 439.44Z" />
+        <path id="c3S6hjKh5"
+            d="M389.22 439.44C389.22 464.89 368.56 485.56 343.11 485.56C317.66 485.56 297 464.89 297 439.44C297 414 317.66 393.33 343.11 393.33C368.56 393.33 389.22 414 389.22 439.44Z" />
+        <path id="f3h3QqISAl"
+            d="M507 442.78C507 468.23 486.34 488.89 460.89 488.89C435.44 488.89 414.78 468.23 414.78 442.78C414.78 417.33 435.44 396.67 460.89 396.67C486.34 396.67 507 417.33 507 442.78Z" />
+    </defs>
+    <g transform="translate(-161.3124,-120.40737)" id="g165">
+        <g id="g163">
+            <use height="100%" width="100%" y="0" x="0" id="use161" stroke-opacity="1"
+                stroke-width="9" stroke="#000000" fill-opacity="0" opacity="1"
+                xlink:href="#b2nnqHS3AX" />
+        </g>
+    </g>
+    <g style="fill:#000080" transform="translate(-161.3124,-120.40737)" id="g169">
+        <use style="fill:#000080" height="100%" width="100%" y="0" x="0" id="use167"
+            fill-opacity="1" fill="#9b85fa" opacity="1" xlink:href="#dEZalReJj" />
+    </g>
+    <g style="fill:#000080" transform="translate(-161.3124,-120.40737)" id="g173">
+        <use style="fill:#000080" height="100%" width="100%" y="0" x="0" id="use171"
+            fill-opacity="1" fill="#94fa85" opacity="1" xlink:href="#b5n8q6SClE" />
+    </g>
+    <g transform="translate(-161.3124,-120.40737)" id="g177">
+        <use style="fill:#000080" height="100%" width="100%" y="0" x="0" id="use175"
+            fill-opacity="1" fill="#291bc0" opacity="1" xlink:href="#c2o9tQiJBj" />
+    </g>
+    <g style="fill:#000080" transform="translate(-161.3124,-120.40737)" id="g181">
+        <use style="fill:#000080" height="100%" width="100%" y="0" x="0" id="use179"
+            fill-opacity="1" fill="#94fa85" opacity="1" xlink:href="#c3S6hjKh5" />
+    </g>
+    <g style="fill:#000080" transform="translate(-161.3124,-120.40737)" id="g185">
+        <use style="fill:#000080" height="100%" width="100%" y="0" x="0" id="use183"
+            fill-opacity="1" fill="#9385fa" opacity="1" xlink:href="#f3h3QqISAl" />
+    </g>
+</svg>
