@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Tailwindcss | Allotment Andy"/>
+        <meta property="og:title" content="AWS terraform destroy &amp; terraform apply (Part 8) | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/categories/tailwindcss"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-12-20-AWS-terraform-destroy-&amp;-terraform-apply-Part-8"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-            <meta property="og:title" content="Tailwindcss" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/categories/tailwindcss"/>
-    <meta property="og:description" content="All posts that are about the Tailwind CSS Framework." />
-        <title>Allotment Andy | Tailwindcss</title>
+        <meta property="og:title" content="AWS terraform destroy &amp; terraform apply (Part 8)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2021-12-20-AWS-terraform-destroy-&amp;-terraform-apply-Part-8" />
+<meta property="og:description" content="" />
+        <title>Allotment Andy | AWS terraform destroy &amp; terraform apply (Part 8)</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=bf4a0a9f276afd5c36af">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -84,178 +84,65 @@
 </nav>
         <div class="flex">
             <main role="main" class="flex-auto w-full container max-w-5xl mx-auto py-16 px-6">
-                
-    <h1><img class="h-12 md:h-14 mr-3 inline-block" src="/assets/img/Tailwindcss.svg" alt="" />Tailwindcss (6 posts)</h1>
+                <div class=" mb-4 mt-2 bg-gray-100 px-4 py-4 rounded-lg">
 
-    <div class="text-2xl border-b border-blue-200 mb-6 pb-10">
-            </div>
+    
+    <h1 class="leading-none mb-2">
+                <img src="/assets/img/Aws.svg" alt="AWS terraform destroy &amp; terraform apply (Part 8)" class=" w-16 h-16 inline-block">
+                AWS terraform destroy &amp; terraform apply (Part 8)
+    </h1>
 
-            <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
+    <p class="text-gray-700 text-sm md:mt-0">December 20, 2021</p>
 
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2021-12-05-AWS-Docker-improvements-adding-tailwindCss-and-more(Part-6)"
-            title="Read more - AWS Docker improvements adding tailwindCss and more(Part 6)"
-            class="text-gray-900 font-extrabold"
-        >
-                AWS Docker improvements adding tailwindCss and more(Part 6)</a>
-    </h2>
+            <a href="/blog/categories/aws" title="View posts in aws"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">aws</a>
+        <a href="/blog/categories/debian" title="View posts in debian"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">debian</a>
+        <a href="/blog/categories/devops" title="View posts in devops"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">devops</a>
+        
+    <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
+        <p>This morning I got an alert from Amazon that said I was at 85% usage for storage on my free tier account. I thought this was odd, as I had been trying to stay within the free limits. Looking at the Instance console, it had a 50gb storage disk, which is higher than the 30gb allowed in the free tier. No problem.</p>
 
-    <p class="text-gray-700 font-medium my-2">
-        December 5, 2021
-    </p>
+<p>A simple change of <a href="https://github.com/allotmentandy/aws/blob/dd8728f63361e9c537037eaccee32858c7770a16/Part%204%20-%20using%20terraform%20to%20create%20an%20EC2%20instance/setup.tf#L67">line 67 of the setup.tf file</a> from 50gb to 29gb and then by running 2 commands, quickly, an instance is back up with a smaller disk!</p>
 
-    <p class="mb-4 mt-0">Having setup the docker image and got it working on the EC2 instance, I wanted to improve the laravel website within the Docker image.
+<pre><code>terraform destroy
 
-Installing tailwind into the laraveldocker app i made in Part 5...</p>
+terraform apply
+</code></pre>
 
-    <a
-        href="https://allotmentandy.github.io/blog/2021-12-05-AWS-Docker-improvements-adding-tailwindCss-and-more(Part-6)"
-        title="Read more - AWS Docker improvements adding tailwindCss and more(Part 6)"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
+<p>This is devops! Fast, accurate automation to solve problems and get up and running accuratly.</p>
+
+<p>On my journey learning and using the AWS Cloud, I have been looking at more of the offerings from Amazon.</p>
+
+<ul>
+<li><strong>AWS Elastic Beanstalk</strong> is an orchestration service offered from Amazon Web Services for deploying infrastructure which orchestrates various AWS services, including EC2, S3, Simple Notification Service, CloudWatch, autoscaling, and Elastic Load Balancers.</li>
+<li><strong>AWS Lambda</strong> is a serverless, event-driven compute service that lets you run code for virtually any type of application or backend service without provisioning or managing servers. You can trigger Lambda from over 200 AWS services and software as a service (SaaS) applications, and only pay for what you use.</li>
+</ul>
+
+<p>Useful reading:</p>
+
+<p><a href="https://github.com/rennokki/laravel-aws-eb">https://github.com/rennokki/laravel-aws-eb</a></p>
+
+<p><a href="https://github.com/mslobodyanyuk/aws-laravel_academind">https://github.com/mslobodyanyuk/aws-laravel_academind</a></p>
+
+        <p>I would like to hear from you about this, you can contact me on Twitter <a
+                href="https://www.twitter.com/andylondon">@andylondon</a> thats an easy way to start a discussion.</p>
+
+    </div>
+
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                        <a href="https://allotmentandy.github.io/blog/2021-12-06-AWS-EC2-Instance-and-Container-setup-with-Ansible-(Part-7)" title="Older Post: AWS EC2 Instance and Container setup with Ansible (Part 7)">
+                &LeftArrow; AWS EC2 Instance and Container setup with Ansible (Part 7)
+            </a>
+                    </div>
+
+        <div>
+                    </div>
+    </nav>
 </div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2021-11-16-Looking-For-Allrounder-Role-Devops-SEO-Design-Development-Creative"
-            title="Read more - Looking For Allrounder Role Devops SEO Design Development Creative"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Work.svg" alt="Tailwindcss" class=" w-8 h-8 inline-block">
-                Looking For Allrounder Role Devops SEO Design Development Creative</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        November 16, 2021
-    </p>
-
-    <p class="mb-4 mt-0">I wanted to right a new post about the sort of job role I am looking for. In the past I have had a wide variety of roles from Creative Graphic Designer to Laravel Developer. So I wanted to outline...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2021-11-16-Looking-For-Allrounder-Role-Devops-SEO-Design-Development-Creative"
-        title="Read more - Looking For Allrounder Role Devops SEO Design Development Creative"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2021-10-02-Laravel-Commands-Using-TailwindCSS-and-Termwind"
-            title="Read more - Laravel Commands Using Tailwind CSS and Termwind"
-            class="text-gray-900 font-extrabold"
-        >
-                Laravel Commands Using Tailwind CSS and Termwind</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        October 2, 2021
-    </p>
-
-    <p class="mb-4 mt-0">I recently noticed termwind and as a big fan of command line scripts and also laravel, I had to have a play with it.
-
-
-
-I have the source code on this gist
-
-It is a demo of a number of features of...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2021-10-02-Laravel-Commands-Using-TailwindCSS-and-Termwind"
-        title="Read more - Laravel Commands Using Tailwind CSS and Termwind"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2021-02-21-Tailwind-CSS"
-            title="Read more - Tailwind CSS"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Tailwindcss.svg" alt="Tailwindcss" class=" w-8 h-8 inline-block">
-                Tailwind CSS</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        February 21, 2021
-    </p>
-
-    <p class="mb-4 mt-0">The original version of Tailwind CSS used jigsaw for the docs, the same project i use for this blog, which was lovely. However the latest version (2.0.3 at the time of writing) has migrated to...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2021-02-21-Tailwind-CSS"
-        title="Read more - Tailwind CSS"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian"
-            title="Read more - Offline Documentation on Debian"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Debian.svg" alt="Tailwindcss" class=" w-8 h-8 inline-block">
-                Offline Documentation on Debian</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        November 8, 2020
-    </p>
-
-    <p class="mb-4 mt-0">A lot of the time I work offline, learning, reading, watching and playing to learn more and more.
-
-One thing i really like to use is offline tools to help me access info offline. However I am looking...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian"
-        title="Read more - Offline Documentation on Debian"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-05-17-tailwind-css"
-            title="Read more - Tailwind CSS"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Tailwindcss.svg" alt="Tailwindcss" class=" w-8 h-8 inline-block">
-                Tailwind CSS</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        May 17, 2020
-    </p>
-
-    <p class="mb-4 mt-0">One thing i really liked about this Jigsaw static site generator is it comes with Tailwind Css and a working Laravel Mix / Webpack / PurgeCSS solution.
-
-Tailwind CSS is much more like coding CSS /...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-05-17-tailwind-css"
-        title="Read more - Tailwind CSS"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-            
             </main>
         </div>
         <!-- footer -->

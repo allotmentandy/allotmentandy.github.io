@@ -3,12 +3,48 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-16T17:08:50+00:00</updated>
+    <updated>2021-12-20T13:49:31+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-20-AWS-terraform-destroy-&amp;-terraform-apply-Part-8</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-20-AWS-terraform-destroy-&amp;-terraform-apply-Part-8" />
+    <title>AWS terraform destroy &amp; terraform apply (Part 8)</title>
+    <published>2021-12-20T00:00:00+00:00</published>
+    <updated>2021-12-20T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">This morning I got an alert from Amazon that said I was at 85% usage for storage on my free tier account. I thought this was odd, as I had been trying to stay within the free limits. Looking at the Instance console, it had a 50gb storage disk, which is......</summary>
+    <content type="html"><![CDATA[
+        <p>This morning I got an alert from Amazon that said I was at 85% usage for storage on my free tier account. I thought this was odd, as I had been trying to stay within the free limits. Looking at the Instance console, it had a 50gb storage disk, which is higher than the 30gb allowed in the free tier. No problem.</p>
+
+<p>A simple change of <a href="https://github.com/allotmentandy/aws/blob/dd8728f63361e9c537037eaccee32858c7770a16/Part%204%20-%20using%20terraform%20to%20create%20an%20EC2%20instance/setup.tf#L67">line 67 of the setup.tf file</a> from 50gb to 29gb and then by running 2 commands, quickly, an instance is back up with a smaller disk!</p>
+
+<pre><code>terraform destroy
+
+terraform apply
+</code></pre>
+
+<p>This is devops! Fast, accurate automation to solve problems and get up and running accuratly.</p>
+
+<p>On my journey learning and using the AWS Cloud, I have been looking at more of the offerings from Amazon.</p>
+
+<ul>
+<li><strong>AWS Elastic Beanstalk</strong> is an orchestration service offered from Amazon Web Services for deploying infrastructure which orchestrates various AWS services, including EC2, S3, Simple Notification Service, CloudWatch, autoscaling, and Elastic Load Balancers.</li>
+<li><strong>AWS Lambda</strong> is a serverless, event-driven compute service that lets you run code for virtually any type of application or backend service without provisioning or managing servers. You can trigger Lambda from over 200 AWS services and software as a service (SaaS) applications, and only pay for what you use.</li>
+</ul>
+
+<p>Useful reading:</p>
+
+<p><a href="https://github.com/rennokki/laravel-aws-eb">https://github.com/rennokki/laravel-aws-eb</a></p>
+
+<p><a href="https://github.com/mslobodyanyuk/aws-laravel_academind">https://github.com/mslobodyanyuk/aws-laravel_academind</a></p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-12-06-AWS-EC2-Instance-and-Container-setup-with-Ansible-(Part-7)</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-06-AWS-EC2-Instance-and-Container-setup-with-Ansible-(Part-7)" />
     <title>AWS EC2 Instance and Container setup with Ansible (Part 7)</title>
@@ -515,9 +551,9 @@ phpinfo();
     <author>
         <name>Allotment Andy</name>
     </author>
-    <summary type="html">I wanted to right a new post about he sort of job role I am looking for. In the past I have had a wide variety of roles from Creative Graphic Designer to Laravel Developer. So I wanted to outline the sort of roles I would be suitable for and to help find......</summary>
+    <summary type="html">I wanted to right a new post about the sort of job role I am looking for. In the past I have had a wide variety of roles from Creative Graphic Designer to Laravel Developer. So I wanted to outline the sort of roles I would be suitable for and to help......</summary>
     <content type="html"><![CDATA[
-        <p>I wanted to right a new post about he sort of job role I am looking for. In the past I have had a wide variety of roles from Creative Graphic Designer to Laravel Developer. So I wanted to outline the sort of roles I would be suitable for and to help find a role thats uses a number of these:</p>
+        <p>I wanted to right a new post about the sort of job role I am looking for. In the past I have had a wide variety of roles from Creative Graphic Designer to Laravel Developer. So I wanted to outline the sort of roles I would be suitable for and to help find a role thats uses a number of these:</p>
 
 <ul>
 <li>Laravel PHP development</li>
