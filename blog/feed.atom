@@ -3,7 +3,7 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-20T13:51:22+00:00</updated>
+    <updated>2021-12-20T14:00:02+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -17,7 +17,7 @@
     <author>
         <name>Allotment Andy</name>
     </author>
-    <summary type="html">This morning I got an alert from Amazon that said I was at 85% usage for storage on my free tier account. I thought this was odd, as I had been trying to stay within the free limits. Looking at the Instance console, it had a 50gb storage disk, which is......</summary>
+    <summary type="html">Fixing the Terraform file to make the storage file smaller to fit in the free tier limits...</summary>
     <content type="html"><![CDATA[
         <p>This morning I got an alert from Amazon that said I was at 85% usage for storage on my free tier account. I thought this was odd, as I had been trying to stay within the free limits. Looking at the Instance console, it had a 50gb storage disk, which is higher than the 30gb allowed in the free tier. No problem.</p>
 
@@ -28,7 +28,7 @@
 terraform apply
 </code></pre>
 
-<p>This is devops! Fast, accurate automation to solve problems and get up and running accuratly.</p>
+<p>This is devops! Fast, accurate automation to solve problems and get up and running accurately.</p>
 
 <p>On my journey learning and using the AWS Cloud, I have been looking at more of the offerings from Amazon.</p>
 
