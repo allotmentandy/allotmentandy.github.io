@@ -3,12 +3,57 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-20T14:06:36+00:00</updated>
+    <updated>2021-12-22T17:25:55+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-22-Improving-the-maps-on-londinium-com</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-22-Improving-the-maps-on-londinium-com" />
+    <title>Improving the maps on Londinium.com</title>
+    <published>2021-12-22T00:00:00+00:00</published>
+    <updated>2021-12-22T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Adding mapping features to londinium.com, the original site for London using leaflet JS and Openstreetmap...</summary>
+    <content type="html"><![CDATA[
+        <p>I recently relaunch <a href="http://www.londinium.com" target="_blank">londinium.com</a> with a number of the mapping features I have been working on.</p>
+
+<p>The frontpage of <a href="http://www.londinium.com" target="_blank">londinium.com</a> now has a number of different styles of maps with links to airports and main stations alongside postcodes. 
+You can access these in the top right corner menu. I have added all the mapbox ones, but there are a lot more.</p>
+
+<p>This is on top of showing the <a href="https://wiki.openstreetmap.org/wiki/Map_features" target="_blank">Openstreetmap tags / map features</a> (eg, supermarkets)</p>
+
+<p>The features are extracted using <a href="https://overpass-turbo.eu/" target="_blank">overpass-turbo</a> which is an API for the data held in the OSM system.</p>
+
+<p>It is built using <a href="http://www.laravel.com" target="_blank">laravel</a> which is the php framework i have used most over the past few years</p>
+
+<p>The maps use <a href="https://leafletjs.com/" target="_blank">leaflet js</a>. You can see the range of base maps available on <a href="http://leaflet-extras.github.io/leaflet-providers/preview/index.html" target="_blank">http://leaflet-extras.github.io/leaflet-providers/preview/index.html</a></p>
+
+<h3>Useful Leaflet JS links</h3>
+
+<p>Here are a number of links i found useful in developing the website.</p>
+
+<p><a href="https://github.com/tomik23/leaflet-examples" target="_blank">tomik23/leaflet-examples</a></p>
+
+<p><a href="http://harrywood.co.uk/maps/examples/" target="_blank">Harry Wood map examples</a></p>
+
+<p><a href="https://devdocs.io/leaflet~1.7/index#popup" target="_blank">Devdocs LeafletJS</a></p>
+
+<p><a href="https://github.com/plepe/overpass-layer" target="_blank">github.com/plepe/overpass-layer</a></p>
+
+<h3>Ideas and notes</h3>
+
+<ul>
+<li>The current site uses the data from overpass turbo, and can be a bit slow to load. Also it times out sometimes. Interested in hosting this locally.</li>
+<li>Also would like to add a <em>loading</em> message to show the data is loading. If it fails, perhaps it could show an error message</li>
+<li>There is some inconsistency with the data in the OSM system. For example, there most twitter links include the full url, whilst others are @twitter links and others are just the twitter account. Need to address this in someway.</li>
+</ul>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-12-20-AWS-terraform-destroy-&amp;-terraform-apply-Part-8</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-20-AWS-terraform-destroy-&amp;-terraform-apply-Part-8" />
     <title>AWS terraform destroy &amp; terraform apply (Part 8)</title>

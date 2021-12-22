@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Jigsaw Static Site Thoughts | Allotment Andy"/>
+        <meta property="og:title" content="OpenStreetMap | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/categories/openstreetmap"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Jigsaw Static Site Thoughts" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts" />
-<meta property="og:description" content="" />
-        <title>Allotment Andy | Jigsaw Static Site Thoughts</title>
+            <meta property="og:title" content="OpenStreetMap" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/categories/openstreetmap"/>
+    <meta property="og:description" content="All posts that are about Openstreetmap, OSM." />
+        <title>Allotment Andy | OpenStreetMap</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=bf4a0a9f276afd5c36af">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -84,102 +84,124 @@
 </nav>
         <div class="flex">
             <main role="main" class="flex-auto w-full container max-w-5xl mx-auto py-16 px-6">
-                <div class=" mb-4 mt-2 bg-gray-100 px-4 py-4 rounded-lg">
+                
+    <h1><img class="h-12 md:h-14 mr-3 inline-block" src="/assets/img/OpenStreetMap.svg" alt="" />OpenStreetMap (4 posts)</h1>
 
-    
-    <h1 class="leading-none mb-2">
-                Jigsaw Static Site Thoughts
-    </h1>
+    <div class="text-2xl border-b border-blue-200 mb-6 pb-10">
+            </div>
 
-    <p class="text-gray-700 text-sm md:mt-0">April 29, 2020</p>
+            <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
 
-            <a href="/blog/categories/jigsaw" title="View posts in jigsaw"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">jigsaw</a>
-        
-    <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>I was looking for a project to help me do a few things. write a blog, store
-reference material for things I am interested in, create a database of plants
-I like to grow, learn about markdown &amp; JSON and also expand my use of shell
-scripts.</p>
+    <h2 class="text-2xl mt-0">
+        <a
+            href="https://allotmentandy.github.io/blog/2021-12-22-Improving-the-maps-on-londinium-com"
+            title="Read more - Improving the maps on Londinium.com"
+            class="text-gray-900 font-extrabold"
+        >
+                    <img src="/assets/img/londinium.svg" alt="OpenStreetMap" class=" w-8 h-8 inline-block">
+                Improving the maps on Londinium.com</a>
+    </h2>
 
-<p>Having been online for 25 years, I have gone from an all rounder managing CSS,
-graphics, code and servers back to being an all rounder doing the same thing.
-In the intervening years, I have worked with PHP, Codeigniter and now mainly
-Laravel and have set up this system to allow me to entertain myself whilst
-(re)learning CSS, Javascript, Markdown, JSON, Bash Scripting and Graphic
-Design, something I have ignore for too long.</p>
+    <p class="text-gray-700 font-medium my-2">
+        December 22, 2021
+    </p>
 
-<p>Having moved to using Debian Linux as my main daily machine, I have enjoyed
-setting up a number of projects but wanted somewhere to combine and publish my
-writing and experiments for all to see.</p>
+    <p class="mb-4 mt-0">Adding mapping features to londinium.com, the original site for London using leaflet JS and Openstreetmap</p>
 
-<p>So although I had known about Jigsaw for years as a Laravel developer, i
-recently took the plunge and installed it. I have tried a number of other
-static site generators including Hugo and Jekyll but they didn't really click
-with me for a number of reasons. Although I have 'played' with Ruby, Go and
-Python, I tend to fall back to bash and PHP as the languages i like. I also
-wanted something that wasn't huge, but powerful enough for me get stuff done
-without a huge learning curve.</p>
-
-<p>So Jigsaw uses the Laravel Blade syntax that I have used in many other
-projects and comes with a neat quick start blog with a nifty search facility
-from fuse.js which uses json. I created a site with a blog (_posts) and static
-pages (_pages), but the search facility only indexed the blog. No problem, i
-created a new collection in the generateIndex handle method and merged the 2
-collections, then hey presto, it worked.</p>
-
-<p>There are a number of features I liked 'out of the box' there was a RSS/ATOM
-feed included. This is great as I am a big fan of the RSS feed concept.</p>
-
-<p>The basic app also had a category system which I have included via an
-autogenerated collection in the config file.</p>
-
-<p>The Jigsaw blog system also uses Tailwind CSS, Webpack and Laravel Mix to
-process the CSS and Js with the <code>npm run dev</code> and <code>npm run production</code>
-commands.</p>
-
-<p>I have really quite enjoyed the experience and will publish this all on
-github.io and github.com/allotmentandy in the near future. Enjoying working
-with CSS and next for the imagery.</p>
-
-<p>Playing with the SVG image format is also on the to-do list.</p>
-
-<h4>Observations</h4>
-
-<p>[ ] fuse.js search json generator only takes the first 255 chars of the page
-content.</p>
-
-<p>[ ] the build process is very fast, taking about 0.2 seconds to build the
-site.</p>
-
-<p>[ ] Tailwind CSS is really nice once you get your head around it, it is like
-CSS used to be.</p>
-
-<p>[ ] I miss the 'php artisan' commands, i want a script to create a blog page
-for today, with the date and time now, the filename i give it and a basic div.
-like this <code>php artisan make:post 'title of post'</code> but i will make it in bash</p>
-
-<p><a href="http://localhost:3000/blog/2020-04-29" title="Older Post: Templates, Markdown and
-Shell Scripts for Jigsaw"> ← Templates, Markdown and Shell Scripts for Jigsaw
-</a></p>
-        <hr>
-        <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
-    </div>
-
-    <nav class="flex justify-between text-sm md:text-base">
-        <div>
-                        <a href="https://allotmentandy.github.io/blog/2020-04-29" title="Older Post: Jigsaw Templates">
-                &LeftArrow; Jigsaw Templates
-            </a>
-                    </div>
-
-        <div>
-                        <a href="https://allotmentandy.github.io/blog/2020-04-30" title="Newer Post: Cooking Day">
-                Cooking Day &RightArrow;
-            </a>
-                    </div>
-    </nav>
+    <a
+        href="https://allotmentandy.github.io/blog/2021-12-22-Improving-the-maps-on-londinium-com"
+        title="Read more - Improving the maps on Londinium.com"
+        class="font-semibold tracking-wide mb-2"
+    >Read this post ...</a>
 </div>
+
+                    <hr class="w-full border-b mt-2 mb-6">
+                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
+
+    <h2 class="text-2xl mt-0">
+        <a
+            href="https://allotmentandy.github.io/blog/2021-05-17-Openstreetmap-part3"
+            title="Read more - Openstreetmap / Overpass Part 3"
+            class="text-gray-900 font-extrabold"
+        >
+                    <img src="/assets/img/UK.svg" alt="OpenStreetMap" class=" w-8 h-8 inline-block">
+                Openstreetmap / Overpass Part 3</a>
+    </h2>
+
+    <p class="text-gray-700 font-medium my-2">
+        May 17, 2021
+    </p>
+
+    <p class="mb-4 mt-0">I noticed that more entries were using the contact:website links for each of these 3 entities, so i added them to the overpass-turbo query.
+
+
+
+This provided 17406 features with at least 1 of the 3...</p>
+
+    <a
+        href="https://allotmentandy.github.io/blog/2021-05-17-Openstreetmap-part3"
+        title="Read more - Openstreetmap / Overpass Part 3"
+        class="font-semibold tracking-wide mb-2"
+    >Read this post ...</a>
+</div>
+
+                    <hr class="w-full border-b mt-2 mb-6">
+                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
+
+    <h2 class="text-2xl mt-0">
+        <a
+            href="https://allotmentandy.github.io/blog/2021-05-16-Openstreetmap-contd"
+            title="Read more - Openstreetmap / Overpass Part 2"
+            class="text-gray-900 font-extrabold"
+        >
+                    <img src="/assets/img/UK.svg" alt="OpenStreetMap" class=" w-8 h-8 inline-block">
+                Openstreetmap / Overpass Part 2</a>
+    </h2>
+
+    <p class="text-gray-700 font-medium my-2">
+        May 16, 2021
+    </p>
+
+    <p class="mb-4 mt-0">Yesterday, I uploaded the demo map and got a buggy version of the OSM map working showing the data stored on a map. I wanted to explore what is actually stored in the system already so I got this...</p>
+
+    <a
+        href="https://allotmentandy.github.io/blog/2021-05-16-Openstreetmap-contd"
+        title="Read more - Openstreetmap / Overpass Part 2"
+        class="font-semibold tracking-wide mb-2"
+    >Read this post ...</a>
+</div>
+
+                    <hr class="w-full border-b mt-2 mb-6">
+                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
+
+    <h2 class="text-2xl mt-0">
+        <a
+            href="https://allotmentandy.github.io/blog/2021-05-15-Openstreetmap-overpass-mapping-idea"
+            title="Read more - Openstreetmap/Overpass Mapping Project"
+            class="text-gray-900 font-extrabold"
+        >
+                    <img src="/assets/img/UK.svg" alt="OpenStreetMap" class=" w-8 h-8 inline-block">
+                Openstreetmap/Overpass Mapping Project</a>
+    </h2>
+
+    <p class="text-gray-700 font-medium my-2">
+        May 15, 2021
+    </p>
+
+    <p class="mb-4 mt-0">I am looking at re-launching my London website using Openstreetmap with overpass data.
+
+Openstreetmap tags / map features
+
+I have created a demo page to show the map features from the list above. Try...</p>
+
+    <a
+        href="https://allotmentandy.github.io/blog/2021-05-15-Openstreetmap-overpass-mapping-idea"
+        title="Read more - Openstreetmap/Overpass Mapping Project"
+        class="font-semibold tracking-wide mb-2"
+    >Read this post ...</a>
+</div>
+
+            
             </main>
         </div>
         <!-- footer -->
