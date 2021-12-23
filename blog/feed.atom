@@ -3,7 +3,7 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-22T17:25:55+00:00</updated>
+    <updated>2021-12-23T15:29:20+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -26,7 +26,7 @@ You can access these in the top right corner menu. I have added all the mapbox o
 
 <p>This is on top of showing the <a href="https://wiki.openstreetmap.org/wiki/Map_features" target="_blank">Openstreetmap tags / map features</a> (eg, supermarkets)</p>
 
-<p>The features are extracted using <a href="https://overpass-turbo.eu/" target="_blank">overpass-turbo</a> which is an API for the data held in the OSM system.</p>
+<p>The features are extracted using <a href="https://overpass-turbo.eu/" target="_blank">overpass-api</a> which is an frontend for the data held in the OSM system.</p>
 
 <p>It is built using <a href="http://www.laravel.com" target="_blank">laravel</a> which is the php framework i have used most over the past few years</p>
 
