@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Improving the maps on Londinium.com | Allotment Andy"/>
+        <meta property="og:title" content="Extracting The Data From The Overpass API | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-12-22-Improving-the-maps-on-londinium-com"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Improving the maps on Londinium.com" />
+        <meta property="og:title" content="Extracting The Data From The Overpass API" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2021-12-22-Improving-the-maps-on-londinium-com" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Improving the maps on Londinium.com</title>
+        <title>Allotment Andy | Extracting The Data From The Overpass API</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=bf4a0a9f276afd5c36af">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,65 +88,88 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/londinium.svg" alt="Improving the maps on Londinium.com" class=" w-16 h-16 inline-block">
-                Improving the maps on Londinium.com
+                Extracting The Data From The Overpass API
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">December 22, 2021</p>
+    <p class="text-gray-700 text-sm md:mt-0">December 23, 2021</p>
 
-            <a href="/blog/categories/laravel" title="View posts in laravel"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">laravel</a>
+            <a href="/blog/categories/bash" title="View posts in bash"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">bash</a>
         <a href="/blog/categories/openstreetmap" title="View posts in openstreetmap"
         class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">openstreetmap</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>I recently relaunch <a href="http://www.londinium.com" target="_blank">londinium.com</a> with a number of the mapping features I have been working on.</p>
+        <p>I extracted an XML dump from the <a href="https://overpass-turbo.eu/" target="_blank">overpass-api</a>.</p>
 
-<p>The frontpage of <a href="http://www.londinium.com" target="_blank">londinium.com</a> now has a number of different styles of maps with links to airports and main stations alongside postcodes. 
-You can access these in the top right corner menu. I have added all the mapbox ones, but there are a lot more.</p>
+<p>My plan is to import this data to a database so I wrote a php script to convert this data from XML to Json and then output the data in the terminal.</p>
 
-<p>This is on top of showing the <a href="https://wiki.openstreetmap.org/wiki/Map_features" target="_blank">Openstreetmap tags / map features</a> (eg, supermarkets)</p>
+<pre><code class="language-php">&lt;?php
 
-<p>The features are extracted using <a href="https://overpass-turbo.eu/" target="_blank">overpass-api</a> which is an frontend for the data held in the OSM system.</p>
+$xmlDataString = file_get_contents('osmData.xml');
+$xmlObject = simplexml_load_string($xmlDataString);
 
-<p>It is built using <a href="http://www.laravel.com" target="_blank">laravel</a> which is the php framework i have used most over the past few years</p>
+$json = json_encode($xmlObject);
+$phpDataArray = json_decode($json, false ); 
 
-<p>The maps use <a href="https://leafletjs.com/" target="_blank">leaflet js</a>. You can see the range of base maps available on <a href="http://leaflet-extras.github.io/leaflet-providers/preview/index.html" target="_blank">http://leaflet-extras.github.io/leaflet-providers/preview/index.html</a></p>
+$counter =0;
 
-<h3>Useful Leaflet JS links</h3>
+foreach($phpDataArray as $value){
+    foreach($value as $row){
+        $name = "";
+        $twitter = "";
 
-<p>Here are a number of links i found useful in developing the website.</p>
+        foreach($row-&gt;{'tag'} as $attributes){
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'name'){
+                $name = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
 
-<p><a href="https://github.com/tomik23/leaflet-examples" target="_blank">tomik23/leaflet-examples</a></p>
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'contact:twitter'){
+                $twitter = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
 
-<p><a href="http://harrywood.co.uk/maps/examples/" target="_blank">Harry Wood map examples</a></p>
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'website'){
+                echo  ($row-&gt;{'@attributes'}-&gt;id );
+                echo " ";
+                echo  ($row-&gt;{'@attributes'}-&gt;lat );
+                echo " ";        
+                echo  ($row-&gt;{'@attributes'}-&gt;lon );
+                echo " ";
+                echo ("\e[1;32;40m" . $attributes-&gt;{'@attributes'}-&gt;{'v'} ."\e[0m");
+                echo " ";
+                echo "\e[1;33;40m" . $name ."\e[0m";
+                echo " ";
+                echo "\e[0;34;40m" . $twitter ."\e[0m";
 
-<p><a href="https://devdocs.io/leaflet~1.7/index#popup" target="_blank">Devdocs LeafletJS</a></p>
+                echo PHP_EOL;
+                $counter++;
+            }
+        }
+    }
+}
 
-<p><a href="https://github.com/plepe/overpass-layer" target="_blank">github.com/plepe/overpass-layer</a></p>
+echo "total records with website: " . $counter . PHP_EOL;
 
-<h3>Ideas and notes</h3>
+</code></pre>
 
-<ul>
-<li>The current site uses the data from overpass turbo, and can be a bit slow to load. Also it times out sometimes. Interested in hosting this locally.</li>
-<li>Also would like to add a <em>loading</em> message to show the data is loading. If it fails, perhaps it could show an error message</li>
-<li>There is some inconsistency with the data in the OSM system. For example, there most twitter links include the full url, whilst others are @twitter links and others are just the twitter account. Need to address this in someway.</li>
-</ul>
+<p>Here is a sample of the output which shows entries that have a website url.</p>
+
+<p><img src="/assets/images/sampleOSMdata.png"></p>
+
+<p>The green values are the website values, the yellow the names and the blue ones the twitter fields. Some of the websites arnt websites, many dont have the http/https prefix. Some of the entries dont have names. The twitter links arnt in any standard format, full url, @twitterhandle or just the twitter handle.</p>
+
+<p>I will develop this script further to extract more info from the xml and work out how and what to store in the database. Stay tuned.</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2021-12-20-AWS-terraform-destroy-&amp;-terraform-apply-Part-8" title="Older Post: AWS terraform destroy &amp; terraform apply (Part 8)">
-                &LeftArrow; AWS terraform destroy &amp; terraform apply (Part 8)
+                        <a href="https://allotmentandy.github.io/blog/2021-12-22-Improving-the-maps-on-londinium-com" title="Older Post: Improving the maps on Londinium.com">
+                &LeftArrow; Improving the maps on Londinium.com
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API" title="Newer Post: Extracting The Data From The Overpass API">
-                Extracting The Data From The Overpass API &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>
