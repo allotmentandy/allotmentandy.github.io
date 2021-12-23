@@ -3,7 +3,7 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-23T21:27:09+00:00</updated>
+    <updated>2021-12-23T21:29:34+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -17,7 +17,7 @@
     <author>
         <name>Allotment Andy</name>
     </author>
-    <summary type="html">taking the last blog further, importing into the database...</summary>
+    <summary type="html">Taking the last blog further, importing into the database and running Spatial queries....</summary>
     <content type="html"><![CDATA[
         <p>Furthermore to the last blog, I updated the php script to output sql, created a new database table, imported it into the database and started to output the data.</p>
 
@@ -107,7 +107,9 @@ ORDER BY  dist;
 
 <p><img src="/assets/images/mysqlSelectDistance.png"></p>
 
-<p>Now i am going to improve the import parser to add the addresses to make it easier to see problems. Changing the <code>INSERT</code> command to <code>INSERT IGNORE</code> to ignore errors</p>
+<p>Now i am going to improve the import parser to add the addresses to make it easier to see problems.</p>
+
+<p>Changing the <code>INSERT</code> command to <code>INSERT IGNORE</code> to ignore errors</p>
     ]]></content>
 </entry>
             <entry>
