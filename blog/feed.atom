@@ -3,12 +3,114 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-23T16:24:22+00:00</updated>
+    <updated>2021-12-23T21:27:09+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API-(Part-2)</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API-(Part-2)" />
+    <title>Extracting The Data From The Overpass API (Part 2)</title>
+    <published>2021-12-23T21:17:01+00:00</published>
+    <updated>2021-12-23T21:17:01+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">taking the last blog further, importing into the database...</summary>
+    <content type="html"><![CDATA[
+        <p>Furthermore to the last blog, I updated the php script to output sql, created a new database table, imported it into the database and started to output the data.</p>
+
+<p>Going to use the new(ish) point datatype in mysql.</p>
+
+<pre><code class="language-mysql">CREATE TABLE `points` (
+  `id` varchar(11) NOT NULL,
+  `website` varchar(255) NOT NULL,
+  `twitter` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `point` point NOT NULL,
+
+  PRIMARY KEY (`id`),
+  SPATIAL KEY `point` (`point`)
+) ENGINE=InnoDB;
+
+</code></pre>
+
+<p>I amended the php script in yesterdays post to output sql.</p>
+
+<pre><code class="language-php">&lt;?php
+
+$xmlDataString = file_get_contents('osmData.xml');
+$xmlObject = simplexml_load_string($xmlDataString);
+
+$json = json_encode($xmlObject);
+$phpDataArray = json_decode($json, false ); 
+
+foreach($phpDataArray as $value){
+    foreach($value as $row){
+        $name = "";
+        $twitter = "";
+
+        foreach($row-&gt;{'tag'} as $attributes){
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'name'){
+                $name = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'contact:twitter'){
+                $twitter = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'website'){
+
+                echo "INSERT INTO `points` (`id`, `website`, `twitter`, `name`, `point`) ";
+                echo "VALUES(" . $row-&gt;{'@attributes'}-&gt;id .", '" . $attributes-&gt;{'@attributes'}-&gt;{'v'} . "', '". $twitter . "', '" . addslashes($name) . "', POINT(" . $row-&gt;{'@attributes'}-&gt;lat . " , " . $row-&gt;{'@attributes'}-&gt;lon ." ));"; 
+
+                echo PHP_EOL;
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>To save the sql i ran</p>
+
+<pre><code>php xmlParser.php &gt; points.sql
+</code></pre>
+
+<p>To import it to the database i run</p>
+
+<pre><code>mysql -u root -p dbName &lt; points.sql
+</code></pre>
+
+<p>There was a couple of problems due to 2 urls having ' in them! Neither actually worked (404 errors) so i manually deleted them from the import table, deleted the table contents and started again. Third time lucky, i had a new db table with over 10,000 records.</p>
+
+<p>Now i can run a query like this:</p>
+
+<pre><code>SELECT * FROM points WHERE ST_Distance_Sphere(point, POINT(51.49591970845512, -0.26298522949218756)) &lt;= 2000 ;
+</code></pre>
+
+<p>which returns 100 websites within 2500 metres of the point (in chiswick)! This works for all the points i tried including much shorter coordinates.</p>
+
+<pre><code>SELECT * FROM points WHERE ST_Distance_Sphere(point, POINT(51.49, -0.14)) &lt;= 2000 ;
+</code></pre>
+
+<p>Now I wanted to improve it further and show and order by  the distance from the centre point</p>
+
+<pre><code>SELECT id, name, website,
+  ST_X(point) AS longitude,
+  ST_Y(point) AS latitude,
+  ST_DISTANCE_SPHERE(point, POINT(51.49455119685909, -0.14415264129638675)) AS dist
+FROM points 
+HAVING dist &lt; 500
+ORDER BY  dist;
+</code></pre>
+
+<p><img src="/assets/images/mysqlSelectDistance.png"></p>
+
+<p>Now i am going to improve the import parser to add the addresses to make it easier to see problems. Changing the <code>INSERT</code> command to <code>INSERT IGNORE</code> to ignore errors</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API" />
     <title>Extracting Data From The Overpass API</title>
