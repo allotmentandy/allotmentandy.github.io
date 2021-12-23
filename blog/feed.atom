@@ -3,7 +3,7 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-23T16:21:32+00:00</updated>
+    <updated>2021-12-23T16:24:22+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -11,19 +11,13 @@
                 <entry>
     <id>https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API" />
-    <title>Extracting The Data From The Overpass API</title>
+    <title>Extracting Data From The Overpass API</title>
     <published>2021-12-23T00:00:00+00:00</published>
     <updated>2021-12-23T00:00:00+00:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
-    <summary type="html">I extracted an XML dump from the overpass-api.
-
-My plan is to import this data to a database so I wrote a php script to convert this data from XML to Json and then output the data in the terminal.
-
-
-
-Here is a sample of the output which shows entries......</summary>
+    <summary type="html">I wrote a simple php script to extract data from the Overpass API xml file...</summary>
     <content type="html"><![CDATA[
         <p>I extracted an XML dump from the <a href="https://overpass-turbo.eu/" target="_blank">overpass-api</a>.</p>
 
