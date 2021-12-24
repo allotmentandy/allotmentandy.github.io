@@ -3,12 +3,50 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-24T13:29:46+00:00</updated>
+    <updated>2021-12-24T15:04:15+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-24-What-am-I-trying-to-achieve</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-24-What-am-I-trying-to-achieve" />
+    <title>What am I trying to achieve?</title>
+    <published>2021-12-24T14:40:01+00:00</published>
+    <updated>2021-12-24T14:40:01+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I was asked this question on twitter, so I wrote a blog post answering it...</summary>
+    <content type="html"><![CDATA[
+        <p><a href="https://twitter.com/plepe" target="_blank">plepe</a> the developer of the <a href="https://github.com/plepe/overpass-layer" target="_blank">javascript toolkit</a> I use to get the data from the overpass API asked me a couple of questions over on twitter.</p>
+
+<p><strong>What are you trying to achieve? Do you want to tell people about your script? Are you looking for co-developers? Are you looking for ideas?</strong></p>
+
+<p>Over 20 years ago, i register the domain name Londinium.com and spent many years building a large directory website focused on London. Around 2015, Google kicked the directories like mine from their search engine results, alongside regular Denial of Service attacks, the EU cookie directive and other factors, I decided to take the website down as it was no longer making any money.</p>
+
+<p>Now I have relaunched londinium.com with the maps from Open Street Map and using the Overpass API, i hope to be able to provide a map based solution for people looking for local information and more.</p>
+
+<p>One idea I have is to contribute all the data to Openstreetmap. I have developed a number of web spiders, crawlers and tools to find website information. This includes checking websites work, extracting links from websites, content from web pages and screenshots of websites.</p>
+
+<p>I would like to make use of these tools to clean the data returned from the overpass api, (eg. fixing links to websites that are missing the http:// part) I would also like to use the tools I have written to add more links to social media like twitter, facebook and also to youtube, flickr and more. My tools also extract data from the Head of the websites like ICBM location and other Meta tag data.</p>
+
+<p>As a PHP developer with a geography background, I mainly work with the Laravel framework. Much of the OSM technology is Javascript based, and although I have coded londinium.com so far, javascript is not my strongest skill. I would like to find other people that use similar technologies (<code>leaflet js</code>, <code>overpass api</code> ) willing to share and help each other.</p>
+
+<p>I would also like to open source the technology once it has reached a stable state. Not only the frontend website, but the backend tools that find, check and update information held.</p>
+
+<p>One thing I would like to add is a "Loading..." modal to say that the Overpass API data is loading on the live site. Not entirely sure how to do this.</p>
+
+<p>Another question with regards to developers, is where do they hangout? Is the <a href="https://forum.openstreetmap.org/viewforum.php?id=13" target="_blank">forum</a> the correct place to paste the link to this post, or are the mailing lists better. Is there a chatroom or irc channel in which  openstreetmap folk dwell?</p>
+
+<p>I may well update this blog post if people ask questions or other points occur to me.</p>
+
+<p>Happy Christmas</p>
+
+<p>Andy</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-12-24-Extracting-More-Data-From-The-Overpass-API-(Part-3)</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-24-Extracting-More-Data-From-The-Overpass-API-(Part-3)" />
     <title>Extracting More Data From The Overpass API (Part 3)</title>
