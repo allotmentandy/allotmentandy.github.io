@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Extracting The Data From The Overpass API (Part 2) | Allotment Andy"/>
+        <meta property="og:title" content="Extracting More Data From The Overpass API (Part 3) | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API-(Part-2)"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-12-24-Extracting-More-Data-From-The-Overpass-API-(Part-3)"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Extracting The Data From The Overpass API (Part 2)" />
+        <meta property="og:title" content="Extracting More Data From The Overpass API (Part 3)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API-(Part-2)" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2021-12-24-Extracting-More-Data-From-The-Overpass-API-(Part-3)" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Extracting The Data From The Overpass API (Part 2)</title>
+        <title>Allotment Andy | Extracting More Data From The Overpass API (Part 3)</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=bf4a0a9f276afd5c36af">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,11 +88,11 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/londinium.svg" alt="Extracting The Data From The Overpass API (Part 2)" class=" w-16 h-16 inline-block">
-                Extracting The Data From The Overpass API (Part 2)
+                <img src="/assets/img/londinium.svg" alt="Extracting More Data From The Overpass API (Part 3)" class=" w-16 h-16 inline-block">
+                Extracting More Data From The Overpass API (Part 3)
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">December 23, 2021</p>
+    <p class="text-gray-700 text-sm md:mt-0">December 24, 2021</p>
 
             <a href="/blog/categories/laravel" title="View posts in laravel"
         class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">laravel</a>
@@ -100,13 +100,15 @@
         class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">openstreetmap</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>Furthermore to the last blog, I updated the php script to output sql, created a new database table, imported it into the database and started to output the data.</p>
+        <p>I continued developing the parseXMl.php file to get 2 more sets of data. An address, which is a combination of <code>$housenumber . " " . $street . " " . $city . " " . $postcode;</code> and also a type, which is a combination of <code>sport, leisure, shop, amenity, office</code> which gives an idea of what the object is.</p>
 
-<p>Going to use the new(ish) point datatype in mysql.</p>
+<p>I have added fields into the database table to store these like so:</p>
 
-<pre><code class="language-mysql">CREATE TABLE `points` (
+<pre><code>CREATE TABLE `points` (
   `id` varchar(11) NOT NULL,
   `website` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
   `twitter` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `point` point NOT NULL,
@@ -117,11 +119,13 @@
 
 </code></pre>
 
-<p>I amended the php script in yesterdays post to output sql.</p>
+<p>so now the parseXml.php file looks like this</p>
+
+<h4><strong><code>parseXml.php</code></strong></h4>
 
 <pre><code class="language-php">&lt;?php
 
-$xmlDataString = file_get_contents('osmData.xml');
+$xmlDataString = file_get_contents('osmData.json');
 $xmlObject = simplexml_load_string($xmlDataString);
 
 $json = json_encode($xmlObject);
@@ -131,6 +135,11 @@ foreach($phpDataArray as $value){
     foreach($value as $row){
         $name = "";
         $twitter = "";
+        $housenumber = "";
+        $street = "";
+        $city = "";
+        $postcode = "";
+        $type = "";
 
         foreach($row-&gt;{'tag'} as $attributes){
             if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'name'){
@@ -141,71 +150,75 @@ foreach($phpDataArray as $value){
                 $twitter = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
             }
 
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'addr:housenumber'){
+                $housenumber = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'addr:street'){
+                $street = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'addr:city'){
+                $city = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'addr:postcode'){
+                $postcode = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'sport'){
+                $type = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'leisure'){
+                $type = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'shop'){
+                $type = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'amenity'){
+                $type = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'office'){
+                $type = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+
             if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'website'){
 
-                echo "INSERT INTO `points` (`id`, `website`, `twitter`, `name`, `point`) ";
-                echo "VALUES(" . $row-&gt;{'@attributes'}-&gt;id .", '" . $attributes-&gt;{'@attributes'}-&gt;{'v'} . "', '". $twitter . "', '" . addslashes($name) . "', POINT(" . $row-&gt;{'@attributes'}-&gt;lat . " , " . $row-&gt;{'@attributes'}-&gt;lon ." ));"; 
+                $address = $housenumber . " " . $street . " " . $city . " " . $postcode;            
+                $address = trim($address);
+
+                // make the sql using INSERT IGNORE to prevent errors
+                echo "INSERT IGNORE INTO `points` (`id`, `website`, `address`, `type` , `twitter`, `name`, `point`) ";
+                echo "VALUES(" . $row-&gt;{'@attributes'}-&gt;id .", '" . addslashes($attributes-&gt;{'@attributes'}-&gt;{'v'}) . "', '". addslashes($address) . "', '". addslashes($type) . "', '". $twitter . "', '" . addslashes($name) . "', POINT(" . $row-&gt;{'@attributes'}-&gt;lat . " , " . $row-&gt;{'@attributes'}-&gt;lon ." ));"; 
 
                 echo PHP_EOL;
             }
         }
     }
 }
+
 </code></pre>
 
-<p>To save the sql i ran</p>
+<p>running it using the same 2 commands, the first processes the xml file and outputs sql inserts, the second inserts it into the db.</p>
 
-<pre><code>php xmlParser.php &gt; points.sql
+<pre><code>php parseXml.php &gt; points1.sql
+mysql -u root -p dbtable &lt; points1.sql
 </code></pre>
 
-<p>To import it to the database i run</p>
+<p>There are a few other fields I was looking at, including <code>facebook, contact:facebook, contact:instagram, contact:linkedin, linkedin, addr:country, email, phone, contact:phone</code> but these dont actually hold much data. So I am going to focus on displaying the results on the location pages to list the nearby entries.</p>
 
-<pre><code>mysql -u root -p dbName &lt; points.sql
-</code></pre>
+<p>NB: The <code>type</code> field in the code above only takes the value of the last field that exists so office is more important than amenity etc... I did notice that some have multiple values separated by semi-colons (eg. spinning;fitness;yoga) I will check to see if these work in the overpass api results.</p>
 
-<p>There was a couple of problems due to 2 urls having ' in them! Neither actually worked (404 errors) so i manually deleted them from the import table, deleted the table contents and started again. Third time lucky, i had a new db table with over 10,000 records.</p>
-
-<p>Now i can run a query like this:</p>
-
-<pre><code>SELECT * FROM points WHERE ST_Distance_Sphere(point, POINT(51.49591970845512, -0.26298522949218756)) &lt;= 2000 ;
-</code></pre>
-
-<p>which returns 100 websites within 2500 metres of the point (in chiswick)! This works for all the points i tried including much shorter coordinates.</p>
-
-<pre><code>SELECT * FROM points WHERE ST_Distance_Sphere(point, POINT(51.49, -0.14)) &lt;= 2000 ;
-</code></pre>
-
-<p>Now I wanted to improve it further and show and order by  the distance from the centre point</p>
-
-<pre><code>SELECT id, name, website,
-  ST_X(point) AS longitude,
-  ST_Y(point) AS latitude,
-  ST_DISTANCE_SPHERE(point, POINT(51.49455119685909, -0.14415264129638675)) AS dist
-FROM points 
-HAVING dist &lt; 500
-ORDER BY  dist;
-</code></pre>
-
-<p><img src="/assets/images/mysqlSelectDistance.png"></p>
-
-<p>Now i am going to improve the import parser to add the addresses to make it easier to see problems.</p>
-
-<p>Changing the <code>INSERT</code> command to <code>INSERT IGNORE</code> to ignore errors</p>
+<p>I am also planning to run a web spider/crawler on these results to see which pages are working (non 404 results) and also extract more of the external social media links using my <a href="https://github.com/allotmentandy/SocialMediaLinkExtractor" target="_blank">Social Media Link Extractor package</a> but that is for a future post. I would be interested in adding this data to the overpass api automatically, but not sure that is allowed.</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API" title="Older Post: Extracting Data From The Overpass API">
-                &LeftArrow; Extracting Data From The Overpass API
+                        <a href="https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API-(Part-2)" title="Older Post: Extracting The Data From The Overpass API (Part 2)">
+                &LeftArrow; Extracting The Data From The Overpass API (Part 2)
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2021-12-24-Extracting-More-Data-From-The-Overpass-API-(Part-3)" title="Newer Post: Extracting More Data From The Overpass API (Part 3)">
-                Extracting More Data From The Overpass API (Part 3) &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>

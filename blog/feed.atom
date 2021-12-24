@@ -3,12 +3,132 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-23T21:29:34+00:00</updated>
+    <updated>2021-12-24T13:29:46+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-24-Extracting-More-Data-From-The-Overpass-API-(Part-3)</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-24-Extracting-More-Data-From-The-Overpass-API-(Part-3)" />
+    <title>Extracting More Data From The Overpass API (Part 3)</title>
+    <published>2021-12-24T00:00:00+00:00</published>
+    <updated>2021-12-24T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Extracting the Address details and the type of thing it actually is....</summary>
+    <content type="html"><![CDATA[
+        <p>I continued developing the parseXMl.php file to get 2 more sets of data. An address, which is a combination of <code>$housenumber . " " . $street . " " . $city . " " . $postcode;</code> and also a type, which is a combination of <code>sport, leisure, shop, amenity, office</code> which gives an idea of what the object is.</p>
+
+<p>I have added fields into the database table to store these like so:</p>
+
+<pre><code>CREATE TABLE `points` (
+  `id` varchar(11) NOT NULL,
+  `website` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `twitter` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `point` point NOT NULL,
+
+  PRIMARY KEY (`id`),
+  SPATIAL KEY `point` (`point`)
+) ENGINE=InnoDB;
+
+</code></pre>
+
+<p>so now the parseXml.php file looks like this</p>
+
+<h4><strong><code>parseXml.php</code></strong></h4>
+
+<pre><code class="language-php">&lt;?php
+
+$xmlDataString = file_get_contents('osmData.json');
+$xmlObject = simplexml_load_string($xmlDataString);
+
+$json = json_encode($xmlObject);
+$phpDataArray = json_decode($json, false ); 
+
+foreach($phpDataArray as $value){
+    foreach($value as $row){
+        $name = "";
+        $twitter = "";
+        $housenumber = "";
+        $street = "";
+        $city = "";
+        $postcode = "";
+        $type = "";
+
+        foreach($row-&gt;{'tag'} as $attributes){
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'name'){
+                $name = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'contact:twitter'){
+                $twitter = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'addr:housenumber'){
+                $housenumber = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'addr:street'){
+                $street = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'addr:city'){
+                $city = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'addr:postcode'){
+                $postcode = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'sport'){
+                $type = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'leisure'){
+                $type = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'shop'){
+                $type = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'amenity'){
+                $type = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'office'){
+                $type = ($attributes-&gt;{'@attributes'}-&gt;{'v'});
+            }
+
+            if($attributes-&gt;{'@attributes'}-&gt;{'k'} == 'website'){
+
+                $address = $housenumber . " " . $street . " " . $city . " " . $postcode;            
+                $address = trim($address);
+
+                // make the sql using INSERT IGNORE to prevent errors
+                echo "INSERT IGNORE INTO `points` (`id`, `website`, `address`, `type` , `twitter`, `name`, `point`) ";
+                echo "VALUES(" . $row-&gt;{'@attributes'}-&gt;id .", '" . addslashes($attributes-&gt;{'@attributes'}-&gt;{'v'}) . "', '". addslashes($address) . "', '". addslashes($type) . "', '". $twitter . "', '" . addslashes($name) . "', POINT(" . $row-&gt;{'@attributes'}-&gt;lat . " , " . $row-&gt;{'@attributes'}-&gt;lon ." ));"; 
+
+                echo PHP_EOL;
+            }
+        }
+    }
+}
+
+</code></pre>
+
+<p>running it using the same 2 commands, the first processes the xml file and outputs sql inserts, the second inserts it into the db.</p>
+
+<pre><code>php parseXml.php &gt; points1.sql
+mysql -u root -p dbtable &lt; points1.sql
+</code></pre>
+
+<p>There are a few other fields I was looking at, including <code>facebook, contact:facebook, contact:instagram, contact:linkedin, linkedin, addr:country, email, phone, contact:phone</code> but these dont actually hold much data. So I am going to focus on displaying the results on the location pages to list the nearby entries.</p>
+
+<p>NB: The <code>type</code> field in the code above only takes the value of the last field that exists so office is more important than amenity etc... I did notice that some have multiple values separated by semi-colons (eg. spinning;fitness;yoga) I will check to see if these work in the overpass api results.</p>
+
+<p>I am also planning to run a web spider/crawler on these results to see which pages are working (non 404 results) and also extract more of the external social media links using my <a href="https://github.com/allotmentandy/SocialMediaLinkExtractor" target="_blank">Social Media Link Extractor package</a> but that is for a future post. I would be interested in adding this data to the overpass api automatically, but not sure that is allowed.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API-(Part-2)</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-23-Extracting-The-Data-From-The-Overpass-API-(Part-2)" />
     <title>Extracting The Data From The Overpass API (Part 2)</title>
