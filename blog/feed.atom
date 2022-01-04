@@ -3,12 +3,219 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2021-12-24T15:04:15+00:00</updated>
+    <updated>2022-01-04T16:54:46+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-01-04-Importing-OSM-Overpass-API-Data-To-MYSQL</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-04-Importing-OSM-Overpass-API-Data-To-MYSQL" />
+    <title>Importing OSM Overpass API Data To MYSQL</title>
+    <published>2022-01-04T00:00:00+00:00</published>
+    <updated>2022-01-04T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">A php script to import Overpass API data from Openstreetmap into MYSQL using JSON....</summary>
+    <content type="html"><![CDATA[
+        <p>I wanted to improve the area maps on <a href="http://www.londinium.com" target="_blank">londinium.com</a> by adding a list of the websites nearby to each location. I started with the query I blogged about a few posts back, so I started with just the nodes, but large objects like hospitals didnt appear in the first list. This is because they are not nodes, rather ways and relations. The problem with these non-nodes is that they didnt have a lat/long in the same way the nodes did. But I found you could use the center output mode and replace <code>out</code> with <code>out center</code> so i my query for extracting websites is now put in a query file called <code>query.osm</code> like so:</p>
+
+<pre><code>data=[out:json];nwr[~"^(website|twitter|facebook|contact:website|contact:twitter|contact:facebook)$"~"."]  (51.11386850819646,-1.197509765625,51.92394344554469,0.85418701171875);out center;
+</code></pre>
+
+<p>Note that the export area is encoded in the query, and the output format is json.</p>
+
+<p>To download the osm data with this command using the 'query.osm' file above run:</p>
+
+<pre><code>wget -O osm.json --post-file=query.osm "https://overpass-api.de/api/interpreter"
+</code></pre>
+
+<p>To parse the <code>osm.json</code> file to extract data and create an insert sql file, I amended my parseXml.php file like so</p>
+
+<p>I am now donwloading json, so i needed to change the parse file a lot. It is much cleaner and easier with json to extract the data</p>
+
+<pre><code class="language-php">&lt;?php
+
+error_reporting(E_ALL ^ E_WARNING); // disable warnings as this is an sql import
+
+$json = file_get_contents('osm.json');
+$phpDataArray = json_decode($json, false ); 
+
+foreach($phpDataArray as $value){
+
+    foreach($value as $row){
+
+        if ($row-&gt;tags-&gt;website){    $website = $row-&gt;tags-&gt;website;}
+        else    $website = $row-&gt;tags-&gt;{'contact:website'};
+
+        // if the website is not valid or blank - continue, ignoring this row
+        if (filter_var($website, FILTER_VALIDATE_URL) === false) {
+            continue;
+        }
+
+        if ($row-&gt;id){
+            $nwr = $row-&gt;type; // Node, Way, Relation
+
+            if ($row-&gt;lat){
+                $lat = $row-&gt;lat;
+            }
+            else
+                $lat = $row-&gt;center-&gt;lat;
+
+            if ($row-&gt;lon){
+                $lon = $row-&gt;lon;
+            }
+            else
+                $lon = $row-&gt;center-&gt;lon;
+
+
+            $address = $row-&gt;tags-&gt;{'addr:housenumber'} . " " . $row-&gt;tags-&gt;{'addr:housename'} . " " .
+            $row-&gt;tags-&gt;{'addr:unit'} . " " . $row-&gt;tags-&gt;{'addr:street'} . " " .
+            $row-&gt;tags-&gt;{'addr:place'} . " " . $row-&gt;tags-&gt;{'addr:city'} . " " .
+            $row-&gt;tags-&gt;{'addr:postcode'};            
+
+            $feature = "";
+
+            if($row-&gt;tags-&gt;railway){ $feature = $row-&gt;tags-&gt;railway;}
+            if($row-&gt;tags-&gt;public_transport){ $feature = $row-&gt;tags-&gt;public_transport;}
+            if($row-&gt;tags-&gt;highway){ $feature = $row-&gt;tags-&gt;historic;}
+            if($row-&gt;tags-&gt;building &amp;&amp; ($row-&gt;tags-&gt;building != "yes") ){ $feature = $row-&gt;tags-&gt;building;}
+            if($row-&gt;tags-&gt;natural){ $feature = $row-&gt;tags-&gt;natural;}
+            if($row-&gt;tags-&gt;sport){ $feature = $row-&gt;tags-&gt;sport;}
+            if($row-&gt;tags-&gt;leisure){ $feature = $row-&gt;tags-&gt;leisure;}
+            if($row-&gt;tags-&gt;landuse){ $feature = $row-&gt;tags-&gt;landuse;}
+            if($row-&gt;tags-&gt;craft){ $feature = $row-&gt;tags-&gt;craft;}
+            if($row-&gt;tags-&gt;office){ $feature = $row-&gt;tags-&gt;office;}
+            if($row-&gt;tags-&gt;tourism){ $feature = $row-&gt;tags-&gt;tourism;}
+            if($row-&gt;tags-&gt;shop){ $feature = $row-&gt;tags-&gt;shop;}
+            if($row-&gt;tags-&gt;amenity){ $feature = $row-&gt;tags-&gt;amenity;}
+
+            $amenity = "";
+            if($row-&gt;tags-&gt;amenity){ $amenity = $row-&gt;tags-&gt;amenity;}
+
+            $building = "";            
+            if($row-&gt;tags-&gt;building &amp;&amp; ($row-&gt;tags-&gt;building != "yes") ){ $building = $row-&gt;tags-&gt;building;}
+
+            $tourism = "";            
+            if($row-&gt;tags-&gt;tourism){ $tourism = $row-&gt;tags-&gt;tourism;}
+
+            $craft = "";
+            if($row-&gt;tags-&gt;craft){ $craft = $row-&gt;tags-&gt;craft;}
+
+            //social
+
+            if ($row-&gt;tags-&gt;twitter){    $twitter = $row-&gt;tags-&gt;twitter;}
+            else    $twitter = $row-&gt;tags-&gt;{'contact:twitter'};
+
+            if ($row-&gt;tags-&gt;facebook){    $facebook = $row-&gt;tags-&gt;facebook;}
+            else    $facebook = $row-&gt;tags-&gt;{'contact:facebook'};
+
+            if ($row-&gt;tags-&gt;instagram){    $instagram = $row-&gt;tags-&gt;instagram;}
+            else    $instagram = $row-&gt;tags-&gt;{'contact:instagram'};
+
+            if ($row-&gt;tags-&gt;linkedin){    $linkedin = $row-&gt;tags-&gt;linkedin;}
+            else    $linkedin = $row-&gt;tags-&gt;{'contact:linkedin'};
+
+            // make the sql using INSERT IGNORE to prevent errors
+            echo "INSERT IGNORE INTO `points` (`id`, `website`, `address`, `feature` ,`amenity` ,`building` ,
+            `tourism` ,`craft` , `twitter`,  `facebook`,  `linkedin`, `instagram`,  `name`, `nwr`, `point`) ";
+            echo "VALUES(" . $row-&gt;id .", '" . addslashes($website) . "', '". addslashes(trim($address)) . "', '".
+             addslashes($feature) . "', '" .addslashes($amenity) . "', '" .addslashes($building) . "', '" .
+             addslashes($tourism) . "', '" .addslashes($craft) . "', '" . $twitter . "', '". $facebook 
+             . "', '". $linkedin . "', '". $instagram . "', '" . addslashes($row-&gt;tags-&gt;name). "', '".
+              $nwr . "', POINT(" . $lat . " , " . $lon ." ));"; 
+
+            echo PHP_EOL;
+        }
+    }
+}
+
+
+</code></pre>
+
+<p>To create the sql file, I ran it like this</p>
+
+<pre><code>parseJson.php &gt; points.sql
+</code></pre>
+
+<p>I had to extract the <code>nwr</code> (Node/Way/Relation) to be able to link to the live db database on openstreetmap. I also renamed the field <code>type</code> as <code>feature</code> so the new database table is like so:</p>
+
+<pre><code class="language-mysql">CREATE TABLE `points` (
+  `id` varchar(11) NOT NULL,
+  `nwr` varchar(255) NOT NULL,
+  `feature` varchar(255) NOT NULL,
+  `amenity` varchar(255) NOT NULL,
+  `building` varchar(255) NOT NULL,
+  `tourism` varchar(255) NOT NULL,
+  `craft` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `website` varchar(255) NOT NULL,
+  `twitter` varchar(255) NOT NULL,
+  `facebook` varchar(255) NOT NULL,
+  `linkedin` varchar(255) NOT NULL,
+  `instagram` varchar(255) NOT NULL,
+  `point` point NOT NULL,
+
+  PRIMARY KEY (`id`),
+  SPATIAL KEY `point` (`point`)
+) ENGINE=InnoDB;
+</code></pre>
+
+<p>import into db using pipe viewer to see progress</p>
+
+<pre><code>pv points.sql | mysql -u root -p  londinium
+</code></pre>
+
+<p>And hey presto, a table full of data with each entity having geographic data.</p>
+
+<p>There is still a number of 'dodgy' entries, which i plan to clean up at the next stage of this this import.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2021-12-27-Planning-to-do-the-Hashicorp-Terraform-Associate-Certification</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-27-Planning-to-do-the-Hashicorp-Terraform-Associate-Certification" />
+    <title>Planning to do the Hashicorp Terraform Associate Certification</title>
+    <published>2021-12-27T00:00:00+00:00</published>
+    <updated>2021-12-27T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Having spent the past month focusing on devops with AWS, I have decided to do the Terraform Associate Certification. It is coming to the new year, new month, so i get a new allocation of 750 hours on AWS to play with. I look forward to learning,......</summary>
+    <content type="html"><![CDATA[
+        <p>Having spent the past month focusing on devops with AWS, I have decided to do the Terraform Associate Certification. It is coming to the new year, new month, so i get a new allocation of 750 hours on AWS to play with. I look forward to learning, practicing and developing knowledge on the more advanced aspects of Terraform tools with a plan to take the Certification.</p>
+
+<p>Here are a few links of use.</p>
+
+<p><a href="https://www.hashicorp.com/" target="_blank">hashicorp.com</a></p>
+
+<p><a href="https://www.terraform.io/docs" target="_blank">terraform.io/docs</a></p>
+
+<p><a href="https://learn.hashicorp.com/tutorials/terraform/associate-study" target="_blank">hashicorp terraform/associate-study</a></p>
+
+<p><a href="https://app.terraform.io/signup/account?utm_source=iopage&amp;utm_campaign=tf_cloud_ga" target="_blank">terraform cloud</a></p>
+
+<p><a href="https://registry.terraform.io/" target="_blank">registry.terraform.io</a></p>
+
+<p><a href="https://www.exampro.co/terraform" target="_blank">exampro.co/terraform</a></p>
+
+<p><a href="https://github.com/shuaibiyy/awesome-terraform" target="_blank">awesome-terraform</a></p>
+
+<p><a href="https://www.bogotobogo.com/DevOps/Terraform/Terraform_commands_cheat_sheet.php" target="_blank">bogotobogo.com Terraform_commands_cheat_sheet</a></p>
+
+<p>Good tutorials here - one to do is upload a static site to s3 <a href="https://www.bogotobogo.com/DevOps/Terraform/Terraform-modules.php" target="_blank">bogotobogo.com</a></p>
+
+<p>I also enjoyed this 13 hour video by Andrew Brown who goes through most of the aspects of the certification test.</p>
+
+<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="788.54" height="443" type="text/html" src="https://www.youtube.com/embed/V4waklkBC38?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0"></iframe>
+
+<p>Here are some practice questions</p>
+
+<p><a href="https://medium.com/bb-tutorials-and-thoughts/250-practice-questions-for-terraform-associate-certification-7a3ccebe6a1a" target="_blank">bb-tutorials-and-thoughts/250-practice-questions-for-terraform-associate-certification-7a3ccebe6a1a</a></p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2021-12-24-What-am-I-trying-to-achieve</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-12-24-What-am-I-trying-to-achieve" />
     <title>What am I trying to achieve?</title>
