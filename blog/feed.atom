@@ -3,7 +3,7 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-01-19T09:54:32+00:00</updated>
+    <updated>2022-01-19T10:12:23+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -11,7 +11,7 @@
                 <entry>
     <id>https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors" />
-    <title>Using Overpass API Mirrors CORS Errors and adding a loading message</title>
+    <title>Using Overpass API Mirrors, CORS Errors and adding a loading message</title>
     <published>2022-01-19T00:00:00+00:00</published>
     <updated>2022-01-19T00:00:00+00:00</updated>
     <author>
