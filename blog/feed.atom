@@ -3,17 +3,108 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-01-19T10:12:23+00:00</updated>
+    <updated>2022-01-19T10:48:29+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-01-19-Javascript-Map-Improvements-and-Ideas</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-19-Javascript-Map-Improvements-and-Ideas" />
+    <title>Javascript Map Improvements and Ideas</title>
+    <published>2022-01-19T10:18:00+00:00</published>
+    <updated>2022-01-19T10:18:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I have lots of ideas and improvements I would like to make to the londinium.com website. Here I am going to document a few with brief outlines and potential solutions
+
+
+
+
+see previous blog
+
+
+
+
+I am about to upload a new feature for the area pages, where......</summary>
+    <content type="html"><![CDATA[
+        <p>I have lots of ideas and improvements I would like to make to the <a href="http://www.londinium.com" target="_blank">londinium.com</a> website. Here I am going to document a few with brief outlines and potential solutions</p>
+
+<h3>1. Loading data from api - info box - show progress/errors</h3>
+
+<ul>
+<li>see <a href="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors" target="_blank">previous blog</a></li>
+</ul>
+
+<h3>2. Show a list of the data below the map</h3>
+
+<p>I am about to upload a new feature for the area pages, where the page shows a table of results with websites nearest the centre point of the map. Perhaps this could be created dynamically from the live overpass data.</p>
+
+<ul>
+<li>like in this sidebar - <a href="http://xover.mud.at/~skunk/overpass-layer/?pt" target="_blank">http://xover.mud.at/~skunk/overpass-layer/?pt</a></li>
+</ul>
+
+<h3>3. Different colours for different features on the map</h3>
+
+<p>This map uses OpenLayers, but displays the different sort of features with different colours.</p>
+
+<ul>
+<li><a href="https://codesandbox.io/s/vector-osm-forked-r84m9?file=/main.js" target="_blank">https://codesandbox.io/s/vector-osm-forked-r84m9?file=/main.js</a></li>
+</ul>
+
+<h3>4. Location - set a location page and use this with cookies.</h3>
+
+<p>Create a page to set the location. Here are a few links to examples of geolocation using html5</p>
+
+<p><a href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation" target="_blank">https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation</a></p>
+
+<p><a href="https://www.tutorialspoint.com/How-to-use-HTML5-Geolocation-Latitude-Longitude-API" target="_blank">https://www.tutorialspoint.com/How-to-use-HTML5-Geolocation-Latitude-Longitude-API</a></p>
+
+<h3>5. Map to show all of a brand name, eg, waitrose, lidl</h3>
+
+<p>This is the Overpass API Query to get all Waitroses in the BBOX area.</p>
+
+<pre><code>[out:json][timeout:25];
+(
+  // query part for: “shop=* and name=Waitrose
+  nwr["shop"]["name"="Waitrose"]({{bbox}});
+  // query part for: “shop=* and brand=Waitrose
+  nwr["shop"]["brand"="Waitrose"]({{bbox}});
+  // query part for: “shop=* and operator=Waitrose
+  nwr["shop"]["operator"="Waitrose"]({{bbox}});
+);
+// print results
+out body;
+&gt;;
+out skel qt;
+
+</code></pre>
+
+<h3>6. Testing the json from the API is loading using Laravel Dusk.</h3>
+
+<ul>
+<li>Improving the tests to see if the api is working</li>
+</ul>
+
+<h3>7. Adding a Search facility for the maps to find features and places.</h3>
+
+<ul>
+<li>use Google Adsense</li>
+<li>use a search like this blog using a json file.</li>
+</ul>
+
+<h3>8. Improving the map popup to deal with non-valid website links and adding more data fields.</h3>
+
+<p>This is just a vague idea, but at present, a url field will be linked, but there is a large number of urls without the http/https element, which makes it an internal link.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors" />
     <title>Using Overpass API Mirrors, CORS Errors and adding a loading message</title>
-    <published>2022-01-19T00:00:00+00:00</published>
-    <updated>2022-01-19T00:00:00+00:00</updated>
+    <published>2022-01-19T09:10:00+00:00</published>
+    <updated>2022-01-19T09:10:00+00:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>

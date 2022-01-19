@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Using Overpass API Mirrors, CORS Errors and adding a loading message | Allotment Andy"/>
+        <meta property="og:title" content="Javascript Map Improvements and Ideas | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-19-Javascript-Map-Improvements-and-Ideas"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Using Overpass API Mirrors, CORS Errors and adding a loading message" />
+        <meta property="og:title" content="Javascript Map Improvements and Ideas" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-19-Javascript-Map-Improvements-and-Ideas" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Using Overpass API Mirrors, CORS Errors and adding a loading message</title>
+        <title>Allotment Andy | Javascript Map Improvements and Ideas</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=bf4a0a9f276afd5c36af">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,62 +88,96 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/londinium.svg" alt="Using Overpass API Mirrors, CORS Errors and adding a loading message" class=" w-16 h-16 inline-block">
-                Using Overpass API Mirrors, CORS Errors and adding a loading message
+                <img src="/assets/img/Map.svg" alt="Javascript Map Improvements and Ideas" class=" w-16 h-16 inline-block">
+                Javascript Map Improvements and Ideas
     </h1>
 
     <p class="text-gray-700 text-sm md:mt-0">January 19, 2022</p>
 
-            <a href="/blog/categories/laravel" title="View posts in laravel"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">laravel</a>
-        <a href="/blog/categories/openstreetmap" title="View posts in openstreetmap"
+            <a href="/blog/categories/openstreetmap" title="View posts in openstreetmap"
         class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">openstreetmap</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>I was investigating adding a loading block to the website and posted a number of messages like this online <a href="https://forum.openstreetmap.org/viewtopic.php?id=74656" target="_blank">forum.openstreetmap.org/viewtopic.php?id=74656 </a> where i wrote:</p>
+        <p>I have lots of ideas and improvements I would like to make to the <a href="http://www.londinium.com" target="_blank">londinium.com</a> website. Here I am going to document a few with brief outlines and potential solutions</p>
 
-<p>I am looking for help adding a loading message as the overpass API data takes a good few seconds to load. Basically, I am looking to add a box to the map that says loading data, refering to the load of the results from the /api/interpreter which you can see in the browser dev tools.</p>
+<h3>1. Loading data from api - info box - show progress/errors</h3>
 
-<p>eg</p>
+<ul>
+<li>see <a href="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors" target="_blank">previous blog</a></li>
+</ul>
 
-<pre><code>Loading data ......
-26kb received
+<h3>2. Show a list of the data below the map</h3>
 
-OR 
+<p>I am about to upload a new feature for the area pages, where the page shows a table of results with websites nearest the centre point of the map. Perhaps this could be created dynamically from the live overpass data.</p>
 
-Error - 426 - Server too busy - please try again
+<ul>
+<li>like in this sidebar - <a href="http://xover.mud.at/~skunk/overpass-layer/?pt" target="_blank">http://xover.mud.at/~skunk/overpass-layer/?pt</a></li>
+</ul>
+
+<h3>3. Different colours for different features on the map</h3>
+
+<p>This map uses OpenLayers, but displays the different sort of features with different colours.</p>
+
+<ul>
+<li><a href="https://codesandbox.io/s/vector-osm-forked-r84m9?file=/main.js" target="_blank">https://codesandbox.io/s/vector-osm-forked-r84m9?file=/main.js</a></li>
+</ul>
+
+<h3>4. Location - set a location page and use this with cookies.</h3>
+
+<p>Create a page to set the location. Here are a few links to examples of geolocation using html5</p>
+
+<p><a href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation" target="_blank">https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation</a></p>
+
+<p><a href="https://www.tutorialspoint.com/How-to-use-HTML5-Geolocation-Latitude-Longitude-API" target="_blank">https://www.tutorialspoint.com/How-to-use-HTML5-Geolocation-Latitude-Longitude-API</a></p>
+
+<h3>5. Map to show all of a brand name, eg, waitrose, lidl</h3>
+
+<p>This is the Overpass API Query to get all Waitroses in the BBOX area.</p>
+
+<pre><code>[out:json][timeout:25];
+(
+  // query part for: “shop=* and name=Waitrose
+  nwr["shop"]["name"="Waitrose"]({{bbox}});
+  // query part for: “shop=* and brand=Waitrose
+  nwr["shop"]["brand"="Waitrose"]({{bbox}});
+  // query part for: “shop=* and operator=Waitrose
+  nwr["shop"]["operator"="Waitrose"]({{bbox}});
+);
+// print results
+out body;
+&gt;;
+out skel qt;
+
 </code></pre>
 
-<p>I am not sure if at the start of the page load, there is an idea to how much data will come in, The data seems to come in 'waves', but also errors if there is too many requests, I want to be able to display this as a layer in the map, and for it to reappear when the page is moved.</p>
+<h3>6. Testing the json from the API is loading using Laravel Dusk.</h3>
 
-<p>One of the replies pointed me to this list of mirrors of the data <a href="https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances" target="_blank">https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances</a></p>
+<ul>
+<li>Improving the tests to see if the api is working</li>
+</ul>
 
-<p>Trying out the api from <a href="https://kumi.systems/" target="_blank">https://kumi.systems/</a> I got a CORS error, which complains about a Cross-Origin Request, so i added this php at the start to fix that.</p>
+<h3>7. Adding a Search facility for the maps to find features and places.</h3>
 
-<pre><code>&lt;?php
-    header('Access-Control-Allow-Origin: https://overpass.kumi.systems/');
-?&gt;
-</code></pre>
+<ul>
+<li>use Google Adsense</li>
+<li>use a search like this blog using a json file.</li>
+</ul>
 
-<p>Have been in contact with the team at Kumi Systems and hope to find a solution to the loading issue and see if there API mirror is any faster.</p>
+<h3>8. Improving the map popup to deal with non-valid website links and adding more data fields.</h3>
 
-<p>Another reply suggested hosting your own overpass api, which is installed like so, <a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Installation" target="_blank">https://wiki.openstreetmap.org/wiki/Overpass_API/Installation</a>
-I may look at this solution in the future....</p>
+<p>This is just a vague idea, but at present, a url field will be linked, but there is a large number of urls without the http/https element, which makes it an internal link.</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-01-04-Importing-OSM-Overpass-API-Data-To-MYSQL" title="Older Post: Importing OSM Overpass API Data To MYSQL">
-                &LeftArrow; Importing OSM Overpass API Data To MYSQL
+                        <a href="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors" title="Older Post: Using Overpass API Mirrors, CORS Errors and adding a loading message">
+                &LeftArrow; Using Overpass API Mirrors, CORS Errors and adding a loading message
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-01-19-Javascript-Map-Improvements-and-Ideas" title="Newer Post: Javascript Map Improvements and Ideas">
-                Javascript Map Improvements and Ideas &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>
