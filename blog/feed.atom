@@ -3,12 +3,54 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-01-04T16:54:46+00:00</updated>
+    <updated>2022-01-19T09:54:32+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors" />
+    <title>Using Overpass API Mirrors CORS Errors and adding a loading message</title>
+    <published>2022-01-19T00:00:00+00:00</published>
+    <updated>2022-01-19T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Investigating using different Overpass API servers, fixing the CORS error and adding a loading message......</summary>
+    <content type="html"><![CDATA[
+        <p>I was investigating adding a loading block to the website and posted a number of messages like this online <a href="https://forum.openstreetmap.org/viewtopic.php?id=74656" target="_blank">forum.openstreetmap.org/viewtopic.php?id=74656 </a> where i wrote:</p>
+
+<p>I am looking for help adding a loading message as the overpass API data takes a good few seconds to load. Basically, I am looking to add a box to the map that says loading data, refering to the load of the results from the /api/interpreter which you can see in the browser dev tools.</p>
+
+<p>eg</p>
+
+<pre><code>Loading data ......
+26kb received
+
+OR 
+
+Error - 426 - Server too busy - please try again
+</code></pre>
+
+<p>I am not sure if at the start of the page load, there is an idea to how much data will come in, The data seems to come in 'waves', but also errors if there is too many requests, I want to be able to display this as a layer in the map, and for it to reappear when the page is moved.</p>
+
+<p>One of the replies pointed me to this list of mirrors of the data <a href="https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances" target="_blank">https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances</a></p>
+
+<p>Trying out the api from <a href="https://kumi.systems/" target="_blank">https://kumi.systems/</a> I got a CORS error, which complains about a Cross-Origin Request, so i added this php at the start to fix that.</p>
+
+<pre><code>&lt;?php
+    header('Access-Control-Allow-Origin: https://overpass.kumi.systems/');
+?&gt;
+</code></pre>
+
+<p>Have been in contact with the team at Kumi Systems and hope to find a solution to the loading issue and see if there API mirror is any faster.</p>
+
+<p>Another reply suggested hosting your own overpass api, which is installed like so, <a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Installation" target="_blank">https://wiki.openstreetmap.org/wiki/Overpass_API/Installation</a>
+I may look at this solution in the future....</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-01-04-Importing-OSM-Overpass-API-Data-To-MYSQL</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-04-Importing-OSM-Overpass-API-Data-To-MYSQL" />
     <title>Importing OSM Overpass API Data To MYSQL</title>

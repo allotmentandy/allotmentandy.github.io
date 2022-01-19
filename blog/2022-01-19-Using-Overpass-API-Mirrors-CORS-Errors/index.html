@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Allotment Andy"/>
+        <meta property="og:title" content="Using Overpass API Mirrors CORS Errors and adding a loading message | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/6"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-            <meta property="og:title" content="Allotment Andy Blog" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/6"/>
-    <meta property="og:description" content="The list of blog posts for Allotment Andy" />
-        <title>Allotment Andy | </title>
+        <meta property="og:title" content="Using Overpass API Mirrors CORS Errors and adding a loading message" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors" />
+<meta property="og:description" content="" />
+        <title>Allotment Andy | Using Overpass API Mirrors CORS Errors and adding a loading message</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=bf4a0a9f276afd5c36af">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -84,324 +84,67 @@
 </nav>
         <div class="flex">
             <main role="main" class="flex-auto w-full container mx-auto py-16 px-6">
-                    <h1>Blog</h1>
+                <div class=" mb-4 mt-2 bg-gray-100 px-4 py-4 rounded-lg">
 
-    <hr class="border-b my-6">
-
-
-            <nav class="flex text-base my-8">
-                            <a
-                    href="/blog/5"
-                    title="Previous Page"
-                    class="bg-gray-200 hover:bg-gray-400 rounded mr-3 px-5 py-3"
-                >&LeftArrow;</a>
-            
-                            <a
-                    href="/blog"
-                    title="Go to Page 1"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >1</a>
-                            <a
-                    href="/blog/2"
-                    title="Go to Page 2"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >2</a>
-                            <a
-                    href="/blog/3"
-                    title="Go to Page 3"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >3</a>
-                            <a
-                    href="/blog/4"
-                    title="Go to Page 4"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >4</a>
-                            <a
-                    href="/blog/5"
-                    title="Go to Page 5"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >5</a>
-                            <a
-                    href="/blog/6"
-                    title="Go to Page 6"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 text-blue-600"
-                >6</a>
-            
-                    </nav>
     
-            <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
+    <h1 class="leading-none mb-2">
+                <img src="/assets/img/londinium.svg" alt="Using Overpass API Mirrors CORS Errors and adding a loading message" class=" w-16 h-16 inline-block">
+                Using Overpass API Mirrors CORS Errors and adding a loading message
+    </h1>
 
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked"
-            title="Read more - Yesterday I Cooked"
-            class="text-gray-900 font-extrabold"
-        >
-                Yesterday I Cooked</a>
-    </h2>
+    <p class="text-gray-700 text-sm md:mt-0">January 19, 2022</p>
 
-    <p class="text-gray-700 font-medium my-2">
-        May 9, 2020
-    </p>
+            <a href="/blog/categories/laravel" title="View posts in laravel"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">laravel</a>
+        <a href="/blog/categories/openstreetmap" title="View posts in openstreetmap"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">openstreetmap</a>
+        
+    <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
+        <p>I was investigating adding a loading block to the website and posted a number of messages like this online <a href="https://forum.openstreetmap.org/viewtopic.php?id=74656" target="_blank">forum.openstreetmap.org/viewtopic.php?id=74656 </a> where i wrote:</p>
 
-    <p class="mb-4 mt-0">Yesterday it was my turn to cook. I made a Focaccia. for lunch, a  2 pound loaf and a lemon maderia cake.
+<p>I am looking for help adding a loading message as the overpass API data takes a good few seconds to load. Basically, I am looking to add a box to the map that says loading data, refering to the load of the results from the /api/interpreter which you can see in the browser dev tools.</p>
 
-lunch was a smorgasbord of fresh salad with the nice focaccia.
+<p>eg</p>
 
-Dinner was a large stir-fry...</p>
+<pre><code>Loading data ......
+26kb received
 
-    <a
-        href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked"
-        title="Read more - Yesterday I Cooked"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
+OR 
+
+Error - 426 - Server too busy - please try again
+</code></pre>
+
+<p>I am not sure if at the start of the page load, there is an idea to how much data will come in, The data seems to come in 'waves', but also errors if there is too many requests, I want to be able to display this as a layer in the map, and for it to reappear when the page is moved.</p>
+
+<p>One of the replies pointed me to this list of mirrors of the data <a href="https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances" target="_blank">https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances</a></p>
+
+<p>Trying out the api from <a href="https://kumi.systems/" target="_blank">https://kumi.systems/</a> I got a CORS error, which complains about a Cross-Origin Request, so i added this php at the start to fix that.</p>
+
+<pre><code>&lt;?php
+    header('Access-Control-Allow-Origin: https://overpass.kumi.systems/');
+?&gt;
+</code></pre>
+
+<p>Have been in contact with the team at Kumi Systems and hope to find a solution to the loading issue and see if there API mirror is any faster.</p>
+
+<p>Another reply suggested hosting your own overpass api, which is installed like so, <a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Installation" target="_blank">https://wiki.openstreetmap.org/wiki/Overpass_API/Installation</a>
+I may look at this solution in the future....</p>
+        <hr>
+        <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
+    </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                        <a href="https://allotmentandy.github.io/blog/2022-01-04-Importing-OSM-Overpass-API-Data-To-MYSQL" title="Older Post: Importing OSM Overpass API Data To MYSQL">
+                &LeftArrow; Importing OSM Overpass API Data To MYSQL
+            </a>
+                    </div>
+
+        <div>
+                    </div>
+    </nav>
 </div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages"
-            title="Read more - GRR, Duplicate Github Pages"
-            class="text-gray-900 font-extrabold"
-        >
-                GRR, Duplicate Github Pages</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        May 9, 2020
-    </p>
-
-    <p class="mb-4 mt-0">12.26pm
-
-It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
-
-I deleted that repo and now it is working as expected.</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages"
-        title="Read more - GRR, Duplicate Github Pages"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-05-08-markdown"
-            title="Read more - Markdown"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Markdown.svg" alt="" class=" w-8 h-8 inline-block">
-                Markdown</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        May 8, 2020
-    </p>
-
-    <p class="mb-4 mt-0">A list of examples of markdown in action</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-05-08-markdown"
-        title="Read more - Markdown"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-30-laravel"
-            title="Read more - Laravel"
-            class="text-gray-900 font-extrabold"
-        >
-                Laravel</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        May 8, 2020
-    </p>
-
-    <p class="mb-4 mt-0">Laravel is a great PHP Framework which i have used for many years.
-
-There are a number of Laravel projects I am enjoying using at the moment
-
-Laravel Boilerplate
-
-Laravel Auth
-
-I am looking to create...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-30-laravel"
-        title="Read more - Laravel"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-30"
-            title="Read more - Cooking Day"
-            class="text-gray-900 font-extrabold"
-        >
-                Cooking Day</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        April 30, 2020
-    </p>
-
-    <p class="mb-4 mt-0">Yesterday i made a tray of yeast following this recipe
-WikiHow
-
-This create 27 yeast blocks of around 0.6 ounces each. I left these drying
-overnight and today i will make bread and freeze a load of...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-30"
-        title="Read more - Cooking Day"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts"
-            title="Read more - Jigsaw Static Site Thoughts"
-            class="text-gray-900 font-extrabold"
-        >
-                Jigsaw Static Site Thoughts</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        April 29, 2020
-    </p>
-
-    <p class="mb-4 mt-0">I was looking for a project to help me do a few things. write a blog, store
-reference material for things I am interested in, create a database of plants
-I like to grow, learn about markdown &amp;...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts"
-        title="Read more - Jigsaw Static Site Thoughts"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-29"
-            title="Read more - Jigsaw Templates"
-            class="text-gray-900 font-extrabold"
-        >
-                Jigsaw Templates</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        April 29, 2020
-    </p>
-
-    <p class="mb-4 mt-0">Working on templates for this static site. The mix of markdown and HTML isnt
-working.
-
-
-
-[ ] Daily page - template for each day, with a shell script to create it
-
-[ ] Code page - with examples of...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-29"
-        title="Read more - Jigsaw Templates"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-28-raining"
-            title="Read more - Rainy Day - Thoughts about Debian"
-            class="text-gray-900 font-extrabold"
-        >
-                Rainy Day - Thoughts about Debian</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        April 28, 2020
-    </p>
-
-    <p class="mb-4 mt-0">8.15am in bed, it is raining, wondering what to do today.
-
-I have been using Debian Linux for years, I guess about version 5. Recently I
-found the 4.9 kernel caused the computer to lock / freeze...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-28-raining"
-        title="Read more - Rainy Day - Thoughts about Debian"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-            
-            <nav class="flex text-base my-8">
-                            <a
-                    href="/blog/5"
-                    title="Previous Page"
-                    class="bg-gray-200 hover:bg-gray-400 rounded mr-3 px-5 py-3"
-                >&LeftArrow;</a>
-            
-                            <a
-                    href="/blog"
-                    title="Go to Page 1"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >1</a>
-                            <a
-                    href="/blog/2"
-                    title="Go to Page 2"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >2</a>
-                            <a
-                    href="/blog/3"
-                    title="Go to Page 3"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >3</a>
-                            <a
-                    href="/blog/4"
-                    title="Go to Page 4"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >4</a>
-                            <a
-                    href="/blog/5"
-                    title="Go to Page 5"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >5</a>
-                            <a
-                    href="/blog/6"
-                    title="Go to Page 6"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 text-blue-600"
-                >6</a>
-            
-                    </nav>
-                </main>
+            </main>
         </div>
         <!-- footer -->
         <footer class="w-full border-t bg-gray-100">
