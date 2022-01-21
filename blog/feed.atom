@@ -3,12 +3,82 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-01-19T10:48:29+00:00</updated>
+    <updated>2022-01-21T10:28:20+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-01-21-Updating-Londinium-Adding-Nearest-Websites</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-21-Updating-Londinium-Adding-Nearest-Websites" />
+    <title>Updating Londinium Adding Nearest Websites</title>
+    <published>2022-01-21T00:00:00+00:00</published>
+    <updated>2022-01-21T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Updating londinium.com, adding nearest websites information, a faster API mirror, compressed javascript and more postcodes on the frontpage map....</summary>
+    <content type="html"><![CDATA[
+        <p>BLOG - Updating-Londinium-Adding-Nearest-Websites</p>
+
+<p>I am just about to upload the latest version of my <a href="http://www.londinium.com" target="_blank">londinium.com</a> website</p>
+
+<ol>
+<li><p>Adding more postcodes to the frontpage map to fill the screen</p></li>
+<li><p>Adding a list of nearest websites to the places pages using a database extracted from the Overpass API.</p></li>
+<li><p>Combining all the javascript using webpack and compressing it. Also updating it to the latest versions.</p></li>
+<li><p>Improving the map popup css using a larger font.</p></li>
+<li><p>Tweeking the favicon.ico</p></li>
+<li><p>Minor CSS improvements adding alternate odd even rows to the table of nearest links.</p></li>
+<li><p>Using a mirror for the Overpass API data and adding a CORS header to allow it.</p></li>
+<li><p>Fixing a few duplicate routes</p></li>
+</ol>
+
+<p>Note: i used git log to see which files had changed in the last week:</p>
+
+<pre><code>git log --pretty=format: --name-only --since="7 days ago"
+</code></pre>
+
+<p>And I deployed on a friday!</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2022-01-20-Automating-The-Terminal-Create-Tabs-And-Name-Them</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-20-Automating-The-Terminal-Create-Tabs-And-Name-Them" />
+    <title>Automating The Terminal Create Tabs And Name Them</title>
+    <published>2022-01-20T00:00:00+00:00</published>
+    <updated>2022-01-20T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Scripting the terminal to open 5 tabs with titles, change to the correct directory and make the root one red....</summary>
+    <content type="html"><![CDATA[
+        <p>I like to have a load of Terminal tabs open in different directories, but creating them by hand with Ctrl-T gives them the boring 'Bash' Title. I use <a href="https://github.com/borisfaure/terminology" target="_blank">Terminology</a>  Lets see if we can automate it that and create terminal tabs with names and set the location.</p>
+
+<p>I want 5 tabs with the following</p>
+
+<ul>
+<li>Blog Root</li>
+<li>Website Root</li>
+<li>Website Testing Root</li>
+<li>Desktop</li>
+<li>ROOT User</li>
+</ul>
+
+<script src="https://gist.github.com/allotmentandy/fbb0cae7f50e7800caec87765ca7df9a.js"></script>
+
+<p>I am using xdotool and have to press <code>enter</code> at the end of each type command. I also place a space before each command so it doesnt get stored in the command history.</p>
+
+<p>The root one on the end, doesnt login as root, rather leaves the command ready to be run.</p>
+
+<p>I like to have the terminal with tab titles, it is a pain to do it by hand. Also embedding the gist from github which is a better place to keep the shell scripts.</p>
+
+<p>Hope you enjoy it.</p>
+
+<p>Andy</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-01-19-Javascript-Map-Improvements-and-Ideas</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-19-Javascript-Map-Improvements-and-Ideas" />
     <title>Javascript Map Improvements and Ideas</title>

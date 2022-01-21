@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Javascript Map Improvements and Ideas | Allotment Andy"/>
+        <meta property="og:title" content="Updating Londinium Adding Nearest Websites | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-19-Javascript-Map-Improvements-and-Ideas"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-21-Updating-Londinium-Adding-Nearest-Websites"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Javascript Map Improvements and Ideas" />
+        <meta property="og:title" content="Updating Londinium Adding Nearest Websites" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-19-Javascript-Map-Improvements-and-Ideas" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-21-Updating-Londinium-Adding-Nearest-Websites" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Javascript Map Improvements and Ideas</title>
+        <title>Allotment Andy | Updating Londinium Adding Nearest Websites</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=bf4a0a9f276afd5c36af">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,99 +88,51 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/Map.svg" alt="Javascript Map Improvements and Ideas" class=" w-16 h-16 inline-block">
-                Javascript Map Improvements and Ideas
+                <img src="/assets/img/londinium.svg" alt="Updating Londinium Adding Nearest Websites" class=" w-16 h-16 inline-block">
+                Updating Londinium Adding Nearest Websites
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">January 19, 2022</p>
+    <p class="text-gray-700 text-sm md:mt-0">January 21, 2022</p>
 
-            <a href="/blog/categories/openstreetmap" title="View posts in openstreetmap"
+            <a href="/blog/categories/laravel" title="View posts in laravel"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">laravel</a>
+        <a href="/blog/categories/openstreetmap" title="View posts in openstreetmap"
         class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">openstreetmap</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>I have lots of ideas and improvements I would like to make to the <a href="http://www.londinium.com" target="_blank">londinium.com</a> website. Here I am going to document a few with brief outlines and potential solutions</p>
+        <p>BLOG - Updating-Londinium-Adding-Nearest-Websites</p>
 
-<h3>1. Loading data from api - info box - show progress/errors</h3>
+<p>I am just about to upload the latest version of my <a href="http://www.londinium.com" target="_blank">londinium.com</a> website</p>
 
-<ul>
-<li>see <a href="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors" target="_blank">previous blog</a></li>
-</ul>
+<ol>
+<li><p>Adding more postcodes to the frontpage map to fill the screen</p></li>
+<li><p>Adding a list of nearest websites to the places pages using a database extracted from the Overpass API.</p></li>
+<li><p>Combining all the javascript using webpack and compressing it. Also updating it to the latest versions.</p></li>
+<li><p>Improving the map popup css using a larger font.</p></li>
+<li><p>Tweeking the favicon.ico</p></li>
+<li><p>Minor CSS improvements adding alternate odd even rows to the table of nearest links.</p></li>
+<li><p>Using a mirror for the Overpass API data and adding a CORS header to allow it.</p></li>
+<li><p>Fixing a few duplicate routes</p></li>
+</ol>
 
-<h3>2. Show a list of the data below the map</h3>
+<p>Note: i used git log to see which files had changed in the last week:</p>
 
-<p>I am about to upload a new feature for the area pages, where the page shows a table of results with websites nearest the centre point of the map. Perhaps this could be created dynamically from the live overpass data.</p>
-
-<ul>
-<li>like in this sidebar - <a href="http://xover.mud.at/~skunk/overpass-layer/?pt" target="_blank">http://xover.mud.at/~skunk/overpass-layer/?pt</a></li>
-</ul>
-
-<h3>3. Different colours for different features on the map</h3>
-
-<p>This map uses OpenLayers, but displays the different sort of features with different colours.</p>
-
-<ul>
-<li><a href="https://codesandbox.io/s/vector-osm-forked-r84m9?file=/main.js" target="_blank">https://codesandbox.io/s/vector-osm-forked-r84m9?file=/main.js</a></li>
-</ul>
-
-<h3>4. Location - set a location page and use this with cookies.</h3>
-
-<p>Create a page to set the location. Here are a few links to examples of geolocation using html5</p>
-
-<p><a href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation" target="_blank">https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation</a></p>
-
-<p><a href="https://www.tutorialspoint.com/How-to-use-HTML5-Geolocation-Latitude-Longitude-API" target="_blank">https://www.tutorialspoint.com/How-to-use-HTML5-Geolocation-Latitude-Longitude-API</a></p>
-
-<h3>5. Map to show all of a brand name, eg, waitrose, lidl</h3>
-
-<p>This is the Overpass API Query to get all Waitroses in the BBOX area.</p>
-
-<pre><code>[out:json][timeout:25];
-(
-  // query part for: “shop=* and name=Waitrose
-  nwr["shop"]["name"="Waitrose"]({{bbox}});
-  // query part for: “shop=* and brand=Waitrose
-  nwr["shop"]["brand"="Waitrose"]({{bbox}});
-  // query part for: “shop=* and operator=Waitrose
-  nwr["shop"]["operator"="Waitrose"]({{bbox}});
-);
-// print results
-out body;
-&gt;;
-out skel qt;
-
+<pre><code>git log --pretty=format: --name-only --since="7 days ago"
 </code></pre>
 
-<h3>6. Testing the json from the API is loading using Laravel Dusk.</h3>
-
-<ul>
-<li>Improving the tests to see if the api is working</li>
-</ul>
-
-<h3>7. Adding a Search facility for the maps to find features and places.</h3>
-
-<ul>
-<li>use Google Adsense</li>
-<li>use a search like this blog using a json file.</li>
-</ul>
-
-<h3>8. Improving the map popup to deal with non-valid website links and adding more data fields.</h3>
-
-<p>This is just a vague idea, but at present, a url field will be linked, but there is a large number of urls without the http/https element, which makes it an internal link.</p>
+<p>And I deployed on a friday!</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors" title="Older Post: Using Overpass API Mirrors, CORS Errors and adding a loading message">
-                &LeftArrow; Using Overpass API Mirrors, CORS Errors and adding a loading message
+                        <a href="https://allotmentandy.github.io/blog/2022-01-20-Automating-The-Terminal-Create-Tabs-And-Name-Them" title="Older Post: Automating The Terminal Create Tabs And Name Them">
+                &LeftArrow; Automating The Terminal Create Tabs And Name Them
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-01-20-Automating-The-Terminal-Create-Tabs-And-Name-Them" title="Newer Post: Automating The Terminal Create Tabs And Name Them">
-                Automating The Terminal Create Tabs And Name Them &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>

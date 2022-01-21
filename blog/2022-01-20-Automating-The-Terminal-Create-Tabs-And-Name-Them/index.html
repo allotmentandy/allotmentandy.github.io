@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Javascript Map Improvements and Ideas | Allotment Andy"/>
+        <meta property="og:title" content="Automating The Terminal Create Tabs And Name Them | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-19-Javascript-Map-Improvements-and-Ideas"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-20-Automating-The-Terminal-Create-Tabs-And-Name-Them"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Javascript Map Improvements and Ideas" />
+        <meta property="og:title" content="Automating The Terminal Create Tabs And Name Them" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-19-Javascript-Map-Improvements-and-Ideas" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-20-Automating-The-Terminal-Create-Tabs-And-Name-Them" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Javascript Map Improvements and Ideas</title>
+        <title>Allotment Andy | Automating The Terminal Create Tabs And Name Them</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=bf4a0a9f276afd5c36af">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,98 +88,55 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/Map.svg" alt="Javascript Map Improvements and Ideas" class=" w-16 h-16 inline-block">
-                Javascript Map Improvements and Ideas
+                <img src="/assets/img/Bash.svg" alt="Automating The Terminal Create Tabs And Name Them" class=" w-16 h-16 inline-block">
+                Automating The Terminal Create Tabs And Name Them
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">January 19, 2022</p>
+    <p class="text-gray-700 text-sm md:mt-0">January 20, 2022</p>
 
-            <a href="/blog/categories/openstreetmap" title="View posts in openstreetmap"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">openstreetmap</a>
+            <a href="/blog/categories/bash" title="View posts in bash"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">bash</a>
+        <a href="/blog/categories/debian" title="View posts in debian"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">debian</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>I have lots of ideas and improvements I would like to make to the <a href="http://www.londinium.com" target="_blank">londinium.com</a> website. Here I am going to document a few with brief outlines and potential solutions</p>
+        <p>I like to have a load of Terminal tabs open in different directories, but creating them by hand with Ctrl-T gives them the boring 'Bash' Title. I use <a href="https://github.com/borisfaure/terminology" target="_blank">Terminology</a>  Lets see if we can automate it that and create terminal tabs with names and set the location.</p>
 
-<h3>1. Loading data from api - info box - show progress/errors</h3>
-
-<ul>
-<li>see <a href="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors" target="_blank">previous blog</a></li>
-</ul>
-
-<h3>2. Show a list of the data below the map</h3>
-
-<p>I am about to upload a new feature for the area pages, where the page shows a table of results with websites nearest the centre point of the map. Perhaps this could be created dynamically from the live overpass data.</p>
+<p>I want 5 tabs with the following</p>
 
 <ul>
-<li>like in this sidebar - <a href="http://xover.mud.at/~skunk/overpass-layer/?pt" target="_blank">http://xover.mud.at/~skunk/overpass-layer/?pt</a></li>
+<li>Blog Root</li>
+<li>Website Root</li>
+<li>Website Testing Root</li>
+<li>Desktop</li>
+<li>ROOT User</li>
 </ul>
 
-<h3>3. Different colours for different features on the map</h3>
+<script src="https://gist.github.com/allotmentandy/fbb0cae7f50e7800caec87765ca7df9a.js"></script>
 
-<p>This map uses OpenLayers, but displays the different sort of features with different colours.</p>
+<p>I am using xdotool and have to press <code>enter</code> at the end of each type command. I also place a space before each command so it doesnt get stored in the command history.</p>
 
-<ul>
-<li><a href="https://codesandbox.io/s/vector-osm-forked-r84m9?file=/main.js" target="_blank">https://codesandbox.io/s/vector-osm-forked-r84m9?file=/main.js</a></li>
-</ul>
+<p>The root one on the end, doesnt login as root, rather leaves the command ready to be run.</p>
 
-<h3>4. Location - set a location page and use this with cookies.</h3>
+<p>I like to have the terminal with tab titles, it is a pain to do it by hand. Also embedding the gist from github which is a better place to keep the shell scripts.</p>
 
-<p>Create a page to set the location. Here are a few links to examples of geolocation using html5</p>
+<p>Hope you enjoy it.</p>
 
-<p><a href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation" target="_blank">https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation</a></p>
-
-<p><a href="https://www.tutorialspoint.com/How-to-use-HTML5-Geolocation-Latitude-Longitude-API" target="_blank">https://www.tutorialspoint.com/How-to-use-HTML5-Geolocation-Latitude-Longitude-API</a></p>
-
-<h3>5. Map to show all of a brand name, eg, waitrose, lidl</h3>
-
-<p>This is the Overpass API Query to get all Waitroses in the BBOX area.</p>
-
-<pre><code>[out:json][timeout:25];
-(
-  // query part for: “shop=* and name=Waitrose
-  nwr["shop"]["name"="Waitrose"]({{bbox}});
-  // query part for: “shop=* and brand=Waitrose
-  nwr["shop"]["brand"="Waitrose"]({{bbox}});
-  // query part for: “shop=* and operator=Waitrose
-  nwr["shop"]["operator"="Waitrose"]({{bbox}});
-);
-// print results
-out body;
-&gt;;
-out skel qt;
-
-</code></pre>
-
-<h3>6. Testing the json from the API is loading using Laravel Dusk.</h3>
-
-<ul>
-<li>Improving the tests to see if the api is working</li>
-</ul>
-
-<h3>7. Adding a Search facility for the maps to find features and places.</h3>
-
-<ul>
-<li>use Google Adsense</li>
-<li>use a search like this blog using a json file.</li>
-</ul>
-
-<h3>8. Improving the map popup to deal with non-valid website links and adding more data fields.</h3>
-
-<p>This is just a vague idea, but at present, a url field will be linked, but there is a large number of urls without the http/https element, which makes it an internal link.</p>
+<p>Andy</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-01-19-Using-Overpass-API-Mirrors-CORS-Errors" title="Older Post: Using Overpass API Mirrors, CORS Errors and adding a loading message">
-                &LeftArrow; Using Overpass API Mirrors, CORS Errors and adding a loading message
+                        <a href="https://allotmentandy.github.io/blog/2022-01-19-Javascript-Map-Improvements-and-Ideas" title="Older Post: Javascript Map Improvements and Ideas">
+                &LeftArrow; Javascript Map Improvements and Ideas
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-01-20-Automating-The-Terminal-Create-Tabs-And-Name-Them" title="Newer Post: Automating The Terminal Create Tabs And Name Them">
-                Automating The Terminal Create Tabs And Name Them &RightArrow;
+                        <a href="https://allotmentandy.github.io/blog/2022-01-21-Updating-Londinium-Adding-Nearest-Websites" title="Newer Post: Updating Londinium Adding Nearest Websites">
+                Updating Londinium Adding Nearest Websites &RightArrow;
             </a>
                     </div>
     </nav>
