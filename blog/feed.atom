@@ -3,12 +3,244 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-01-21T10:28:20+00:00</updated>
+    <updated>2022-01-27T15:51:01+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-01-27-Adding-Brand-Maps-To-Londinium</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-27-Adding-Brand-Maps-To-Londinium" />
+    <title>Adding Brand Maps To Londinium</title>
+    <published>2022-01-27T00:00:00+00:00</published>
+    <updated>2022-01-27T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Adding maps of Brands to Londinium.com...</summary>
+    <content type="html"><![CDATA[
+        <p>Today I have added the first Brand pages to <a href="http://www.londinium.com" target="_blank">londinium.com</a></p>
+
+<p>These are pages that have 9 entries or more of the following tags</p>
+
+<ul>
+<li>Brand</li>
+<li>Name</li>
+<li>Operator</li>
+</ul>
+
+<p>One issue i ran into straight away was brands with apostrophes in them. Eg Nando's, Mcdonald's, Sainsbury's, Papa John's and more.</p>
+
+<p>Using this guide to Overpass API regex, <a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#Key.2Fvalue_matches_regular_expression_.28.7E.22key_regex.22.7E.22value_regex.22.29" target="_blank">https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL</a></p>
+
+<p>My solution for now is to only match the start of the term, so I use Sainsbury, Nando etc. with the following regex overpass api query:</p>
+
+<pre><code class="language-php">(nwr["name"~"^{{$brand}}"];  nwr["brand"~"^{{$brand}}"];  nwr["operator"~"^{{$brand}}"]; );
+</code></pre>
+
+<p>This method also allows the query to match <code>Tesco</code>, <code>Tesco Metro</code>, <code>Tesco Express</code> all from the <code>Tesco</code> query.</p>
+
+<p>To investigate all the brands, names and operators, i once again created a database import script to create a mysql table for brands and extracted the fields from the osm json.</p>
+
+<p>To find the most common brands I used this sql query:</p>
+
+<pre><code class="language-sql">SELECT LOWER(brand) , brand, COUNT(brand) as cnt  
+FROM brands
+GROUP BY brand
+HAVING cnt &gt; 9
+</code></pre>
+
+<p>This provided the following with at least 10 entries for my London area</p>
+
+<pre><code>Asda    210
+Domino's    184
+Boots   144
+Lloyds Bank 138
+Tesco Express   95
+Wetherspoon 90
+Pret A Manger   65
+Premier Inn 54
+Costa   53
+Sainsbury's Local   50
+Harvester   49
+Sainsbury's 47
+Starbucks   46
+Hamptons International  43
+Co-op Food  42
+HSBC UK 42
+Primark 41
+Subway  39
+Argos   38
+McDonald's  36
+Caffè Nero  34
+Nando's 33
+PizzaExpress    31
+Bupa    29
+Waitrose    28
+Tesco   27
+Holland &amp; Barrett   25
+Morrisons   24
+Bairstow Eves   24
+M&amp;S Simply Food 22
+Tesco Extra 22
+Toby Carvery    22
+Mail Boxes Etc. 22
+Iceland 21
+Marks &amp; Spencer 21
+KFC 20
+Post Office 19
+Esso    19
+Boots Opticians 19
+WHSmith 18
+Toni &amp; Guy  18
+Nationwide  18
+CTD Tiles   17
+CeX 17
+Better  17
+Oxfam   17
+Peacocks    17
+Specsavers  17
+Travelodge  17
+Greggs  16
+itsu    16
+NatWest 16
+Cotswold Outdoor    16
+Zizzi   16
+Papa John's 15
+ALDI    15
+Cancer Research UK  15
+Screwfix    15
+Hall &amp; Woodhouse    15
+Pizza Hut   15
+Hilton  14
+Wagamama    14
+Spar    14
+Superdrug   14
+PureGym 14
+Pets at Home    14
+Furniture Village   14
+Honest Burgers  14
+Snappy Snaps    13
+Five Guys   13
+Krispy Kreme    13
+Lidl    12
+Ryman   12
+Decathlon   12
+3 Store 12
+Nisa Local  12
+Joe &amp; The Juice 12
+Waterstones 12
+Côte Brasserie  12
+Burger King 11
+Office  11
+Santander   11
+Little Waitrose 11
+Wickes  11
+Kwik Fit    11
+John Lewis  11
+EE  11
+Paul    11
+Prezzo  10
+TK Maxx 10
+Bill's  10
+Lush    10
+Coral   10
+Shell   10
+The Gym 10
+Sports Direct   10
+Wilko   10
+New Look    10
+Game    10
+Costco  10
+William Hill    10
+Knight Frank    10
+Next    10
+Farmfoods   10
+Halifax 10
+</code></pre>
+
+<p>These are all linked from the frontpage on <a href="http://www.londinium.com" target="_blank">londinium.com</a></p>
+
+<p>Many of these chains dont have the fields for every branch, which can be fixed by adding the correct brand in the OpenStreetMap system. I can do this for you. get in touch if you would like help improving the data stored in this open source map system.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2022-01-23-Laravel-Dusk-Testing-A-Responsive-Website</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-23-Laravel-Dusk-Testing-A-Responsive-Website" />
+    <title>Laravel Dusk Testing A Responsive Website</title>
+    <published>2022-01-23T00:00:00+00:00</published>
+    <updated>2022-01-23T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">My first blog about testing londinium.com. making screenshots at each reponsive size....</summary>
+    <content type="html"><![CDATA[
+        <p>I wanted to setup Laravel Dusk testing to enable me to make screenshots of a website at all different screensizes. To install laravel in an existing repo run:</p>
+
+<pre><code>php artisan dusk:install
+</code></pre>
+
+<p>to run the 1st test</p>
+
+<pre><code>php artisan dusk
+</code></pre>
+
+<p>First I am going to create a test for the frontpage to load and then resize to the 4 main sizes which tailwind css uses <a href="https://tailwindcss.com/docs/responsive-design" target="_blank">tailwindcss.com/docs/responsive-design</a></p>
+
+<p>This is the comprenhsive manual for laravel dusk <a href="https://laravel.com/docs/8.x/dusk" target="_blank">laravel.com/docs/8.x/dusk</a></p>
+
+<pre><code>$browser-&gt;visit('http://www.londinium.com/')
+-&gt;waitForText('Londinium');
+-&gt;assertSee('Londinium'); 
+
+$browser-&gt;resize(1920, 1080);
+$browser-&gt;screenshot('home-1920');
+
+$browser-&gt;resize(1280, 720);
+$browser-&gt;screenshot('home-1280');
+
+$browser-&gt;resize(768, 720);
+$browser-&gt;screenshot('home-768');
+
+$browser-&gt;resize(320, 720);
+$browser-&gt;screenshot('home-320');
+
+</code></pre>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2022-01-23-Adding-an-artisan-command-route:check-for-duplicate-routes</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-23-Adding-an-artisan-command-route:check-for-duplicate-routes" />
+    <title>Adding an artisan command route:check for duplicate routes</title>
+    <published>2022-01-23T00:00:00+00:00</published>
+    <updated>2022-01-23T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">My attempt to add a new route:check command failed as the core getRoutes function removes duplicates. So i wrote it using AWK....</summary>
+    <content type="html"><![CDATA[
+        <p>Today I tried to create a new subcommand for the <code>php artisan route:list</code> command by adding a <code>--duplicates</code> option.</p>
+
+<p>I edited the command in <code>/vendor/laravel/framework/src/Illuminate/Foundation/Console/RouteListCommand.php</code>
+adding an option and a sub function into getRoutes for duplicates. But it seemed to only have a single entry for each route. The problem is the getRoutes function removes all duplicates, so my array function only counted 1 for each.</p>
+
+<p>So i gave up and wrote this awk command line script to find duplicates in the web.php routes file:</p>
+
+<pre><code>awk -F"'" '$1 ~ /^Route::/ {print $2}' routes/web.php | awk 'NF &gt; 0' | sort | uniq -c -d 
+</code></pre>
+
+<p>It finds all lines starting with "Route::" and prints the second awk column $2 which is then sorted and the -d on uniq show duplicates.</p>
+
+<p>it outputs a list of routes with a count higher than 1, like so.</p>
+
+<pre><code>2 contact
+2 az
+</code></pre>
+
+<p>I am sure it could be improved, but it solved the problem for me and helped me find the duplicates in a sinlge line.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-01-21-Updating-Londinium-Adding-Nearest-Websites</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-21-Updating-Londinium-Adding-Nearest-Websites" />
     <title>Updating Londinium Adding Nearest Websites</title>

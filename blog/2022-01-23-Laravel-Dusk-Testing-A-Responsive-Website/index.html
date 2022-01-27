@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Laravel Commands Using Tailwind CSS and Termwind | Allotment Andy"/>
+        <meta property="og:title" content="Laravel Dusk Testing A Responsive Website | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-10-02-Laravel-Commands-Using-TailwindCSS-and-Termwind"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-23-Laravel-Dusk-Testing-A-Responsive-Website"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Laravel Commands Using Tailwind CSS and Termwind" />
+        <meta property="og:title" content="Laravel Dusk Testing A Responsive Website" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2021-10-02-Laravel-Commands-Using-TailwindCSS-and-Termwind" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-01-23-Laravel-Dusk-Testing-A-Responsive-Website" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Laravel Commands Using Tailwind CSS and Termwind</title>
+        <title>Allotment Andy | Laravel Dusk Testing A Responsive Website</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=fe1802bee90aaa87278e">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,36 +88,61 @@
 
     
     <h1 class="leading-none mb-2">
-                Laravel Commands Using Tailwind CSS and Termwind
+                <img src="/assets/img/Laravel.svg" alt="Laravel Dusk Testing A Responsive Website" class=" w-16 h-16 inline-block">
+                Laravel Dusk Testing A Responsive Website
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">October 2, 2021</p>
+    <p class="text-gray-700 text-sm md:mt-0">January 23, 2022</p>
 
-            <a href="/blog/categories/tailwindcss" title="View posts in tailwindcss"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">tailwindcss</a>
+            <a href="/blog/categories/laravel" title="View posts in laravel"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">laravel</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>I recently noticed <a href="https://github.com/nunomaduro/termwind/tree/master/src">termwind</a> and as a big fan of command line scripts and also laravel, I had to have a play with it.</p>
+        <p>I wanted to setup Laravel Dusk testing to enable me to make screenshots of a website at all different screensizes. To install laravel in an existing repo run:</p>
 
-<p><img src="/assets/img/termwind.png" alt="Image of termwind" /></p>
+<pre><code>php artisan dusk:install
+</code></pre>
 
-<p>I have the source code on this <a href="https://gist.github.com/allotmentandy/c1090e852c12aa6823a294f042567ad1">gist</a></p>
+<p>to run the 1st test</p>
 
-<p>It is a demo of a number of features of using termwind to make the command line colorful.</p>
+<pre><code>php artisan dusk
+</code></pre>
+
+<p>First I am going to create a test for the frontpage to load and then resize to the 4 main sizes which tailwind css uses <a href="https://tailwindcss.com/docs/responsive-design" target="_blank">tailwindcss.com/docs/responsive-design</a></p>
+
+<p>This is the comprenhsive manual for laravel dusk <a href="https://laravel.com/docs/8.x/dusk" target="_blank">laravel.com/docs/8.x/dusk</a></p>
+
+<pre><code>$browser-&gt;visit('http://www.londinium.com/')
+-&gt;waitForText('Londinium');
+-&gt;assertSee('Londinium'); 
+
+$browser-&gt;resize(1920, 1080);
+$browser-&gt;screenshot('home-1920');
+
+$browser-&gt;resize(1280, 720);
+$browser-&gt;screenshot('home-1280');
+
+$browser-&gt;resize(768, 720);
+$browser-&gt;screenshot('home-768');
+
+$browser-&gt;resize(320, 720);
+$browser-&gt;screenshot('home-320');
+
+</code></pre>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2021-06-15-Open-Ports-On-Debian-and-installing-ssh" title="Older Post: Open Ports &amp; Installing SSH">
-                &LeftArrow; Open Ports &amp; Installing SSH
+                        <a href="https://allotmentandy.github.io/blog/2022-01-23-Adding-an-artisan-command-route:check-for-duplicate-routes" title="Older Post: Adding an artisan command route:check for duplicate routes">
+                &LeftArrow; Adding an artisan command route:check for duplicate routes
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2021-10-21-Taking-Devops-Full-Circle-With-Packer-AMI-images-For-AWS" title="Newer Post: Taking Devops Full Circle With Packer AMI images For AWS">
-                Taking Devops Full Circle With Packer AMI images For AWS &RightArrow;
+                        <a href="https://allotmentandy.github.io/blog/2022-01-27-Adding-Brand-Maps-To-Londinium" title="Newer Post: Adding Brand Maps To Londinium">
+                Adding Brand Maps To Londinium &RightArrow;
             </a>
                     </div>
     </nav>
