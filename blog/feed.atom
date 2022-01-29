@@ -3,12 +3,68 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-01-27T15:51:01+00:00</updated>
+    <updated>2022-01-29T17:40:08+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-01-29-Adding-Pages-For-Each-Node-Way-Relation-To-Londinium</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-29-Adding-Pages-For-Each-Node-Way-Relation-To-Londinium" />
+    <title>Adding Pages For Each Node Way Relation To Londinium</title>
+    <published>2022-01-29T00:00:00+00:00</published>
+    <updated>2022-01-29T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">how I added a details page for each node, way or relation on Londinium.com...</summary>
+    <content type="html"><![CDATA[
+        <p>Today I took on the challenge of adding pages that display all the details stored about an object in the Open Street Map system. These come as Nodes, Ways and Relations which has data associated with it available via the Overpass API.</p>
+
+<p>Using the <a href="https://github.com/plepe/overpass-frontend" target="_blank">https://github.com/plepe/overpass-frontend</a> I used the by ID function to display the a single Node, Way or Relation using the format n123, w123 and r123 respectively to make the overpass api query.</p>
+
+<p>This is the code in the github readme:</p>
+
+<pre><code>const OverpassFrontend = require('overpass-frontend')
+
+// you may specify an OSM file as url, e.g. 'test/data.osm.bz2'
+const overpassFrontend = new OverpassFrontend('//overpass-api.de/api/interpreter')
+
+// request restaurants in the specified bounding box
+overpassFrontend.get(
+  ['n27365030', 'w5013364'],
+  {
+    properties: OverpassFrontend.TAGS
+  },
+  function (err, result) {
+    if (result) {
+      console.log('* ' + result.tags.name + ' (' + result.id + ')')
+    } else {
+      console.log('* empty result')
+    }
+  },
+  function (err) {
+    if (err) { console.log(err) }
+  }
+)
+</code></pre>
+
+<p>Here is an example of one of each of the 3 types:</p>
+
+<ul>
+<li><a href="http://www.londinium.com/node/6371429623" target="_blank">/node/6371429623</a></li>
+<li><a href="http://www.londinium.com/way/175968074" target="_blank">/way/175968074</a></li>
+<li><a href="http://www.londinium.com/relation/9653407" target="_blank">/relation/9653407</a></li>
+</ul>
+
+<p>Each page displays a smaller map with a list of the data stored, which is returned from the overpass API call.</p>
+
+<p>It took me a bit of fiddling to get the data to display but it works!</p>
+
+<p>One thing I also managed to solve was the ability to add a <code>loading data...</code> block to the header which i have implemented on every map page to show the user that the data is loading. It isnt as quick I would like, but at least it provides the user with feedback.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-01-27-Adding-Brand-Maps-To-Londinium</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-27-Adding-Brand-Maps-To-Londinium" />
     <title>Adding Brand Maps To Londinium</title>
