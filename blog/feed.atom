@@ -3,7 +3,7 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-01-29T17:45:41+00:00</updated>
+    <updated>2022-01-29T17:57:49+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -62,6 +62,8 @@ overpassFrontend.get(
 <p>It took me a bit of fiddling to get the data to display but it works!</p>
 
 <p>One thing I also managed to solve was the ability to add a <code>loading data...</code> block to the header which i have implemented on every map page to show the user that the data is loading. It isnt as quick I would like, but at least it provides the user with feedback.</p>
+
+<p><img src="/assets/images/lidl-loading-768.png" alt="Loading page" title="loading div" /></p>
     ]]></content>
 </entry>
             <entry>
