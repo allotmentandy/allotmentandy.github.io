@@ -3,12 +3,77 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-01-29T17:57:49+00:00</updated>
+    <updated>2022-02-06T19:40:45+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-02-06-Using-Ansible-To-Setup-My-New-Debian-Desktop-Machine</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-06-Using-Ansible-To-Setup-My-New-Debian-Desktop-Machine" />
+    <title>Using Ansible To Setup My New Debian Desktop Machine</title>
+    <published>2022-02-06T00:00:00+00:00</published>
+    <updated>2022-02-06T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I recently bought a new computer and wanted to use Ansible to install all the software. I have installed the base debian system and now wanted to install everything I regularly use with Ansible.
+
+Here is the link to the repo......</summary>
+    <content type="html"><![CDATA[
+        <p>I recently bought a new computer and wanted to use Ansible to install all the software. I have installed the base debian system and now wanted to install everything I regularly use with Ansible.</p>
+
+<p>Here is the link to the repo</p>
+
+<p><a href="https://github.com/allotmentandy/ansible-debian-install-desktop" target="_blank">github.com/allotmentandy/ansible-debian-install-desktop</a></p>
+
+<p>Inspired by the following repos on github, I wanted to install as much as possible with Ansible, including settings for software, the XFCE panels and copy over the files I want as a backup.</p>
+
+<p><a href="https://github.com/liquuid/ansible-desktop-debian" target="_blank">https://github.com/liquuid/ansible-desktop-debian</a></p>
+
+<p><a href="https://github.com/geerlingguy/mac-dev-playbook" target="_blank">https://github.com/geerlingguy/mac-dev-playbook</a></p>
+
+<p><a href="https://github.com/alecigne/ansible-desktop" target="_blank">https://github.com/alecigne/ansible-desktop</a></p>
+
+<p>I have used installed a lot of software but the core apps I wanted is as follows:</p>
+
+<ul>
+<li>Sublime Text</li>
+<li>Sublime Merge</li>
+<li>Google Chrome</li>
+<li>VS Code</li>
+<li>Brave Browser</li>
+<li>php7.4</li>
+<li>php8.0</li>
+<li>Apache2</li>
+<li>MySQL / MariaDB Ver 15.1 Distrib 10.5.12-MariaDB,</li>
+<li>Virtual Box</li>
+<li>Terraform</li>
+<li>Ansible</li>
+<li>Docker</li>
+<li>nodejs version 14.9</li>
+<li>npm</li>
+<li>Terminology</li>
+<li>Firefox</li>
+<li>Thunderbird</li>
+</ul>
+
+<p>a number of extra repositories for software was required and features in the roles within the repository.</p>
+
+<p>To run the ansible playbook run this command and enter the ssh password and the root password like so:</p>
+
+<pre><code>ansible-playbook -i hosts workstation.yml --ask-become-pass --ask-pass 
+
+SSH password:
+BECOME password[defaults to SSH password]:
+</code></pre>
+
+<p>One of the issues was that I tend to use su instead of the default sudo, and this requires <code>become_method: su</code> which is set in the 'ansible_cfg' file</p>
+
+<p>I will extend this as I need to, and update the blog and the repo. Hope it is of some help. If you have any feedback, issues or suggestions, please contact me.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-01-29-Adding-Pages-For-Each-Node-Way-Relation-To-Londinium</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-29-Adding-Pages-For-Each-Node-Way-Relation-To-Londinium" />
     <title>Adding Pages For Each Node Way Relation To Londinium</title>
@@ -2388,44 +2453,6 @@ xdotool windowactivate $CURRENT_WID
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger" />
-    <title>Bash fwf ranger</title>
-    <published>2020-11-08T00:00:00+00:00</published>
-    <updated>2020-11-08T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle Fun tools to simplify your life in the command line
-
-The two tools i really liked and have found really useful are &lt;code&gt;fzf&lt;/code&gt;......</summary>
-    <content type="html"><![CDATA[
-        <p>I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle <a href="https://www.youtube.com/watch?v=BFKT7aj-i80" target="_blank">Fun tools to simplify your life in the command line</a></p>
-
-<p>The two tools i really liked and have found really useful are <code>fzf</code> and <code>ranger</code>.</p>
-
-<h3>fzf</h3>
-
-<p>fzf is a fuzzy search for the terminal. To search for docs in the directory which contain ansible  run <code>ls | fzf</code> and i can type ansible and it shows the files that contain ansible.</p>
-
-<p>To search for ansible only use:</p>
-
-<pre><code>ls | fzf -e -q "ansible"
-</code></pre>
-
-<h3>ranger</h3>
-
-<p><code>ranger</code> is a terminal file manager that is nice and quick and lets me navigate and view the file content.</p>
-
-<p>both of these tools can be installed with</p>
-
-<pre><code>apt-get install fzf ranger
-</code></pre>
-
-<p>I am always on the lookout for more tools that improve and speed up the workflow.</p>
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian" />
     <title>Offline Documentation on Debian</title>
@@ -2473,6 +2500,44 @@ One thing i really like to use is offline tools to help me access info offline. 
 <hr />
 
 <p>I would be interested in anymore tools people use for offline documentation, especially one that covers Tailwind CSS.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger" />
+    <title>Bash fwf ranger</title>
+    <published>2020-11-08T00:00:00+00:00</published>
+    <updated>2020-11-08T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle Fun tools to simplify your life in the command line
+
+The two tools i really liked and have found really useful are &lt;code&gt;fzf&lt;/code&gt;......</summary>
+    <content type="html"><![CDATA[
+        <p>I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle <a href="https://www.youtube.com/watch?v=BFKT7aj-i80" target="_blank">Fun tools to simplify your life in the command line</a></p>
+
+<p>The two tools i really liked and have found really useful are <code>fzf</code> and <code>ranger</code>.</p>
+
+<h3>fzf</h3>
+
+<p>fzf is a fuzzy search for the terminal. To search for docs in the directory which contain ansible  run <code>ls | fzf</code> and i can type ansible and it shows the files that contain ansible.</p>
+
+<p>To search for ansible only use:</p>
+
+<pre><code>ls | fzf -e -q "ansible"
+</code></pre>
+
+<h3>ranger</h3>
+
+<p><code>ranger</code> is a terminal file manager that is nice and quick and lets me navigate and view the file content.</p>
+
+<p>both of these tools can be installed with</p>
+
+<pre><code>apt-get install fzf ranger
+</code></pre>
+
+<p>I am always on the lookout for more tools that improve and speed up the workflow.</p>
     ]]></content>
 </entry>
             <entry>
@@ -3172,6 +3237,28 @@ The collection in the config.php file......</summary>
     ]]></content>
 </entry>
             <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
+    <title>GRR, Duplicate Github Pages</title>
+    <published>2020-05-09T00:00:00+00:00</published>
+    <updated>2020-05-09T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">12.26pm
+
+It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
+
+I deleted that repo and now it is working as expected....</summary>
+    <content type="html"><![CDATA[
+        <p>12.26pm</p>
+
+<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
+
+<p>I deleted that repo and now it is working as expected.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked" />
     <title>Yesterday I Cooked</title>
@@ -3196,25 +3283,33 @@ Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabb
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
-    <title>GRR, Duplicate Github Pages</title>
-    <published>2020-05-09T00:00:00+00:00</published>
-    <updated>2020-05-09T00:00:00+00:00</updated>
+    <id>https://allotmentandy.github.io/blog/2020-04-30-laravel</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30-laravel" />
+    <title>Laravel</title>
+    <published>2020-05-08T00:00:00+00:00</published>
+    <updated>2020-05-08T00:00:00+00:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
-    <summary type="html">12.26pm
+    <summary type="html">Laravel is a great PHP Framework which i have used for many years.
 
-It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
+There are a number of Laravel projects I am enjoying using at the moment
 
-I deleted that repo and now it is working as expected....</summary>
+Laravel Boilerplate
+
+Laravel Auth
+
+I am looking to create a dual language website in English and Portuguese to......</summary>
     <content type="html"><![CDATA[
-        <p>12.26pm</p>
+        <p>Laravel is a great PHP Framework which i have used for many years.</p>
 
-<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
+<p>There are a number of Laravel projects I am enjoying using at the moment</p>
 
-<p>I deleted that repo and now it is working as expected.</p>
+<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
+
+<p><a href="https://github.com/jeremykenedy/laravel-auth/">Laravel Auth</a></p>
+
+<p>I am looking to create a dual language website in English and Portuguese to help me learn portuguese and as a playground to learn about internationalization and multi-language websites.</p>
     ]]></content>
 </entry>
             <entry>
@@ -3350,36 +3445,6 @@ Any word wrapped with two tildes (like ~~this~~) will appear crossed out.
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-30-laravel</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30-laravel" />
-    <title>Laravel</title>
-    <published>2020-05-08T00:00:00+00:00</published>
-    <updated>2020-05-08T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Laravel is a great PHP Framework which i have used for many years.
-
-There are a number of Laravel projects I am enjoying using at the moment
-
-Laravel Boilerplate
-
-Laravel Auth
-
-I am looking to create a dual language website in English and Portuguese to......</summary>
-    <content type="html"><![CDATA[
-        <p>Laravel is a great PHP Framework which i have used for many years.</p>
-
-<p>There are a number of Laravel projects I am enjoying using at the moment</p>
-
-<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
-
-<p><a href="https://github.com/jeremykenedy/laravel-auth/">Laravel Auth</a></p>
-
-<p>I am looking to create a dual language website in English and Portuguese to help me learn portuguese and as a playground to learn about internationalization and multi-language websites.</p>
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2020-04-30</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30" />
     <title>Cooking Day</title>
@@ -3399,6 +3464,56 @@ overnight and today i will make bread and freeze a load of these....</summary>
 
 <p>This create 27 yeast blocks of around 0.6 ounces each. I left these drying
 overnight and today i will make bread and freeze a load of these.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
+    <title>Jigsaw Templates</title>
+    <published>2020-04-29T00:00:00+00:00</published>
+    <updated>2020-04-29T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
+working.
+
+
+
+[ ] Daily page - template for each day, with a shell script to create it
+
+[ ] Code page - with examples of code blocks
+
+[ ] Markdown Examples
+
+
+
+[x] Build.sh - build......</summary>
+    <content type="html"><![CDATA[
+        <h3>7.35 am</h3>
+
+<p>Working on templates for this static site. The mix of markdown and HTML isnt
+working.</p>
+
+<h4>Templates to make</h4>
+
+<p>[ ] Daily page - template for each day, with a shell script to create it</p>
+
+<p>[ ] Code page - with examples of code blocks</p>
+
+<p>[ ] Markdown Examples</p>
+
+<h4>Shell Scripts</h4>
+
+<p>[x] Build.sh - build both the local and production sites</p>
+
+<p>[ ] Deploy to github.io</p>
+
+<p>[ ] Create daily post page</p>
+
+<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
+
+<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
     ]]></content>
 </entry>
             <entry>
@@ -3482,56 +3597,6 @@ like this <code>php artisan make:post 'title of post'</code> but i will make it 
 <p><a href="http://localhost:3000/blog/2020-04-29" title="Older Post: Templates, Markdown and
 Shell Scripts for Jigsaw"> ← Templates, Markdown and Shell Scripts for Jigsaw
 </a></p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
-    <title>Jigsaw Templates</title>
-    <published>2020-04-29T00:00:00+00:00</published>
-    <updated>2020-04-29T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
-working.
-
-
-
-[ ] Daily page - template for each day, with a shell script to create it
-
-[ ] Code page - with examples of code blocks
-
-[ ] Markdown Examples
-
-
-
-[x] Build.sh - build......</summary>
-    <content type="html"><![CDATA[
-        <h3>7.35 am</h3>
-
-<p>Working on templates for this static site. The mix of markdown and HTML isnt
-working.</p>
-
-<h4>Templates to make</h4>
-
-<p>[ ] Daily page - template for each day, with a shell script to create it</p>
-
-<p>[ ] Code page - with examples of code blocks</p>
-
-<p>[ ] Markdown Examples</p>
-
-<h4>Shell Scripts</h4>
-
-<p>[x] Build.sh - build both the local and production sites</p>
-
-<p>[ ] Deploy to github.io</p>
-
-<p>[ ] Create daily post page</p>
-
-<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
-
-<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
     ]]></content>
 </entry>
             <entry>
