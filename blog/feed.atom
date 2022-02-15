@@ -3,12 +3,72 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-02-06T19:43:29+00:00</updated>
+    <updated>2022-02-15T12:03:27+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-02-14-laravel-dusk-testing</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-14-laravel-dusk-testing" />
+    <title>Laravel Dusk Testing</title>
+    <published>2022-02-14T00:00:00+00:00</published>
+    <updated>2022-02-14T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I do like testing websites, both as I code them, after they are running, but also to extract the odd snippet of data.
+
+Laravel has a Browser testing environment called Dusk
+
+It uses the chrome browser to test a website as a human would use it.
+
+It can......</summary>
+    <content type="html"><![CDATA[
+        <p>I do like testing websites, both as I code them, after they are running, but also to extract the odd snippet of data.</p>
+
+<p>Laravel has a Browser testing environment called <a href="https://laravel.com/docs/7.x/dusk">Dusk</a></p>
+
+<p>It uses the chrome browser to test a website as a human would use it.</p>
+
+<p>It can also make screenshots at different sizes to mirror different size screens.</p>
+
+<p>Having moved to a new machine, copied over the code base, the dusk tests were failing. To fix it i needed to run</p>
+
+<pre><code>apt-get install chromium
+
+php artisan dusk:install
+
+</code></pre>
+
+<p>I have added these to the ansible setup which I will blog about in the future.</p>
+
+<p>Whilst writing the tests, i wanted a way to just run the single test rather than the entire suite. This calls just the one test:</p>
+
+<pre><code>php artisan dusk tests/Browser/blog404Test.php
+</code></pre>
+
+<p>What i wanted to test for was that a page isnt found and returns a 404 error page. Dusk cant do that directly, so the dusk test looks for '404' to appear in the page. But dusk tests can also run vanilla phpunit tests which can assert the status is 404.</p>
+
+<pre><code>        $this-&gt;browse(function (Browser $browser) {
+            $browser-&gt;visit('https://allotmentandy.github.io/missingPage/')
+                    -&gt;assertSee('404');
+
+            $response = $this-&gt;get('https://allotmentandy.github.io/missingPage/')
+                        -&gt;assertStatus(404);
+        }
+</code></pre>
+
+<p>I also wanted to test that there was no errors in the console;</p>
+
+<pre><code>            $consoleLog = ($browser-&gt;driver-&gt;manage()-&gt;getLog('browser'));
+            $this-&gt;assertEqualsCanonicalizing($consoleLog, []);
+</code></pre>
+
+<p>This creates an Array of the console output and asserts it is a blank array. Simples!</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-02-06-Using-Ansible-To-Setup-My-New-Debian-Desktop-Machine</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-06-Using-Ansible-To-Setup-My-New-Debian-Desktop-Machine" />
     <title>Using Ansible To Setup My New Debian Desktop Machine</title>
@@ -68,7 +128,7 @@ SSH password:
 BECOME password[defaults to SSH password]:
 </code></pre>
 
-<p>One of the issues was that I tend to use su instead of the default sudo, and this requires <code>become_method: su</code> which is set in the 'ansible_cfg' file</p>
+<p>One of the issues was that I tend to use su instead of the default sudo, and this requires <code>become_method: su</code> which is set in the <code>ansible_cfg</code> file</p>
 
 <p>I will extend this as I need to, and update the blog and the repo. Hope it is of some help. If you have any feedback, issues or suggestions, please contact me.</p>
     ]]></content>
@@ -127,8 +187,6 @@ overpassFrontend.get(
 <p>It took me a bit of fiddling to get the data to display but it works!</p>
 
 <p>One thing I also managed to solve was the ability to add a <code>loading data...</code> block to the header which i have implemented on every map page to show the user that the data is loading. It isnt as quick I would like, but at least it provides the user with feedback.</p>
-
-<p><img src="/assets/images/lidl-loading-768.png" alt="Loading page" title="loading div" /></p>
     ]]></content>
 </entry>
             <entry>
