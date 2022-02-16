@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Laravel Dusk Testing | Allotment Andy"/>
+        <meta property="og:title" content="Laravel Mix / Node JS versions and webpack fun | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-02-14-laravel-dusk-testing"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-02-15-Laravel-mix-node-versions-nodejs-fun"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Laravel Dusk Testing" />
+        <meta property="og:title" content="Laravel Mix / Node JS versions and webpack fun" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-02-14-laravel-dusk-testing" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-02-15-Laravel-mix-node-versions-nodejs-fun" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Laravel Dusk Testing</title>
+        <title>Allotment Andy | Laravel Mix / Node JS versions and webpack fun</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=fe1802bee90aaa87278e">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,71 +88,97 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/Laravel.svg" alt="Laravel Dusk Testing" class=" w-16 h-16 inline-block">
-                Laravel Dusk Testing
+                <img src="/assets/img/Nodejs.svg" alt="Laravel Mix / Node JS versions and webpack fun" class=" w-16 h-16 inline-block">
+                Laravel Mix / Node JS versions and webpack fun
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">February 14, 2022</p>
+    <p class="text-gray-700 text-sm md:mt-0">February 15, 2022</p>
 
             <a href="/blog/categories/laravel" title="View posts in laravel"
         class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">laravel</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>I do like testing websites, both as I code them, after they are running, but also to extract the odd snippet of data.</p>
+        <p>Spent most of the morning struggling to get <code>npm run production</code> working on my new machine. The problem was a combination of things:</p>
 
-<p>Laravel has a Browser testing environment called <a href="https://laravel.com/docs/7.x/dusk">Dusk</a></p>
+<ul>
+<li>Node JS version</li>
+<li>Laravel Mix version</li>
+<li>Tailwind CSS</li>
+<li>Webpack</li>
+</ul>
 
-<p>It uses the chrome browser to test a website as a human would use it.</p>
+<p>Solutions I tried:</p>
 
-<p>It can also make screenshots at different sizes to mirror different size screens.</p>
-
-<p>Having moved to a new machine, copied over the code base, the dusk tests were failing. To fix it i needed to run</p>
-
-<pre><code>apt-get install chromium
-
-php artisan dusk:install
-
+<pre><code class="language-shell">npm install laravel-mix-purgecss@6.0.0
+npm install --save-dev sass-loader@7.1.0
+npm install node-sass@v4
+npm install --save-dev cross-env
+npm install postcss-loader@~3.0.0 --save-dev
+npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@\^7 autoprefixer@\^9 --force
 </code></pre>
 
-<p>I have added these to the ansible setup which I will blog about in the future.</p>
+<p>Downgrade Node to version 12, then deleted the entire node_modules directory and reinstalled with the original package.json file.</p>
 
-<p>Whilst writing the tests, i wanted a way to just run the single test rather than the entire suite. This calls just the one test:</p>
+<p>Then fixed more errors until it worked.</p>
 
-<pre><code>php artisan dusk tests/Browser/blog404Test.php
+<p>This is now my package.json file</p>
+
+<pre><code class="language-json">{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+        "@tailwindcss/typography": "^0.4.0",
+        "axios": "^0.19",
+        "cross-env": "^7.0.3",
+        "laravel-mix": "^5.0.1",
+        "laravel-mix-purgecss": "^5.0.0",
+        "lodash": "^4.17.13",
+        "postcss-loader": "~3.0.0",
+        "resolve-url-loader": "^3.1.0",
+        "sass": "^1.48.0",
+        "sass-loader": "^8.0.0",
+        "vue-template-compiler": "^2.6.14"
+    },
+    "dependencies": {
+        "@tailwindcss/forms": "^0.3.4",
+        "autoprefixer": "^9.8.8",
+        "boundingbox": "^0.1.2",
+        "escape-html": "^1.0.3",
+        "leaflet": "^1.7.1",
+        "overpass-frontend": "^2.7.0",
+        "overpass-layer": "^3.1.0",
+        "postcss": "^7.0.39",
+        "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+        "yaml": "^1.9.2"
+    }
+}
 </code></pre>
 
-<p>What i wanted to test for was that a page isnt found and returns a 404 error page. Dusk cant do that directly, so the dusk test looks for '404' to appear in the page. But dusk tests can also run vanilla phpunit tests which can assert the status is 404.</p>
+<p>Once I got this all working, my ansible script then reinstalled v.14 of Node JS :) so now updating the ansible scripts to install v.12.</p>
 
-<pre><code>        $this-&gt;browse(function (Browser $browser) {
-            $browser-&gt;visit('https://allotmentandy.github.io/missingPage/')
-                    -&gt;assertSee('404');
-
-            $response = $this-&gt;get('https://allotmentandy.github.io/missingPage/')
-                        -&gt;assertStatus(404);
-        }
-</code></pre>
-
-<p>I also wanted to test that there was no errors in the console;</p>
-
-<pre><code>            $consoleLog = ($browser-&gt;driver-&gt;manage()-&gt;getLog('browser'));
-            $this-&gt;assertEqualsCanonicalizing($consoleLog, []);
-</code></pre>
-
-<p>This creates an Array of the console output and asserts it is a blank array. Simples!</p>
+<p>Most of a day of experimenting with the behemoth that is the world of Node JS :)</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-02-06-Using-Ansible-To-Setup-My-New-Debian-Desktop-Machine" title="Older Post: Using Ansible To Setup My New Debian Desktop Machine">
-                &LeftArrow; Using Ansible To Setup My New Debian Desktop Machine
+                        <a href="https://allotmentandy.github.io/blog/2022-02-14-laravel-dusk-testing" title="Older Post: Laravel Dusk Testing">
+                &LeftArrow; Laravel Dusk Testing
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-02-15-Laravel-mix-node-versions-nodejs-fun" title="Newer Post: Laravel Mix / Node JS versions and webpack fun">
-                Laravel Mix / Node JS versions and webpack fun &RightArrow;
+                        <a href="https://allotmentandy.github.io/blog/2022-02-16-Ansible-Debian-Desktop-Update-Part-2" title="Newer Post: Ansible Debian Desktop Update Part 2">
+                Ansible Debian Desktop Update Part 2 &RightArrow;
             </a>
                     </div>
     </nav>

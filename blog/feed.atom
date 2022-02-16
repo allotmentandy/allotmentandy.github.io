@@ -3,12 +3,126 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-02-15T12:03:27+00:00</updated>
+    <updated>2022-02-16T09:11:52+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-02-16-Ansible-Debian-Desktop-Update-Part-2</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-16-Ansible-Debian-Desktop-Update-Part-2" />
+    <title>Ansible Debian Desktop Update Part 2</title>
+    <published>2022-02-16T00:00:00+00:00</published>
+    <updated>2022-02-16T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Updating the Ansible repo to install more apps, downgrade NodeJS, add a firewall to the config and get the machine working as a webserver using Apache, PHP and VS Code....</summary>
+    <content type="html"><![CDATA[
+        <p>After yesterdays fun with Node JS, i have downgraded the version of Node in the ansible settings to version 12.</p>
+
+<p><code>ufw</code> firewall is now enabled in a new role and I added each port for <code>apache</code> I use and also allowed ssh access.</p>
+
+<p><code>Composer</code> was complaining that i didnt have the <code>php-curl</code> module so i installed that too</p>
+
+<p>Laravel Dusk wasnt working so I have added <code>chromium</code> and had to rerun the php artisan dusk:install to setup the chromedirver for the tests.</p>
+
+<p>However PHP wasnt working perfectly, i needed to enable <code>a2enmod proxy_fcgi</code> for it to work with .php files.</p>
+
+<p>VS-code didnt like the fact <code>php-codesniffer</code> wasnt installed so I added it.</p>
+
+<p>Also added a few apps that I like to use including <code>deluge</code>, <code>krita</code> and <code>fzf</code>. <code>fzf</code> is a fuzzy find for the commandline and I added a alias for <code>lf</code> to allow me to perform a fuzzy find on the directory with the following code which i added to the end of <code>.bashrc</code></p>
+
+<pre><code>#bashrc - add lf for fzf andy alias
+ lf () { ls -lah | fzf -e -q "$@" ;}
+</code></pre>
+
+<p>The biggest problem I had was trying to get Ansible to setup <code>mysql/mariadb</code>. The root user needs to have the plugin changed to <code>mysql_native_password</code>. But I did it by hand, as I didnt get this working with ansible yet!</p>
+
+<p>You can see the repo at <a href="https://github.com/allotmentandy/ansible-debian-install-desktop" target="_blank">github.com/allotmentandy/ansible-debian-install-desktop</a></p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2022-02-15-Laravel-mix-node-versions-nodejs-fun</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-15-Laravel-mix-node-versions-nodejs-fun" />
+    <title>Laravel Mix / Node JS versions and webpack fun</title>
+    <published>2022-02-15T00:00:00+00:00</published>
+    <updated>2022-02-15T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">A morning of trying to get npm run working with package version uncompatability and downgrading nodejs....</summary>
+    <content type="html"><![CDATA[
+        <p>Spent most of the morning struggling to get <code>npm run production</code> working on my new machine. The problem was a combination of things:</p>
+
+<ul>
+<li>Node JS version</li>
+<li>Laravel Mix version</li>
+<li>Tailwind CSS</li>
+<li>Webpack</li>
+</ul>
+
+<p>Solutions I tried:</p>
+
+<pre><code class="language-shell">npm install laravel-mix-purgecss@6.0.0
+npm install --save-dev sass-loader@7.1.0
+npm install node-sass@v4
+npm install --save-dev cross-env
+npm install postcss-loader@~3.0.0 --save-dev
+npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@\^7 autoprefixer@\^9 --force
+</code></pre>
+
+<p>Downgrade Node to version 12, then deleted the entire node_modules directory and reinstalled with the original package.json file.</p>
+
+<p>Then fixed more errors until it worked.</p>
+
+<p>This is now my package.json file</p>
+
+<pre><code class="language-json">{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+        "@tailwindcss/typography": "^0.4.0",
+        "axios": "^0.19",
+        "cross-env": "^7.0.3",
+        "laravel-mix": "^5.0.1",
+        "laravel-mix-purgecss": "^5.0.0",
+        "lodash": "^4.17.13",
+        "postcss-loader": "~3.0.0",
+        "resolve-url-loader": "^3.1.0",
+        "sass": "^1.48.0",
+        "sass-loader": "^8.0.0",
+        "vue-template-compiler": "^2.6.14"
+    },
+    "dependencies": {
+        "@tailwindcss/forms": "^0.3.4",
+        "autoprefixer": "^9.8.8",
+        "boundingbox": "^0.1.2",
+        "escape-html": "^1.0.3",
+        "leaflet": "^1.7.1",
+        "overpass-frontend": "^2.7.0",
+        "overpass-layer": "^3.1.0",
+        "postcss": "^7.0.39",
+        "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+        "yaml": "^1.9.2"
+    }
+}
+</code></pre>
+
+<p>Once I got this all working, my ansible script then reinstalled v.14 of Node JS :) so now updating the ansible scripts to install v.12.</p>
+
+<p>Most of a day of experimenting with the behemoth that is the world of Node JS :)</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-02-14-laravel-dusk-testing</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-14-laravel-dusk-testing" />
     <title>Laravel Dusk Testing</title>
