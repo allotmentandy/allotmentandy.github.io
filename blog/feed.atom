@@ -3,12 +3,142 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-02-16T09:11:52+00:00</updated>
+    <updated>2022-02-17T14:02:48+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-02-17-Overpass-API-Queries</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-17-Overpass-API-Queries" />
+    <title>Overpass API Queries</title>
+    <published>2022-02-17T00:00:00+00:00</published>
+    <updated>2022-02-17T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Having been work with Overpass API and developing londinium.com I have spent a great deal of time learning Overpass_QL
+
+I wanted to put together a blog post with all the Overpass Queries I have been using in on place.
+
+You can test these out using......</summary>
+    <content type="html"><![CDATA[
+        <p>Having been work with <a href="https://wiki.openstreetmap.org/wiki/Overpass_API" target="_blank">Overpass API</a> and developing <a href="http://www.londinium.com" target="_blank">londinium.com</a> I have spent a great deal of time learning <a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL" target="_blank">Overpass_QL</a></p>
+
+<p>I wanted to put together a blog post with all the Overpass Queries I have been using in on place.</p>
+
+<p>You can test these out using <a href="https://overpass-turbo.eu/" target="_blank">Overpass Turbo</a> where you can run each example. You may need to adapt the BBOX area for the search and edit them for your purpose.</p>
+
+<p>Get a <strong>Feature</strong> eg. supermarket</p>
+
+<pre><code>[out:json][timeout:25];
+(
+  nwr[shop=supermarket]({{bbox}});
+);
+// print results
+out body;
+&gt;;
+out skel qt;
+
+</code></pre>
+
+<p>Get everything in a <strong>Place</strong></p>
+
+<pre><code>nwr[shop]; nwr[amenity]["name"]; nwr[tourism]["name"]; nwr[sport]["name"]; nwr[building]["name"]; nwr[leisure]["name"]; nwr[public_transport]["name"];nwr[office]["name"];
+
+</code></pre>
+
+<p>Get a <strong>Brand</strong> eg. waitrose</p>
+
+<pre><code>[out:json][timeout:25];
+(
+  nwr["shop"]["name"="Waitrose"]({{bbox}});
+  nwr["shop"]["brand"="Waitrose"]({{bbox}});
+  nwr["shop"]["operator"="Waitrose"]({{bbox}});
+);
+// print results
+out body;
+&gt;;
+out skel qt;
+</code></pre>
+
+<p>get a single <strong>NWR</strong> Node / Way / Relation, eg Lords Cricket Ground</p>
+
+<pre><code>[out:json];
+  relation(9653407);
+// print results
+out body; &gt;; out skel qt;
+</code></pre>
+
+<p>London Overground outpus as a csv</p>
+
+<pre><code>[out:csv(::type,::id,network,type,name)][timeout:25];
+{{sel=["network"~"London Overground"]["type"~"route"]}}
+(
+  relation{{sel}};
+);
+out meta qt;
+</code></pre>
+
+<p>GAY=yes with website</p>
+
+<pre><code>[bbox:{{bbox}}][out:xml][timeout:30];(
+  nwr[gay=yes][!lgbtq][website];
+);out meta;&gt;;out meta qt;
+</code></pre>
+
+<p>Nodes and Ways with Images</p>
+
+<pre><code>[out:json][timeout:25];
+{{geocodeArea:London}}-&gt;.searchArea;
+(
+  node["image"](area.searchArea);
+  way["image"](area.searchArea);
+);
+out body;
+&gt;;
+out skel qt;
+</code></pre>
+
+<p>Communication towers</p>
+
+<pre><code>node
+  ["tower:type"=communication]
+  ["communication:mobile_phone"=yes]
+  ({{bbox}});
+out;
+</code></pre>
+
+<p>A Postcode like query</p>
+
+<pre><code>[out:json][timeout:25];
+(
+  node["addr:postcode"~"^HA8"];
+  way["addr:postcode"~"^HA8"];
+  relation["addr:postcode"~"^HA8"];
+);
+out body;
+&gt;;
+out skel qt;
+</code></pre>
+
+<p>AREA NAME</p>
+
+<pre><code>( area[name="Harrow"][admin_level=9]; )-&gt;.searchArea;
+(
+  way[highway=cycleway](area.searchArea);
+  way[highway=path][bicycle=designated](area.searchArea);
+  way[highway][cycleway]["cycleway"!~"no|opposite"](area.searchArea);
+  way[highway]["cycleway:left"!=no]["cycleway:left"](area.searchArea);
+  way[highway]["cycleway:right"!=no]["cycleway:right"](area.searchArea);
+);
+out geom;
+make stats length=sum(length()),section_lengths=set(length());
+out;
+</code></pre>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-02-16-Ansible-Debian-Desktop-Update-Part-2</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-16-Ansible-Debian-Desktop-Update-Part-2" />
     <title>Ansible Debian Desktop Update Part 2</title>
