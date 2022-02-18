@@ -3,12 +3,155 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-02-17T14:02:48+00:00</updated>
+    <updated>2022-02-18T09:54:29+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-02-18-Londinium-set-location-javascript</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-18-Londinium-set-location-javascript" />
+    <title>Londinium.com set location javascript</title>
+    <published>2022-02-18T10:00:00+00:00</published>
+    <updated>2022-02-18T10:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">How I added the ability for the user to set their location using 2 cookies for the features and brands maps....</summary>
+    <content type="html"><![CDATA[
+        <p>My londinium.com website has 2 types of maps, fixed locations like postcodes, train stations and places, but also features and brands which are more relevant to the users location.</p>
+
+<p>Today I tackled the issue of setting the user location with a cookie so that the features and brand maps are more relevant to the users location.</p>
+
+<p>This was a project for javascripting.</p>
+
+<p>I created a new page <a href="https://londinium.com/setLocation" target="_blank">setLocation</a> with the following function to set the cookie at the point of click.</p>
+
+<pre><code>function onMapClick(e) {
+    //map click event object (e) has latlng property which is a location at which the click occured.
+    popup
+        .setLatLng(e.latlng)
+        .setContent("&lt;h2&gt;LOCATION COOKIE SET&lt;/h2&gt; &lt;strong&gt;Lat " + e.latlng.lat + "&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;Long " +
+            e.latlng.lng +
+            "&lt;/strong&gt;")
+        .openOn(mymap);
+    lat = "lat=" + e.latlng.lat + '; path = /; sameSite=Lax;';
+    long = "long=" + e.latlng.lng + '; path = /; sameSite=Lax;';
+    document.cookie = lat;
+    document.cookie = long;
+}
+</code></pre>
+
+<p>And some new functionality to use the new cookie variables if set on the features and brand pages.</p>
+
+<pre><code>    function getCookie(name) {
+        // Split cookie string and get all individual name=value pairs in an array
+        var cookieArr = document.cookie.split(";");
+
+        // Loop through the array elements
+        for (var i = 0; i &lt; cookieArr.length; i++) {
+            var cookiePair = cookieArr[i].split("=");
+
+            /* Removing whitespace at the beginning of the cookie name
+            and compare it with the given string */
+            if (name == cookiePair[0].trim()) {
+                // Decode the cookie value and return
+                return decodeURIComponent(cookiePair[1]);
+            }
+        }
+        // Return null if not found
+        return null;
+    }
+window.onload = function () {
+    var Lat = 51.5
+    var cookieLat = getCookie("lat");
+    if (cookieLat != null) {
+        Lat = getCookie("lat");
+    }
+    var Long = -0.144
+    var cookieLong = getCookie("long");
+    if (cookieLong != null) {
+        Long = getCookie("long");
+    }
+
+    map = L.map('map').setView([Lat, Long], 14);
+</code></pre>
+
+<p>I am sure it could be improved, but it works and allows both a default and user set value.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2022-02-18-SEO-google-sitemap-xml-from-laravel</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-18-SEO-google-sitemap-xml-from-laravel" />
+    <title>SEO Google sitemap.xml for a Laravel website</title>
+    <published>2022-02-18T09:00:00+00:00</published>
+    <updated>2022-02-18T09:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Making sitemaps for Google with a Laravel console command and an AWK one line command line script to process the routes file....</summary>
+    <content type="html"><![CDATA[
+        <p>Yesterday, I added Google Adsense to <a href="http://www.londinium.com" target="_blank">londinium.com</a> which has changed quite a bit since I last used it. Part of the process ended up with me in the Google Webmaster Tools, another area I have neglected, but a useful tool for SEO (Search Engine Optimisation) purposes.</p>
+
+<p>One of the things it suggested was to create, was a sitemap.xml file for all the links in the site. Using Laravel, there are often a number of tools to complete any job, and I soon found and setup <a href="https://github.com/spatie/laravel-sitemap" target="_blank">github.com/spatie/laravel-sitemap</a> as a command line tool. However this is a tool that is going to crawl the entire website and with over 2000 routes, is a slow way to build this sitemap.</p>
+
+<p>Google allows both .xml and .txt files according to the docs, see <a href="https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap" target="_blank">https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap</a></p>
+
+<p>So I changed tack and went back to using AWK. With this one script, I can extract all the routes and prefix them with the domain name and make the first one of these from the routes/web,php file with awk</p>
+
+<pre><code>awk -F"'" '$1 ~ /^Route::/ {print"http://londinium.com"$2}' routes/web.php &gt; sitemap.txt
+</code></pre>
+
+<p>The second part is to create a list of the pages from the database. I have a table 'points' where I import OSM data which has a website. so I created an artisan console command which outputs these pages with the command <code>php artisan sitemap:generate &gt; sitemapNWR.txt</code>. It limits the select to 50000 as that is a limit imposed by Google. The commented out command will offset that query by 50,000.</p>
+
+<pre><code>&lt;?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use App\Models\Points;
+
+class GenerateSitemap extends Command
+{
+    /**
+     * The console command name.
+     *
+     * @var string
+     */
+    protected $signature = 'sitemap:generate';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Make a sitemap of all the db pages from the points table.';
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $points = Points::limit(50000)-&gt;get();
+        //$points = Points::skip(50000)-&gt;take(50000)-&gt;get();
+
+        $points-&gt;each(function ($point) {
+            echo "http://londinium.com/". $point-&gt;nwr. "/" .  $point-&gt;id;
+            echo PHP_EOL;
+        });
+    }
+}
+
+</code></pre>
+
+<p>It is now 2 simple commands, which i can upload to Google Webmaster Search Console.</p>
+
+<p>Another job done!</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-02-17-Overpass-API-Queries</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-17-Overpass-API-Queries" />
     <title>Overpass API Queries</title>

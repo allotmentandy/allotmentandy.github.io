@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Overpass API Queries | Allotment Andy"/>
+        <meta property="og:title" content="SEO Google sitemap.xml for a Laravel website | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-02-17-Overpass-API-Queries"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-02-18-SEO-google-sitemap-xml-from-laravel"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Overpass API Queries" />
+        <meta property="og:title" content="SEO Google sitemap.xml for a Laravel website" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-02-17-Overpass-API-Queries" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-02-18-SEO-google-sitemap-xml-from-laravel" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Overpass API Queries</title>
+        <title>Allotment Andy | SEO Google sitemap.xml for a Laravel website</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=fe1802bee90aaa87278e">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,143 +88,92 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/Map.svg" alt="Overpass API Queries" class=" w-16 h-16 inline-block">
-                Overpass API Queries
+                <img src="/assets/img/Laravel.svg" alt="SEO Google sitemap.xml for a Laravel website" class=" w-16 h-16 inline-block">
+                SEO Google sitemap.xml for a Laravel website
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">February 17, 2022</p>
+    <p class="text-gray-700 text-sm md:mt-0">February 18, 2022</p>
 
-            <a href="/blog/categories/openstreetmap" title="View posts in openstreetmap"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">openstreetmap</a>
+            <a href="/blog/categories/bash" title="View posts in bash"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">bash</a>
+        <a href="/blog/categories/laravel" title="View posts in laravel"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">laravel</a>
+        <a href="/blog/categories/londinium" title="View posts in londinium"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">londinium</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>Having been work with <a href="https://wiki.openstreetmap.org/wiki/Overpass_API" target="_blank">Overpass API</a> and developing <a href="http://www.londinium.com" target="_blank">londinium.com</a> I have spent a great deal of time learning <a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL" target="_blank">Overpass_QL</a></p>
+        <p>Yesterday, I added Google Adsense to <a href="http://www.londinium.com" target="_blank">londinium.com</a> which has changed quite a bit since I last used it. Part of the process ended up with me in the Google Webmaster Tools, another area I have neglected, but a useful tool for SEO (Search Engine Optimisation) purposes.</p>
 
-<p>I wanted to put together a blog post with all the Overpass Queries I have been using in on place.</p>
+<p>One of the things it suggested was to create, was a sitemap.xml file for all the links in the site. Using Laravel, there are often a number of tools to complete any job, and I soon found and setup <a href="https://github.com/spatie/laravel-sitemap" target="_blank">github.com/spatie/laravel-sitemap</a> as a command line tool. However this is a tool that is going to crawl the entire website and with over 2000 routes, is a slow way to build this sitemap.</p>
 
-<p>You can test these out using <a href="https://overpass-turbo.eu/" target="_blank">Overpass Turbo</a> where you can run each example. You may need to adapt the BBOX area for the search and edit them for your purpose.</p>
+<p>Google allows both .xml and .txt files according to the docs, see <a href="https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap" target="_blank">https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap</a></p>
 
-<p>Get a <strong>Feature</strong> eg. supermarket</p>
+<p>So I changed tack and went back to using AWK. With this one script, I can extract all the routes and prefix them with the domain name and make the first one of these from the routes/web,php file with awk</p>
 
-<pre><code>[out:json][timeout:25];
-(
-  nwr[shop=supermarket]({{bbox}});
-);
-// print results
-out body;
-&gt;;
-out skel qt;
+<pre><code>awk -F"'" '$1 ~ /^Route::/ {print"http://londinium.com"$2}' routes/web.php &gt; sitemap.txt
+</code></pre>
+
+<p>The second part is to create a list of the pages from the database. I have a table 'points' where I import OSM data which has a website. so I created an artisan console command which outputs these pages with the command <code>php artisan sitemap:generate &gt; sitemapNWR.txt</code>. It limits the select to 50000 as that is a limit imposed by Google. The commented out command will offset that query by 50,000.</p>
+
+<pre><code>&lt;?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use App\Models\Points;
+
+class GenerateSitemap extends Command
+{
+    /**
+     * The console command name.
+     *
+     * @var string
+     */
+    protected $signature = 'sitemap:generate';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Make a sitemap of all the db pages from the points table.';
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $points = Points::limit(50000)-&gt;get();
+        //$points = Points::skip(50000)-&gt;take(50000)-&gt;get();
+
+        $points-&gt;each(function ($point) {
+            echo "http://londinium.com/". $point-&gt;nwr. "/" .  $point-&gt;id;
+            echo PHP_EOL;
+        });
+    }
+}
 
 </code></pre>
 
-<p>Get everything in a <strong>Place</strong></p>
+<p>It is now 2 simple commands, which i can upload to Google Webmaster Search Console.</p>
 
-<pre><code>nwr[shop]; nwr[amenity]["name"]; nwr[tourism]["name"]; nwr[sport]["name"]; nwr[building]["name"]; nwr[leisure]["name"]; nwr[public_transport]["name"];nwr[office]["name"];
-
-</code></pre>
-
-<p>Get a <strong>Brand</strong> eg. waitrose</p>
-
-<pre><code>[out:json][timeout:25];
-(
-  nwr["shop"]["name"="Waitrose"]({{bbox}});
-  nwr["shop"]["brand"="Waitrose"]({{bbox}});
-  nwr["shop"]["operator"="Waitrose"]({{bbox}});
-);
-// print results
-out body;
-&gt;;
-out skel qt;
-</code></pre>
-
-<p>get a single <strong>NWR</strong> Node / Way / Relation, eg Lords Cricket Ground</p>
-
-<pre><code>[out:json];
-  relation(9653407);
-// print results
-out body; &gt;; out skel qt;
-</code></pre>
-
-<p>London Overground outpus as a csv</p>
-
-<pre><code>[out:csv(::type,::id,network,type,name)][timeout:25];
-{{sel=["network"~"London Overground"]["type"~"route"]}}
-(
-  relation{{sel}};
-);
-out meta qt;
-</code></pre>
-
-<p>GAY=yes with website</p>
-
-<pre><code>[bbox:{{bbox}}][out:xml][timeout:30];(
-  nwr[gay=yes][!lgbtq][website];
-);out meta;&gt;;out meta qt;
-</code></pre>
-
-<p>Nodes and Ways with Images</p>
-
-<pre><code>[out:json][timeout:25];
-{{geocodeArea:London}}-&gt;.searchArea;
-(
-  node["image"](area.searchArea);
-  way["image"](area.searchArea);
-);
-out body;
-&gt;;
-out skel qt;
-</code></pre>
-
-<p>Communication towers</p>
-
-<pre><code>node
-  ["tower:type"=communication]
-  ["communication:mobile_phone"=yes]
-  ({{bbox}});
-out;
-</code></pre>
-
-<p>A Postcode like query</p>
-
-<pre><code>[out:json][timeout:25];
-(
-  node["addr:postcode"~"^HA8"];
-  way["addr:postcode"~"^HA8"];
-  relation["addr:postcode"~"^HA8"];
-);
-out body;
-&gt;;
-out skel qt;
-</code></pre>
-
-<p>AREA NAME</p>
-
-<pre><code>( area[name="Harrow"][admin_level=9]; )-&gt;.searchArea;
-(
-  way[highway=cycleway](area.searchArea);
-  way[highway=path][bicycle=designated](area.searchArea);
-  way[highway][cycleway]["cycleway"!~"no|opposite"](area.searchArea);
-  way[highway]["cycleway:left"!=no]["cycleway:left"](area.searchArea);
-  way[highway]["cycleway:right"!=no]["cycleway:right"](area.searchArea);
-);
-out geom;
-make stats length=sum(length()),section_lengths=set(length());
-out;
-</code></pre>
+<p>Another job done!</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-02-16-Ansible-Debian-Desktop-Update-Part-2" title="Older Post: Ansible Debian Desktop Update Part 2">
-                &LeftArrow; Ansible Debian Desktop Update Part 2
+                        <a href="https://allotmentandy.github.io/blog/2022-02-17-Overpass-API-Queries" title="Older Post: Overpass API Queries">
+                &LeftArrow; Overpass API Queries
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-02-18-SEO-google-sitemap-xml-from-laravel" title="Newer Post: SEO Google sitemap.xml for a Laravel website">
-                SEO Google sitemap.xml for a Laravel website &RightArrow;
+                        <a href="https://allotmentandy.github.io/blog/2022-02-18-Londinium-set-location-javascript" title="Newer Post: Londinium.com set location javascript">
+                Londinium.com set location javascript &RightArrow;
             </a>
                     </div>
     </nav>
