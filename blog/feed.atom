@@ -3,12 +3,64 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-02-18T09:54:29+00:00</updated>
+    <updated>2022-02-19T11:06:19+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-02-19-Ordering-websites-by-distance-from-Charing-Cross</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-19-Ordering-websites-by-distance-from-Charing-Cross" />
+    <title>Ordering websites by distance from Charing Cross</title>
+    <published>2022-02-19T00:00:00+00:00</published>
+    <updated>2022-02-19T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Calculating the distance from a latitude and londitude cordinate to a point in PHP....</summary>
+    <content type="html"><![CDATA[
+        <p>Today I decided to tackle the issue of ordering the website listings by distance from Central London. The traditional centre of London is Charing Cross, which is at a latitude of 51.509 and a longitude of -0.122, this is my centre point.</p>
+
+<p>So i did a little search online and found this <code>PHP</code> function that calculates the distance from this point, for each entry in the database.</p>
+
+<pre><code class="language-php">function distance($lat1, $lon1, $lat2, $lon2, $unit)
+{
+    $theta = $lon1 - $lon2;
+    $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+    $dist = acos($dist);
+    $dist = rad2deg($dist);
+    $miles = $dist * 60 * 1.1515;
+    $unit = strtoupper($unit);
+
+    if ($unit == "K") {
+        return ($miles * 1.609344);
+    } elseif ($unit == "N") {
+        return ($miles * 0.8684);
+    } else {
+        return $miles;
+    }
+}
+</code></pre>
+
+<p>To get the distance from Charing Cross, it is simply a call to</p>
+
+<pre><code class="language-php">  $distanceFrom = distance(51.509, -0.122, $lat, $lon, 'M');
+</code></pre>
+
+<p>To store it in the database I added a 'float' field into the mysql table like so:</p>
+
+<pre><code class="language-sql">  `distance` float NOT NULL,
+</code></pre>
+
+<p>And updaed the Laravel Controller to order the result by this field</p>
+
+<pre><code class="language-sql">  ORDER BY distance ASC 
+</code></pre>
+
+<p>And hey presto, the lists of websites are now sorted by distance from Charing Cross!</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-02-18-Londinium-set-location-javascript</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-18-Londinium-set-location-javascript" />
     <title>Londinium.com set location javascript</title>

@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Londinium.com set location javascript | Allotment Andy"/>
+        <meta property="og:title" content="Ordering websites by distance from Charing Cross | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-02-18-Londinium-set-location-javascript"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-02-19-Ordering-websites-by-distance-from-Charing-Cross"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Londinium.com set location javascript" />
+        <meta property="og:title" content="Ordering websites by distance from Charing Cross" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-02-18-Londinium-set-location-javascript" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-02-19-Ordering-websites-by-distance-from-Charing-Cross" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Londinium.com set location javascript</title>
+        <title>Allotment Andy | Ordering websites by distance from Charing Cross</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=fe1802bee90aaa87278e">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,92 +88,67 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/londinium.svg" alt="Londinium.com set location javascript" class=" w-16 h-16 inline-block">
-                Londinium.com set location javascript
+                <img src="/assets/img/Map.svg" alt="Ordering websites by distance from Charing Cross" class=" w-16 h-16 inline-block">
+                Ordering websites by distance from Charing Cross
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">February 18, 2022</p>
+    <p class="text-gray-700 text-sm md:mt-0">February 19, 2022</p>
 
-            <a href="/blog/categories/londinium" title="View posts in londinium"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">londinium</a>
-        <a href="/blog/categories/openstreetmap" title="View posts in openstreetmap"
+            <a href="/blog/categories/openstreetmap" title="View posts in openstreetmap"
         class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px">openstreetmap</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>My londinium.com website has 2 types of maps, fixed locations like postcodes, train stations and places, but also features and brands which are more relevant to the users location.</p>
+        <p>Today I decided to tackle the issue of ordering the website listings by distance from Central London. The traditional centre of London is Charing Cross, which is at a latitude of 51.509 and a longitude of -0.122, this is my centre point.</p>
 
-<p>Today I tackled the issue of setting the user location with a cookie so that the features and brand maps are more relevant to the users location.</p>
+<p>So i did a little search online and found this <code>PHP</code> function that calculates the distance from this point, for each entry in the database.</p>
 
-<p>This was a project for javascripting.</p>
+<pre><code class="language-php">function distance($lat1, $lon1, $lat2, $lon2, $unit)
+{
+    $theta = $lon1 - $lon2;
+    $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+    $dist = acos($dist);
+    $dist = rad2deg($dist);
+    $miles = $dist * 60 * 1.1515;
+    $unit = strtoupper($unit);
 
-<p>I created a new page <a href="https://londinium.com/setLocation" target="_blank">setLocation</a> with the following function to set the cookie at the point of click.</p>
-
-<pre><code>function onMapClick(e) {
-    //map click event object (e) has latlng property which is a location at which the click occured.
-    popup
-        .setLatLng(e.latlng)
-        .setContent("&lt;h2&gt;LOCATION COOKIE SET&lt;/h2&gt; &lt;strong&gt;Lat " + e.latlng.lat + "&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;Long " +
-            e.latlng.lng +
-            "&lt;/strong&gt;")
-        .openOn(mymap);
-    lat = "lat=" + e.latlng.lat + '; path = /; sameSite=Lax;';
-    long = "long=" + e.latlng.lng + '; path = /; sameSite=Lax;';
-    document.cookie = lat;
-    document.cookie = long;
+    if ($unit == "K") {
+        return ($miles * 1.609344);
+    } elseif ($unit == "N") {
+        return ($miles * 0.8684);
+    } else {
+        return $miles;
+    }
 }
 </code></pre>
 
-<p>And some new functionality to use the new cookie variables if set on the features and brand pages.</p>
+<p>To get the distance from Charing Cross, it is simply a call to</p>
 
-<pre><code>    function getCookie(name) {
-        // Split cookie string and get all individual name=value pairs in an array
-        var cookieArr = document.cookie.split(";");
-
-        // Loop through the array elements
-        for (var i = 0; i &lt; cookieArr.length; i++) {
-            var cookiePair = cookieArr[i].split("=");
-
-            /* Removing whitespace at the beginning of the cookie name
-            and compare it with the given string */
-            if (name == cookiePair[0].trim()) {
-                // Decode the cookie value and return
-                return decodeURIComponent(cookiePair[1]);
-            }
-        }
-        // Return null if not found
-        return null;
-    }
-window.onload = function () {
-    var Lat = 51.5
-    var cookieLat = getCookie("lat");
-    if (cookieLat != null) {
-        Lat = getCookie("lat");
-    }
-    var Long = -0.144
-    var cookieLong = getCookie("long");
-    if (cookieLong != null) {
-        Long = getCookie("long");
-    }
-
-    map = L.map('map').setView([Lat, Long], 14);
+<pre><code class="language-php">  $distanceFrom = distance(51.509, -0.122, $lat, $lon, 'M');
 </code></pre>
 
-<p>I am sure it could be improved, but it works and allows both a default and user set value.</p>
+<p>To store it in the database I added a 'float' field into the mysql table like so:</p>
+
+<pre><code class="language-sql">  `distance` float NOT NULL,
+</code></pre>
+
+<p>And updaed the Laravel Controller to order the result by this field</p>
+
+<pre><code class="language-sql">  ORDER BY distance ASC 
+</code></pre>
+
+<p>And hey presto, the lists of websites are now sorted by distance from Charing Cross!</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-02-18-SEO-google-sitemap-xml-from-laravel" title="Older Post: SEO Google sitemap.xml for a Laravel website">
-                &LeftArrow; SEO Google sitemap.xml for a Laravel website
+                        <a href="https://allotmentandy.github.io/blog/2022-02-18-Londinium-set-location-javascript" title="Older Post: Londinium.com set location javascript">
+                &LeftArrow; Londinium.com set location javascript
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-02-19-Ordering-websites-by-distance-from-Charing-Cross" title="Newer Post: Ordering websites by distance from Charing Cross">
-                Ordering websites by distance from Charing Cross &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>
