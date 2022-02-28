@@ -1,14 +1,114 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Allotment Andy</title>
-    <link href="https://allotmentandy.github.io/" />
+    <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-02-19T11:06:19+00:00</updated>
+    <updated>2022-02-28T17:14:40+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-02-28-Monday-Morning-Updating-The-Database-And-Improving-The-Website-Spider</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-28-Monday-Morning-Updating-The-Database-And-Improving-The-Website-Spider" />
+    <title>Monday Morning Updating The Database And Improving The Website Spider</title>
+    <published>2022-02-28T00:00:00+00:00</published>
+    <updated>2022-02-28T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Over the weekend, I like to explore new ideas and find potential solutions to improve 
+londinium.com, discover new applications and find new code bases. One area I was looking at is the ability to get scores for websites. Many people have heard of Google......</summary>
+    <content type="html"><![CDATA[
+        <p>Over the weekend, I like to explore new ideas and find potential solutions to improve 
+<a href="http://www.londinium.com" target="_blank">londinium.com</a>, discover new applications and find new code bases. One area I was looking at is the ability to get scores for websites. Many people have heard of Google PageRank and Alexa site ratings, but I want a get scores for a website on a variety of factors and use these to display a scorecard for each website url.</p>
+
+<p>But now it is Monday morning and I like to start the week by updating the data by downloading a new data file from <a href="https://overpass-api.de/api/interpreter" target="_blank">https://overpass-api.de/api/interpreter</a></p>
+
+<p>I import this into the database and then run a website spider over the links to find more data for each entry and see what has changed.</p>
+
+<p>This is the overpass api query i run each week which covers a large area around London:</p>
+
+<pre><code>data=[out:json];nwr[~"^(brand|website|twitter|facebook|contact:website|contact:twitter|contact:facebook)$"~"."]  
+(51.11386850819646,-1.197509765625,51.92394344554469,0.85418701171875);out center;
+</code></pre>
+
+<p>There is a huge fall in the number of entries from last week, approx 55,000 this week, compared to 62,000 last week. I wonder what is causing this difference? I will investigate in a future blog post.</p>
+
+<p>One error I was having with the spider is when a field it too long for the database field. For example, a <code>title</code> tag is longer than the 255 varchar field the database allows. One of the nice things in Laravel, is the ability to use <a href="https://laravel.com/docs/9.x/helpers" target="_blank">helpers</a> where the <a href="https://laravel.com/docs/9.x/helpers#method-str-limit" target="_blank">Str::limit</a> helper allows me to truncate the string to the correct length, thus preventing the error.</p>
+
+<p>Another feature of the spider is to determine the HTTP response codes for the website. Here is a table of the most common results and their meanings.</p>
+
+<table>
+<thead>
+<tr>
+  <th>HTTP Code</th>
+  <th>Count</th>
+  <th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>200</td>
+  <td>30592</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>404</td>
+  <td>2167</td>
+  <td>Not Found</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>739</td>
+  <td>Forbidden</td>
+</tr>
+<tr>
+  <td>500</td>
+  <td>76</td>
+  <td>Internal Server Error</td>
+</tr>
+<tr>
+  <td>503</td>
+  <td>75</td>
+  <td>Service Unavailable</td>
+</tr>
+<tr>
+  <td>409</td>
+  <td>22</td>
+  <td>Conflict</td>
+</tr>
+<tr>
+  <td>400</td>
+  <td>20</td>
+  <td>Bad Request</td>
+</tr>
+<tr>
+  <td>410</td>
+  <td>14</td>
+  <td>Gone</td>
+</tr>
+</tbody>
+</table>
+
+<p>And also a handful of the following HTTP codes: 429, 502, 401, 402, 530, 423, 415, 406, 521, 301, 300, 526, 426. These however are only a handful each.</p>
+
+<p>Other errors which I am investigating occur when Guzzle returns</p>
+
+<ul>
+<li>request exception</li>
+<li>connection exception</li>
+<li>Undefined variable $response {"exception":"[object] (ErrorException(code: 0): Undefined variable $response ...</li>
+</ul>
+
+<p>More information about these errors at the <a href="https://docs.guzzlephp.org/en/stable/quickstart.html#exceptions" target="_blank">Guzzle Docs</a>}</p>
+
+<p>Once this process is finished, the website will be updated with the new database tables and I also plan to update the site with a few more features based on this new spider table.</p>
+
+<p>Enjoy..</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-02-19-Ordering-websites-by-distance-from-Charing-Cross</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-19-Ordering-websites-by-distance-from-Charing-Cross" />
     <title>Ordering websites by distance from Charing Cross</title>
@@ -445,6 +545,21 @@ npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss
 <p>Once I got this all working, my ansible script then reinstalled v.14 of Node JS :) so now updating the ansible scripts to install v.12.</p>
 
 <p>Most of a day of experimenting with the behemoth that is the world of Node JS :)</p>
+
+<h3>Edit 28th Feb 2022</h3>
+
+<p>I ran into this same problem again with another site. I added webpack 4 to the dependencies</p>
+
+<pre><code>        "webpack": "^4.00.0"
+</code></pre>
+
+<p>and did a hard reinstall of all the node modules!</p>
+
+<pre><code>rm -rf node_modules
+rm package-lock.json
+npm cache clear --force
+npm install
+</code></pre>
     ]]></content>
 </entry>
             <entry>
