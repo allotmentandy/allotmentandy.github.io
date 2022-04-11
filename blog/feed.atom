@@ -3,12 +3,296 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-03-31T09:35:58+01:00</updated>
+    <updated>2022-04-11T11:37:52+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-04-11-Adding-social-media-share-buttons-with-meta-tags-for-facebook-and-twitter</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-11-Adding-social-media-share-buttons-with-meta-tags-for-facebook-and-twitter" />
+    <title>Adding social media share buttons with meta tags for facebook and twitter</title>
+    <published>2022-04-11T01:00:00+01:00</published>
+    <updated>2022-04-11T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Was looking into adding buttons on my website to share the page link to Facebook, Twitter and Linkedin. The packages I found all had limitations, so I decided to code it all myself. The code is going to look something like this
+
+
+
+Looking into these......</summary>
+    <content type="html"><![CDATA[
+        <p>Was looking into adding buttons on my website to share the page link to Facebook, Twitter and Linkedin. The packages I found all had limitations, so I decided to code it all myself. The code is going to look something like this</p>
+
+<pre><code class="language-html">Share this page on:
+
+&lt;div id="social-links"&gt;
+&lt;a href="https://www.facebook.com/sharer/sharer.php?u=&lt;?php echo url()-&gt;current();?&gt;"  id=""&gt;
+    &lt;img class="inline" width=25 src="/images/facebook.svg\"&gt;&lt;/a&gt;
+
+&lt;a href="https://twitter.com/intent/tweet?text=my share text&amp;amp;url=&lt;?php echo url()-&gt;current();?&gt;"&gt;
+    &lt;img class="inline" width=25 src="/images/twitter.svg\"&gt;&lt;/a&gt;
+
+&lt;a href="http://www.linkedin.com/shareArticle?mini=true&amp;amp;url=&lt;?php echo url()-&gt;current();?&gt;&amp;amp;title=my share text&amp;amp;summary=dit is de linkedin summary"&gt;
+    &lt;img class="inline" width=25 src="/images/linkedin.svg"&gt; &lt;/a&gt;
+
+&lt;/div&gt;
+</code></pre>
+
+<p>Looking into these links, I discovered that is best to have meta tags to help both facebook and twitter to display cards, otherwise they have to guess what the links are about on the page.</p>
+
+<p>Facebook docs</p>
+
+<p><a href="https://developers.facebook.com/docs/sharing/webmasters/" target="_blank">developers.facebook.com/docs/sharing/webmasters/</a></p>
+
+<p>Twitter docs</p>
+
+<p><a href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started" target="_blank">developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started</a></p>
+
+<p>OpenGraph Docs</p>
+
+<p><a href="https://ogp.me/" target="_blank">https://ogp.me/</a></p>
+
+<p>I also wrote some code to extract the most popular meta tags from a website spider I ran to see the top 50 most common meta tags used. I was surprised at the ammount of sites with the opengraph meta tags.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Metatag</th>
+  <th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>viewport</td>
+  <td>47943</td>
+</tr>
+<tr>
+  <td>description</td>
+  <td>40094</td>
+</tr>
+<tr>
+  <td>og:title</td>
+  <td>27531</td>
+</tr>
+<tr>
+  <td>og:url</td>
+  <td>25707</td>
+</tr>
+<tr>
+  <td>og:type</td>
+  <td>24986</td>
+</tr>
+<tr>
+  <td>og:description</td>
+  <td>23818</td>
+</tr>
+<tr>
+  <td>robots</td>
+  <td>23078</td>
+</tr>
+<tr>
+  <td>og:site_name</td>
+  <td>23035</td>
+</tr>
+<tr>
+  <td>twitter:card</td>
+  <td>21264</td>
+</tr>
+<tr>
+  <td>generator</td>
+  <td>17519</td>
+</tr>
+<tr>
+  <td>X-UA-Compatible</td>
+  <td>17504</td>
+</tr>
+<tr>
+  <td>og:image</td>
+  <td>16992</td>
+</tr>
+<tr>
+  <td>keywords</td>
+  <td>15609</td>
+</tr>
+<tr>
+  <td>og:locale</td>
+  <td>14901</td>
+</tr>
+<tr>
+  <td>Content-Type</td>
+  <td>14035</td>
+</tr>
+<tr>
+  <td>twitter:title</td>
+  <td>12400</td>
+</tr>
+<tr>
+  <td>google-site-verification</td>
+  <td>11492</td>
+</tr>
+<tr>
+  <td>twitter:description</td>
+  <td>10984</td>
+</tr>
+<tr>
+  <td>msapplication-TileImage</td>
+  <td>10827</td>
+</tr>
+<tr>
+  <td>article:modified_time</td>
+  <td>8901</td>
+</tr>
+<tr>
+  <td>theme-color</td>
+  <td>8071</td>
+</tr>
+<tr>
+  <td>twitter:site</td>
+  <td>8025</td>
+</tr>
+<tr>
+  <td>og:image:width</td>
+  <td>6952</td>
+</tr>
+<tr>
+  <td>twitter:image</td>
+  <td>6931</td>
+</tr>
+<tr>
+  <td>og:image:height</td>
+  <td>6923</td>
+</tr>
+<tr>
+  <td>author</td>
+  <td>5314</td>
+</tr>
+<tr>
+  <td>twitter:label1</td>
+  <td>5175</td>
+</tr>
+<tr>
+  <td>twitter:data1</td>
+  <td>5175</td>
+</tr>
+<tr>
+  <td>msapplication-TileColor</td>
+  <td>5172</td>
+</tr>
+<tr>
+  <td>format-detection</td>
+  <td>4711</td>
+</tr>
+<tr>
+  <td>content-type</td>
+  <td>3302</td>
+</tr>
+<tr>
+  <td>twitter:creator</td>
+  <td>3066</td>
+</tr>
+<tr>
+  <td>msvalidate.01</td>
+  <td>2993</td>
+</tr>
+<tr>
+  <td>article:publisher</td>
+  <td>2944</td>
+</tr>
+<tr>
+  <td>twitter:url</td>
+  <td>2475</td>
+</tr>
+<tr>
+  <td>facebook-domain-verification</td>
+  <td>2340</td>
+</tr>
+<tr>
+  <td>og:image:secure_url</td>
+  <td>2305</td>
+</tr>
+<tr>
+  <td>x-ua-compatible</td>
+  <td>2103</td>
+</tr>
+<tr>
+  <td>og:image:type</td>
+  <td>2090</td>
+</tr>
+<tr>
+  <td>apple-mobile-web-app-capable</td>
+  <td>2022</td>
+</tr>
+<tr>
+  <td>msapplication-config</td>
+  <td>1966</td>
+</tr>
+<tr>
+  <td>title</td>
+  <td>1806</td>
+</tr>
+<tr>
+  <td>HandheldFriendly</td>
+  <td>1799</td>
+</tr>
+<tr>
+  <td>fb:app_id</td>
+  <td>1671</td>
+</tr>
+<tr>
+  <td>application-name</td>
+  <td>1666</td>
+</tr>
+<tr>
+  <td>Description</td>
+  <td>1651</td>
+</tr>
+<tr>
+  <td>p:domain_verify</td>
+  <td>1480</td>
+</tr>
+<tr>
+  <td>MobileOptimized</td>
+  <td>1472</td>
+</tr>
+<tr>
+  <td>copyright</td>
+  <td>1413</td>
+</tr>
+<tr>
+  <td>revisit-after</td>
+  <td>1360</td>
+</tr>
+<tr>
+  <td>apple-mobile-web-app-title</td>
+  <td>1314</td>
+</tr>
+<tr>
+  <td>Keywords</td>
+  <td>1297</td>
+</tr>
+</tbody>
+</table>
+
+<p>So with this in mind, I decided to use the following new meta tags</p>
+
+<pre><code class="language-html">&lt;meta name="twitter:card" content="summary" /&gt;
+&lt;meta name="twitter:site" content="@londiniumcom" /&gt;
+&lt;meta name="twitter:creator" content="@londiniumcom" /&gt;
+&lt;meta name="twitter:title" content="title" /&gt;
+&lt;meta property="og:url" content="&lt;?php echo url()-&gt;current();?&gt;" /&gt;
+&lt;meta property="og:title" content="" /&gt;
+&lt;meta property="og:type" content="website" /&gt;
+&lt;meta property="og:description" content="Londinium.com - London maps, directory and information" /&gt;
+&lt;meta property="og:site_name" content="https://londinium.com" /&gt;
+&lt;meta property="description" content="Londinium.com - London maps, directory and information" /&gt;
+</code></pre>
+
+<p>I am going to implement this with a new laravel blade partial.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-02-28-Monday-Morning-Updating-The-Database-And-Improving-The-Website-Spider</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-02-28-Monday-Morning-Updating-The-Database-And-Improving-The-Website-Spider" />
     <title>Monday Morning Updating The Database And Improving The Website Spider</title>
