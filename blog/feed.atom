@@ -3,12 +3,75 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-04-12T12:04:29+01:00</updated>
+    <updated>2022-04-12T15:13:39+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images" />
+    <title>Twitter card and Facebook og:image meta tags for sharing images</title>
+    <published>2022-04-13T01:00:00+01:00</published>
+    <updated>2022-04-13T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">To further improve the metatags for social media, I created a laravel artisan command to create a Twitter Card Image.
+
+The recommended size for a Twitter Card image size should be 1024 pixels by 512 pixels.
+
+
+
+To install the reuqired php mods I ran:......</summary>
+    <content type="html"><![CDATA[
+        <p>To further improve the metatags for social media, I created a laravel artisan command to create a Twitter Card Image.</p>
+
+<p>The recommended size for a Twitter Card image size should be 1024 pixels by 512 pixels.</p>
+
+<pre><code>&lt;meta property="og:image" content="https://mywebsite.net/assets/opengraph/theogimage.jpg"/&gt;
+&lt;meta property="og:image:width" content="1024"/&gt;
+&lt;meta property="og:image:height" content="512"/&gt;
+&lt;meta name="twitter:image" content="http://www.yoursite.com/yourimage.jpg"/&gt;
+</code></pre>
+
+<p>To install the reuqired php mods I ran:</p>
+
+<pre><code>apt-get install php8.0-imagick
+apt-get install php8.0-gd
+composer require intervention/image
+</code></pre>
+
+<p>After you have installed Intervention Image, open your Laravel config file config/app.php and add the following lines.</p>
+
+<p>In the $providers array add the service providers for this package.</p>
+
+<pre><code>Intervention\Image\ImageServiceProvider::class
+</code></pre>
+
+<p>Add the facade of this package to the $aliases array.</p>
+
+<pre><code>'Image' =&gt; Intervention\Image\Facades\Image::class
+</code></pre>
+
+<pre><code>php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
+php artisan storage:link
+php artisan image:twittercard
+</code></pre>
+
+<p>And here is the code for the command:</p>
+
+<script src="https://gist.github.com/allotmentandy/3ae4943a97b303b7a8f4ba41e90a9f5b.js"></script>
+
+<p>Which creates an image like this:</p>
+
+<p><img src="https://londinium.com/images/londinumTwitterCard.jpg" /></p>
+
+<p>To test the card use the 
+<a href="https://cards-dev.twitter.com/validator" target="_blank">twitter.com/validator</a></p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin" />
     <title>Adding share buttons for Twitter, Facebook and LinkedIn</title>
