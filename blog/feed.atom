@@ -3,12 +3,73 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-04-11T11:37:52+01:00</updated>
+    <updated>2022-04-12T12:04:29+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin" />
+    <title>Adding share buttons for Twitter, Facebook and LinkedIn</title>
+    <published>2022-04-12T01:00:00+01:00</published>
+    <updated>2022-04-12T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Adding share this buttons for each page on social media...</summary>
+    <content type="html"><![CDATA[
+        <p>Following on from yesterdays post, I have created a partial with the share buttons like so: It encodes the url with the php <kbd>urlencode</kbd> function and links to the social media giants share pages. This converts</p>
+
+<p>https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin/</p>
+
+<p>into</p>
+
+<p>https%3A%2F%2Fallotmentandy.github.io%2Fblog%2F2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin%2F</p>
+
+<pre><code>&lt;div class='flex items-center justify-center gap-4'&gt;
+    &lt;div class="p-4"&gt;
+    &lt;?php
+    $shareURL = urlencode(url()-&gt;current());
+    ?&gt;
+    Share this page on:
+
+    &lt;a href="https://www.facebook.com/sharer/sharer.php?u=&lt;?php echo $shareURL; ?&gt;" target="_blank" class="bg-blue-100 rounded p-4 m-2 border-1 border-black rounded-full  hover:bg-indigo-200 hover:text-black"&gt;
+    &lt;img class="inline" width=25 src="/images/facebook.svg"&gt; Facebook&lt;/a&gt;
+
+    &lt;a href="https://twitter.com/intent/tweet?text=my share text&amp;amp;url=&lt;?php echo $shareURL; ?&gt;"  target="_blank"  class="bg-blue-100 rounded p-4 m-2 border-1 border-black rounded-full  hover:bg-indigo-200 hover:text-black"&gt;
+    &lt;img class="inline" width=25 src="/images/twitter.svg"&gt; Twitter&lt;/a&gt;
+
+    &lt;a href="http://www.linkedin.com/shareArticle?mini=true&amp;amp;url=&lt;?php echo $shareURL; ?&gt;" target="_blank" class="bg-blue-100 rounded p-4 m-2 border-1 border-black rounded-full  hover:bg-indigo-200  hover:text-black" &gt;
+    &lt;img class="inline" width=25 src="/images/linkedin.svg"&gt; LinkedIn &lt;/a&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>This is what it looks like (adapted slightly for this blog)</p>
+
+<div class='flex items-center justify-center gap-4'>
+    <div class="p-4">
+
+    Share this page on:
+
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fallotmentandy.github.io%2Fblog%2F2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin%2F" target="_blank" class="bg-blue-100 rounded p-4 m-2 border-1 border-black rounded-full  hover:bg-indigo-200 hover:text-black">
+    <img class="inline" width=25 src="/assets/img/facebook.svg"> Facebook</a>
+
+    <a href="https://twitter.com/intent/tweet?text=my share text&amp;url=https%3A%2F%2Fallotmentandy.github.io%2Fblog%2F2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin%2F"  target="_blank"  class="bg-blue-100 rounded p-4 m-2 border-1 border-black rounded-full  hover:bg-indigo-200 hover:text-black">
+    <img class="inline" width=25 src="/assets/img/twitter.svg"> Twitter</a>
+
+    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fallotmentandy.github.io%2Fblog%2F2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin%2F" target="_blank" class="bg-blue-100 rounded p-4 m-2 border-1 border-black rounded-full  hover:bg-indigo-200  hover:text-black" >
+    <img class="inline" width=25 src="/assets/img/linkedin.svg"> LinkedIn </a>
+
+  </div>
+</div>
+
+<p>I need to publish it to test it out, now, fingers crossed</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-04-11-Adding-social-media-share-buttons-with-meta-tags-for-facebook-and-twitter</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-11-Adding-social-media-share-buttons-with-meta-tags-for-facebook-and-twitter" />
     <title>Adding social media share buttons with meta tags for facebook and twitter</title>

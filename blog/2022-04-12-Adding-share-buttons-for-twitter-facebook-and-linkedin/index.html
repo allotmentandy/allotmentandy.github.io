@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Script to run build script on save | Allotment Andy"/>
+        <meta property="og:title" content="Adding share buttons for Twitter, Facebook and LinkedIn | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-03-05-command-to-run-build-script-on-save"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Script to run build script on save" />
+        <meta property="og:title" content="Adding share buttons for Twitter, Facebook and LinkedIn" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2021-03-05-command-to-run-build-script-on-save" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Script to run build script on save</title>
+        <title>Allotment Andy | Adding share buttons for Twitter, Facebook and LinkedIn</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=53fb5869e18b9d83e66e52c7d32d987d">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,97 +88,78 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/Bash.svg" alt="Script to run build script on save" class=" w-16 h-16 inline-block">
-                Script to run build script on save
+                <img src="/assets/img/londinium.svg" alt="Adding share buttons for Twitter, Facebook and LinkedIn" class=" w-16 h-16 inline-block">
+                Adding share buttons for Twitter, Facebook and LinkedIn
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">March 5, 2021</p>
+    <p class="text-gray-700 text-sm md:mt-0">April 12, 2022</p>
 
-            <a href="/blog/categories/debian" title="View posts in debian"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">debian</a>
-        <a href="/blog/categories/bash" title="View posts in bash"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">bash</a>
-        <a href="/blog/categories/jigsaw" title="View posts in jigsaw"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">jigsaw</a>
+            <a href="/blog/categories/londinium" title="View posts in londinium"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">londinium</a>
+        <a href="/blog/categories/tailwindcss" title="View posts in tailwindcss"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">tailwindcss</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>Today I decided I wanted a script to auto build the site on each save of this jigsaw blog. I was playing with the css yesterday and liked the simplicity of the <em>npm watch</em> command, but wanted something similar for the build.sh script.</p>
+        <p>Following on from yesterdays post, I have created a partial with the share buttons like so: It encodes the url with the php <kbd>urlencode</kbd> function and links to the social media giants share pages. This converts</p>
 
-<p>I have been meaning to use <em>entr</em> for a while <a href="http://eradman.com/entrproject/" target="_blank_">see entr docs</a> and this seemed perfect for the job.</p>
+<p>https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin/</p>
 
-<pre><code class="language-sh">    #!/bin/bash
+<p>into</p>
 
-    find /var/www/jigsaw-blog/source/_posts/   | entr sh -c './build.sh';
+<p>https%3A%2F%2Fallotmentandy.github.io%2Fblog%2F2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin%2F</p>
+
+<pre><code>&lt;div class='flex items-center justify-center gap-4'&gt;
+    &lt;div class="p-4"&gt;
+    &lt;?php
+    $shareURL = urlencode(url()-&gt;current());
+    ?&gt;
+    Share this page on:
+
+    &lt;a href="https://www.facebook.com/sharer/sharer.php?u=&lt;?php echo $shareURL; ?&gt;" target="_blank" class="bg-blue-100 rounded p-4 m-2 border-1 border-black rounded-full  hover:bg-indigo-200 hover:text-black"&gt;
+    &lt;img class="inline" width=25 src="/images/facebook.svg"&gt; Facebook&lt;/a&gt;
+
+    &lt;a href="https://twitter.com/intent/tweet?text=my share text&amp;amp;url=&lt;?php echo $shareURL; ?&gt;"  target="_blank"  class="bg-blue-100 rounded p-4 m-2 border-1 border-black rounded-full  hover:bg-indigo-200 hover:text-black"&gt;
+    &lt;img class="inline" width=25 src="/images/twitter.svg"&gt; Twitter&lt;/a&gt;
+
+    &lt;a href="http://www.linkedin.com/shareArticle?mini=true&amp;amp;url=&lt;?php echo $shareURL; ?&gt;" target="_blank" class="bg-blue-100 rounded p-4 m-2 border-1 border-black rounded-full  hover:bg-indigo-200  hover:text-black" &gt;
+    &lt;img class="inline" width=25 src="/images/linkedin.svg"&gt; LinkedIn &lt;/a&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
 
-<p>One problem i found was the max_user_watches was set too low, so running the following command as root, increases the number of file nodes this is allowed to watch. And it worked perfectly after that.</p>
+<p>This is what it looks like (adapted slightly for this blog)</p>
 
-<pre><code class="language-sh">    echo 100000 | tee /proc/sys/fs/inotify/max_user_watches
-</code></pre>
+<div class='flex items-center justify-center gap-4'>
+    <div class="p-4">
 
-<p>Another problem i found is that it breaks if you rename a file, as it monitors for changes, but it cannot deal with that.</p>
+    Share this page on:
 
-<p>This is my build.sh script. It runs the local build but can also run with these flags too:</p>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fallotmentandy.github.io%2Fblog%2F2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin%2F" target="_blank" class="bg-blue-100 rounded p-4 m-2 border-1 border-black rounded-full  hover:bg-indigo-200 hover:text-black">
+    <img class="inline" width=25 src="/assets/img/facebook.svg"> Facebook</a>
 
-<pre><code>--npm           runs the laravel mix webpack build
---production    generates the production build
-</code></pre>
+    <a href="https://twitter.com/intent/tweet?text=my share text&amp;url=https%3A%2F%2Fallotmentandy.github.io%2Fblog%2F2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin%2F"  target="_blank"  class="bg-blue-100 rounded p-4 m-2 border-1 border-black rounded-full  hover:bg-indigo-200 hover:text-black">
+    <img class="inline" width=25 src="/assets/img/twitter.svg"> Twitter</a>
 
-<p>It uses espeak to announce it is building (a bit like command and conquer!) and then xdotool to reload the firefox browser.</p>
+    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fallotmentandy.github.io%2Fblog%2F2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin%2F" target="_blank" class="bg-blue-100 rounded p-4 m-2 border-1 border-black rounded-full  hover:bg-indigo-200  hover:text-black" >
+    <img class="inline" width=25 src="/assets/img/linkedin.svg"> LinkedIn </a>
 
-<pre><code class="language-sh">#!/bin/bash -e
+  </div>
+</div>
 
-# espeak "Building"
-
-for arg in "$@"
-do
-    if [ "$arg" == "--npm" ] 
-    then
-        echo "Running npm run production"
-        espeak " running en pee em "
-        npm run production
-    fi
-done
-
-espeak "building Local"
-
- ./vendor/bin/jigsaw -vvv build 
-
-for arg in "$@"
-do
-    if [ "$arg" == "--production" ] 
-    then
-        espeak "building production"
-        ./vendor/bin/jigsaw build production -vvv
-    fi
-done
-
-espeak "Finished"
-
-# reload firefox in background
-CURRENT_WID=$(xdotool getwindowfocus)
-WID=$(xdotool search --name "Mozilla Firefox")
-xdotool windowactivate $WID
-xdotool key F5
-# return to the editor (i prefer it to keep the browser at the front so comment this out!)
-xdotool windowactivate $CURRENT_WID
-
-</code></pre>
+<p>I need to publish it to test it out, now, fingers crossed</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2021-02-21-Tailwind-CSS" title="Older Post: Tailwind CSS">
-                &LeftArrow; Tailwind CSS
+                        <a href="https://allotmentandy.github.io/blog/2022-04-11-Adding-social-media-share-buttons-with-meta-tags-for-facebook-and-twitter" title="Older Post: Adding social media share buttons with meta tags for facebook and twitter">
+                &LeftArrow; Adding social media share buttons with meta tags for facebook and twitter
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2021-04-14-debian-commands-to-clean-up-after-apt-get" title="Newer Post: Debian commands to clean up after apt-get">
-                Debian commands to clean up after apt-get &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>
