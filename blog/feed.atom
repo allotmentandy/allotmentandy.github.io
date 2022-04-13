@@ -3,12 +3,42 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-04-12T15:13:39+01:00</updated>
+    <updated>2022-04-13T13:21:10+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-04-13-Website-metrics</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-13-Website-metrics" />
+    <title>Website metrics</title>
+    <published>2022-04-13T14:20:00+01:00</published>
+    <updated>2022-04-13T14:20:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">looking for sources to create a website score and metrics for a domain / url...</summary>
+    <content type="html"><![CDATA[
+        <p>I was looking at ways to rate a website so I installed <a href="https://packagist.org/packages/seostats/seostats">seostats/seostats</a> but there wasnt any data available from the free sources. I am looking for ways to rate a website including the following ways.</p>
+
+<ul>
+<li>total number of website pages</li>
+<li>total number of incoming links</li>
+<li>Google Pagerank</li>
+<li>Alexa Traffic Rank</li>
+<li>Mozscape::getMozRank</li>
+<li>Mozscape::getDomainAuthority</li>
+<li>SemRush::getDomainRank</li>
+<li>Domain name value</li>
+<li>Age - date registered</li>
+<li>Web Server speed</li>
+<li>Competitors / similar websites</li>
+</ul>
+
+<p>I want a way to get metrics like this from an API weekly to update the 'scores' for each website, so am contacting people who maybe able to help. If you can offer any advice, please get in touch.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images" />
     <title>Twitter card and Facebook og:image meta tags for sharing images</title>

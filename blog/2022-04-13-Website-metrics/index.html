@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Twitter card and Facebook og:image meta tags for sharing images | Allotment Andy"/>
+        <meta property="og:title" content="Website metrics | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-04-13-Website-metrics"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Twitter card and Facebook og:image meta tags for sharing images" />
+        <meta property="og:title" content="Website metrics" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-04-13-Website-metrics" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Twitter card and Facebook og:image meta tags for sharing images</title>
+        <title>Allotment Andy | Website metrics</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=53fb5869e18b9d83e66e52c7d32d987d">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,77 +88,45 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/londinium.svg" alt="Twitter card and Facebook og:image meta tags for sharing images" class=" w-16 h-16 inline-block">
-                Twitter card and Facebook og:image meta tags for sharing images
+                <img src="/assets/img/londinium.svg" alt="Website metrics" class=" w-16 h-16 inline-block">
+                Website metrics
     </h1>
 
     <p class="text-gray-700 text-sm md:mt-0">April 13, 2022</p>
 
-            <a href="/blog/categories/laravel" title="View posts in laravel"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
-        <a href="/blog/categories/londinium" title="View posts in londinium"
+            <a href="/blog/categories/londinium" title="View posts in londinium"
         class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">londinium</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>To further improve the metatags for social media, I created a laravel artisan command to create a Twitter Card Image.</p>
+        <p>I was looking at ways to rate a website so I installed <a href="https://packagist.org/packages/seostats/seostats">seostats/seostats</a> but there wasnt any data available from the free sources. I am looking for ways to rate a website including the following ways.</p>
 
-<p>The recommended size for a Twitter Card image size should be 1024 pixels by 512 pixels.</p>
+<ul>
+<li>total number of website pages</li>
+<li>total number of incoming links</li>
+<li>Google Pagerank</li>
+<li>Alexa Traffic Rank</li>
+<li>Mozscape::getMozRank</li>
+<li>Mozscape::getDomainAuthority</li>
+<li>SemRush::getDomainRank</li>
+<li>Domain name value</li>
+<li>Age - date registered</li>
+<li>Web Server speed</li>
+<li>Competitors / similar websites</li>
+</ul>
 
-<pre><code>&lt;meta property="og:image" content="https://mywebsite.net/assets/opengraph/theogimage.jpg"/&gt;
-&lt;meta property="og:image:width" content="1024"/&gt;
-&lt;meta property="og:image:height" content="512"/&gt;
-&lt;meta name="twitter:image" content="http://www.yoursite.com/yourimage.jpg"/&gt;
-</code></pre>
-
-<p>To install the reuqired php mods I ran:</p>
-
-<pre><code>apt-get install php8.0-imagick
-apt-get install php8.0-gd
-composer require intervention/image
-</code></pre>
-
-<p>After you have installed Intervention Image, open your Laravel config file config/app.php and add the following lines.</p>
-
-<p>In the $providers array add the service providers for this package.</p>
-
-<pre><code>Intervention\Image\ImageServiceProvider::class
-</code></pre>
-
-<p>Add the facade of this package to the $aliases array.</p>
-
-<pre><code>'Image' =&gt; Intervention\Image\Facades\Image::class
-</code></pre>
-
-<pre><code>php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
-php artisan storage:link
-php artisan image:twittercard
-</code></pre>
-
-<p>And here is the code for the command:</p>
-
-<script src="https://gist.github.com/allotmentandy/3ae4943a97b303b7a8f4ba41e90a9f5b.js"></script>
-
-<p>Which creates an image like this:</p>
-
-<p><img src="https://londinium.com/images/londinumTwitterCard.jpg" /></p>
-
-<p>To test the card use the 
-<a href="https://cards-dev.twitter.com/validator" target="_blank">twitter.com/validator</a></p>
+<p>I want a way to get metrics like this from an API weekly to update the 'scores' for each website, so am contacting people who maybe able to help. If you can offer any advice, please get in touch.</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin" title="Older Post: Adding share buttons for Twitter, Facebook and LinkedIn">
-                &LeftArrow; Adding share buttons for Twitter, Facebook and LinkedIn
+                        <a href="https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images" title="Older Post: Twitter card and Facebook og:image meta tags for sharing images">
+                &LeftArrow; Twitter card and Facebook og:image meta tags for sharing images
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-04-13-Website-metrics" title="Newer Post: Website metrics">
-                Website metrics &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>
