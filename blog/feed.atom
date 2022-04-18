@@ -3,12 +3,71 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-04-13T13:21:10+01:00</updated>
+    <updated>2022-04-18T09:46:31+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-04-16-Making-website-screenshot-images-with-spatie-browsershot</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-16-Making-website-screenshot-images-with-spatie-browsershot" />
+    <title>Making website screenshot images with spatie browsershot</title>
+    <published>2022-04-16T01:00:00+01:00</published>
+    <updated>2022-04-16T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Today I decided to make screenshots of webpages with spatie/browsershot
+
+To install I ran:
+
+
+
+I also ensured that Puppeteer and chromium-browser were installed, on debian I used.
+
+
+
+The code is fairly straightforward, I added this to my existing spider......</summary>
+    <content type="html"><![CDATA[
+        <p>Today I decided to make screenshots of webpages with <a href="https://spatie.be/docs/browsershot/v2/introduction">spatie/browsershot</a></p>
+
+<p>To install I ran:</p>
+
+<pre><code class="language-bash">composer require spatie/browsershot
+</code></pre>
+
+<p>I also ensured that Puppeteer and chromium-browser were installed, on debian I used.</p>
+
+<pre><code class="language-bash">export PUPPETEER_SKIP_DOWNLOAD='true'
+npm install puppeteer --global
+apt install -y chromium-browser
+</code></pre>
+
+<p>The code is fairly straightforward, I added this to my existing spider and it worked.</p>
+
+<pre><code class="language-php">use Spatie\Browsershot\Browsershot;
+    try {       
+        Browsershot::url($url)
+        -&gt;timeout(120)
+        -&gt;setNodeBinary('/usr/bin/node')
+        -&gt;setScreenshotType('jpeg', 100)
+        -&gt;save("/images/".$id.".jpg");
+    } catch (\Exception $e) {
+        info($e-&gt;getMessage());
+    }
+</code></pre>
+
+<p>one idea I had is to change the user agent to</p>
+
+<pre><code>    -&gt;userAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36')
+</code></pre>
+
+<p>I added it to a guzzle based spider, with a payload of 416 websites. This made 343 screenshots and the guzzle spider only 329! A number of these are 404 errors (not found) that I will fix and run it again, but it was nice to getting it work better than guzzle.</p>
+
+<p>Now there is the issue of the cookie popups and dealing with them....</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-04-13-Website-metrics</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-13-Website-metrics" />
     <title>Website metrics</title>

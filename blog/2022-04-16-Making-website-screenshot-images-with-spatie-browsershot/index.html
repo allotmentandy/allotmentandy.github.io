@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Website metrics | Allotment Andy"/>
+        <meta property="og:title" content="Making website screenshot images with spatie browsershot | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-04-13-Website-metrics"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-04-16-Making-website-screenshot-images-with-spatie-browsershot"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Website metrics" />
+        <meta property="og:title" content="Making website screenshot images with spatie browsershot" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-04-13-Website-metrics" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-04-16-Making-website-screenshot-images-with-spatie-browsershot" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Website metrics</title>
+        <title>Allotment Andy | Making website screenshot images with spatie browsershot</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=53fb5869e18b9d83e66e52c7d32d987d">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,48 +88,66 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/londinium.svg" alt="Website metrics" class=" w-16 h-16 inline-block">
-                Website metrics
+                <img src="/assets/img/londinium.svg" alt="Making website screenshot images with spatie browsershot" class=" w-16 h-16 inline-block">
+                Making website screenshot images with spatie browsershot
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">April 13, 2022</p>
+    <p class="text-gray-700 text-sm md:mt-0">April 16, 2022</p>
 
-            <a href="/blog/categories/londinium" title="View posts in londinium"
+            <a href="/blog/categories/laravel" title="View posts in laravel"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
+        <a href="/blog/categories/londinium" title="View posts in londinium"
         class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">londinium</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>I was looking at ways to rate a website so I installed <a href="https://packagist.org/packages/seostats/seostats">seostats/seostats</a> but there wasnt any data available from the free sources. I am looking for ways to rate a website including the following ways.</p>
+        <p>Today I decided to make screenshots of webpages with <a href="https://spatie.be/docs/browsershot/v2/introduction">spatie/browsershot</a></p>
 
-<ul>
-<li>total number of website pages</li>
-<li>total number of incoming links</li>
-<li>Google Pagerank</li>
-<li>Alexa Traffic Rank</li>
-<li>Mozscape::getMozRank</li>
-<li>Mozscape::getDomainAuthority</li>
-<li>SemRush::getDomainRank</li>
-<li>Domain name value</li>
-<li>Age - date registered</li>
-<li>Web Server speed</li>
-<li>Competitors / similar websites</li>
-</ul>
+<p>To install I ran:</p>
 
-<p>I want a way to get metrics like this from an API weekly to update the 'scores' for each website, so am contacting people who maybe able to help. If you can offer any advice, please get in touch.</p>
+<pre><code class="language-bash">composer require spatie/browsershot
+</code></pre>
+
+<p>I also ensured that Puppeteer and chromium-browser were installed, on debian I used.</p>
+
+<pre><code class="language-bash">export PUPPETEER_SKIP_DOWNLOAD='true'
+npm install puppeteer --global
+apt install -y chromium-browser
+</code></pre>
+
+<p>The code is fairly straightforward, I added this to my existing spider and it worked.</p>
+
+<pre><code class="language-php">use Spatie\Browsershot\Browsershot;
+    try {       
+        Browsershot::url($url)
+        -&gt;timeout(120)
+        -&gt;setNodeBinary('/usr/bin/node')
+        -&gt;setScreenshotType('jpeg', 100)
+        -&gt;save("/images/".$id.".jpg");
+    } catch (\Exception $e) {
+        info($e-&gt;getMessage());
+    }
+</code></pre>
+
+<p>one idea I had is to change the user agent to</p>
+
+<pre><code>    -&gt;userAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36')
+</code></pre>
+
+<p>I added it to a guzzle based spider, with a payload of 416 websites. This made 343 screenshots and the guzzle spider only 329! A number of these are 404 errors (not found) that I will fix and run it again, but it was nice to getting it work better than guzzle.</p>
+
+<p>Now there is the issue of the cookie popups and dealing with them....</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images" title="Older Post: Twitter card and Facebook og:image meta tags for sharing images">
-                &LeftArrow; Twitter card and Facebook og:image meta tags for sharing images
+                        <a href="https://allotmentandy.github.io/blog/2022-04-13-Website-metrics" title="Older Post: Website metrics">
+                &LeftArrow; Website metrics
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-04-16-Making-website-screenshot-images-with-spatie-browsershot" title="Newer Post: Making website screenshot images with spatie browsershot">
-                Making website screenshot images with spatie browsershot &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>
