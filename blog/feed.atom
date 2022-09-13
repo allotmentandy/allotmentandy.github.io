@@ -3,12 +3,68 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-04-18T09:46:31+01:00</updated>
+    <updated>2022-09-13T10:33:00+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-09-12-August-2022-Allotment-Andy-Update</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-09-12-August-2022-Allotment-Andy-Update" />
+    <title>August 2022 Allotment Andy Update</title>
+    <published>2022-09-12T01:00:00+01:00</published>
+    <updated>2022-09-12T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Has been a funny month, hot and dry but most of the plants seemed to have loved it. Plenty of watering of course but now the harvest of apples, plums, tomatoes, purslane and a lot more in earnest.
+
+Planted a green manure on a 10m sqare plot. Never tried......</summary>
+    <content type="html"><![CDATA[
+        <p>Has been a funny month, hot and dry but most of the plants seemed to have loved it. Plenty of watering of course but now the harvest of apples, plums, tomatoes, purslane and a lot more in earnest.</p>
+
+<p>Planted a green manure on a 10m sqare plot. Never tried before, but just threw the seed across a couple of empty beds and will see how it goes.</p>
+
+<p>Moved a lot of compost onto the big compost heap, made space for the pond i want to make. Covered it all with 6 wheelbarrows of fresh horse.manure. looks nice and big again.</p>
+
+<p>Big harvest of tomatoes, they never stop coming. Cucumbers too.</p>
+
+<p>Finally, the peppers have started to appear, i started them the same time as the tomatoes, but they never really got going.</p>
+
+<p>Things to grow next year: pumpkin patch with corn and beans (3 companion plants)</p>
+
+<p>Things i didnt grow well: peas</p>
+
+<p>Things to plant : leeks, pak choi, spinach</p>
+
+<p>Get grape cuttings from other allotment holders.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2022-09-11-September-2022-Allotment-Andy-Update</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-09-11-September-2022-Allotment-Andy-Update" />
+    <title>Allotment Andy Update</title>
+    <published>2022-09-11T01:00:00+01:00</published>
+    <updated>2022-09-11T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I am back, blogging now.
+
+Having spent most of the summer allotment gardening and watching private jets at Farnborough Airport, I feel refreshed and am now back to write more blogs.
+
+Planning to write a monthly allotment blog and focus the blog more on......</summary>
+    <content type="html"><![CDATA[
+        <p>I am back, blogging now.</p>
+
+<p>Having spent most of the summer allotment gardening and watching private jets at Farnborough Airport, I feel refreshed and am now back to write more blogs.</p>
+
+<p>Planning to write a monthly allotment blog and focus the blog more on the Allotment side of Andy. Also going to write pages for specific plants I like to grow.</p>
+
+<p>Also going to add recipes for a number of the preserves I have made including chutney and tomato relish.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-04-16-Making-website-screenshot-images-with-spatie-browsershot</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-16-Making-website-screenshot-images-with-spatie-browsershot" />
     <title>Making website screenshot images with spatie browsershot</title>
