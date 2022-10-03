@@ -3,12 +3,28 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-10-03T12:35:45+01:00</updated>
+    <updated>2022-10-03T13:07:50+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-10-03-Adding-Blog-Post-Comments</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-10-03-Adding-Blog-Post-Comments" />
+    <title>Adding Blog Post Comments</title>
+    <published>2022-10-03T01:00:00+01:00</published>
+    <updated>2022-10-03T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">This morning @AshAllenDesign was asking about removing Disqus comments from his website and adding them is something I have been thinking about. But I never really liked the look of Disqus as it seemed a bit overkill for the simple commenting I wanted.......</summary>
+    <content type="html"><![CDATA[
+        <p>This morning <a href="https://twitter.com/AshAllenDesign" target="_blank">@AshAllenDesign</a> was asking about removing Disqus comments from his website and adding them is something I have been thinking about. But I never really liked the look of Disqus as it seemed a bit overkill for the simple commenting I wanted. Ash mentioned <a href="https://twitter.com/amit_merchant/" target="_blank">@amit_merchant</a> a prolific PHP blogger used <a href="https://utteranc.es/" target="_blank">utteranc.es/</a> and it stores the comments in github comments. The login uses github, which is good, as this is a github blog and I write mainly about code.</p>
+
+<p>So I added it, and you can see them at the base of this page.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-09-12-August-2022-Allotment-Andy-Update</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-09-12-August-2022-Allotment-Andy-Update" />
     <title>August 2022 Allotment Andy Update</title>
