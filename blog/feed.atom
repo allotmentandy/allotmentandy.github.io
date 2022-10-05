@@ -3,12 +3,52 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-10-03T13:07:50+01:00</updated>
+    <updated>2022-10-05T13:04:39+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-10-05-Adding-Lat-Long-Map-links-For-Photos-To-Londinium</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-10-05-Adding-Lat-Long-Map-links-For-Photos-To-Londinium" />
+    <title>Adding Lat Long Map links For Photos To Londinium</title>
+    <published>2022-10-05T01:00:00+01:00</published>
+    <updated>2022-10-05T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">There was an Openstreetmap London meetup in The Monkey Puzzle Pub near Paddington Station which got me thinking about adding images of the Pub to that page. Openstreetmap does allow one image as a tag, but this pub doesnt have one, so I looked......</summary>
+    <content type="html"><![CDATA[
+        <p>There was an Openstreetmap London meetup in <a href="https://londinium.com/node/15262028">The Monkey Puzzle Pub</a> near Paddington Station which got me thinking about adding images of the Pub to that page. Openstreetmap does allow one image as a tag, but this pub doesnt have one, so I looked elsewhere.</p>
+
+<p>These are websites that have images based on the Latitude and Longitude co-ordinates, which is a good start</p>
+
+<p><a href="https://www.flickr.com/nearby/51.516481,-0.1698266/">flickr.com</a></p>
+
+<p><a href="https://www.mapillary.com/app/?lat=51.516481&amp;lng=-0.1698266@z=17">mapillary.com</a></p>
+
+<p><a href="http://openpoimap.org/?map=various&amp;zoom=14&amp;lat=51.516481&amp;lon=-0.1698266&amp;layers=B00FFFFFFFFFFFFFTFFFFFF">openpoimap.org</a></p>
+
+<p>In turn this got me thinking about adding links to anything using the Lat/Long of the site.</p>
+
+<p><a href="https://www.google.co.uk/maps/@51.516481,-0.1698266,17z">google.co.uk/maps</a></p>
+
+<p><a href="https://www.bing.com/maps?cp=51.516481%7E-0.1698266&amp;lvl=14.9&amp;style=h">bing.com/maps</a></p>
+
+<p><a href="https://osmaps.ordnancesurvey.co.uk/51.516481,-0.1698266,17/pin">osmaps.ordnancesurvey.co.uk</a></p>
+
+<p><a href="https://maps.apple.com/place?ll=">maps.apple.com</a></p>
+
+<p>And this is what the links look like on the details pages for any location:</p>
+
+<p><img src="/assets/images/externalLinks.png" class="mb-6"></p>
+
+<p>So you can now vist the <a href="https://londinium.com/node/15262028">The Monkey Puzzle Pub</a> page and find images locally.</p>
+
+<p>I wonder what else could be added with links to latitude and longitude, please reply in the comments below.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-10-03-Adding-Blog-Post-Comments</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-10-03-Adding-Blog-Post-Comments" />
     <title>Adding Blog Post Comments</title>
