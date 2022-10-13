@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Looking for work | Allotment Andy"/>
+        <meta property="og:title" content="Upgrading Laravel 7 to Laravel 9 | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-04-16-Looking-for-work"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-10-10-Upgrading-Laravel-7-to-Laravel-9"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Looking for work" />
+        <meta property="og:title" content="Upgrading Laravel 7 to Laravel 9" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2021-04-16-Looking-for-work" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-10-10-Upgrading-Laravel-7-to-Laravel-9" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Looking for work</title>
+        <title>Allotment Andy | Upgrading Laravel 7 to Laravel 9</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=0a623c1b6d04cfda956517378762a87d">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,78 +88,90 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/Work.svg" alt="Looking for work" class=" w-16 h-16 inline-block">
-                Looking for work
+                <img src="/assets/img/Laravel.svg" alt="Upgrading Laravel 7 to Laravel 9" class=" w-16 h-16 inline-block">
+                Upgrading Laravel 7 to Laravel 9
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">April 16, 2021</p>
+    <p class="text-gray-700 text-sm md:mt-0">October 10, 2022</p>
 
-    
+            <a href="/blog/categories/laravel" title="View posts in laravel"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
+        <a href="/blog/categories/londinium" title="View posts in londinium"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">londinium</a>
+        
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>Over the lockdown period I have been learning and improving my skill set. Based in London (or remote) with years of experience in web development, web design and in IT in general.</p>
+        <p>This weekend, I have decided it is time to upgrade my <a href="">londinium.com</a> website from Laravel 7 to the latest Laravel 9. As PHP is now in version 8.1 and the latest version of Laravel needs a minimum of PHP 8.0, so it is a good time to upgrade the website.</p>
 
-<h3>Tailwind CSS</h3>
+<p>Although i could have used a website service like <a href="https://laravelshift.com/">Laravel Shift</a>, I wanted to do it by hand to see the differences.</p>
 
-<p>A modern CSS framwork which brings joy to the way webpages are designed. I have spent a lot of time working with both versions 1 and 2 of tailwind.</p>
-
-<p>read more <a href="/blog/categories/tailwindcss">Tailwind CSS posts</a></p>
-
-<h3>Linux</h3>
-
-<p>I moved to using Debian Linux as my main computer 2 years ago, and have built my knowledge. As part of my focus on Devops, I have also experience with Centos, Ubuntu and other Linux systems (alongside Windows and Apple Mac)</p>
-
-<p>read more <a href="/blog/categories/debian">Debian</a> posts</p>
-
-<h3>DEVOPS - Cloud Server Support</h3>
+<p>First step is to install an empty version of laravel 9 which gives me 2 versions with the following URLs</p>
 
 <ul>
-<li>Google Cloud - GCP management including setting up servers</li>
-<li>Ansible - A great config management tool</li>
-<li>Terraform - A great tool for infrastructure creation with code</li>
-<li>Amazon Web Servics - AWS - The biggest cloud platform</li>
+<li>localhost:81</li>
+<li>localhost:91</li>
 </ul>
 
-<p>read more <a href="/blog/categories/ansible">Ansible</a> posts
-read more <a href="/blog/categories/devops">Devops</a> posts</p>
-
-<h3>Bash Scripting and Automation</h3>
+<p>I simply copied over the files from the old version to the new repo</p>
 
 <ul>
-<li>Managing Linux servers with ansible and the Command Line</li>
-<li>Web services, scraping and API integration</li>
+<li>/app/http/controllers</li>
+<li>/resources/views</li>
+<li>/routes</li>
+<li>/public/css</li>
+<li>/public/js</li>
+<li>/public/images</li>
 </ul>
 
-<p>read more <a href="/blog/categories/bash">Bash</a> posts</p>
+<p>and updated the .env file with the db variables and a few settings.</p>
 
-<h3>PHP Laravel and Wordpress development</h3>
+<h3>Error: Target Class Controller Does Not Exist</h3>
 
-<ul>
-<li>using Laravel since version 4.2 (currently version 8)</li>
-<li>managed a number of Wordpress blogs over the past 20 years</li>
-</ul>
+<p>When i loaded the localhost:91/ i got an error that the "Target Class Controller Does Not Exist" this is explained here</p>
 
-<p>read more <a href="/blog/categories/laravel">Laravel</a> posts</p>
+<p><a href="https://laravel.com/docs/8.x/upgrade#automatic-controller-namespace-prefixing">laravel.com/docs/8.x/upgrade</a> and here 
+<a href="https://stackoverflow.com/questions/63807930/error-target-class-controller-does-not-exist-when-using-laravel-8">stackoverflow.com/questions/63807930/error-target-class-controller-does-not-exist-when-using-laravel-8</a></p>
 
-<h3>Testing Websites</h3>
+<p>There are a number of solutions but this worked.</p>
 
-<p>using
-- Laravel Dusk - for front end testing
-- PHPUnit - for code testing
-- Selenium - for website testing.</p>
+<pre><code>Define namespace in RouteServiceProvider as an old version. 
+
+App\Providers\RouteServiceProvider
+public function boot()
+    {
+        $this-&gt;configureRateLimiting();
+
+        $this-&gt;routes(function () {
+            Route::prefix('api')
+                -&gt;middleware('api')
+                -&gt;namespace($this-&gt;namespace)
+                -&gt;namespace('App\Http\Controllers')  &lt;------------ Add this
+                -&gt;group(base_path('routes/api.php'));
+
+            Route::middleware('web')
+                -&gt;namespace($this-&gt;namespace)
+                -&gt;namespace('App\Http\Controllers') &lt;------------- Add this
+                -&gt;group(base_path('routes/web.php'));
+        });
+    }
+</code></pre>
+
+<p>The process was pretty easy and this got the basic site working. In the next blog posts I will explain upgrading the php version and also getting the laravel mix, vite and webpack build process working.</p>
+
+<p>It is a delight to work with Laravel, the latest versions are not very different from each others and I enjoy the stability this framework provides. Big thanks to Taylor Otwell and the team.</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2021-04-15-Upgrading-to-php-8" title="Older Post: Upgrading to PHP 8">
-                &LeftArrow; Upgrading to PHP 8
+                        <a href="https://allotmentandy.github.io/blog/2022-10-05-Adding-Lat-Long-Map-links-For-Photos-To-Londinium" title="Older Post: Adding Lat Long Map links For Photos To Londinium">
+                &LeftArrow; Adding Lat Long Map links For Photos To Londinium
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2021-05-15-Openstreetmap-overpass-mapping-idea" title="Newer Post: Openstreetmap/Overpass Mapping Project">
-                Openstreetmap/Overpass Mapping Project &RightArrow;
+                        <a href="https://allotmentandy.github.io/blog/2022-10-12-Upgrade-Apache-To-PHP-81-with-Ansible-on-Debian" title="Newer Post: Upgrade Apache To PHP 8.1 with Ansible on Debian">
+                Upgrade Apache To PHP 8.1 with Ansible on Debian &RightArrow;
             </a>
                     </div>
     </nav>

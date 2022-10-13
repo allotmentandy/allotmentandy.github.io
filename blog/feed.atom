@@ -3,12 +3,186 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-10-05T13:17:35+01:00</updated>
+    <updated>2022-10-13T11:58:44+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-10-12-Upgrade-Apache-To-PHP-81-with-Ansible-on-Debian</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-10-12-Upgrade-Apache-To-PHP-81-with-Ansible-on-Debian" />
+    <title>Upgrade Apache To PHP 8.1 with Ansible on Debian</title>
+    <published>2022-10-12T01:00:00+01:00</published>
+    <updated>2022-10-12T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">My local Debian machine has Apache and PHP working and I have set it up with this Ansible playbook github.com/allotmentandy/ansible-debian-install-desktop
+
+Today as part of the upgrade process for my laravel site, I wanted to update this Ansible Playbook......</summary>
+    <content type="html"><![CDATA[
+        <p>My local Debian machine has Apache and PHP working and I have set it up with this Ansible playbook <a href="https://github.com/allotmentandy/ansible-debian-install-desktop">github.com/allotmentandy/ansible-debian-install-desktop</a></p>
+
+<p>Today as part of the upgrade process for my laravel site, I wanted to update this Ansible Playbook to use PHP 8.1.</p>
+
+<p>The older versions of laravel are now all out-of-date, see <a href="https://laravel.com/docs/9.x/releases#support-policy">laravel.com/docs/9.x/releases#support-policy</a> so it is time to upgrade to the latest and greatest version of php 8.1. (I know php 8.2 is out, but that isnt mentioned on the laravel php versions, so I will leave that for another day)</p>
+
+<p>The first step was to add the install to <a href="https://github.com/allotmentandy/ansible-debian-install-desktop/blob/main/roles/php/tasks/main.yml">roles/php/tasks/main.yml</a> like so:</p>
+
+<pre><code># install php8.1
+
+- name: install php 8.1 packages
+  tags: php8.1
+  apt:
+    name:
+      - php8.1
+      - php-mysql
+      - libapache2-mod-php
+      - php8.1-mysql
+      - php8.1-cli
+      - php8.1-common
+      - php8.1-snmp
+      - php8.1-ldap
+      - php8.1-curl
+      - php8.1-mbstring
+      - php8.1-zip
+      - php8.1-tidy
+      - php8.1-opcache
+      - php8.1-xml
+      - php8.1-fpm 
+      - libapache2-mod-php8.1
+    state: present
+    cache_valid_time: 3600
+  become: True
+</code></pre>
+
+<p>I added a tag for php8.1 to the Ansible playbook to allow me to just run this</p>
+
+<pre><code> ansible-playbook -i hosts workstation.yml --ask-become-pass --ask-pass --tags php8.1
+</code></pre>
+
+<p>Althought this worked, the command line version of php was 8.1, the apache webserver was still 8.0. After hunting around, i found this was required to totally stop the php8.0 version and have 8.1 on the webserver.</p>
+
+<pre><code>sudo systemctl stop php8.0-fpm
+sudo systemctl disable php8.0-fpm
+sudo a2disconf php8.0-fpm
+
+sudo systemctl start php8.1-fpm
+sudo systemctl enable php8.1-fpm
+
+</code></pre>
+
+<p>This translates into Ansible playbook as thus:</p>
+
+<pre><code>- name: Stop service php8.0-fpm on debian, if running
+  tags: php8.1
+  ansible.builtin.systemd:
+    name: php8.0-fpm
+    state: stopped
+
+- name: Enable service php8.0-fpm and ensure it is not masked
+  tags: php8.1  
+  ansible.builtin.systemd:
+    name: php8.0-fpm
+    enabled: no
+
+- name: Disables the Apache2 module php8.0-fpm
+  tags: php8.1  
+  community.general.apache2_module:
+    state: absent
+    name: php8.0-fpm
+
+- name: Make sure php8.1-fpm is running
+  tags: php8.1
+  ansible.builtin.systemd:
+    state: started
+    name: php8.1-fpm
+
+- name: Enable service php8.1-fpm and ensure it is not masked
+  tags: php8.1
+  ansible.builtin.systemd:
+    name: php8.1-fpm
+    enabled: yes
+
+</code></pre>
+
+<p>Now the apache server and command line are both using PHP 8.1.</p>
+
+<p>This has been pushed to the github ansible playbook repo, hope it helps you.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2022-10-10-Upgrading-Laravel-7-to-Laravel-9</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-10-10-Upgrading-Laravel-7-to-Laravel-9" />
+    <title>Upgrading Laravel 7 to Laravel 9</title>
+    <published>2022-10-10T01:00:00+01:00</published>
+    <updated>2022-10-10T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">This weekend, I have decided it is time to upgrade my londinium.com website from Laravel 7 to the latest Laravel 9. As PHP is now in version 8.1 and the latest version of Laravel needs a minimum of PHP 8.0, so it is a good time to upgrade the website.......</summary>
+    <content type="html"><![CDATA[
+        <p>This weekend, I have decided it is time to upgrade my <a href="">londinium.com</a> website from Laravel 7 to the latest Laravel 9. As PHP is now in version 8.1 and the latest version of Laravel needs a minimum of PHP 8.0, so it is a good time to upgrade the website.</p>
+
+<p>Although i could have used a website service like <a href="https://laravelshift.com/">Laravel Shift</a>, I wanted to do it by hand to see the differences.</p>
+
+<p>First step is to install an empty version of laravel 9 which gives me 2 versions with the following URLs</p>
+
+<ul>
+<li>localhost:81</li>
+<li>localhost:91</li>
+</ul>
+
+<p>I simply copied over the files from the old version to the new repo</p>
+
+<ul>
+<li>/app/http/controllers</li>
+<li>/resources/views</li>
+<li>/routes</li>
+<li>/public/css</li>
+<li>/public/js</li>
+<li>/public/images</li>
+</ul>
+
+<p>and updated the .env file with the db variables and a few settings.</p>
+
+<h3>Error: Target Class Controller Does Not Exist</h3>
+
+<p>When i loaded the localhost:91/ i got an error that the "Target Class Controller Does Not Exist" this is explained here</p>
+
+<p><a href="https://laravel.com/docs/8.x/upgrade#automatic-controller-namespace-prefixing">laravel.com/docs/8.x/upgrade</a> and here 
+<a href="https://stackoverflow.com/questions/63807930/error-target-class-controller-does-not-exist-when-using-laravel-8">stackoverflow.com/questions/63807930/error-target-class-controller-does-not-exist-when-using-laravel-8</a></p>
+
+<p>There are a number of solutions but this worked.</p>
+
+<pre><code>Define namespace in RouteServiceProvider as an old version. 
+
+App\Providers\RouteServiceProvider
+public function boot()
+    {
+        $this-&gt;configureRateLimiting();
+
+        $this-&gt;routes(function () {
+            Route::prefix('api')
+                -&gt;middleware('api')
+                -&gt;namespace($this-&gt;namespace)
+                -&gt;namespace('App\Http\Controllers')  &lt;------------ Add this
+                -&gt;group(base_path('routes/api.php'));
+
+            Route::middleware('web')
+                -&gt;namespace($this-&gt;namespace)
+                -&gt;namespace('App\Http\Controllers') &lt;------------- Add this
+                -&gt;group(base_path('routes/web.php'));
+        });
+    }
+</code></pre>
+
+<p>The process was pretty easy and this got the basic site working. In the next blog posts I will explain upgrading the php version and also getting the laravel mix, vite and webpack build process working.</p>
+
+<p>It is a delight to work with Laravel, the latest versions are not very different from each others and I enjoy the stability this framework provides. Big thanks to Taylor Otwell and the team.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-10-05-Adding-Lat-Long-Map-links-For-Photos-To-Londinium</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-10-05-Adding-Lat-Long-Map-links-For-Photos-To-Londinium" />
     <title>Adding Lat Long Map links For Photos To Londinium</title>
