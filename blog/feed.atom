@@ -3,12 +3,123 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-10-13T11:58:44+01:00</updated>
+    <updated>2022-10-28T13:03:24+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-10-28-PHPStan-static-analysis</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-10-28-PHPStan-static-analysis" />
+    <title>PHPStan static analysis</title>
+    <published>2022-10-28T01:00:00+01:00</published>
+    <updated>2022-10-28T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Today I took the plunge and installed PHPStan, or rather larastan which is a static analysis tool to check code for errors and missing return types.
+
+
+
+create a rules file called &#039;phpstan.neon&#039;
+
+
+
+So i started at level 0, which is the lowest level and......</summary>
+    <content type="html"><![CDATA[
+        <p>Today I took the plunge and installed <a href="https://phpstan.org/">PHPStan</a>, or rather <a href="https://github.com/nunomaduro/larastan/">larastan</a> which is a static analysis tool to check code for errors and missing return types.</p>
+
+<pre><code>composer require nunomaduro/larastan:^2.0 --dev
+</code></pre>
+
+<p>create a rules file called 'phpstan.neon'</p>
+
+<pre><code>includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - app/
+
+    # Level 9 is the highest level
+    level: 0
+
+#    ignoreErrors:
+#        - '#PHPDoc tag @var#'
+#
+#    excludePaths:
+#        - ./*/*/FileToBeExcluded.php
+#
+#    checkMissingIterableValueType: false
+</code></pre>
+
+<p>So i started at level 0, which is the lowest level and ran it thus:</p>
+
+<pre><code>./vendor/bin/phpstan analyse
+</code></pre>
+
+<p>and it passed</p>
+
+<p><img src="/assets/images/phpstan0.png" alt="phpstan level 0" /></p>
+
+<p>level 1 was my first failure</p>
+
+<p><img src="/assets/images/phpstan1.png" alt="phpstan level 1" /></p>
+
+<p>so i added</p>
+
+<pre><code>        if (!isset($prefix)) {
+            abort(404);
+        }
+</code></pre>
+
+<p>and its green</p>
+
+<p>how cool :)</p>
+
+<p>level 5 started with more errors</p>
+
+<p><img src="/assets/images/phpstan5.png" alt="phpstan level 5" /></p>
+
+<p>so i added a return type for the views</p>
+
+<pre><code>use Illuminate\Contracts\View\View;
+
+class BrandController extends Controller
+{
+    public function index(): View
+</code></pre>
+
+<p><img src="/assets/images/phpstan5b.png" alt="phpstan level 5b" /></p>
+
+<p>There was also redirects which needed</p>
+
+<pre><code>use Illuminate\Http\RedirectResponse;
+
+class NWRController extends Controller
+{
+    public function index(Request $request, $id): View|RedirectResponse
+</code></pre>
+
+<p>I added a few types in the function arguments and it is all green!</p>
+
+<p>Level 8</p>
+
+<p><img src="/assets/images/phpstan8.png" alt="phpstan level 8" /></p>
+
+<p>this error is caused by this code</p>
+
+<pre><code>14        $route = (\Route::current());
+
+16        $data['brand'] = $route-&gt;wheres['brand'];
+
+</code></pre>
+
+<p>and I am not sure of the solution to this as (string) doesnt work. Any ideas appreciated...</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-10-12-Upgrade-Apache-To-PHP-81-with-Ansible-on-Debian</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-10-12-Upgrade-Apache-To-PHP-81-with-Ansible-on-Debian" />
     <title>Upgrade Apache To PHP 8.1 with Ansible on Debian</title>
