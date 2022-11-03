@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Looking for Land | Allotment Andy"/>
+        <meta property="og:title" content="Laravel Routes from Database | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/looking-for-land"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-03-Laravel-Routes-from-Database"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Looking for Land" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://allotmentandy.github.io/looking-for-land" />
-<meta property="og:description" content="A little bit about Allotment Andy" />
-        <title>Allotment Andy | Looking for Land</title>
+        <meta property="og:title" content="Laravel Routes from Database" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-03-Laravel-Routes-from-Database" />
+<meta property="og:description" content="" />
+        <title>Allotment Andy | Laravel Routes from Database</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=0a623c1b6d04cfda956517378762a87d">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -84,43 +84,56 @@
 </nav>
         <div class="flex">
             <main role="main" class="flex-auto w-full container mx-auto py-16 px-6">
-                <body class="bg-white">
+                <div class=" mb-4 mt-2 bg-gray-100 px-4 py-4 rounded-lg">
 
-    <header class="p-4 shadow-sm">
-        <div class="inline-block text-lg">
-            <h1>Looking for land to start a permaculture farm</h1>
-        </div>
-    </header>
+    
+    <h1 class="leading-none mb-2">
+                <img src="/assets/img/Laravel.svg" alt="Laravel Routes from Database" class=" w-16 h-16 inline-block">
+                Laravel Routes from Database
+    </h1>
 
-    <div class="container mx-auto">
+    <p class="text-gray-700 text-sm md:mt-0">November 3, 2022</p>
 
-        <h5>I am looking for a small piece of land locally to create a permaculture small holding to rent/use to grow a permaculture garden.</h5>
+            <a href="/blog/categories/laravel" title="View posts in laravel"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
+        <a href="/blog/categories/londinium" title="View posts in londinium"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">londinium</a>
+        
+    <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
+        <p>I have grown my website to have over 8000 lines in the routes files!</p>
 
-        <h5> I have had an allotment in Greater London and now want to move away and build a larger food garden.</h5>
+<p>These are only calling 6 controllers and simple static views, like so:</p>
 
-        <h5><strong>Fruit Trees</strong> including apricot, apple, plum, cherry, figs, mulberry, grapes, raspberries and more</h5>
+<pre><code>Route::get('/embassy', ['uses' =&gt;'FeatureController@index'])-&gt;where(['feature'=&gt;"amenity=embassy"]);
 
-        <h5><strong>Vegetables</strong> green leaves including chard, spinach, lettuce, pak choi, carrots, cucumbers, tomatoes</h5>
+Route::get("/lidl", ['uses' =&gt;'BrandController@index'])-&gt;where(['brand'=&gt;"Lidl"]);
 
-        <h5><strong>Herbs</strong> rosemary, sage, oregano,</h5>
+Route::get('/NW9', ['uses' =&gt;'PlaceController@index'])-&gt;where(['lat'=&gt;"51.58", 'long'=&gt; "-0.25", 'feature'=&gt; "The Hyde"]);
+Route::get('/Somerset_Ilminster', ['uses' =&gt;'PlaceController@index'])-&gt;where(['lat'=&gt;'50.926998', 'long'=&gt; '-2.913960', 'feature'=&gt; 'Ilminster_(Somerset)']);
+</code></pre>
 
-        <h5><strong>Useful crops</strong> bamboo, hops, willow</h5>
+<p>But these make up the majority of them, so now it is time to address this and move them to a database table for the feature, brand and place controllers.</p>
 
-        <h4>Please call me on 07970 807930 Find out more at <a href="https://linktr.ee/allotmentandy">linktr.ee/allotmentandy</a></h4>
+<p>I am planning to use <a href="https://laravel.com/docs/9.x/routing#fallback-routes">Fallback routes</a> as the last route in the /routes/web.php file to send them all a RouteController which will read the db and send them to the correct router.</p>
 
-        <h3>2022 Allotment Gallery</h3>
+<p>Having a quick look at projects online on github, <a href="https://github.com/luensys/laravel-database-routes">https://github.com/luensys/laravel-database-routes</a> seems to import the routes from the route file into a database, and so does this one <a href="https://github.com/douma/laravel-database-routes">https://github.com/douma/laravel-database-routes</a></p>
 
-        <img src="/assets/images/land/grapes.jpg" class="inline">
-        <img src="/assets/images/land/apple.jpg" class="inline">
-        <img src="/assets/images/land/brocolli.jpg" class="inline">
-        <img src="/assets/images/land/tomato.jpg" class="inline">
-        <img src="/assets/images/land/purslane.jpg" class="inline">
-        <img src="/assets/images/land/shed.jpg" class="inline">
-        <img src="/assets/images/land/pots.jpg" class="inline">
-        <img src="/assets/images/land/allotment.jpg" class="inline">
-        <img src="/assets/images/land/greenhouse.jpg" class="inline">
+<p>wonder if anyone has used these?</p>
+        <hr>
+        <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                        <a href="https://allotmentandy.github.io/blog/2022-10-28-PHPStan-static-analysis" title="Older Post: PHPStan static analysis">
+                &LeftArrow; PHPStan static analysis
+            </a>
+                    </div>
+
+        <div>
+                    </div>
+    </nav>
+</div>
 <script src="https://utteranc.es/client.js"
         repo="allotmentandy/blog_comments"
         issue-term="url"
@@ -128,7 +141,6 @@
         crossorigin="anonymous"
         async>
 </script>
-</body>
             </main>
         </div>
         <!-- footer -->
