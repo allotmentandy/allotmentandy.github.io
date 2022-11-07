@@ -3,12 +3,47 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-11-03T13:12:27+00:00</updated>
+    <updated>2022-11-07T12:38:48+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-11-06-Ebook-Making-With-Markdown-to-PDF-with-Ibis</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-11-06-Ebook-Making-With-Markdown-to-PDF-with-Ibis" />
+    <title>Ebook Making With Markdown to PDF with Ibis</title>
+    <published>2022-11-06T00:00:00+00:00</published>
+    <updated>2022-11-06T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Over the weekend, I was looking into making ebooks out of a directory of markdown files. I use markdown for this blog and also for my to-do list, so i started looking at what was available. I tried mdbook, a rust tool, but couldnt get the pdf maker to......</summary>
+    <content type="html"><![CDATA[
+        <p>Over the weekend, I was looking into making ebooks out of a directory of markdown files. I use markdown for this blog and also for my to-do list, so i started looking at what was available. I tried mdbook, a rust tool, but couldnt get the pdf maker to work, and it didn't really work in a way I was expecting, it seems more like a documentation website maker.</p>
+
+<p>I thought, 'There must be a Laravel way', and after some searching, <a href="https://mobile.twitter.com/themsaid/">@themsaid</a> has made <a href="http://github.com/themsaid/ibis" target="_blank">Ibis</a> which is lovely, fast, works well and looking at the source code, is fairly simple.</p>
+
+<p>I installed it slightly differently to the instructions installing it in the new ebook directory like so:</p>
+
+<pre><code>composer require themsaid/ibis:* -W
+</code></pre>
+
+<p>The initialization command to create the repo was this</p>
+
+<pre><code>./vendor/bin/ibis init
+</code></pre>
+
+<p>It comes with an example 6 markdown pages of one of Mohamed's Books and the command to make the pdf was like so</p>
+
+<pre><code>./vendor/bin/ibis build
+</code></pre>
+
+<p>This created a a nice clean pdf with minimal fuss. You can use css to style it and it accepts images in the /assets directory.</p>
+
+<p>The one thing i wonder is how would you create an index at the back? But for today, this is a nice new tool and I can focus on writing the markdown.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-11-03-Laravel-Routes-from-Database</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-11-03-Laravel-Routes-from-Database" />
     <title>Laravel Routes from Database</title>

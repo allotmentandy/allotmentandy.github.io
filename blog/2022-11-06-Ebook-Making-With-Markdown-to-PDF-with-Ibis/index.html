@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Bash Scripts for Laravel PHP Linux Devops | Allotment Andy"/>
+        <meta property="og:title" content="Ebook Making With Markdown to PDF with Ibis | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-08-25-bash-scripts-for-laravel-php-linux-devops"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-06-Ebook-Making-With-Markdown-to-PDF-with-Ibis"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Bash Scripts for Laravel PHP Linux Devops" />
+        <meta property="og:title" content="Ebook Making With Markdown to PDF with Ibis" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2020-08-25-bash-scripts-for-laravel-php-linux-devops" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-06-Ebook-Making-With-Markdown-to-PDF-with-Ibis" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Bash Scripts for Laravel PHP Linux Devops</title>
+        <title>Allotment Andy | Ebook Making With Markdown to PDF with Ibis</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=e7f269d6fc8ea0c2fef009497b7dac48">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,103 +88,50 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/Bash.svg" alt="Bash Scripts for Laravel PHP Linux Devops" class=" w-16 h-16 inline-block">
-                Bash Scripts for Laravel PHP Linux Devops
+                <img src="/assets/img/Laravel.svg" alt="Ebook Making With Markdown to PDF with Ibis" class=" w-16 h-16 inline-block">
+                Ebook Making With Markdown to PDF with Ibis
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">August 25, 2020</p>
+    <p class="text-gray-700 text-sm md:mt-0">November 6, 2022</p>
 
-            <a href="/blog/categories/bash" title="View posts in bash"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">bash</a>
-        <a href="/blog/categories/debian" title="View posts in debian"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">debian</a>
-        <a href="/blog/categories/devops" title="View posts in devops"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">devops</a>
-        <a href="/blog/categories/laravel" title="View posts in laravel"
+            <a href="/blog/categories/laravel" title="View posts in laravel"
         class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>Having spent the summer learning more of the Devops toolkit, I often come back to bash shell scripts to achieve something.</p>
+        <p>Over the weekend, I was looking into making ebooks out of a directory of markdown files. I use markdown for this blog and also for my to-do list, so i started looking at what was available. I tried mdbook, a rust tool, but couldnt get the pdf maker to work, and it didn't really work in a way I was expecting, it seems more like a documentation website maker.</p>
 
-<h3>importEnv.sh</h3>
+<p>I thought, 'There must be a Laravel way', and after some searching, <a href="https://mobile.twitter.com/themsaid/">@themsaid</a> has made <a href="http://github.com/themsaid/ibis" target="_blank">Ibis</a> which is lovely, fast, works well and looking at the source code, is fairly simple.</p>
 
-<p>I wanted a little script to import the values of the .env file to use in the bash scripts. This works as i expect.</p>
+<p>I installed it slightly differently to the instructions installing it in the new ebook directory like so:</p>
 
-<pre><code class="language-bash">#!/bin/bash
-
-source /var/www/laravel/.env
-echo $DB_USERNAME
+<pre><code>composer require themsaid/ibis:* -W
 </code></pre>
 
-<h3>mysqlBackup</h3>
+<p>The initialization command to create the repo was this</p>
 
-<p>This is a one liner to backup all the mysql databases.</p>
-
-<pre><code>mysql -u root -p -N -e 'show databases' | while read dbname; do mysqldump -u root -p --complete-insert --routines --triggers --single-transaction "$dbname" &gt; "$dbname".sql; done
-
+<pre><code>./vendor/bin/ibis init
 </code></pre>
 
-<h3>deploy.sh</h3>
+<p>It comes with an example 6 markdown pages of one of Mohamed's Books and the command to make the pdf was like so</p>
 
-<p>Working with the jigsaw static site builder, i wrote this simple script to copy the production version of the site to another directory and deploy it to the github pages site.</p>
-
-<pre><code class="language-bash">#!/bin/bash -e
-
-echo "Deploying build_production to allotmentandy.github.io"
-echo "---------"
-
-cd build_production 
-cp -r * /var/www/allotmentandy.github.io
-
-cd /var/www/allotmentandy.github.io
-
-git add .
-git commit -m "update"
-git push
-
-echo 'finished'
+<pre><code>./vendor/bin/ibis build
 </code></pre>
 
-<h3>clearLaravelCaches.sh</h3>
+<p>This created a a nice clean pdf with minimal fuss. You can use css to style it and it accepts images in the /assets directory.</p>
 
-<pre><code class="language-bash">#!/bin/bash
-
-echo "This a bash script to run composer clear the caches)"
-echo "--------------"
-php -v
-#echo "--------------"
-
-cd /var/www/laravel
-
-php artisan down
-
-composer dump-autoload -o
-
-php artisan view:clear
-php artisan config:clear
-php artisan cache:clear
-php artisan route:clear
-php artisan clear-compiled
-php artisan config:cache
-php artisan optimize
-
-php artisan up
-</code></pre>
+<p>The one thing i wonder is how would you create an index at the back? But for today, this is a nice new tool and I can focus on writing the markdown.</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2020-07-27-moving-into-devops" title="Older Post: Moving into Devops">
-                &LeftArrow; Moving into Devops
+                        <a href="https://allotmentandy.github.io/blog/2022-11-03-Laravel-Routes-from-Database" title="Older Post: Laravel Routes from Database">
+                &LeftArrow; Laravel Routes from Database
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger" title="Newer Post: Bash fwf ranger">
-                Bash fwf ranger &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>
