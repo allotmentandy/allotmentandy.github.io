@@ -3,12 +3,69 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-11-07T12:38:48+00:00</updated>
+    <updated>2022-11-11T10:46:05+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-11-09-Azure-Free-Tier-Debian-11-and-Ansible-Installing-a-Lamp-server</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-11-09-Azure-Free-Tier-Debian-11-and-Ansible-Installing-a-Lamp-server" />
+    <title>Azure Free Tier Debian 11 and Ansible Installing a Lamp server</title>
+    <published>2022-11-09T00:00:00+00:00</published>
+    <updated>2022-11-09T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Today I got an email from Microsoft azure that a 30 day trial was ending and that I now had a 12 month fee basic tier level service, which is nice.
+
+I have set up a debian box to play with, just like I have a free debian EC2 instance on AWS :)
+
+Following......</summary>
+    <content type="html"><![CDATA[
+        <p>Today I got an email from Microsoft azure that a 30 day trial was ending and that I now had a 12 month fee basic tier level service, which is nice.</p>
+
+<p>I have set up a debian box to play with, just like I have a free debian EC2 instance on AWS :)</p>
+
+<p>Following the steps in the browser, i created a VM and logged in</p>
+
+<pre><code>ssh -i ~/.ssh/key.pem azureuser@1.2.3.4
+</code></pre>
+
+<p>note it is <em>azureuser</em> but the rest is the same process as setting up on AWS or locally.</p>
+
+<p>I started with a copy of my <a href="https://github.com/allotmentandy/aws/tree/master/Part%203%20-%20using%20Ansible%20to%20setup%20the%20server." target="_blank">Ansible-aws repo</a>  and duplicated it for the azure server.</p>
+
+<p>So now I have uploaded this as <a href="https://github.com/allotmentandy/ansible-debian-azure-lamp" target="_blank">Ansible-Azure-Debian-Lamp</a> and ran it like so:</p>
+
+<pre><code>ansible-playbook main.yml --key-file /home/andy/.ssh/PRIVATEKEY.pem  -e 'ansible_python_interpreter=/usr/bin/python3'
+</code></pre>
+
+<p>There was only 2 errors and having made the following changes to deal with errors, it worked.</p>
+
+<h2>Errors</h2>
+
+<p>FAILED! => {"changed": false, "msg": "No package matching 'python-pymysql' is available"}</p>
+
+<p>solution: remove python-pymysql as it is already installing python3-pymysql</p>
+
+<p>FAILED! => {"changed": false, "msg": "Failed to find required executable gpg in paths: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"}</p>
+
+<p>solution: add gnupg to the packages to install</p>
+
+<p>and it all worked!</p>
+
+<h2>setting up laravel</h2>
+
+<p>I uploaded a laravel app to /var/www/laravel and the ansible scripts setup the apache to work, setting up the laravel app with the usual composer install and chmod the /storage directory. The only issue was with user permissions as the /var/www/ directory is owned by root which i solved with.</p>
+
+<pre><code>sudo chown -R $USER:$USER
+</code></pre>
+
+<p>and now i have a working laravel app setup with ansible in less than an hour :)</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-11-06-Ebook-Making-With-Markdown-to-PDF-with-Ibis</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-11-06-Ebook-Making-With-Markdown-to-PDF-with-Ibis" />
     <title>Ebook Making With Markdown to PDF with Ibis</title>

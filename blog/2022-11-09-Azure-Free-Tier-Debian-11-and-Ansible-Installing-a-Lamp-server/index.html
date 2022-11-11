@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Ansible | Allotment Andy"/>
+        <meta property="og:title" content="Azure Free Tier Debian 11 and Ansible Installing a Lamp server | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/categories/ansible"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-09-Azure-Free-Tier-Debian-11-and-Ansible-Installing-a-Lamp-server"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-            <meta property="og:title" content="Ansible" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/categories/ansible"/>
-    <meta property="og:description" content="All posts that are about Ansible." />
-        <title>Allotment Andy | Ansible</title>
+        <meta property="og:title" content="Azure Free Tier Debian 11 and Ansible Installing a Lamp server" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-09-Azure-Free-Tier-Debian-11-and-Ansible-Installing-a-Lamp-server" />
+<meta property="og:description" content="" />
+        <title>Allotment Andy | Azure Free Tier Debian 11 and Ansible Installing a Lamp server</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=e7f269d6fc8ea0c2fef009497b7dac48">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -84,251 +84,87 @@
 </nav>
         <div class="flex">
             <main role="main" class="flex-auto w-full container mx-auto py-16 px-6">
-                
-    <h1><img class="h-12 md:h-14 mr-3 inline-block" src="/assets/img/Ansible.svg" alt="" />Ansible (9 posts)</h1>
+                <div class=" mb-4 mt-2 bg-gray-100 px-4 py-4 rounded-lg">
 
-    <div class="text-2xl border-b border-blue-200 mb-6 pb-10">
-            </div>
+    
+    <h1 class="leading-none mb-2">
+                Azure Free Tier Debian 11 and Ansible Installing a Lamp server
+    </h1>
 
-            <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
+    <p class="text-gray-700 text-sm md:mt-0">November 9, 2022</p>
 
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2022-11-09-Azure-Free-Tier-Debian-11-and-Ansible-Installing-a-Lamp-server"
-            title="Read more - Azure Free Tier Debian 11 and Ansible Installing a Lamp server"
-            class="text-gray-900 font-extrabold"
-        >
-                Azure Free Tier Debian 11 and Ansible Installing a Lamp server</a>
-    </h2>
+            <a href="/blog/categories/ansible" title="View posts in ansible"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">ansible</a>
+        <a href="/blog/categories/debian" title="View posts in debian"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">debian</a>
+        <a href="/blog/categories/devops" title="View posts in devops"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">devops</a>
+        <a href="/blog/categories/laravel" title="View posts in laravel"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
+        
+    <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
+        <p>Today I got an email from Microsoft azure that a 30 day trial was ending and that I now had a 12 month fee basic tier level service, which is nice.</p>
 
-    <p class="text-gray-700 font-medium my-2">
-        November 9, 2022
-    </p>
+<p>I have set up a debian box to play with, just like I have a free debian EC2 instance on AWS :)</p>
 
-    <p class="mb-4 mt-0">Today I got an email from Microsoft azure that a 30 day trial was ending and that I now had a 12 month fee basic tier level service, which is nice.
+<p>Following the steps in the browser, i created a VM and logged in</p>
 
-I have set up a debian box to play with, just like...</p>
+<pre><code>ssh -i ~/.ssh/key.pem azureuser@1.2.3.4
+</code></pre>
 
-    <a
-        href="https://allotmentandy.github.io/blog/2022-11-09-Azure-Free-Tier-Debian-11-and-Ansible-Installing-a-Lamp-server"
-        title="Read more - Azure Free Tier Debian 11 and Ansible Installing a Lamp server"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
+<p>note it is <em>azureuser</em> but the rest is the same process as setting up on AWS or locally.</p>
+
+<p>I started with a copy of my <a href="https://github.com/allotmentandy/aws/tree/master/Part%203%20-%20using%20Ansible%20to%20setup%20the%20server." target="_blank">Ansible-aws repo</a>  and duplicated it for the azure server.</p>
+
+<p>So now I have uploaded this as <a href="https://github.com/allotmentandy/ansible-debian-azure-lamp" target="_blank">Ansible-Azure-Debian-Lamp</a> and ran it like so:</p>
+
+<pre><code>ansible-playbook main.yml --key-file /home/andy/.ssh/PRIVATEKEY.pem  -e 'ansible_python_interpreter=/usr/bin/python3'
+</code></pre>
+
+<p>There was only 2 errors and having made the following changes to deal with errors, it worked.</p>
+
+<h2>Errors</h2>
+
+<p>FAILED! => {"changed": false, "msg": "No package matching 'python-pymysql' is available"}</p>
+
+<p>solution: remove python-pymysql as it is already installing python3-pymysql</p>
+
+<p>FAILED! => {"changed": false, "msg": "Failed to find required executable gpg in paths: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"}</p>
+
+<p>solution: add gnupg to the packages to install</p>
+
+<p>and it all worked!</p>
+
+<h2>setting up laravel</h2>
+
+<p>I uploaded a laravel app to /var/www/laravel and the ansible scripts setup the apache to work, setting up the laravel app with the usual composer install and chmod the /storage directory. The only issue was with user permissions as the /var/www/ directory is owned by root which i solved with.</p>
+
+<pre><code>sudo chown -R $USER:$USER
+</code></pre>
+
+<p>and now i have a working laravel app setup with ansible in less than an hour :)</p>
+        <hr>
+        <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
+    </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                        <a href="https://allotmentandy.github.io/blog/2022-11-06-Ebook-Making-With-Markdown-to-PDF-with-Ibis" title="Older Post: Ebook Making With Markdown to PDF with Ibis">
+                &LeftArrow; Ebook Making With Markdown to PDF with Ibis
+            </a>
+                    </div>
+
+        <div>
+                    </div>
+    </nav>
 </div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2022-10-12-Upgrade-Apache-To-PHP-81-with-Ansible-on-Debian"
-            title="Read more - Upgrade Apache To PHP 8.1 with Ansible on Debian"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Ansible.svg" alt="Ansible" class=" w-8 h-8 inline-block">
-                Upgrade Apache To PHP 8.1 with Ansible on Debian</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        October 12, 2022
-    </p>
-
-    <p class="mb-4 mt-0">My local Debian machine has Apache and PHP working and I have set it up with this Ansible playbook github.com/allotmentandy/ansible-debian-install-desktop
-
-Today as part of the upgrade process for my...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2022-10-12-Upgrade-Apache-To-PHP-81-with-Ansible-on-Debian"
-        title="Read more - Upgrade Apache To PHP 8.1 with Ansible on Debian"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2022-02-06-Using-Ansible-To-Setup-My-New-Debian-Desktop-Machine"
-            title="Read more - Using Ansible To Setup My New Debian Desktop Machine"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Ansible.svg" alt="Ansible" class=" w-8 h-8 inline-block">
-                Using Ansible To Setup My New Debian Desktop Machine</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        February 6, 2022
-    </p>
-
-    <p class="mb-4 mt-0">I recently bought a new computer and wanted to use Ansible to install all the software. I have installed the base debian system and now wanted to install everything I regularly use with Ansible....</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2022-02-06-Using-Ansible-To-Setup-My-New-Debian-Desktop-Machine"
-        title="Read more - Using Ansible To Setup My New Debian Desktop Machine"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2021-12-06-AWS-EC2-Instance-and-Container-setup-with-Ansible-(Part-7)"
-            title="Read more - AWS EC2 Instance and Container setup with Ansible (Part 7)"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Aws.svg" alt="Ansible" class=" w-8 h-8 inline-block">
-                AWS EC2 Instance and Container setup with Ansible (Part 7)</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        December 6, 2021
-    </p>
-
-    <p class="mb-4 mt-0">I started with this tutorial https://www.agix.com.au/build-an-ec2-using-ansible-step-by-step/
-
-The ansible code is in Part 7 of the repo github.com/allotmentandy/aws, this code creates a NEW instance...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2021-12-06-AWS-EC2-Instance-and-Container-setup-with-Ansible-(Part-7)"
-        title="Read more - AWS EC2 Instance and Container setup with Ansible (Part 7)"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part3-using-Ansible"
-            title="Read more - AWS Amazon Web Services Cloud computing and PHP part 3 using Ansible"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Aws.svg" alt="Ansible" class=" w-8 h-8 inline-block">
-                AWS Amazon Web Services Cloud computing and PHP part 3 using Ansible</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        December 1, 2021
-    </p>
-
-    <p class="mb-4 mt-0">Using Ansible to setup the LAMP stack on a clean Debian AWS server.</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2021-12-01-AWS-Amazon-Web-Services-Cloud-computing-and-PHP-part3-using-Ansible"
-        title="Read more - AWS Amazon Web Services Cloud computing and PHP part 3 using Ansible"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2021-11-16-Looking-For-Allrounder-Role-Devops-SEO-Design-Development-Creative"
-            title="Read more - Looking For Allrounder Role Devops SEO Design Development Creative"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Work.svg" alt="Ansible" class=" w-8 h-8 inline-block">
-                Looking For Allrounder Role Devops SEO Design Development Creative</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        November 16, 2021
-    </p>
-
-    <p class="mb-4 mt-0">I wanted to right a new post about the sort of job role I am looking for. In the past I have had a wide variety of roles from Creative Graphic Designer to Laravel Developer. So I wanted to outline...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2021-11-16-Looking-For-Allrounder-Role-Devops-SEO-Design-Development-Creative"
-        title="Read more - Looking For Allrounder Role Devops SEO Design Development Creative"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-11-15-Ansible-Ansible-Ansible-part-2"
-            title="Read more - Ansible Ansible Ansible - Part 2"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Ansible.svg" alt="Ansible" class=" w-8 h-8 inline-block">
-                Ansible Ansible Ansible - Part 2</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        November 15, 2020
-    </p>
-
-    <p class="mb-4 mt-0">Ansible resources online, Ansible cheatsheets and Ansible Videos I really enjoyed.</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-11-15-Ansible-Ansible-Ansible-part-2"
-        title="Read more - Ansible Ansible Ansible - Part 2"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-11-14-Ansible-Ansible-Ansible-part-1"
-            title="Read more - Ansible Ansible Ansible - Part 1"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Ansible.svg" alt="Ansible" class=" w-8 h-8 inline-block">
-                Ansible Ansible Ansible - Part 1</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        November 14, 2020
-    </p>
-
-    <p class="mb-4 mt-0">my first article in a series on Ansible, covering the Facts ansible can tell you about your machines and how I have been learning Ansible.</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-11-14-Ansible-Ansible-Ansible-part-1"
-        title="Read more - Ansible Ansible Ansible - Part 1"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-07-27-moving-into-devops"
-            title="Read more - Moving into Devops"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Devops.svg" alt="Ansible" class=" w-8 h-8 inline-block">
-                Moving into Devops</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        July 27, 2020
-    </p>
-
-    <p class="mb-4 mt-0">In my last contract role, I spent more time working with the Devops team than the frontend team. I really enjoyed it and now feel that this is a better path for me. I have been using the command line...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-07-27-moving-into-devops"
-        title="Read more - Moving into Devops"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-            
+<script src="https://utteranc.es/client.js"
+        repo="allotmentandy/blog_comments"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
             </main>
         </div>
         <!-- footer -->
