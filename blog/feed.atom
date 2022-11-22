@@ -3,12 +3,51 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-11-22T09:48:05+00:00</updated>
+    <updated>2022-11-22T11:03:01+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-11-22-Using-Screen-and-Links2-to-run-a-PHP-Web-Spider-and-Detach-the-Terminal</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-11-22-Using-Screen-and-Links2-to-run-a-PHP-Web-Spider-and-Detach-the-Terminal" />
+    <title>Using Screen and Links2 to run a PHP Web Spider and Detach the Terminal</title>
+    <published>2022-11-22T00:00:00+00:00</published>
+    <updated>2022-11-22T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I run a PHP based web spider to check the status of websites in londinium.com and was looking for a way to run it in the terminal. In the past I have run it using the refresh html header in a normal browser, but this is a waste as the overhead of sending......</summary>
+    <content type="html"><![CDATA[
+        <p>I run a PHP based web spider to check the status of websites in <a href="https://londinium.com/" target="_blank">londinium.com</a> and was looking for a way to run it in the terminal. In the past I have run it using the refresh html header in a normal browser, but this is a waste as the overhead of sending it to the computer on my desk adds seconds to the process, and as I am indexing thousands of websites it all adds up.</p>
+
+<p>So I came up with the idea of using a terminal browser <a href="https://packages.debian.org/stable/links2" target="_blank">links2</a> to load the page and using screen to detach from the ssh terminal window so it can run in the background.</p>
+
+<p>I installed both with the lovely apt command on the debian box thus:</p>
+
+<pre><code class="language-shell">sudo apt install screen links2
+</code></pre>
+
+<p>and ran it with the '-html-auto-refresh' to allow html refreshes to work.</p>
+
+<pre><code class="language-shell">screen
+links2 -html-auto-refresh 1 http://localhost/runProcess 
+</code></pre>
+
+<p>Screen allows me to run the process in the background and disconnect leaving it running. To leave the process I use the key combination</p>
+
+<pre><code class="language-shell">ctrl a ctrl d
+</code></pre>
+
+<p>then to return to the window type</p>
+
+<pre><code class="language-shell">screen -r
+</code></pre>
+
+<p>The advantage is I can log off from the ssh session and reconnect from another computer and return to it. Which also means it can run in the background and you can use the terminal to do other things.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-11-21-Fixing-Web-Spider-Errors-with-Guzzle-Cookie-Header-Redirects-and-User-Agent</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-11-21-Fixing-Web-Spider-Errors-with-Guzzle-Cookie-Header-Redirects-and-User-Agent" />
     <title>Fixing Web Spider Errors with Guzzle Cookie Header Redirects and User Agent</title>
