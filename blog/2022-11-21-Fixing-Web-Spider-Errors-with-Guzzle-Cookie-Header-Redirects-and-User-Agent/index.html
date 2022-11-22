@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Azure Free Tier Debian 11 and Ansible Installing a Lamp server | Allotment Andy"/>
+        <meta property="og:title" content="Fixing Web Spider Errors with Guzzle Cookie Header Redirects and User Agent | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-09-Azure-Free-Tier-Debian-11-and-Ansible-Installing-a-Lamp-server"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-21-Fixing-Web-Spider-Errors-with-Guzzle-Cookie-Header-Redirects-and-User-Agent"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Azure Free Tier Debian 11 and Ansible Installing a Lamp server" />
+        <meta property="og:title" content="Fixing Web Spider Errors with Guzzle Cookie Header Redirects and User Agent" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-09-Azure-Free-Tier-Debian-11-and-Ansible-Installing-a-Lamp-server" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-21-Fixing-Web-Spider-Errors-with-Guzzle-Cookie-Header-Redirects-and-User-Agent" />
 <meta property="og:description" content="" />
-        <title>Allotment Andy | Azure Free Tier Debian 11 and Ansible Installing a Lamp server</title>
+        <title>Allotment Andy | Fixing Web Spider Errors with Guzzle Cookie Header Redirects and User Agent</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=e7f269d6fc8ea0c2fef009497b7dac48">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -88,77 +88,207 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/azure.svg" alt="Azure Free Tier Debian 11 and Ansible Installing a Lamp server" class=" w-16 h-16 inline-block">
-                Azure Free Tier Debian 11 and Ansible Installing a Lamp server
+                <img src="/assets/img/londinium.svg" alt="Fixing Web Spider Errors with Guzzle Cookie Header Redirects and User Agent" class=" w-16 h-16 inline-block">
+                Fixing Web Spider Errors with Guzzle Cookie Header Redirects and User Agent
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">November 9, 2022</p>
+    <p class="text-gray-700 text-sm md:mt-0">November 21, 2022</p>
 
-            <a href="/blog/categories/ansible" title="View posts in ansible"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">ansible</a>
-        <a href="/blog/categories/debian" title="View posts in debian"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">debian</a>
-        <a href="/blog/categories/devops" title="View posts in devops"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">devops</a>
-        <a href="/blog/categories/laravel" title="View posts in laravel"
+            <a href="/blog/categories/laravel" title="View posts in laravel"
         class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
+        <a href="/blog/categories/londinium" title="View posts in londinium"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">londinium</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>Today I got an email from Microsoft azure that a 30 day trial was ending and that I now had a 12 month fee basic tier level service, which is nice.</p>
+        <p>Over the weekend, i ran a spider on the websites listed in the openstreetmap system.</p>
 
-<p>I have set up a debian box to play with, just like I have a free debian EC2 instance on AWS :)</p>
+<p>These are the error codes and the counts for these errors</p>
 
-<p>Following the steps in the browser, i created a VM and logged in</p>
+<table>
+<thead>
+<tr>
+  <th>HTTP Error</th>
+  <th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>401</td>
+  <td>13</td>
+</tr>
+<tr>
+  <td>402</td>
+  <td>6</td>
+</tr>
+<tr>
+  <td>403</td>
+  <td>1274</td>
+</tr>
+<tr>
+  <td>404</td>
+  <td>2512</td>
+</tr>
+<tr>
+  <td>406</td>
+  <td>1</td>
+</tr>
+<tr>
+  <td>409</td>
+  <td>9</td>
+</tr>
+<tr>
+  <td>410</td>
+  <td>13</td>
+</tr>
+<tr>
+  <td>423</td>
+  <td>2</td>
+</tr>
+<tr>
+  <td>426</td>
+  <td>1</td>
+</tr>
+<tr>
+  <td>429</td>
+  <td>15</td>
+</tr>
+<tr>
+  <td>453</td>
+  <td>1</td>
+</tr>
+<tr>
+  <td>500</td>
+  <td>131</td>
+</tr>
+<tr>
+  <td>502</td>
+  <td>7</td>
+</tr>
+<tr>
+  <td>503</td>
+  <td>165</td>
+</tr>
+<tr>
+  <td>523</td>
+  <td>1</td>
+</tr>
+<tr>
+  <td>526</td>
+  <td>2</td>
+</tr>
+<tr>
+  <td>530</td>
+  <td>4</td>
+</tr>
+<tr>
+  <td>connection exception</td>
+  <td>3558</td>
+</tr>
+<tr>
+  <td>request exception</td>
+  <td>400</td>
+</tr>
+</tbody>
+</table>
 
-<pre><code>ssh -i ~/.ssh/key.pem azureuser@1.2.3.4
+<p>Here is a list explaining the <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank">Error Codes</a></p>
+
+<p>The spider uses the <a href="https://docs.guzzlephp.org/en/stable/" target="_blank">Guzzle</a> and works reasonably well.</p>
+
+<p>My first attempt to fix this was to add the following headers to the Guzzle Client, but this didnt help much</p>
+
+<pre><code class="language-php">$jar = new \GuzzleHttp\Cookie\CookieJar();
+
+$client = new \GuzzleHttp\Client(
+    [
+    'cookies' =&gt; $jar,
+    'timeout' =&gt; 8.0,
+    'http_errors' =&gt; false,
+    'base_uri' =&gt; $url,
+    'referer' =&gt; 'http://www.google.com/',
+    'allow_redirects' =&gt; ['strict' =&gt; true],
+    'Accept-Encoding' =&gt; 'gzip, deflate, br',
+    'Accept-Language' =&gt; 'en-GB,en-US;q=0.9,en;q=0.8',
+    'Accept' =&gt; 'text/html',
+    'User-Agent' =&gt; 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'
+    ]
+);
 </code></pre>
 
-<p>note it is <em>azureuser</em> but the rest is the same process as setting up on AWS or locally.</p>
+<p>My second attempt was to use <a href="https://laravel.com/docs/9.x/dusk" target="_blank">Laravel Dusk</a> and <a href="https://github.com/nunomaduro/laravel-console-dusk" target="_blank">nunomaduro's laravel-console-dusk</a> but this had the same problem.</p>
 
-<p>I started with a copy of my <a href="https://github.com/allotmentandy/aws/tree/master/Part%203%20-%20using%20Ansible%20to%20setup%20the%20server." target="_blank">Ansible-aws repo</a>  and duplicated it for the azure server.</p>
+<pre><code class="language-php">    //the cookie file name
+    $cookie_file = 'cookies.txt';
 
-<p>So now I have uploaded this as <a href="https://github.com/allotmentandy/ansible-debian-azure-lamp" target="_blank">Ansible-Azure-Debian-Lamp</a> and ran it like so:</p>
+    //create the driver
+    $process = (new ChromeProcess())-&gt;toProcess();
+    $process-&gt;start();
+    $options = (new ChromeOptions())-&gt;addArguments(['--disable-gpu','--enable-file-cookies','--no-sandbox', '--headless']);
+    $capabilities = DesiredCapabilities::chrome()-&gt;setCapability(ChromeOptions::CAPABILITY, $options);
+    $driver = retry(5, function () use ($capabilities) {
+        return RemoteWebDriver::create('http://localhost:9515', $capabilities);
+    }, 50);
 
-<pre><code>ansible-playbook main.yml --key-file /home/andy/.ssh/PRIVATEKEY.pem  -e 'ansible_python_interpreter=/usr/bin/python3'
+    $this-&gt;browse(function ($browser) use ($id, $nwr, $url) {
+        $browser-&gt;visit($url)
+                -&gt;pause(5)
 </code></pre>
 
-<p>There was only 2 errors and having made the following changes to deal with errors, it worked.</p>
+<p>My third attempt was to use <a href="https://www.php.net/manual/en/book.curl.php">Curl</a> and it worked like magic</p>
 
-<h2>Errors</h2>
+<pre><code class="language-php">    $ch=curl_init("$url");
+    curl_setopt_array($ch, array(
+                CURLOPT_USERAGENT=&gt;'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0',
+                CURLOPT_ENCODING=&gt;'gzip, deflate',
+                CURLOPT_HTTPHEADER=&gt;array(
+                        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                        'Accept-Language: en-US,en;q=0.5',
+                        'Accept-Encoding: gzip, deflate',
+                        'Connection: keep-alive',
+                        'Upgrade-Insecure-Requests: 1',
+                ),
+    ));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_AUTOREFERER, true);
+    curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 6);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 6);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    // curl_setopt($ch, CURLOPT_VERBOSE, true);
 
-<p>FAILED! => {"changed": false, "msg": "No package matching 'python-pymysql' is available"}</p>
+    $htmlORIG=curl_exec($ch);
 
-<p>solution: remove python-pymysql as it is already installing python3-pymysql</p>
+    if (curl_errno($ch)) {
+        print "CURL ERROR: " . curl_error($ch);
+    } else {
+        curl_close($ch);
+    }
 
-<p>FAILED! => {"changed": false, "msg": "Failed to find required executable gpg in paths: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"}</p>
+    $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $ip = curl_getinfo($ch, CURLINFO_PRIMARY_IP);
+    echo PHP_EOL . $http_status . PHP_EOL;
+    echo "IP: " . $ip . PHP_EOL;
 
-<p>solution: add gnupg to the packages to install</p>
-
-<p>and it all worked!</p>
-
-<h2>setting up laravel</h2>
-
-<p>I uploaded a laravel app to /var/www/laravel and the ansible scripts setup the apache to work, setting up the laravel app with the usual composer install and chmod the /storage directory. The only issue was with user permissions as the /var/www/ directory is owned by root which i solved with.</p>
-
-<pre><code>sudo chown -R $USER:$USER
 </code></pre>
 
-<p>and now i have a working laravel app setup with ansible in less than an hour :)</p>
+<p>This allowed me to spider sites that the previous 2 had blocked and solved all the false errors from the first Guzzle based spider.</p>
+
+<p>Although not perfect, it still has problems with sites using <a href="https://www.cloudflare.com/" target="_blank">Cloudflare</a> It was a huge step in the right direction.</p>
+
+<p>Would be interested in hearing from others about how they handle spidering sites protected by Cloudflare. Also ways to do the same when using Guzzle and Laravel Dusk.</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-11-06-Ebook-Making-With-Markdown-to-PDF-with-Ibis" title="Older Post: Ebook Making With Markdown to PDF with Ibis">
-                &LeftArrow; Ebook Making With Markdown to PDF with Ibis
+                        <a href="https://allotmentandy.github.io/blog/2022-11-09-Azure-Free-Tier-Debian-11-and-Ansible-Installing-a-Lamp-server" title="Older Post: Azure Free Tier Debian 11 and Ansible Installing a Lamp server">
+                &LeftArrow; Azure Free Tier Debian 11 and Ansible Installing a Lamp server
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-11-21-Fixing-Web-Spider-Errors-with-Guzzle-Cookie-Header-Redirects-and-User-Agent" title="Newer Post: Fixing Web Spider Errors with Guzzle Cookie Header Redirects and User Agent">
-                Fixing Web Spider Errors with Guzzle Cookie Header Redirects and User Agent &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>
