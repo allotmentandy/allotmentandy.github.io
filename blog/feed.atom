@@ -3,14 +3,64 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-11-22T11:03:01+00:00</updated>
+    <updated>2022-11-25T10:22:43+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
-    <id>https://allotmentandy.github.io/blog/2022-11-22-Using-Screen-and-Links2-to-run-a-PHP-Web-Spider-and-Detach-the-Terminal</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-11-22-Using-Screen-and-Links2-to-run-a-PHP-Web-Spider-and-Detach-the-Terminal" />
+    <id>https://allotmentandy.github.io/blog/2022-11-25-Adding-A-Twitter-Card-Meta-Tag-Image</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-11-25-Adding-A-Twitter-Card-Meta-Tag-Image" />
+    <title>Adding A Twitter Card Meta Tag Image</title>
+    <published>2022-11-25T00:00:00+00:00</published>
+    <updated>2022-11-25T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Today I have added a Twitter Card image for when I link to a post from Twitter. Here it is:...</summary>
+    <content type="html"><![CDATA[
+        <p>Today I have added a Twitter Card image for when I link to a post from Twitter. Here it is:</p>
+
+<p><img src="/assets/images/TwitterCard.jpg" alt="allotment andy twitter card" /></p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2022-11-22-Looking-Up-Domains-for-DNS-Entries-with-PHP-and-Dig</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-11-22-Looking-Up-Domains-for-DNS-Entries-with-PHP-and-Dig" />
+    <title>Looking Up Domains for DNS Entries with PHP and Dig</title>
+    <published>2022-11-23T00:00:00+00:00</published>
+    <updated>2022-11-23T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">One improvement I made today to speed up spidering website domains, is looking up the domain for a DNS-A entry. Using Curl or Guzzle is slowed down when the website has no entry in the DNS. So i started with the basic php function......</summary>
+    <content type="html"><![CDATA[
+        <p>One improvement I made today to speed up spidering website domains, is looking up the domain for a DNS-A entry. Using Curl or Guzzle is slowed down when the website has no entry in the DNS. So i started with the basic php function <code>dns_get_record</code>, however this isnt very reliable as it often caused an error. The '@' sign is to prevent errors, but there are known bugs with this function. The DNS_ALL option does seem to help, but it is a lot slower than just the A record look up.</p>
+
+<pre><code class="language-php">    $result = @dns_get_record($domain, DNS_A);
+</code></pre>
+
+<p>So I decided to use the Linux Command Line tool <strong>dig</strong> which has proved much more reliable.</p>
+
+<pre><code class="language-php">try {
+    $result = shell_exec("dig +short ". $domain . ' A');
+} catch (Exception $e) {
+    break;
+}
+
+if (isset($result)) {
+    echo " exists" . PHP_EOL;
+} else {
+    echo "NO dns: " . $domain. PHP_EOL;
+}
+</code></pre>
+
+<p>This way I can check domains quickly and efficiently and mark those that dont work without wasting time trying to index a website which hasnt even got a DNS entry.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2022-11-23-Using-Screen-and-Links2-to-run-a-PHP-Web-Spider-and-Detach-the-Terminal</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-11-23-Using-Screen-and-Links2-to-run-a-PHP-Web-Spider-and-Detach-the-Terminal" />
     <title>Using Screen and Links2 to run a PHP Web Spider and Detach the Terminal</title>
     <published>2022-11-22T00:00:00+00:00</published>
     <updated>2022-11-22T00:00:00+00:00</updated>

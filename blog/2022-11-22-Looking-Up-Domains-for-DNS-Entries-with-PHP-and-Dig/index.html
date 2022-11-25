@@ -5,20 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="GRR, Duplicate Github Pages | Allotment Andy"/>
+        <meta property="og:title" content="Looking Up Domains for DNS Entries with PHP and Dig | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-22-Looking-Up-Domains-for-DNS-Entries-with-PHP-and-Dig"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="GRR, Duplicate Github Pages" />
+        <meta property="og:title" content="Looking Up Domains for DNS Entries with PHP and Dig" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
-<meta property="og:description" content="fixed the deploy issue, there was 2 github pages sites!!" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-22-Looking-Up-Domains-for-DNS-Entries-with-PHP-and-Dig" />
+<meta property="og:description" content="" />
 <meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
-        <title>Allotment Andy | GRR, Duplicate Github Pages</title>
+        <title>Allotment Andy | Looking Up Domains for DNS Entries with PHP and Dig</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=e7f269d6fc8ea0c2fef009497b7dac48">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -89,34 +89,53 @@
 
     
     <h1 class="leading-none mb-2">
-                GRR, Duplicate Github Pages
+                <img src="/assets/img/php.svg" alt="Looking Up Domains for DNS Entries with PHP and Dig" class=" w-16 h-16 inline-block">
+                Looking Up Domains for DNS Entries with PHP and Dig
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">May 9, 2020</p>
+    <p class="text-gray-700 text-sm md:mt-0">November 23, 2022</p>
 
-            <a href="/blog/categories/jigsaw" title="View posts in jigsaw"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">jigsaw</a>
+            <a href="/blog/categories/bash" title="View posts in bash"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">bash</a>
+        <a href="/blog/categories/laravel" title="View posts in laravel"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>12.26pm</p>
+        <p>One improvement I made today to speed up spidering website domains, is looking up the domain for a DNS-A entry. Using Curl or Guzzle is slowed down when the website has no entry in the DNS. So i started with the basic php function <code>dns_get_record</code>, however this isnt very reliable as it often caused an error. The '@' sign is to prevent errors, but there are known bugs with this function. The DNS_ALL option does seem to help, but it is a lot slower than just the A record look up.</p>
 
-<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
+<pre><code class="language-php">    $result = @dns_get_record($domain, DNS_A);
+</code></pre>
 
-<p>I deleted that repo and now it is working as expected.</p>
+<p>So I decided to use the Linux Command Line tool <strong>dig</strong> which has proved much more reliable.</p>
+
+<pre><code class="language-php">try {
+    $result = shell_exec("dig +short ". $domain . ' A');
+} catch (Exception $e) {
+    break;
+}
+
+if (isset($result)) {
+    echo " exists" . PHP_EOL;
+} else {
+    echo "NO dns: " . $domain. PHP_EOL;
+}
+</code></pre>
+
+<p>This way I can check domains quickly and efficiently and mark those that dont work without wasting time trying to index a website which hasnt even got a DNS entry.</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked" title="Older Post: Yesterday I Cooked">
-                &LeftArrow; Yesterday I Cooked
+                        <a href="https://allotmentandy.github.io/blog/2022-11-23-Using-Screen-and-Links2-to-run-a-PHP-Web-Spider-and-Detach-the-Terminal" title="Older Post: Using Screen and Links2 to run a PHP Web Spider and Detach the Terminal">
+                &LeftArrow; Using Screen and Links2 to run a PHP Web Spider and Detach the Terminal
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2020-05-09-jigsaw-ideas" title="Newer Post: Jigsaw Ideas">
-                Jigsaw Ideas &RightArrow;
+                        <a href="https://allotmentandy.github.io/blog/2022-11-25-Adding-A-Twitter-Card-Meta-Tag-Image" title="Newer Post: Adding A Twitter Card Meta Tag Image">
+                Adding A Twitter Card Meta Tag Image &RightArrow;
             </a>
                     </div>
     </nav>
