@@ -5,19 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Allotment Andy"/>
+        <meta property="og:title" content="Serverless Laravel with Bref using AWS Lambda Part 1 | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/10"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-27-Serverless-Laravel-with-Bref-using-AWS-Lambda-Part-1"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-            <meta property="og:title" content="Allotment Andy Blog" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/10"/>
-    <meta property="og:description" content="The list of blog posts for Allotment Andy" />
-        <title>Allotment Andy | </title>
+        <meta property="og:title" content="Serverless Laravel with Bref using AWS Lambda Part 1" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-11-27-Serverless-Laravel-with-Bref-using-AWS-Lambda-Part-1" />
+<meta property="og:description" content="" />
+<meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
+        <title>Allotment Andy | Serverless Laravel with Bref using AWS Lambda Part 1</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=e7f269d6fc8ea0c2fef009497b7dac48">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -84,247 +85,140 @@
 </nav>
         <div class="flex">
             <main role="main" class="flex-auto w-full container mx-auto py-16 px-6">
-                    <h1>Blog</h1>
+                <div class=" mb-4 mt-2 bg-gray-100 px-4 py-4 rounded-lg">
 
-    <hr class="border-b my-6">
-
-
-            <nav class="flex text-base my-8">
-                            <a
-                    href="/blog/9"
-                    title="Previous Page"
-                    class="bg-gray-200 hover:bg-gray-400 rounded mr-3 px-5 py-3"
-                >&LeftArrow;</a>
-            
-                            <a
-                    href="/blog"
-                    title="Go to Page 1"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >1</a>
-                            <a
-                    href="/blog/2"
-                    title="Go to Page 2"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >2</a>
-                            <a
-                    href="/blog/3"
-                    title="Go to Page 3"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >3</a>
-                            <a
-                    href="/blog/4"
-                    title="Go to Page 4"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >4</a>
-                            <a
-                    href="/blog/5"
-                    title="Go to Page 5"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >5</a>
-                            <a
-                    href="/blog/6"
-                    title="Go to Page 6"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >6</a>
-                            <a
-                    href="/blog/7"
-                    title="Go to Page 7"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >7</a>
-                            <a
-                    href="/blog/8"
-                    title="Go to Page 8"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >8</a>
-                            <a
-                    href="/blog/9"
-                    title="Go to Page 9"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >9</a>
-                            <a
-                    href="/blog/10"
-                    title="Go to Page 10"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 text-blue-600"
-                >10</a>
-            
-                    </nav>
     
-            <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
+    <h1 class="leading-none mb-2">
+                <img src="/assets/img/Aws.svg" alt="Serverless Laravel with Bref using AWS Lambda Part 1" class=" w-16 h-16 inline-block">
+                Serverless Laravel with Bref using AWS Lambda Part 1
+    </h1>
 
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-30"
-            title="Read more - Cooking Day"
-            class="text-gray-900 font-extrabold"
-        >
-                Cooking Day</a>
-    </h2>
+    <p class="text-gray-700 text-sm md:mt-0">November 27, 2022</p>
 
-    <p class="text-gray-700 font-medium my-2">
-        April 30, 2020
-    </p>
+            <a href="/blog/categories/aws" title="View posts in aws"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">aws</a>
+        <a href="/blog/categories/laravel" title="View posts in laravel"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
+        
+    <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
+        <p>Having worked on improving my suite of spiders, I wanted to expand the coverage to all the websites in the UK area of Openstreetmap and also incorporate more websites for a search engine I have in mind.</p>
 
-    <p class="mb-4 mt-0">Yesterday i made a tray of yeast following this recipe
-WikiHow
+<p>One idea to improve the speed and the number of websites I can index visit is by using serverless technology. This way I could create a server instance for each website spidering sessions and queue them all at once with AWS Lambda.</p>
 
-This create 27 yeast blocks of around 0.6 ounces each. I left these drying
-overnight and today i will make bread and freeze a load of...</p>
+<p>Using the AWS free tier, you can make 1 million request a month and 400,000 GB seconds of compute time per month, sounds like a lot!</p>
 
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-30"
-        title="Read more - Cooking Day"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
+<p>So I started with a normal laravel install</p>
+
+<pre><code>composer create-project laravel/laravel aws-bref-serverless-lambda
+cd aws-bref-serverless-lambda/
+chmod -R 777 storage/
+</code></pre>
+
+<p>I have watched a number of videos to learn how to do this and this was the best to start with. It is made by <a href="https://mobile.twitter.com/matthieunapoli" target="_blank">@matthieunapoli</a></p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BgGnKqDZSkA" frameborder="0" allowfullscreen></iframe>
+
+<h3>step 1- add laravel bridge</h3>
+
+<pre><code>composer require bref/laravel-bridge --update-with-dependencies
+</code></pre>
+
+<h3>step 2- create the serverless.yml file</h3>
+
+<pre><code>php artisan vendor:publish --tag=serverless-config
+</code></pre>
+
+<h3>step 3 - install <a href="https://github.com/serverless/serverless" target="_blank">serverless framework</a></h3>
+
+<p>It is made by <a href="https://twitter.com/goserverless/" target="_blank">twitter.com/goserverless/</a></p>
+
+<pre><code>npm install -g serverless
+</code></pre>
+
+<h3>step 4 - <a href="https://www.serverless.com/framework/docs/providers/aws/guide/credentials/" target="_blank">configure serverless to access the aws account</a></h3>
+
+<p>by running the command 'serverless' I was able to configure serverless with the secret and access keys for AWS and deploy easily.</p>
+
+<pre><code>$ serverless
+
+? No AWS credentials found, what credentials do you want to use? Local AWS Access Keys
+? Do you have an AWS account? Yes
+
+If your browser does not open automatically, please open this URL: 
+https://console.aws.amazon.com/iam/home?region=us-east-1#/users$new?step=final&amp;accessKey&amp;userNames=serverless&amp;permissionType=policies&amp;policies=arn:aws:iam::aws:policy%2FAdministratorAccess
+
+? In your AWS account, create an AWS user with access keys. Then press [Enter] to continue.
+? AWS Access Key Id: 'key pasted here'
+? AWS Secret Access Key: 'secret access key pasted here'
+
+✔ AWS credentials saved on your machine at "~/.aws/credentials". Go there to change them at any time.
+
+? Do you want to deploy now? Yes
+
+Deploying laravel to stage dev (us-east-1)
+
+✔ Service deployed to stack laravel-dev (197s)
+
+endpoint: ANY - https://aaaaaaaaa.execute-api.us-east-1.amazonaws.com
+functions:
+  web: laravel-dev-web (30 MB)
+  artisan: laravel-dev-artisan (30 MB)
+
+What next?
+Run these commands in the project directory:
+
+serverless deploy    Deploy changes
+serverless info      View deployed endpoints and resources
+serverless invoke    Invoke deployed functions
+serverless --help    Discover more commands
+
+1 deprecation found: run 'serverless doctor' for more details
+</code></pre>
+
+<p>And it was live!</p>
+
+<p>so i deleted it with</p>
+
+<pre><code>serverless remove
+</code></pre>
+
+<p>To deploy it again I ran</p>
+
+<pre><code>serverless deploy
+</code></pre>
+
+<p>and to run the php artisan cli command and it worked!</p>
+
+<pre><code>$ vendor/bin/bref cli laravel-dev-artisan inspire
+
+  “ Happiness is not something readymade. It comes from your own actions. ”
+  — Dalai Lama
+</code></pre>
+
+<p>In part 2 i will add some production level code to connect to a mysql database.</p>
+        <hr>
+        <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
+    </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                        <a href="https://allotmentandy.github.io/blog/2022-11-25-Adding-A-Twitter-Card-Meta-Tag-Image" title="Older Post: Adding A Twitter Card Meta Tag Image">
+                &LeftArrow; Adding A Twitter Card Meta Tag Image
+            </a>
+                    </div>
+
+        <div>
+                    </div>
+    </nav>
 </div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-29"
-            title="Read more - Jigsaw Templates"
-            class="text-gray-900 font-extrabold"
-        >
-                Jigsaw Templates</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        April 29, 2020
-    </p>
-
-    <p class="mb-4 mt-0">Working on templates for this static site. The mix of markdown and HTML isnt
-working.
-
-
-
-[ ] Daily page - template for each day, with a shell script to create it
-
-[ ] Code page - with examples of...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-29"
-        title="Read more - Jigsaw Templates"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts"
-            title="Read more - Jigsaw Static Site Thoughts"
-            class="text-gray-900 font-extrabold"
-        >
-                Jigsaw Static Site Thoughts</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        April 29, 2020
-    </p>
-
-    <p class="mb-4 mt-0">I was looking for a project to help me do a few things. write a blog, store
-reference material for things I am interested in, create a database of plants
-I like to grow, learn about markdown &amp;...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts"
-        title="Read more - Jigsaw Static Site Thoughts"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-28-raining"
-            title="Read more - Rainy Day - Thoughts about Debian"
-            class="text-gray-900 font-extrabold"
-        >
-                Rainy Day - Thoughts about Debian</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        April 28, 2020
-    </p>
-
-    <p class="mb-4 mt-0">8.15am in bed, it is raining, wondering what to do today.
-
-I have been using Debian Linux for years, I guess about version 5. Recently I
-found the 4.9 kernel caused the computer to lock / freeze...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-28-raining"
-        title="Read more - Rainy Day - Thoughts about Debian"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-            
-            <nav class="flex text-base my-8">
-                            <a
-                    href="/blog/9"
-                    title="Previous Page"
-                    class="bg-gray-200 hover:bg-gray-400 rounded mr-3 px-5 py-3"
-                >&LeftArrow;</a>
-            
-                            <a
-                    href="/blog"
-                    title="Go to Page 1"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >1</a>
-                            <a
-                    href="/blog/2"
-                    title="Go to Page 2"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >2</a>
-                            <a
-                    href="/blog/3"
-                    title="Go to Page 3"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >3</a>
-                            <a
-                    href="/blog/4"
-                    title="Go to Page 4"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >4</a>
-                            <a
-                    href="/blog/5"
-                    title="Go to Page 5"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >5</a>
-                            <a
-                    href="/blog/6"
-                    title="Go to Page 6"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >6</a>
-                            <a
-                    href="/blog/7"
-                    title="Go to Page 7"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >7</a>
-                            <a
-                    href="/blog/8"
-                    title="Go to Page 8"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >8</a>
-                            <a
-                    href="/blog/9"
-                    title="Go to Page 9"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >9</a>
-                            <a
-                    href="/blog/10"
-                    title="Go to Page 10"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 text-blue-600"
-                >10</a>
-            
-                    </nav>
-                </main>
+<script src="https://utteranc.es/client.js"
+        repo="allotmentandy/blog_comments"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+            </main>
         </div>
         <!-- footer -->
         <footer class="w-full border-t bg-gray-100">
