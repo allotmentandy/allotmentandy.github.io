@@ -5,19 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Allotment Andy"/>
+        <meta property="og:title" content="Setting Up A Typesense Website Search Engine | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/10"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-12-06-Setting-Up-A-Typesense-Website-Search-Engine"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-            <meta property="og:title" content="Allotment Andy Blog" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/10"/>
-    <meta property="og:description" content="The list of blog posts for Allotment Andy" />
-        <title>Allotment Andy | </title>
+        <meta property="og:title" content="Setting Up A Typesense Website Search Engine" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-12-06-Setting-Up-A-Typesense-Website-Search-Engine" />
+<meta property="og:description" content="" />
+<meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
+        <title>Allotment Andy | Setting Up A Typesense Website Search Engine</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=e7f269d6fc8ea0c2fef009497b7dac48">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -84,306 +85,236 @@
 </nav>
         <div class="flex">
             <main role="main" class="flex-auto w-full container mx-auto py-16 px-6">
-                    <h1>Blog</h1>
+                <div class=" mb-4 mt-2 bg-gray-100 px-4 py-4 rounded-lg">
 
-    <hr class="border-b my-6">
-
-
-            <nav class="flex text-base my-8">
-                            <a
-                    href="/blog/9"
-                    title="Previous Page"
-                    class="bg-gray-200 hover:bg-gray-400 rounded mr-3 px-5 py-3"
-                >&LeftArrow;</a>
-            
-                            <a
-                    href="/blog"
-                    title="Go to Page 1"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >1</a>
-                            <a
-                    href="/blog/2"
-                    title="Go to Page 2"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >2</a>
-                            <a
-                    href="/blog/3"
-                    title="Go to Page 3"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >3</a>
-                            <a
-                    href="/blog/4"
-                    title="Go to Page 4"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >4</a>
-                            <a
-                    href="/blog/5"
-                    title="Go to Page 5"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >5</a>
-                            <a
-                    href="/blog/6"
-                    title="Go to Page 6"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >6</a>
-                            <a
-                    href="/blog/7"
-                    title="Go to Page 7"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >7</a>
-                            <a
-                    href="/blog/8"
-                    title="Go to Page 8"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >8</a>
-                            <a
-                    href="/blog/9"
-                    title="Go to Page 9"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >9</a>
-                            <a
-                    href="/blog/10"
-                    title="Go to Page 10"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 text-blue-600"
-                >10</a>
-            
-                    </nav>
     
-            <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
+    <h1 class="leading-none mb-2">
+                <img src="/assets/img/typesense.svg" alt="Setting Up A Typesense Website Search Engine" class=" w-16 h-16 inline-block">
+                Setting Up A Typesense Website Search Engine
+    </h1>
 
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-30-laravel"
-            title="Read more - Laravel"
-            class="text-gray-900 font-extrabold"
-        >
-                Laravel</a>
-    </h2>
+    <p class="text-gray-700 text-sm md:mt-0">December 6, 2022</p>
 
-    <p class="text-gray-700 font-medium my-2">
-        May 8, 2020
-    </p>
+            <a href="/blog/categories/laravel" title="View posts in laravel"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
+        <a href="/blog/categories/typesense" title="View posts in typesense"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">typesense</a>
+        
+    <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
+        <p>I wanted to setup a search engine for the urls and pages for my londinium.com site. I looked a options and found <a href="https://typesense.org/" target="_blank">typesense</a> which is an opensource solution and looks interesting.</p>
 
-    <p class="mb-4 mt-0">Laravel is a great PHP Framework which i have used for many years.
+<p>I installed it locally with these 2 commands</p>
 
-There are a number of Laravel projects I am enjoying using at the moment
+<pre><code class="language-bash">curl -O https://dl.typesense.org/releases/0.23.1/typesense-server-0.23.1-amd64.deb
+sudo apt install ./typesense-server-0.23.1-amd64.deb
+</code></pre>
 
-Laravel Boilerplate
+<p>Now I can run the typesense server thus:</p>
 
-Laravel Auth
+<pre><code>typesense-server  --data-dir=/var/lib/typesense --api-key=API_KEY_HERE
+</code></pre>
 
-I am looking to create...</p>
+<p>The API_KEY is created in the <code>/etc/typesense/typesense-server.ini</code> file</p>
 
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-30-laravel"
-        title="Read more - Laravel"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
+<p>and to check the situation with this command.</p>
+
+<p><strong>systemctl status typesense-server.service</strong></p>
+
+<p>resulting in:</p>
+
+<pre><code>● typesense-server.service - Typesense Server
+     Loaded: loaded (/etc/systemd/system/typesense-server.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2022-12-01 05:21:39 GMT; 7h ago
+       Docs: https://typesense.org
+   Main PID: 1096 (typesense-serve)
+      Tasks: 91 (limit: 13630)
+     Memory: 89.7M
+        CPU: 46.755s
+     CGroup: /system.slice/typesense-server.service
+             └─1096 /usr/bin/typesense-server --config=/etc/typesense/typesense-server.ini
+
+systemd[1]: Started Typesense Server.
+typesense-server[1096]: Log directory is configured as: /var/log/typesense
+typesense-server[1096]: E20221201 05:22:17.530272  1778 raft_server.h:62] Peer refresh failed, error: Doing another configuration change
+</code></pre>
+
+<p>and to run a status check.</p>
+
+<pre><code>curl http://localhost:8108/health
+{"ok":true}
+</code></pre>
+
+<p>Using the php version of the setup, i am going to create a simple json for websites</p>
+
+<pre><code class="language-php">&lt;?php
+
+$websiteSchema = [
+  'name' =&gt; 'websites',
+  'fields' =&gt; [
+    ['name' =&gt; 'url', 'type' =&gt; 'string'],
+    ['name' =&gt; 'title', 'type' =&gt; 'string'],
+    ['name' =&gt; 'description', 'type' =&gt; 'string[]', 'facet' =&gt; true]
+  ],
+  'default_sorting_field' =&gt; 'url'
+];
+
+$client-&gt;collections-&gt;create($websiteSchema);
+</code></pre>
+
+<p>import some data with this json file. Jsonl is a form of json with multiple lines of json. <a href="https://hackernoon.com/json-lines-format-76353b4e588d" target="_blank">this article explains</a></p>
+
+<p>This is an example of 1 row in the json.</p>
+
+<pre><code class="language-json">{"id":"100275575","nwr":"way","title":"Home | Dover Castle Hostel","description":"Dover Castle, The Dover Castle Hostel is in the perfect location to explore London for budget travellers and groups. Being so close to the heart of London just check in at Dover Castle and enjoy the lively atmosphere with the friendly staff","url":"/way/100275575"}
+</code></pre>
+
+<p>And to import it</p>
+
+<pre><code class="language-php">$websitesData = file_get_contents('websites.jsonl');
+
+$client-&gt;collections['websites']-&gt;documents-&gt;import($websitesData);
+</code></pre>
+
+<p>Now to test it, here is a command line curl command</p>
+
+<pre><code>curl -H "X-TYPESENSE-API-KEY: API_KEY_HERE" \
+"http://localhost:8108/collections/websites/documents/search\
+?q=dover&amp;query_by=description"
+</code></pre>
+
+<p>Which returns this json result</p>
+
+<pre><code class="language-json">{"facet_counts":[],"found":1,"hits":[{"document":{"description":"Dover Castle, The Dover Castle Hostel is in the perfect location to explore London for budget travellers and groups. Being so close to the heart of London just check in at Dover Castle and enjoy the lively atmosphere with the friendly staff","id":"100275575","nwr":"way","title":"Home | Dover Castle Hostel","url":"/way/100275575"},"highlights":[{"field":"description","matched_tokens":["Dover","Dover"],"snippet":"&lt;mark&gt;Dover&lt;/mark&gt; Castle, The &lt;mark&gt;Dover&lt;/mark&gt; Castle"}],"text_match":72341265420648449}],"out_of":100,"page":1,"request_params":{"collection_name":"websites","per_page":10,"q":"dover"},"search_cutoff":false,"search_time_ms":304}
+</code></pre>
+
+<p>and in laravel this is the controller</p>
+
+<pre><code class="language-php">&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Typesense\Client;
+
+class SearchController extends Controller
+{
+    public function index(Request $request)
+    {
+        echo "search for ";
+        $q = $request-&gt;input('q');
+        echo $q;
+
+        $client = new Client(
+            [
+              'api_key'         =&gt; 'API_KEY_HERE',
+              'nodes'           =&gt; [
+                [
+                  'host'     =&gt; 'localhost', // For Typesense Cloud use xxx.a1.typesense.net
+                  'port'     =&gt; '8108',      // For Typesense Cloud use 443
+                  'protocol' =&gt; 'http',      // For Typesense Cloud use https
+                ],
+              ],
+              'connection_timeout_seconds' =&gt; 2,
+            ]
+        );
+
+        $searchParameters = [
+            'q'         =&gt; $q,
+            'query_by'  =&gt; 'description'
+          ];
+
+        $result = $client-&gt;collections['websites']-&gt;documents-&gt;search($searchParameters);
+
+        dd($result);
+
+    }
+}
+</code></pre>
+
+<p>which results in</p>
+
+<pre><code class="language-json">array:8 [▼ // app/Http/Controllers/SearchController.php:37
+  "facet_counts" =&gt; []
+  "found" =&gt; 13
+  "hits" =&gt; array:10 [▼
+    0 =&gt; array:3 [▼
+      "document" =&gt; array:5 [▶]
+      "highlights" =&gt; array:1 [▶]
+      "text_match" =&gt; 72341265420648449
+    ]
+    1 =&gt; array:3 [▼
+      "document" =&gt; array:5 [▼
+        "description" =&gt; "Dover Castle, The Dover Castle Hostel is in the perfect location to explore London for budget travellers and groups. Being so close to the heart of London just  ▶"
+        "id" =&gt; "100275575"
+        "nwr" =&gt; "way"
+        "title" =&gt; "Home | Dover Castle Hostel"
+        "url" =&gt; "/way/100275575"
+      ]
+      "highlights" =&gt; array:1 [▼
+        0 =&gt; array:3 [▼
+          "field" =&gt; "description"
+          "matched_tokens" =&gt; array:1 [▶]
+          "snippet" =&gt; "perfect location to explore &lt;mark&gt;London&lt;/mark&gt; for budget travellers and"
+        ]
+      ]
+      "text_match" =&gt; 72341265420648449
+    ]
+    2 =&gt; array:3 [▶]
+    3 =&gt; array:3 [▶]
+    4 =&gt; array:3 [▶]
+    5 =&gt; array:3 [▶]
+    6 =&gt; array:3 [▶]
+    7 =&gt; array:3 [▶]
+    8 =&gt; array:3 [▶]
+    9 =&gt; array:3 [▶]
+  ]
+  "out_of" =&gt; 100
+  "page" =&gt; 1
+  "request_params" =&gt; array:3 [▼
+    "collection_name" =&gt; "websites"
+    "per_page" =&gt; 10
+    "q" =&gt; "london"
+  ]
+  "search_cutoff" =&gt; false
+  "search_time_ms" =&gt; 415
+]
+</code></pre>
+
+<p>This is a great start, I am going to publish this and explore the options for displaying this resulting search json.</p>
+
+<p>Questions/Ideas:</p>
+
+<ol>
+<li>Can i search on multiple fields, ie url, description and title at the same time.</li>
+<li>Adding the geosearch to the schema and json db, <a href="https://typesense.org/docs/0.23.1/api/geosearch.html#searching-within-a-radius" target="_blank">typesense.org geosearch</a></li>
+<li>Extracting the results from the json and the paging.</li>
+<li>looking at the javascript instantsearch</li>
+</ol>
+
+<p>if anyone has any suggestions, links or tips, please comment below or via <a href="https://twitter.com/andylondon" target="_blank">twitter</a></p>
+        <hr>
+        <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
+    </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                        <a href="https://allotmentandy.github.io/blog/2022-11-28-Serverless-Laravel-with-Bref-using-AWS-Lambda-Part-2" title="Older Post: Serverless Laravel with Bref using AWS Lambda Part 2">
+                &LeftArrow; Serverless Laravel with Bref using AWS Lambda Part 2
+            </a>
+                    </div>
+
+        <div>
+                    </div>
+    </nav>
 </div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-05-08-markdown"
-            title="Read more - Markdown"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Markdown.svg" alt="" class=" w-8 h-8 inline-block">
-                Markdown</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        May 8, 2020
-    </p>
-
-    <p class="mb-4 mt-0">A list of examples of markdown in action</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-05-08-markdown"
-        title="Read more - Markdown"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-30"
-            title="Read more - Cooking Day"
-            class="text-gray-900 font-extrabold"
-        >
-                Cooking Day</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        April 30, 2020
-    </p>
-
-    <p class="mb-4 mt-0">Yesterday i made a tray of yeast following this recipe
-WikiHow
-
-This create 27 yeast blocks of around 0.6 ounces each. I left these drying
-overnight and today i will make bread and freeze a load of...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-30"
-        title="Read more - Cooking Day"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-29"
-            title="Read more - Jigsaw Templates"
-            class="text-gray-900 font-extrabold"
-        >
-                Jigsaw Templates</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        April 29, 2020
-    </p>
-
-    <p class="mb-4 mt-0">Working on templates for this static site. The mix of markdown and HTML isnt
-working.
-
-
-
-[ ] Daily page - template for each day, with a shell script to create it
-
-[ ] Code page - with examples of...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-29"
-        title="Read more - Jigsaw Templates"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts"
-            title="Read more - Jigsaw Static Site Thoughts"
-            class="text-gray-900 font-extrabold"
-        >
-                Jigsaw Static Site Thoughts</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        April 29, 2020
-    </p>
-
-    <p class="mb-4 mt-0">I was looking for a project to help me do a few things. write a blog, store
-reference material for things I am interested in, create a database of plants
-I like to grow, learn about markdown &amp;...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts"
-        title="Read more - Jigsaw Static Site Thoughts"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-                    <hr class="border-b my-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2020-04-28-raining"
-            title="Read more - Rainy Day - Thoughts about Debian"
-            class="text-gray-900 font-extrabold"
-        >
-                Rainy Day - Thoughts about Debian</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        April 28, 2020
-    </p>
-
-    <p class="mb-4 mt-0">8.15am in bed, it is raining, wondering what to do today.
-
-I have been using Debian Linux for years, I guess about version 5. Recently I
-found the 4.9 kernel caused the computer to lock / freeze...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2020-04-28-raining"
-        title="Read more - Rainy Day - Thoughts about Debian"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-            
-            <nav class="flex text-base my-8">
-                            <a
-                    href="/blog/9"
-                    title="Previous Page"
-                    class="bg-gray-200 hover:bg-gray-400 rounded mr-3 px-5 py-3"
-                >&LeftArrow;</a>
-            
-                            <a
-                    href="/blog"
-                    title="Go to Page 1"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >1</a>
-                            <a
-                    href="/blog/2"
-                    title="Go to Page 2"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >2</a>
-                            <a
-                    href="/blog/3"
-                    title="Go to Page 3"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >3</a>
-                            <a
-                    href="/blog/4"
-                    title="Go to Page 4"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >4</a>
-                            <a
-                    href="/blog/5"
-                    title="Go to Page 5"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >5</a>
-                            <a
-                    href="/blog/6"
-                    title="Go to Page 6"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >6</a>
-                            <a
-                    href="/blog/7"
-                    title="Go to Page 7"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >7</a>
-                            <a
-                    href="/blog/8"
-                    title="Go to Page 8"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >8</a>
-                            <a
-                    href="/blog/9"
-                    title="Go to Page 9"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 "
-                >9</a>
-                            <a
-                    href="/blog/10"
-                    title="Go to Page 10"
-                    class="bg-gray-200 hover:bg-gray-400 text-blue-700 rounded mr-3 px-5 py-3 text-blue-600"
-                >10</a>
-            
-                    </nav>
-                </main>
+<script src="https://utteranc.es/client.js"
+        repo="allotmentandy/blog_comments"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+            </main>
         </div>
         <!-- footer -->
         <footer class="w-full border-t bg-gray-100">

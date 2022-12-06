@@ -3,12 +3,301 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-11-27T11:12:59+00:00</updated>
+    <updated>2022-12-06T11:59:13+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-12-06-Setting-Up-A-Typesense-Website-Search-Engine</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-12-06-Setting-Up-A-Typesense-Website-Search-Engine" />
+    <title>Setting Up A Typesense Website Search Engine</title>
+    <published>2022-12-06T00:00:00+00:00</published>
+    <updated>2022-12-06T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I wanted to setup a search engine for the urls and pages for my londinium.com site. I looked a options and found typesense which is an opensource solution and looks interesting.
+
+I installed it locally with these 2 commands
+
+
+
+Now I can run the typesense......</summary>
+    <content type="html"><![CDATA[
+        <p>I wanted to setup a search engine for the urls and pages for my londinium.com site. I looked a options and found <a href="https://typesense.org/" target="_blank">typesense</a> which is an opensource solution and looks interesting.</p>
+
+<p>I installed it locally with these 2 commands</p>
+
+<pre><code class="language-bash">curl -O https://dl.typesense.org/releases/0.23.1/typesense-server-0.23.1-amd64.deb
+sudo apt install ./typesense-server-0.23.1-amd64.deb
+</code></pre>
+
+<p>Now I can run the typesense server thus:</p>
+
+<pre><code>typesense-server  --data-dir=/var/lib/typesense --api-key=API_KEY_HERE
+</code></pre>
+
+<p>The API_KEY is created in the <code>/etc/typesense/typesense-server.ini</code> file</p>
+
+<p>and to check the situation with this command.</p>
+
+<p><strong>systemctl status typesense-server.service</strong></p>
+
+<p>resulting in:</p>
+
+<pre><code>● typesense-server.service - Typesense Server
+     Loaded: loaded (/etc/systemd/system/typesense-server.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2022-12-01 05:21:39 GMT; 7h ago
+       Docs: https://typesense.org
+   Main PID: 1096 (typesense-serve)
+      Tasks: 91 (limit: 13630)
+     Memory: 89.7M
+        CPU: 46.755s
+     CGroup: /system.slice/typesense-server.service
+             └─1096 /usr/bin/typesense-server --config=/etc/typesense/typesense-server.ini
+
+systemd[1]: Started Typesense Server.
+typesense-server[1096]: Log directory is configured as: /var/log/typesense
+typesense-server[1096]: E20221201 05:22:17.530272  1778 raft_server.h:62] Peer refresh failed, error: Doing another configuration change
+</code></pre>
+
+<p>and to run a status check.</p>
+
+<pre><code>curl http://localhost:8108/health
+{"ok":true}
+</code></pre>
+
+<p>Using the php version of the setup, i am going to create a simple json for websites</p>
+
+<pre><code class="language-php">&lt;?php
+
+$websiteSchema = [
+  'name' =&gt; 'websites',
+  'fields' =&gt; [
+    ['name' =&gt; 'url', 'type' =&gt; 'string'],
+    ['name' =&gt; 'title', 'type' =&gt; 'string'],
+    ['name' =&gt; 'description', 'type' =&gt; 'string[]', 'facet' =&gt; true]
+  ],
+  'default_sorting_field' =&gt; 'url'
+];
+
+$client-&gt;collections-&gt;create($websiteSchema);
+</code></pre>
+
+<p>import some data with this json file. Jsonl is a form of json with multiple lines of json. <a href="https://hackernoon.com/json-lines-format-76353b4e588d" target="_blank">this article explains</a></p>
+
+<p>This is an example of 1 row in the json.</p>
+
+<pre><code class="language-json">{"id":"100275575","nwr":"way","title":"Home | Dover Castle Hostel","description":"Dover Castle, The Dover Castle Hostel is in the perfect location to explore London for budget travellers and groups. Being so close to the heart of London just check in at Dover Castle and enjoy the lively atmosphere with the friendly staff","url":"/way/100275575"}
+</code></pre>
+
+<p>And to import it</p>
+
+<pre><code class="language-php">$websitesData = file_get_contents('websites.jsonl');
+
+$client-&gt;collections['websites']-&gt;documents-&gt;import($websitesData);
+</code></pre>
+
+<p>Now to test it, here is a command line curl command</p>
+
+<pre><code>curl -H "X-TYPESENSE-API-KEY: API_KEY_HERE" \
+"http://localhost:8108/collections/websites/documents/search\
+?q=dover&amp;query_by=description"
+</code></pre>
+
+<p>Which returns this json result</p>
+
+<pre><code class="language-json">{"facet_counts":[],"found":1,"hits":[{"document":{"description":"Dover Castle, The Dover Castle Hostel is in the perfect location to explore London for budget travellers and groups. Being so close to the heart of London just check in at Dover Castle and enjoy the lively atmosphere with the friendly staff","id":"100275575","nwr":"way","title":"Home | Dover Castle Hostel","url":"/way/100275575"},"highlights":[{"field":"description","matched_tokens":["Dover","Dover"],"snippet":"&lt;mark&gt;Dover&lt;/mark&gt; Castle, The &lt;mark&gt;Dover&lt;/mark&gt; Castle"}],"text_match":72341265420648449}],"out_of":100,"page":1,"request_params":{"collection_name":"websites","per_page":10,"q":"dover"},"search_cutoff":false,"search_time_ms":304}
+</code></pre>
+
+<p>and in laravel this is the controller</p>
+
+<pre><code class="language-php">&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Typesense\Client;
+
+class SearchController extends Controller
+{
+    public function index(Request $request)
+    {
+        echo "search for ";
+        $q = $request-&gt;input('q');
+        echo $q;
+
+        $client = new Client(
+            [
+              'api_key'         =&gt; 'API_KEY_HERE',
+              'nodes'           =&gt; [
+                [
+                  'host'     =&gt; 'localhost', // For Typesense Cloud use xxx.a1.typesense.net
+                  'port'     =&gt; '8108',      // For Typesense Cloud use 443
+                  'protocol' =&gt; 'http',      // For Typesense Cloud use https
+                ],
+              ],
+              'connection_timeout_seconds' =&gt; 2,
+            ]
+        );
+
+        $searchParameters = [
+            'q'         =&gt; $q,
+            'query_by'  =&gt; 'description'
+          ];
+
+        $result = $client-&gt;collections['websites']-&gt;documents-&gt;search($searchParameters);
+
+        dd($result);
+
+    }
+}
+</code></pre>
+
+<p>which results in</p>
+
+<pre><code class="language-json">array:8 [▼ // app/Http/Controllers/SearchController.php:37
+  "facet_counts" =&gt; []
+  "found" =&gt; 13
+  "hits" =&gt; array:10 [▼
+    0 =&gt; array:3 [▼
+      "document" =&gt; array:5 [▶]
+      "highlights" =&gt; array:1 [▶]
+      "text_match" =&gt; 72341265420648449
+    ]
+    1 =&gt; array:3 [▼
+      "document" =&gt; array:5 [▼
+        "description" =&gt; "Dover Castle, The Dover Castle Hostel is in the perfect location to explore London for budget travellers and groups. Being so close to the heart of London just  ▶"
+        "id" =&gt; "100275575"
+        "nwr" =&gt; "way"
+        "title" =&gt; "Home | Dover Castle Hostel"
+        "url" =&gt; "/way/100275575"
+      ]
+      "highlights" =&gt; array:1 [▼
+        0 =&gt; array:3 [▼
+          "field" =&gt; "description"
+          "matched_tokens" =&gt; array:1 [▶]
+          "snippet" =&gt; "perfect location to explore &lt;mark&gt;London&lt;/mark&gt; for budget travellers and"
+        ]
+      ]
+      "text_match" =&gt; 72341265420648449
+    ]
+    2 =&gt; array:3 [▶]
+    3 =&gt; array:3 [▶]
+    4 =&gt; array:3 [▶]
+    5 =&gt; array:3 [▶]
+    6 =&gt; array:3 [▶]
+    7 =&gt; array:3 [▶]
+    8 =&gt; array:3 [▶]
+    9 =&gt; array:3 [▶]
+  ]
+  "out_of" =&gt; 100
+  "page" =&gt; 1
+  "request_params" =&gt; array:3 [▼
+    "collection_name" =&gt; "websites"
+    "per_page" =&gt; 10
+    "q" =&gt; "london"
+  ]
+  "search_cutoff" =&gt; false
+  "search_time_ms" =&gt; 415
+]
+</code></pre>
+
+<p>This is a great start, I am going to publish this and explore the options for displaying this resulting search json.</p>
+
+<p>Questions/Ideas:</p>
+
+<ol>
+<li>Can i search on multiple fields, ie url, description and title at the same time.</li>
+<li>Adding the geosearch to the schema and json db, <a href="https://typesense.org/docs/0.23.1/api/geosearch.html#searching-within-a-radius" target="_blank">typesense.org geosearch</a></li>
+<li>Extracting the results from the json and the paging.</li>
+<li>looking at the javascript instantsearch</li>
+</ol>
+
+<p>if anyone has any suggestions, links or tips, please comment below or via <a href="https://twitter.com/andylondon" target="_blank">twitter</a></p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2022-11-28-Serverless-Laravel-with-Bref-using-AWS-Lambda-Part-2</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-11-28-Serverless-Laravel-with-Bref-using-AWS-Lambda-Part-2" />
+    <title>Serverless Laravel with Bref using AWS Lambda Part 2</title>
+    <published>2022-11-28T00:00:00+00:00</published>
+    <updated>2022-11-28T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">So my first idea is to get it working and up and running using my AWS ec2 debian instance which will call a lambda function and spider the website and save the data in the mysql db on the ec2 box.
+
+Firstly I changed a few settings to work with Lambda.......</summary>
+    <content type="html"><![CDATA[
+        <p>So my first idea is to get it working and up and running using my AWS ec2 debian instance which will call a lambda function and spider the website and save the data in the mysql db on the ec2 box.</p>
+
+<p>Firstly I changed a few settings to work with Lambda. You can only write to the /tmp directory, so it is necessary to change these in the .env file. Following this <a href="https://medium.com/cs-code/deploy-serverless-laravel-application-using-bref-7b114041a695" target="_blank">tutorial</a></p>
+
+<pre><code>CACHE_DRIVER =array
+VIEW_COMPILED_PATH =/tmp/storage/framework/views 
+SESSION_DRIVER =array 
+LOG_CHANNEL =stderr
+</code></pre>
+
+<p>pasted the following into app/Providers/AppServiceProvider.php</p>
+
+<pre><code>public function boot()
+    {
+        // Make sure the directory for compiled views exist
+        if (! is_dir(config('view.compiled'))) {
+            mkdir(config('view.compiled'), 0755, true);
+        }
+    }
+</code></pre>
+
+<p>and run</p>
+
+<pre><code>php artisan config:cache
+
+php artisan config:clear
+</code></pre>
+
+<h2>mysql for remote access to EC2 instance</h2>
+
+<p>Next up I wanted to access a mysql db which is in an EC2 instance on AWS.</p>
+
+<p>Update the mysql config in the /etc/mysql directory to allow external ips like so:</p>
+
+<pre><code>sudo nano 50-server.cnf
+
+bind-address            = 0.0.0.0
+</code></pre>
+
+<p>you can alternatively bind to multiple addresses thus:</p>
+
+<pre><code>bind-address = 10.0.0.1,10.0.1.1,10.0.2.1
+</code></pre>
+
+<p>open the mysql db in the firewall</p>
+
+<pre><code>iptables -A INPUT -i eth0 -p tcp -m tcp --dport 3306 -j ACCEPT
+</code></pre>
+
+<p>add a user to the mysql config</p>
+
+<pre><code>GRANT ALL ON database_name.* TO user@ IDENTIFIED BY 'password';
+</code></pre>
+
+<p>And most importantly, adding port 3306 for the mysql db to the AWS security group for the EC2 instance</p>
+
+<p><img src="/assets/images/secGroup.png" alt="aws security group" /></p>
+
+<p>Testing the connection with</p>
+
+<pre><code>mysql -u user -h ec2ipAddress -p
+</code></pre>
+
+<p>so now I have a lambda laravel repo which can connect to an external database.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-11-27-Serverless-Laravel-with-Bref-using-AWS-Lambda-Part-1</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-11-27-Serverless-Laravel-with-Bref-using-AWS-Lambda-Part-1" />
     <title>Serverless Laravel with Bref using AWS Lambda Part 1</title>
