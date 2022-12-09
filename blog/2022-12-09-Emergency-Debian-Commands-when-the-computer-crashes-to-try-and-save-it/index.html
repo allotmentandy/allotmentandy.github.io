@@ -5,20 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Setting Up A Typesense Website Search Engine | Allotment Andy"/>
+        <meta property="og:title" content="Emergency Debian Commands when the computer crashes to try and save it | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-12-06-Setting-Up-A-Typesense-Website-Search-Engine"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-12-09-Emergency-Debian-Commands-when-the-computer-crashes-to-try-and-save-it"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Setting Up A Typesense Website Search Engine" />
+        <meta property="og:title" content="Emergency Debian Commands when the computer crashes to try and save it" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-12-06-Setting-Up-A-Typesense-Website-Search-Engine" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-12-09-Emergency-Debian-Commands-when-the-computer-crashes-to-try-and-save-it" />
 <meta property="og:description" content="" />
 <meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
-        <title>Allotment Andy | Setting Up A Typesense Website Search Engine</title>
+        <title>Allotment Andy | Emergency Debian Commands when the computer crashes to try and save it</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=e7f269d6fc8ea0c2fef009497b7dac48">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -89,224 +89,70 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/typesense.svg" alt="Setting Up A Typesense Website Search Engine" class=" w-16 h-16 inline-block">
-                Setting Up A Typesense Website Search Engine
+                <img src="/assets/img/Debian.svg" alt="Emergency Debian Commands when the computer crashes to try and save it" class=" w-16 h-16 inline-block">
+                Emergency Debian Commands when the computer crashes to try and save it
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">December 6, 2022</p>
+    <p class="text-gray-700 text-sm md:mt-0">December 9, 2022</p>
 
-            <a href="/blog/categories/laravel" title="View posts in laravel"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
-        <a href="/blog/categories/typesense" title="View posts in typesense"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">typesense</a>
+            <a href="/blog/categories/bash" title="View posts in bash"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">bash</a>
+        <a href="/blog/categories/debian" title="View posts in debian"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">debian</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>I wanted to setup a search engine for the urls and pages for my londinium.com site. I looked a options and found <a href="https://typesense.org/" target="_blank">typesense</a> which is an opensource solution and looks interesting.</p>
+        <p>I have an old laptop that often crashes when i use it. I was taking a backup of the files on it, but it seemed to hang a lot and became unresponsive so I wanted to write a blog post about how to prevent holding the power key to turn it off and to turn it off without pulling the plug.</p>
 
-<p>I installed it locally with these 2 commands</p>
+<p>It seemed to be caused by the mariadb and redis servers, which I killed with the commands</p>
 
-<pre><code class="language-bash">curl -O https://dl.typesense.org/releases/0.23.1/typesense-server-0.23.1-amd64.deb
-sudo apt install ./typesense-server-0.23.1-amd64.deb
+<pre><code class="language-bash">top
+systemctl stop mariadb
+systemctl stop redis
 </code></pre>
 
-<p>Now I can run the typesense server thus:</p>
+<p>If you force the machine to turn off, it risks rebooting into an error and having to run 'fsck' to fix it, which isnt something I want to do, so I wanted to document how to turn it off without holding down the power key.</p>
 
-<pre><code>typesense-server  --data-dir=/var/lib/typesense --api-key=API_KEY_HERE
+<p>The first option I use is to login to a virtual console. You can get to these with <code>Ctrl</code>+<code>Alt</code>+<code>F1</code> to F6. <code>Ctrl+Alt+F7</code> is the console where your X server is running, So to get back into your GUI window manager: type:</p>
+
+<pre><code class="language-bash">Ctrl+Alt+F7 (or sometimes Alt+F7 or Ctrl+Alt+F8) 
 </code></pre>
 
-<p>The API_KEY is created in the <code>/etc/typesense/typesense-server.ini</code> file</p>
+<p>now in a terminal, i can login as the root user and shutdown the machine with</p>
 
-<p>and to check the situation with this command.</p>
-
-<p><strong>systemctl status typesense-server.service</strong></p>
-
-<p>resulting in:</p>
-
-<pre><code>● typesense-server.service - Typesense Server
-     Loaded: loaded (/etc/systemd/system/typesense-server.service; enabled; vendor preset: enabled)
-     Active: active (running) since Thu 2022-12-01 05:21:39 GMT; 7h ago
-       Docs: https://typesense.org
-   Main PID: 1096 (typesense-serve)
-      Tasks: 91 (limit: 13630)
-     Memory: 89.7M
-        CPU: 46.755s
-     CGroup: /system.slice/typesense-server.service
-             └─1096 /usr/bin/typesense-server --config=/etc/typesense/typesense-server.ini
-
-systemd[1]: Started Typesense Server.
-typesense-server[1096]: Log directory is configured as: /var/log/typesense
-typesense-server[1096]: E20221201 05:22:17.530272  1778 raft_server.h:62] Peer refresh failed, error: Doing another configuration change
+<pre><code class="language-bash">shutdown now
 </code></pre>
 
-<p>and to run a status check.</p>
+<p>When you are in these 6 consoles you can press Alt+RightArrow or Alt+LeftArrow to move to next/previous console respectively. I think you can also return to it with the command 'chvt 7'</p>
 
-<pre><code>curl http://localhost:8108/health
-{"ok":true}
+<p>In this console, you can often login as root and type the command 'top' to see what is causing the problem, Mine is often the mysql db on this machine going beserk and maxing out the CPU. You can often type 'shutdown now' to naturally turn off the machine.</p>
+
+<p>If this doesnt work, the next option is the REISUB – R E I S U B key strokes. Here you press <code>ALT + PrintScreen + R</code> then wait a few seconds, followed by ALT + PrintScreen + E, ALT + PrintScreen + I, ALT + PrintScreen + S, ALT + PrintScreen + U and finally ALT + PrintScreen + B will reboot the machine as if you had held the power button down for 6-10 seconds.</p>
+
+<p>Each key does a task as mentioned below</p>
+
+<pre><code>unRaw      (take control of keyboard back from X),
+ tErminate (send SIGTERM to all processes, allowing them to terminate gracefully),
+ kIll      (send SIGKILL to all processes, forcing them to terminate immediately),
+  Sync     (flush data to disk),
+  Unmount  (remount all filesystems read-only),
+reBoot.
 </code></pre>
 
-<p>Using the php version of the setup, i am going to create a simple json for websites</p>
+<p>So with a combination of these commands and key strokes, I have managed to shutdown the machine in a more gentle way.</p>
 
-<pre><code class="language-php">&lt;?php
-
-$websiteSchema = [
-  'name' =&gt; 'websites',
-  'fields' =&gt; [
-    ['name' =&gt; 'url', 'type' =&gt; 'string'],
-    ['name' =&gt; 'title', 'type' =&gt; 'string'],
-    ['name' =&gt; 'description', 'type' =&gt; 'string[]', 'facet' =&gt; true]
-  ],
-  'default_sorting_field' =&gt; 'url'
-];
-
-$client-&gt;collections-&gt;create($websiteSchema);
-</code></pre>
-
-<p>import some data with this json file. Jsonl is a form of json with multiple lines of json. <a href="https://hackernoon.com/json-lines-format-76353b4e588d" target="_blank">this article explains</a></p>
-
-<p>This is an example of 1 row in the json.</p>
-
-<pre><code class="language-json">{"id":"100275575","nwr":"way","title":"Home | Dover Castle Hostel","description":"Dover Castle, The Dover Castle Hostel is in the perfect location to explore London for budget travellers and groups. Being so close to the heart of London just check in at Dover Castle and enjoy the lively atmosphere with the friendly staff","url":"/way/100275575"}
-</code></pre>
-
-<p>And to import it</p>
-
-<pre><code class="language-php">$websitesData = file_get_contents('websites.jsonl');
-
-$client-&gt;collections['websites']-&gt;documents-&gt;import($websitesData);
-</code></pre>
-
-<p>Now to test it, here is a command line curl command</p>
-
-<pre><code>curl -H "X-TYPESENSE-API-KEY: API_KEY_HERE" \
-"http://localhost:8108/collections/websites/documents/search\
-?q=dover&amp;query_by=description"
-</code></pre>
-
-<p>Which returns this json result</p>
-
-<pre><code class="language-json">{"facet_counts":[],"found":1,"hits":[{"document":{"description":"Dover Castle, The Dover Castle Hostel is in the perfect location to explore London for budget travellers and groups. Being so close to the heart of London just check in at Dover Castle and enjoy the lively atmosphere with the friendly staff","id":"100275575","nwr":"way","title":"Home | Dover Castle Hostel","url":"/way/100275575"},"highlights":[{"field":"description","matched_tokens":["Dover","Dover"],"snippet":"&lt;mark&gt;Dover&lt;/mark&gt; Castle, The &lt;mark&gt;Dover&lt;/mark&gt; Castle"}],"text_match":72341265420648449}],"out_of":100,"page":1,"request_params":{"collection_name":"websites","per_page":10,"q":"dover"},"search_cutoff":false,"search_time_ms":304}
-</code></pre>
-
-<p>and in laravel this is the controller</p>
-
-<pre><code class="language-php">&lt;?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use Typesense\Client;
-
-class SearchController extends Controller
-{
-    public function index(Request $request)
-    {
-        echo "search for ";
-        $q = $request-&gt;input('q');
-        echo $q;
-
-        $client = new Client(
-            [
-              'api_key'         =&gt; 'API_KEY_HERE',
-              'nodes'           =&gt; [
-                [
-                  'host'     =&gt; 'localhost', // For Typesense Cloud use xxx.a1.typesense.net
-                  'port'     =&gt; '8108',      // For Typesense Cloud use 443
-                  'protocol' =&gt; 'http',      // For Typesense Cloud use https
-                ],
-              ],
-              'connection_timeout_seconds' =&gt; 2,
-            ]
-        );
-
-        $searchParameters = [
-            'q'         =&gt; $q,
-            'query_by'  =&gt; 'description'
-          ];
-
-        $result = $client-&gt;collections['websites']-&gt;documents-&gt;search($searchParameters);
-
-        dd($result);
-
-    }
-}
-</code></pre>
-
-<p>which results in</p>
-
-<pre><code class="language-json">array:8 [▼ // app/Http/Controllers/SearchController.php:37
-  "facet_counts" =&gt; []
-  "found" =&gt; 13
-  "hits" =&gt; array:10 [▼
-    0 =&gt; array:3 [▼
-      "document" =&gt; array:5 [▶]
-      "highlights" =&gt; array:1 [▶]
-      "text_match" =&gt; 72341265420648449
-    ]
-    1 =&gt; array:3 [▼
-      "document" =&gt; array:5 [▼
-        "description" =&gt; "Dover Castle, The Dover Castle Hostel is in the perfect location to explore London for budget travellers and groups. Being so close to the heart of London just  ▶"
-        "id" =&gt; "100275575"
-        "nwr" =&gt; "way"
-        "title" =&gt; "Home | Dover Castle Hostel"
-        "url" =&gt; "/way/100275575"
-      ]
-      "highlights" =&gt; array:1 [▼
-        0 =&gt; array:3 [▼
-          "field" =&gt; "description"
-          "matched_tokens" =&gt; array:1 [▶]
-          "snippet" =&gt; "perfect location to explore &lt;mark&gt;London&lt;/mark&gt; for budget travellers and"
-        ]
-      ]
-      "text_match" =&gt; 72341265420648449
-    ]
-    2 =&gt; array:3 [▶]
-    3 =&gt; array:3 [▶]
-    4 =&gt; array:3 [▶]
-    5 =&gt; array:3 [▶]
-    6 =&gt; array:3 [▶]
-    7 =&gt; array:3 [▶]
-    8 =&gt; array:3 [▶]
-    9 =&gt; array:3 [▶]
-  ]
-  "out_of" =&gt; 100
-  "page" =&gt; 1
-  "request_params" =&gt; array:3 [▼
-    "collection_name" =&gt; "websites"
-    "per_page" =&gt; 10
-    "q" =&gt; "london"
-  ]
-  "search_cutoff" =&gt; false
-  "search_time_ms" =&gt; 415
-]
-</code></pre>
-
-<p>This is a great start, I am going to publish this and explore the options for displaying this resulting search json.</p>
-
-<p>Questions/Ideas:</p>
-
-<ol>
-<li>Can i search on multiple fields, ie url, description and title at the same time.</li>
-<li>Adding the geosearch to the schema and json db, <a href="https://typesense.org/docs/0.23.1/api/geosearch.html#searching-within-a-radius" target="_blank">typesense.org geosearch</a></li>
-<li>Extracting the results from the json and the paging.</li>
-<li>looking at the javascript instantsearch</li>
-</ol>
-
-<p>if anyone has any suggestions, links or tips, please comment below or via <a href="https://twitter.com/andylondon" target="_blank">twitter</a></p>
+<p>Hope it helps.</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-11-28-Serverless-Laravel-with-Bref-using-AWS-Lambda-Part-2" title="Older Post: Serverless Laravel with Bref using AWS Lambda Part 2">
-                &LeftArrow; Serverless Laravel with Bref using AWS Lambda Part 2
+                        <a href="https://allotmentandy.github.io/blog/2022-12-06-Setting-Up-A-Typesense-Website-Search-Engine" title="Older Post: Setting Up A Typesense Website Search Engine">
+                &LeftArrow; Setting Up A Typesense Website Search Engine
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-12-09-Emergency-Debian-Commands-when-the-computer-crashes-to-try-and-save-it" title="Newer Post: Emergency Debian Commands when the computer crashes to try and save it">
-                Emergency Debian Commands when the computer crashes to try and save it &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>

@@ -3,12 +3,65 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-12-06T11:59:13+00:00</updated>
+    <updated>2022-12-09T12:18:07+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-12-09-Emergency-Debian-Commands-when-the-computer-crashes-to-try-and-save-it</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-12-09-Emergency-Debian-Commands-when-the-computer-crashes-to-try-and-save-it" />
+    <title>Emergency Debian Commands when the computer crashes to try and save it</title>
+    <published>2022-12-09T00:00:00+00:00</published>
+    <updated>2022-12-09T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I have an old laptop that often crashes when i use it. I was taking a backup of the files on it, but it seemed to hang a lot and became unresponsive so I wanted to write a blog post about how to prevent holding the power key to turn it off and to turn it......</summary>
+    <content type="html"><![CDATA[
+        <p>I have an old laptop that often crashes when i use it. I was taking a backup of the files on it, but it seemed to hang a lot and became unresponsive so I wanted to write a blog post about how to prevent holding the power key to turn it off and to turn it off without pulling the plug.</p>
+
+<p>It seemed to be caused by the mariadb and redis servers, which I killed with the commands</p>
+
+<pre><code class="language-bash">top
+systemctl stop mariadb
+systemctl stop redis
+</code></pre>
+
+<p>If you force the machine to turn off, it risks rebooting into an error and having to run 'fsck' to fix it, which isnt something I want to do, so I wanted to document how to turn it off without holding down the power key.</p>
+
+<p>The first option I use is to login to a virtual console. You can get to these with <code>Ctrl</code>+<code>Alt</code>+<code>F1</code> to F6. <code>Ctrl+Alt+F7</code> is the console where your X server is running, So to get back into your GUI window manager: type:</p>
+
+<pre><code class="language-bash">Ctrl+Alt+F7 (or sometimes Alt+F7 or Ctrl+Alt+F8) 
+</code></pre>
+
+<p>now in a terminal, i can login as the root user and shutdown the machine with</p>
+
+<pre><code class="language-bash">shutdown now
+</code></pre>
+
+<p>When you are in these 6 consoles you can press Alt+RightArrow or Alt+LeftArrow to move to next/previous console respectively. I think you can also return to it with the command 'chvt 7'</p>
+
+<p>In this console, you can often login as root and type the command 'top' to see what is causing the problem, Mine is often the mysql db on this machine going beserk and maxing out the CPU. You can often type 'shutdown now' to naturally turn off the machine.</p>
+
+<p>If this doesnt work, the next option is the REISUB – R E I S U B key strokes. Here you press <code>ALT + PrintScreen + R</code> then wait a few seconds, followed by ALT + PrintScreen + E, ALT + PrintScreen + I, ALT + PrintScreen + S, ALT + PrintScreen + U and finally ALT + PrintScreen + B will reboot the machine as if you had held the power button down for 6-10 seconds.</p>
+
+<p>Each key does a task as mentioned below</p>
+
+<pre><code>unRaw      (take control of keyboard back from X),
+ tErminate (send SIGTERM to all processes, allowing them to terminate gracefully),
+ kIll      (send SIGKILL to all processes, forcing them to terminate immediately),
+  Sync     (flush data to disk),
+  Unmount  (remount all filesystems read-only),
+reBoot.
+</code></pre>
+
+<p>So with a combination of these commands and key strokes, I have managed to shutdown the machine in a more gentle way.</p>
+
+<p>Hope it helps.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-12-06-Setting-Up-A-Typesense-Website-Search-Engine</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-12-06-Setting-Up-A-Typesense-Website-Search-Engine" />
     <title>Setting Up A Typesense Website Search Engine</title>
