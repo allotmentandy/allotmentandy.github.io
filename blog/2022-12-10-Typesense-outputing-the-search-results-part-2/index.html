@@ -105,9 +105,9 @@
 
 <p>This is a second part to build on my first blog about <a href="https://allotmentandy.github.io/blog/2022-12-06-Setting-Up-A-Typesense-Website-Search-Engine/">Setting-Up-A-Typesense-Website-Search-Engine/</a></p>
 
-<p>Typesense uses the <a href="https://jsonlines.org/">jsonl format</a> which is lines on json separated with the '\n' line break (note: the PHP_EOL function doesnt do this, it does '\r\n' for end of lines. This was my first gotcha.</p>
+<p>Typesense uses the <a href="https://jsonlines.org/">jsonl format</a> which is lines of json separated with the '\n' line break (note: the PHP_EOL function doesnt do this, it does '\r\n' for end of lines. This was my first gotcha!</p>
 
-<p>The second Gotcha, was that the jsonl file had to match the names of the fields in the schema. I had an id field, that I didnt want to import, but that meant the import command ignored every row with extra fields in the jsonl file. So I removed the 2 fields I didnt need and indexed over 150,000 lines of json in a few minutes.</p>
+<p>The second Gotcha, was that the jsonl file had to match the names of the fields in the schema. I had an id field, that I didnt want to import, but that meant the import command ignored every row with extra fields in the jsonl file. So I removed the 2 fields I didn't need and indexed over 150,000 lines of json in a few minutes.</p>
 
 <p>This is the file i used to import the json file.</p>
 
