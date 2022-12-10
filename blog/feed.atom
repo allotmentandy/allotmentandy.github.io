@@ -3,12 +3,160 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-12-09T12:18:07+00:00</updated>
+    <updated>2022-12-10T00:35:02+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-12-10-Typesense-outputing-the-search-results-part-2</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-12-10-Typesense-outputing-the-search-results-part-2" />
+    <title>Typesense outputing the search results part 2</title>
+    <published>2022-12-10T00:00:00+00:00</published>
+    <updated>2022-12-10T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">After the sucess of getting the basic search engine working. I looked at outputing the data as a neat webpage and also adding more fields and data to the json import.
+
+This is a second part to build on my first blog about......</summary>
+    <content type="html"><![CDATA[
+        <p>After the sucess of getting the basic search engine working. I looked at outputing the data as a neat webpage and also adding more fields and data to the json import.</p>
+
+<p>This is a second part to build on my first blog about <a href="https://allotmentandy.github.io/blog/2022-12-06-Setting-Up-A-Typesense-Website-Search-Engine/">Setting-Up-A-Typesense-Website-Search-Engine/</a></p>
+
+<p>Typesense uses the <a href="https://jsonlines.org/">jsonl format</a> which is lines on json separated with the '\n' line break (note: the PHP_EOL function doesnt do this, it does '\r\n' for end of lines. This was my first gotcha.</p>
+
+<p>The second Gotcha, was that the jsonl file had to match the names of the fields in the schema. I had an id field, that I didnt want to import, but that meant the import command ignored every row with extra fields in the jsonl file. So I removed the 2 fields I didnt need and indexed over 150,000 lines of json in a few minutes.</p>
+
+<p>This is the file i used to import the json file.</p>
+
+<pre><code class="language-php">&lt;?php
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Typesense\Client;
+
+// setup the schema
+$websiteSchema = [
+  'name' =&gt; 'websites',
+  'fields' =&gt; [
+    ['name' =&gt; 'title', 'type' =&gt; 'string'],
+    ['name' =&gt; 'description', 'type' =&gt; 'string', 'facet' =&gt; true],
+    ['name' =&gt; 'website', 'type' =&gt; 'string'],
+    ['name' =&gt; 'url', 'type' =&gt; 'string']
+  ]
+];
+
+$client = new Client(
+    [
+      'api_key'         =&gt; 'API_KEY_HERE',
+      'nodes'           =&gt; [
+        [
+          'host'     =&gt; 'localhost', // For Typesense Cloud use xxx.a1.typesense.net
+          'port'     =&gt; '8108',      // For Typesense Cloud use 443
+          'protocol' =&gt; 'http',      // For Typesense Cloud use https
+        ],
+      ],
+      'connection_timeout_seconds' =&gt; 2,
+    ]
+);
+
+// delete the schema
+$client-&gt;collections['websites']-&gt;delete();
+
+// create the new schema from above in typesense
+$client-&gt;collections-&gt;create($websiteSchema);
+
+// import json file of data
+$websitesData = file_get_contents('websites.jsonl');
+$client-&gt;collections['websites']-&gt;documents-&gt;import($websitesData, ['action' =&gt; 'create']);
+
+// show the result
+$result = $client-&gt;collections['websites']-&gt;retrieve();
+var_dump($result);
+</code></pre>
+
+<p>This is the line that shows me the count of pages indexed and that it had worked!</p>
+
+<pre><code>  string(8) "websites"
+  ["num_documents"]=&gt;
+  int(157788)
+</code></pre>
+
+<p>I made a basic controller to respond to queries in the url using laravel and a query as a GET string in the url like this http://localhost/search?q=chiswick&amp;page=2 and here is the php code</p>
+
+<pre><code class="language-php">&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Typesense\Client;
+
+class SearchController extends Controller
+{
+    public function index(Request $request)
+    {
+        echo "Search for ";
+        $q = $request['q'];
+        $page = $request['page'];
+        if (!isset($page)) {
+            $page=1;
+        }
+
+        echo $q ."&lt;br&gt; page". $page;
+
+        $client = new Client(
+            [
+              'api_key'         =&gt; 'API_KEY_HERE',
+              'nodes'           =&gt; [
+                [
+                  'host'     =&gt; 'localhost', // For Typesense Cloud use xxx.a1.typesense.net
+                  'port'     =&gt; '8108',      // For Typesense Cloud use 443
+                  'protocol' =&gt; 'http',      // For Typesense Cloud use https
+                ],
+              ],
+              'connection_timeout_seconds' =&gt; 2,
+            ]
+        );
+
+        $searchParameters = [
+            'q'         =&gt; $q,
+            'query_by'  =&gt; 'description, title',
+            'page'      =&gt; $page,
+            'per_page'  =&gt; 50
+          ];
+
+        $results = $client-&gt;collections['websites']-&gt;documents-&gt;search($searchParameters);
+
+        echo "&lt;hr&gt;found". $results['found'];
+
+        foreach ($results['hits'] as $row) {
+            // var_dump($row);
+            echo $row['document']['url'];
+            echo "&lt;br&gt;";
+            echo $row['document']['website'];
+            echo "&lt;br&gt;";
+            echo $row['document']['title'];
+            echo "&lt;br&gt;";
+            echo $row['document']['description'];
+            echo "&lt;hr&gt;";
+        }
+    }
+}
+</code></pre>
+
+<p>and this creates a page like this:</p>
+
+<p><img src="/assets/images/typesenseV1.png" alt="typesense search results" /></p>
+
+<p>And this is great for today. I am now going to add more columns of data from the database into the json file and import it.</p>
+
+<p>Also going to look at making imports for other pages in the website, ranking these results and improving this all further.</p>
+
+<p>Very exciting, as it hasnt taken very long to get a working version up and running.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-12-09-Emergency-Debian-Commands-when-the-computer-crashes-to-try-and-save-it</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-12-09-Emergency-Debian-Commands-when-the-computer-crashes-to-try-and-save-it" />
     <title>Emergency Debian Commands when the computer crashes to try and save it</title>
