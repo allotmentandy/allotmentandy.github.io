@@ -3,12 +3,85 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-12-10T00:36:15+00:00</updated>
+    <updated>2022-12-11T12:20:21+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-12-11-Adding-Tiktok-Links-To-My-Social-Media-Link-Extractor-Package</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-12-11-Adding-Tiktok-Links-To-My-Social-Media-Link-Extractor-Package" />
+    <title>Adding Tiktok Links To My Social Media Link Extractor Package</title>
+    <published>2022-12-11T00:00:00+00:00</published>
+    <updated>2022-12-11T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Adding tiktok links to my Social Media Link Extractor package on github and packagist....</summary>
+    <content type="html"><![CDATA[
+        <p>Today I have added tiktok links to my <a href="https://packagist.org/packages/allotmentandy/socialmedialinkextractor" target="_blank">social media link extractor package</a>  which was rather easy. But tiktok links are quite simple.</p>
+
+<p>To test it out, i added about 700 websites urls I know have tiktok links. I added the function, then pushed it live to github. Then I did a <strong>composer update</strong> and it updated as if like magic!</p>
+
+<p>I added the code to the spider like this sending in the list of links found on the page.</p>
+
+<pre><code>    echo $smle-&gt;getTiktok($linkArray);
+</code></pre>
+
+<p>Here is a list of the unusual ones found in the list of 700+ websites i checked, the top lot are just http and botton ones https, with the vast majority in this format <strong>https://www.tiktok.com/@username</strong> those without the <strong>www.</strong> redirect the www. version of tiktok.</p>
+
+<pre><code>http://tiktok.com/@frontlinerecruitment
+http://tiktok.com/@mycarboncoach
+http://tiktok.com/@nesmuseum
+http://tiktok.com/@suffolknewcollege
+http://tiktok.com/@thewheelspecialist
+http://tiktok.com/@virginutty
+http://vm.tiktok.com/gcHFxw/
+http://www.tiktok.com/@peakwildlifepark
+
+https://tiktok.com/@flightclubdarts
+https://tiktok.com/@intersportelverys
+https://tiktok.com/@skateeastanglia
+https://tiktok.com/@uniofeastanglia
+https://tiktok.com/@wovendurham
+https://vm.tiktok.com/cCXD3U
+https://vm.tiktok.com/ZMe6rQbhe/
+https://vm.tiktok.com/ZMekeLrLn/
+https://vm.tiktok.com/ZMeMC59yM/
+https://vm.tiktok.com/ZML7dohMg/
+https://vm.tiktok.com/ZMLfy3ckD
+https://vm.tiktok.com/ZMLh8vpwB/
+https://vm.tiktok.com/ZMN82frh1/
+https://vm.tiktok.com/ZMNrLa72g/
+https://vm.tiktok.com/ZMR7XdHPy/
+https://vm.tiktok.com/ZMRSK4B2S/
+https://vm.tiktok.com/ZSuD2T54
+https://www.tiktok.com/@_bnuni
+https://www.tiktok.com/@zatugames
+https://www.tiktok.com/discover/murphymachinery
+https://www.tiktok.com/discover/pizzaexpress?lang=en
+https://www.tiktok.com/discover/swg3-glasgow?lang=en
+https://www.tiktok.com/discover/the-belfry-hotel
+https://www.tiktok.com/en/
+https://www.tiktok.com/legal/page/eea/privacy-policy/en
+https://www.tiktok.com/tag/bristolsu/
+</code></pre>
+
+<p>I also found one had a tracking link like this:</p>
+
+<pre><code>https://www.tiktok.com/@username?_ga=2.225605338.1933392382.1646055423-1170747732.1642770380&amp;_gac=1.241822390.1645437651.EAIaIQobChMI8f2o8sSQ9gIVQoxoCR2W0gU3EAAYASAAEgK3g_D_BwE
+</code></pre>
+
+<p>Investigating these, the 'vm.' links redirect to the homepage so arn't much use. I wonder what these are about...</p>
+
+<p>The http ones redirect to the https site, the '/discover' and '/tag' links are both useful search type queries within the site.</p>
+
+<p>I dont use tiktok myself, but I can see it growing in use on websites. I may add links to <strong>Digg</strong>, <strong>Delicious</strong>, <strong>foursquare</strong>, <strong>wikipedia</strong>, <strong>reddit</strong> links next. Is there a social media website you use that you think would be useful in this package? tell me in the comments....</p>
+
+<p>Hope you find this interesting, useful and have learnt something about tiktok here.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-12-10-Typesense-outputing-the-search-results-part-2</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-12-10-Typesense-outputing-the-search-results-part-2" />
     <title>Typesense outputing the search results part 2</title>
