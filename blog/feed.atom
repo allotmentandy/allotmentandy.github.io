@@ -3,12 +3,90 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-12-11T12:20:21+00:00</updated>
+    <updated>2022-12-16T11:15:52+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-12-16-Awesome-AllotmentAndy</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-12-16-Awesome-AllotmentAndy" />
+    <title>Awesome AllotmentAndy</title>
+    <published>2022-12-16T00:00:00+00:00</published>
+    <updated>2022-12-16T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">There are many useful github repos of links to topics called Awesome.
+
+I wanted to make something similar and some of my favourite Awesome pages include:
+
+
+chiraggude/awesome-laravel
+donnemartin/awesome-aws
+teles/awesome-seo
+javnik36/awesome-osm......</summary>
+    <content type="html"><![CDATA[
+        <p>There are many useful github repos of links to topics called <a href="https://github.com/sindresorhus/awesome" target="_blank">Awesome</a>.</p>
+
+<p>I wanted to make something similar and some of my favourite Awesome pages include:</p>
+
+<ul>
+<li><a href="https://github.com/chiraggude/awesome-laravel" target="_blank">chiraggude/awesome-laravel</a></li>
+<li><a href="https://github.com/donnemartin/awesome-aws" target="_blank">donnemartin/awesome-aws</a></li>
+<li><a href="https://github.com/teles/awesome-seo" target="_blank">teles/awesome-seo</a></li>
+<li><a href="https://github.com/javnik36/awesome-osm" target="_blank">javnik36/awesome-osm</a></li>
+<li><a href="https://github.com/osmlab/awesome-openstreetmap" target="_blank">osmlab/awesome-openstreetmap</a></li>
+<li><a href="https://github.com/aniftyco/awesome-tailwindcss" target="_blank">aniftyco/awesome-tailwindcss</a></li>
+<li><a href="https://github.com/hridaydutta123/awesome-twitter-tools" target="_blank">hridaydutta123/awesome-twitter-tools</a></li>
+<li><a href="https://github.com/ansible-community/awesome-ansible" target="_blank">ansible-community/awesome-ansible</a></li>
+<li><a href="https://github.com/Correia-jpv/fucking-awesome-tailwindcss" target="_blank">Correia-jpv/awesome-tailwindcss</a></li>
+<li><a href="https://github.com/alebcay/awesome-shell" target="_blank">alebcay/awesome-shell</a></li>
+<li><a href="https://github.com/agarrharr/awesome-cli-apps" target="_blank">agarrharr/awesome-cli-apps</a></li>
+</ul>
+
+<p>I think I am going to start my own one, with my favourite links to things i like, use and regularly visit.</p>
+
+<p>Its going to be called</p>
+
+<h2>Awesome AllotmentAndy :)</h2>
+
+<p>And i am going to start it on my <a href="https://github.com/allotmentandy" target="_blank">github profile frontpage</a></p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2022-12-12-SEO</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-12-12-SEO" />
+    <title>SEO</title>
+    <published>2022-12-12T00:00:00+00:00</published>
+    <updated>2022-12-12T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I was looking into resources for SEO and found this image on this Github repository which I thought was a rather good summary of Search Engine Optimisation (SEO). It is at the bottom of this page.
+
+SEO is something I have done a lot of in the past, but......</summary>
+    <content type="html"><![CDATA[
+        <p>I was looking into resources for SEO and found this image on this <a href="https://github.com/madawei2699/awesome-seo/blob/main/README.md" target="_blank">Github repository</a> which I thought was a rather good summary of Search Engine Optimisation (SEO). It is at the bottom of this page.</p>
+
+<p>SEO is something I have done a lot of in the past, but it has changed a lot in recent years. I wanted to write about the tools and techniques I have had sucess with.</p>
+
+<h2>Keyword research</h2>
+
+<p>My current favourite keyword research tool is <a href="https://ahrefs.com/keyword-generator">https://ahrefs.com/keyword-generator</a> as it provides the top 100 key phrases and is up-to-date. Alongside performing searches on Google, It is easy to find what people are searching for, with regards to a phrase.</p>
+
+<h2>Writing Meta Tags Description for pages</h2>
+
+<p>The optimium length of the Meta Description tag is around 150 characters and this if often displayed as the summary of a webpage in search engines. Therefore it is vital to optimise the description tag with user search friendly keywords, which still reads well.</p>
+
+<h2>Title Tag</h2>
+
+<p>The title tag is also a very important page ranking factor.</p>
+
+<p><img src="/assets/images/seo.png" alt="seo" height="7133px" width="420px" /></p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-12-11-Adding-Tiktok-Links-To-My-Social-Media-Link-Extractor-Package</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-12-11-Adding-Tiktok-Links-To-My-Social-Media-Link-Extractor-Package" />
     <title>Adding Tiktok Links To My Social Media Link Extractor Package</title>
