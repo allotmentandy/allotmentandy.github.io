@@ -131,7 +131,7 @@
 
 <p>I wrote another <a href="https://allotmentandy.github.io/blog/2022-11-22-Looking-Up-Domains-for-DNS-Entries-with-PHP-and-Dig/">post recently on looking up the DNS status</a> of a domain which is a useful and quick initial test of a domain. This is the function it uses <a href="https://www.php.net/manual/en/function.dns-get-record.php" target="_blank">dns-get-record.php</a></p>
 
-<p>Another cool domain related code I stumbled apon is extracting the domain in a mysql select query like so:</p>
+<p>Another cool domain related code I stumbled upon is extracting the domain in a mysql select query like so:</p>
 
 <pre><code>SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING_INDEX(website, '/', 3), '://', -1), '/', 1), '?', 1) AS domain FROM domains; 
 </code></pre>

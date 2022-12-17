@@ -3,7 +3,7 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-12-17T11:36:59+00:00</updated>
+    <updated>2022-12-17T13:37:24+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -55,7 +55,7 @@ The PHP function parse_url is a good starting point for extracting domain names 
 
 <p>I wrote another <a href="https://allotmentandy.github.io/blog/2022-11-22-Looking-Up-Domains-for-DNS-Entries-with-PHP-and-Dig/">post recently on looking up the DNS status</a> of a domain which is a useful and quick initial test of a domain. This is the function it uses <a href="https://www.php.net/manual/en/function.dns-get-record.php" target="_blank">dns-get-record.php</a></p>
 
-<p>Another cool domain related code I stumbled apon is extracting the domain in a mysql select query like so:</p>
+<p>Another cool domain related code I stumbled upon is extracting the domain in a mysql select query like so:</p>
 
 <pre><code>SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING_INDEX(website, '/', 3), '://', -1), '/', 1), '?', 1) AS domain FROM domains; 
 </code></pre>
