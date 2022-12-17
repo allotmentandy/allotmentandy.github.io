@@ -3,12 +3,67 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-12-16T11:15:52+00:00</updated>
+    <updated>2022-12-17T11:36:59+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2022-12-17-PHP-Functions-for-Domain-Names-and-IP-Addresses</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-12-17-PHP-Functions-for-Domain-Names-and-IP-Addresses" />
+    <title>PHP Functions for Domain Names and IP Addresses</title>
+    <published>2022-12-17T00:00:00+00:00</published>
+    <updated>2022-12-17T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I am working on a project that involves lots of domain names and splitting the actual domain name and the top level domain from the url.
+
+The PHP function parse_url is a good starting point for extracting domain names but I was looking for getting the......</summary>
+    <content type="html"><![CDATA[
+        <p>I am working on a project that involves lots of domain names and splitting the actual domain name and the top level domain from the url.</p>
+
+<p>The PHP function <a href="https://www.php.net/manual/en/function.parse-url.php" target="_blank">parse_url</a> is a good starting point for extracting domain names but I was looking for getting the top level domain too, which is trickier.</p>
+
+<p>If you split the domain by the dots from the right hand side, '.com', '.org', '.net' are all single levels. '.co.uk', '.me.uk', 'gov.uk are 2 levels from the right. but there are also domains like '.homeoffice.gov.uk' and the longest I found was 'nodes.k8s.nl-ams.scw.cloud'. So I need to find another way to extract this information.</p>
+
+<p>I discovered the repo <a href="https://github.com/jeremykendall/php-domain-parser" target="_blank">github.com/jeremykendall/php-domain-parser</a> on github which seems to be the best way in php to extract this from a full domain name. It uses <a href="https://github.com/publicsuffix/list" target="_blank">https://github.com/publicsuffix/list</a> this project as a source of truth for the domain registrar and works great.</p>
+
+<p>One little gotcha I encountered, was it needed the php-intl extension which I didnt have, so it installed a very old version and didnt work. Once i installed it, I had to force composer to upgrade the package by changing the version in the composer.json from version 1.4 to</p>
+
+<pre><code>"jeremykendall/php-domain-parser": "^6.1",
+</code></pre>
+
+<p>Here is an extract of the code I used to get the suffix and the domain from a url:</p>
+
+<pre><code class="language-php">    use Pdp\Rules;
+    use Pdp\Domain;
+
+    $publicSuffixList = Rules::fromPath('public_suffix_list.dat');
+
+    $url = 'www.pref.okinawa.jp'; // &lt;- any url with the http part removed
+
+    if (inet_pton($url)==false and strpos($url, ".")) { // check for ip addresses and contains a dot
+        $domain = Domain::fromIDNA2008($url);
+        $result = $publicSuffixList-&gt;resolve($domain);
+        echo $result-&gt;registrableDomain()-&gt;toString(); //display 'pref.okinawa.jp';
+        echo $result-&gt;suffix()-&gt;toString(); //display 'jp';
+        }
+</code></pre>
+
+<p>The php function <code>inet_pton($u)</code> checks if the variable $url is an ip address, which is a 'feature' of the database I am checking. So removes the check on ip address like '1.2.3.4' as that errors. I am also checking that the domain has at least one '.' in it.</p>
+
+<p>I wrote another <a href="https://allotmentandy.github.io/blog/2022-11-22-Looking-Up-Domains-for-DNS-Entries-with-PHP-and-Dig/">post recently on looking up the DNS status</a> of a domain which is a useful and quick initial test of a domain. This is the function it uses <a href="https://www.php.net/manual/en/function.dns-get-record.php" target="_blank">dns-get-record.php</a></p>
+
+<p>Another cool domain related code I stumbled apon is extracting the domain in a mysql select query like so:</p>
+
+<pre><code>SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING_INDEX(website, '/', 3), '://', -1), '/', 1), '?', 1) AS domain FROM domains; 
+</code></pre>
+
+<p>So now I can use this to create a master list of domains for my project and remove those from domains I do not want.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-12-16-Awesome-AllotmentAndy</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-12-16-Awesome-AllotmentAndy" />
     <title>Awesome AllotmentAndy</title>
