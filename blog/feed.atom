@@ -3,7 +3,7 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2022-12-17T13:37:24+00:00</updated>
+    <updated>2023-01-10T16:24:20+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -136,7 +136,7 @@ SEO is something I have done a lot of in the past, but......</summary>
 
 <h2>Title Tag</h2>
 
-<p>The title tag is also a very important page ranking factor.</p>
+<p>The title tag is also a very important page ranking factor. It is often the actual link of the page in the search results. I have seen recomendations that say it should be about 60 characters long.</p>
 
 <p><img src="/assets/images/seo.png" alt="seo" height="7133px" width="420px" /></p>
     ]]></content>
