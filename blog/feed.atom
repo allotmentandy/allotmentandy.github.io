@@ -3,12 +3,79 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2023-01-10T16:24:20+00:00</updated>
+    <updated>2023-01-16T12:37:54+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2023-01-16-Upgrading-PHP-to-version-8-2-on-Debian-Linux</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-01-16-Upgrading-PHP-to-version-8-2-on-Debian-Linux" />
+    <title>Upgrading PHP to version 8.2 on Debian Linux</title>
+    <published>2023-01-16T00:00:00+00:00</published>
+    <updated>2023-01-16T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Today I decided to upgrade my PHP version to 8.2 on my local Debian desktop to test compatability with Laravel versions 8 and 9 and soon to be version 10 of laravel!
+
+I wrote a blog previously about upgrading to PHP 8.0 and also using ansible to upgrade......</summary>
+    <content type="html"><![CDATA[
+        <p>Today I decided to upgrade my PHP version to 8.2 on my local Debian desktop to test compatability with Laravel versions 8 and 9 and soon to be version 10 of laravel!</p>
+
+<p>I wrote a blog previously about <a href="https://allotmentandy.github.io/blog/2021-04-15-Upgrading-to-php-8/">upgrading to PHP 8.0</a> and also using <a href="https://allotmentandy.github.io/blog/2022-10-12-Upgrade-Apache-To-PHP-81-with-Ansible-on-Debian/">ansible to upgrade to PHP version 8.1</a> only a few months back.</p>
+
+<p>Today I decided to upgrade to PHP 8.2 and it was a fairly similar and simple process. Using this <code>apt</code> install to install a comprenhsive set of PHP modules to fulfil the requirements of Laravel, this should cover most peoples needs.</p>
+
+<pre><code>sudo apt install php8.2-cli php8.2-curl php8.2-mysqlnd php8.2-gd php8.2-opcache 
+php8.2-zip php8.2-intl php8.2-common php8.2-bcmath php8.2-imap php8.2-imagick 
+php8.2-xmlrpc php8.2-readline php8.2-memcached php8.2-redis php8.2-mbstring 
+php8.2-apcu php8.2-xml php8.2-xml php8.2-redis php8.2-memcached php8.2-memcache 
+php8.2 php8.2-fpm php8.2-cli php8.2-fpm php8.2-common libapache2-mod-fcgid 
+php8.2-cli php8.2-bz2 libapache2-mod-php8.2 php8.2-fpm -y
+</code></pre>
+
+<p>To activate the new version (or select an older version) the command 'update-alternatives' can be used thus:</p>
+
+<pre><code>sudo update-alternatives --config php
+</code></pre>
+
+<p>which provides a menu of versions like so:</p>
+
+<pre><code>There are 5 choices for the alternative php (providing /usr/bin/php).
+
+  Selection    Path                  Priority   Status
+------------------------------------------------------------
+  0            /usr/bin/php.default   100       auto mode
+  1            /usr/bin/php.default   100       manual mode
+  2            /usr/bin/php7.4        74        manual mode
+  3            /usr/bin/php8.0        80        manual mode
+* 4            /usr/bin/php8.1        81        manual mode
+  5            /usr/bin/php8.2        82        manual mode
+
+Press &lt;enter&gt; to keep the current choice[*], or type selection number: 5
+
+</code></pre>
+
+<p>I have kept the older versions for now and to setup Apache to use the new version, these commands update the Apache config (this is for both the fpm and apache module)</p>
+
+<pre><code>sudo a2enconf php8.2-fpm
+sudo a2disconf php8.1-fpm 
+
+sudo a2enmod php8.2
+sudo a2dismod php8.1 
+
+sudo service apache2 restart
+</code></pre>
+
+<p>And with the apache restart, I am using the latest and greatest version of PHP!</p>
+
+<p><img src="/assets/images/php82.png" alt="Image of php 8.2 phpinfo page" /></p>
+
+<p>Now to test that my apps work and see what new error messages have been added.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2022-12-17-PHP-Functions-for-Domain-Names-and-IP-Addresses</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-12-17-PHP-Functions-for-Domain-Names-and-IP-Addresses" />
     <title>PHP Functions for Domain Names and IP Addresses</title>
