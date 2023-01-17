@@ -3,7 +3,7 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2023-01-16T12:37:54+00:00</updated>
+    <updated>2023-01-17T15:30:44+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
@@ -32,7 +32,7 @@ php8.2-zip php8.2-intl php8.2-common php8.2-bcmath php8.2-imap php8.2-imagick
 php8.2-xmlrpc php8.2-readline php8.2-memcached php8.2-redis php8.2-mbstring 
 php8.2-apcu php8.2-xml php8.2-xml php8.2-redis php8.2-memcached php8.2-memcache 
 php8.2 php8.2-fpm php8.2-cli php8.2-fpm php8.2-common libapache2-mod-fcgid 
-php8.2-cli php8.2-bz2 libapache2-mod-php8.2 php8.2-fpm -y
+php8.2-cli php8.2-bz2 php8.2-tidy libapache2-mod-php8.2 php8.2-fpm -y
 </code></pre>
 
 <p>To activate the new version (or select an older version) the command 'update-alternatives' can be used thus:</p>
