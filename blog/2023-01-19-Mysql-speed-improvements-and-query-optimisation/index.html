@@ -5,20 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-        <meta property="og:title" content="Upgrading PHP to version 8.2 on Debian Linux | Allotment Andy"/>
+        <meta property="og:title" content="Mysql speed improvements and query optimisation | Allotment Andy"/>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://allotmentandy.github.io/blog/2023-01-16-Upgrading-PHP-to-version-8-2-on-Debian-Linux"/>
+        <meta property="og:url" content="https://allotmentandy.github.io/blog/2023-01-19-Mysql-speed-improvements-and-query-optimisation"/>
         <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
         <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
         <link rel="home" href="https://allotmentandy.github.io/">
         <link rel="icon" href="/favicon.ico">
         <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Upgrading PHP to version 8.2 on Debian Linux" />
+        <meta property="og:title" content="Mysql speed improvements and query optimisation" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2023-01-16-Upgrading-PHP-to-version-8-2-on-Debian-Linux" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2023-01-19-Mysql-speed-improvements-and-query-optimisation" />
 <meta property="og:description" content="" />
 <meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
-        <title>Allotment Andy | Upgrading PHP to version 8.2 on Debian Linux</title>
+        <title>Allotment Andy | Mysql speed improvements and query optimisation</title>
                 <!-- Insert analytics code here -->
                 <link rel="stylesheet" href="/assets/build/css/main.css?id=fa6bdafcdfbed203e6daa6094023e85f">
         <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -98,85 +98,90 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/php.svg" alt="Upgrading PHP to version 8.2 on Debian Linux" class=" w-16 h-16 inline-block">
-                Upgrading PHP to version 8.2 on Debian Linux
+                <img src="/assets/img/mysql.svg" alt="Mysql speed improvements and query optimisation" class=" w-16 h-16 inline-block">
+                Mysql speed improvements and query optimisation
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">January 16, 2023</p>
+    <p class="text-gray-700 text-sm md:mt-0">January 19, 2023</p>
 
-            <a href="/blog/categories/debian" title="View posts in debian"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">debian</a>
-        <a href="/blog/categories/laravel" title="View posts in laravel"
+            <a href="/blog/categories/laravel" title="View posts in laravel"
         class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>Today I decided to upgrade my PHP version to 8.2 on my local Debian desktop to test compatability with Laravel versions 8 and 9 and soon to be version 10 of laravel!</p>
+        <p>Yesterday, I came across an issue where a Laravel spider I had running crawled to a snails pace. It was running by selecting a url from the database, using curl to get the html, extracting the title, meta tags and links and then storing this in 2 tables. In all it was 6 queries with MYSQL/ MariaDB and I went around the houses to optimise and solve the problem.</p>
 
-<p>I wrote a blog previously about <a href="https://allotmentandy.github.io/blog/2021-04-15-Upgrading-to-php-8/">upgrading to PHP 8.0</a> and also using <a href="https://allotmentandy.github.io/blog/2022-10-12-Upgrade-Apache-To-PHP-81-with-Ansible-on-Debian/">ansible to upgrade to PHP version 8.1</a> only a few months back.</p>
+<p>The first thing I did was to look into slow query logging, so editing my.cnf file with a text editor and add the following block of code under the mysqld section:</p>
 
-<p>Today I decided to upgrade to PHP 8.2 and it was a fairly similar and simple process. Using this <code>apt</code> install to install a comprenhsive set of PHP modules to fulfil the requirements of Laravel, this should cover most peoples needs.</p>
-
-<pre><code>sudo apt install php8.2-cli php8.2-curl php8.2-mysqlnd php8.2-gd php8.2-opcache 
-php8.2-zip php8.2-intl php8.2-common php8.2-bcmath php8.2-imap php8.2-imagick 
-php8.2-xmlrpc php8.2-readline php8.2-memcached php8.2-redis php8.2-mbstring 
-php8.2-apcu php8.2-xml php8.2-xml php8.2-redis php8.2-memcached php8.2-memcache 
-php8.2 php8.2-fpm php8.2-cli php8.2-fpm php8.2-common libapache2-mod-fcgid 
-php8.2-cli php8.2-bz2 php8.2-tidy libapache2-mod-php8.2 php8.2-fpm -y
+<pre><code>slow_query_log = 1
+slow-query_log_file = /var/log/mysql-slow.log
+long_query_time = 2
 </code></pre>
 
-<p>To activate the new version (or select an older version) the command 'update-alternatives' can be used thus:</p>
+<p>To restart the mariadb server</p>
 
-<pre><code>sudo update-alternatives --config php
+<pre><code>sudo systemctl restart mariadb.service
 </code></pre>
 
-<p>which provides a menu of versions like so:</p>
+<p>However, after monitoring it for a while, it never logged any slow queries. This got me thinking it was something with the MYsql configuration.</p>
 
-<pre><code>There are 5 choices for the alternative php (providing /usr/bin/php).
+<p>So secondly I installed 'mysqltuner' and it suggested the following optimisations in the my.cnf file.</p>
 
-  Selection    Path                  Priority   Status
-------------------------------------------------------------
-  0            /usr/bin/php.default   100       auto mode
-  1            /usr/bin/php.default   100       manual mode
-  2            /usr/bin/php7.4        74        manual mode
-  3            /usr/bin/php8.0        80        manual mode
-* 4            /usr/bin/php8.1        81        manual mode
-  5            /usr/bin/php8.2        82        manual mode
+<p>running</p>
 
-Press &lt;enter&gt; to keep the current choice[*], or type selection number: 5
-
+<pre><code>mysqltuner --host 127.0.0.1 --port 3306 --user root --pass 'password'
 </code></pre>
 
-<p>I have kept the older versions for now and to setup Apache to use the new version, these commands update the Apache config (this is for both the fpm and apache module)</p>
+<p>gave good feedback and suggestions like so:</p>
 
-<pre><code>sudo a2enconf php8.2-fpm
-sudo a2disconf php8.1-fpm 
-
-sudo a2enmod php8.2
-sudo a2dismod php8.1 
-
-sudo service apache2 restart
+<pre><code>Variables to adjust:
+    query_cache_size (=0)
+    query_cache_type (=0)
+    query_cache_limit (&gt; 1M, or use smaller result sets)
+    tmp_table_size (&gt; 16M)
+    max_heap_table_size (&gt; 16M)
+    performance_schema = ON enable PFS
+    innodb_buffer_pool_size (&gt;= 765.8M) if possible.
+    innodb_log_file_size should be (=16M) if possible, so InnoDB total log files size equals to 25% of buffer pool size.
 </code></pre>
 
-<p>And with the apache restart, I am using the latest and greatest version of PHP!</p>
+<p>I also checked the database tables with</p>
 
-<p><img src="/assets/images/php82.png" alt="Image of php 8.2 phpinfo page" /></p>
+<pre><code>mysqlcheck -u root -p  --check  --all-databases
+</code></pre>
 
-<p>Now to test that my apps work and see what new error messages have been added.</p>
+<p>and also I checked the logs in for obvious errors.</p>
+
+<pre><code>/var/log/mysql/error.log
+/var/log/apache/error.log
+</code></pre>
+
+<p>I also added Indexes and Primary keys on the tables, but although this helped a little, it didnt fix the problem.</p>
+
+<p>Finally, I wanted to get live performance stats for the queries, so I installed the <a href="https://github.com/barryvdh/laravel-debugbar" target="_blank">laravel debugbar</a> and
+this gave me the answer. The following query was taking over 10 seconds!</p>
+
+<pre><code>$data['website'] = websites::where('updated_at', '=', '2022-12-12 12:34:44')
+    -&gt;where('dns', '!=', 'failed')
+    -&gt;inRandomOrder()
+    -&gt;take(1)
+    -&gt;first();
+</code></pre>
+
+<p>The inRandomOrder() I had added was slowing it down dramatically, and once i removed it, the query was back to running in 25 MILLIseconds!</p>
+
+<p>I have found and am using a number of laravel packages in recent days that solve small problems and improve my project. I will write about each one in turn.</p>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-12-17-PHP-Functions-for-Domain-Names-and-IP-Addresses" title="Older Post: PHP Functions for Domain Names and IP Addresses">
-                &LeftArrow; PHP Functions for Domain Names and IP Addresses
+                        <a href="https://allotmentandy.github.io/blog/2023-01-16-Upgrading-PHP-to-version-8-2-on-Debian-Linux" title="Older Post: Upgrading PHP to version 8.2 on Debian Linux">
+                &LeftArrow; Upgrading PHP to version 8.2 on Debian Linux
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2023-01-19-Mysql-speed-improvements-and-query-optimisation" title="Newer Post: Mysql speed improvements and query optimisation">
-                Mysql speed improvements and query optimisation &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>

@@ -3,12 +3,87 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2023-01-17T15:30:44+00:00</updated>
+    <updated>2023-01-19T09:47:36+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2023-01-19-Mysql-speed-improvements-and-query-optimisation</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-01-19-Mysql-speed-improvements-and-query-optimisation" />
+    <title>Mysql speed improvements and query optimisation</title>
+    <published>2023-01-19T00:00:00+00:00</published>
+    <updated>2023-01-19T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Yesterday, I came across an issue where a Laravel spider I had running crawled to a snails pace. It was running by selecting a url from the database, using curl to get the html, extracting the title, meta tags and links and then storing this in 2 tables.......</summary>
+    <content type="html"><![CDATA[
+        <p>Yesterday, I came across an issue where a Laravel spider I had running crawled to a snails pace. It was running by selecting a url from the database, using curl to get the html, extracting the title, meta tags and links and then storing this in 2 tables. In all it was 6 queries with MYSQL/ MariaDB and I went around the houses to optimise and solve the problem.</p>
+
+<p>The first thing I did was to look into slow query logging, so editing my.cnf file with a text editor and add the following block of code under the mysqld section:</p>
+
+<pre><code>slow_query_log = 1
+slow-query_log_file = /var/log/mysql-slow.log
+long_query_time = 2
+</code></pre>
+
+<p>To restart the mariadb server</p>
+
+<pre><code>sudo systemctl restart mariadb.service
+</code></pre>
+
+<p>However, after monitoring it for a while, it never logged any slow queries. This got me thinking it was something with the MYsql configuration.</p>
+
+<p>So secondly I installed 'mysqltuner' and it suggested the following optimisations in the my.cnf file.</p>
+
+<p>running</p>
+
+<pre><code>mysqltuner --host 127.0.0.1 --port 3306 --user root --pass 'password'
+</code></pre>
+
+<p>gave good feedback and suggestions like so:</p>
+
+<pre><code>Variables to adjust:
+    query_cache_size (=0)
+    query_cache_type (=0)
+    query_cache_limit (&gt; 1M, or use smaller result sets)
+    tmp_table_size (&gt; 16M)
+    max_heap_table_size (&gt; 16M)
+    performance_schema = ON enable PFS
+    innodb_buffer_pool_size (&gt;= 765.8M) if possible.
+    innodb_log_file_size should be (=16M) if possible, so InnoDB total log files size equals to 25% of buffer pool size.
+</code></pre>
+
+<p>I also checked the database tables with</p>
+
+<pre><code>mysqlcheck -u root -p  --check  --all-databases
+</code></pre>
+
+<p>and also I checked the logs in for obvious errors.</p>
+
+<pre><code>/var/log/mysql/error.log
+/var/log/apache/error.log
+</code></pre>
+
+<p>I also added Indexes and Primary keys on the tables, but although this helped a little, it didnt fix the problem.</p>
+
+<p>Finally, I wanted to get live performance stats for the queries, so I installed the <a href="https://github.com/barryvdh/laravel-debugbar" target="_blank">laravel debugbar</a> and
+this gave me the answer. The following query was taking over 10 seconds!</p>
+
+<pre><code>$data['website'] = websites::where('updated_at', '=', '2022-12-12 12:34:44')
+    -&gt;where('dns', '!=', 'failed')
+    -&gt;inRandomOrder()
+    -&gt;take(1)
+    -&gt;first();
+</code></pre>
+
+<p>The inRandomOrder() I had added was slowing it down dramatically, and once i removed it, the query was back to running in 25 MILLIseconds!</p>
+
+<p>I have found and am using a number of laravel packages in recent days that solve small problems and improve my project. I will write about each one in turn.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2023-01-16-Upgrading-PHP-to-version-8-2-on-Debian-Linux</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-01-16-Upgrading-PHP-to-version-8-2-on-Debian-Linux" />
     <title>Upgrading PHP to version 8.2 on Debian Linux</title>
