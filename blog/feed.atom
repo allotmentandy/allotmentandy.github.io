@@ -3,12 +3,83 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2023-01-19T09:47:36+00:00</updated>
+    <updated>2023-02-27T10:52:38+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2023-02-27-Debian-unstable-apt-get-update-kernel-and-force-remove-errors</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-02-27-Debian-unstable-apt-get-update-kernel-and-force-remove-errors" />
+    <title>Debian unstable apt get, update kernel and force remove apt errors</title>
+    <published>2023-02-27T00:00:00+00:00</published>
+    <updated>2023-02-27T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">This weekend I decided to go for an full Debian dist-upgrade / full-upgrade on my main linux Debian machine. I had a growing list of &#039;The following packages have been kept back:&#039; and so I decided to take the plunge and upgrade the whole lot.
+
+It is......</summary>
+    <content type="html"><![CDATA[
+        <p>This weekend I decided to go for an full Debian dist-upgrade / full-upgrade on my main linux Debian machine. I had a growing list of 'The following packages have been kept back:' and so I decided to take the plunge and upgrade the whole lot.</p>
+
+<p>It is always a bit nervous thing to do, as in the past, I found the upgrade to linux kernel 4.19 stopped the computer from sleeping, so after a full backup, I went for it.</p>
+
+<p>I started with the full upgrade</p>
+
+<pre><code>apt-get update
+apt-get dist-upgrade
+</code></pre>
+
+<p>This updated the system, but I wanted to also fix a few errors that I had. eg. My copy of Zeal, which is an offline code reader was showing blank pages. So I added the unstable debian repo to provide newer software versions.</p>
+
+<pre><code># Unstable repo main, contrib and non-free branches, no security updates here
+deb http://http.us.debian.org/debian unstable main non-free contrib
+deb-src http://http.us.debian.org/debian unstable main non-free contrib
+</code></pre>
+
+<p>In doing so, I ended up with errors which complained about version conflicts for a number of packages. These where android packages that I had installed and I forced there removal using these commands as they blocked the upgrade process.</p>
+
+<pre><code>dpkg --remove --force-remove-reinstreq adb
+dpkg --remove --force-remove-reinstreq android-libadb
+dpkg --remove --force-remove-reinstreq android-libbase
+dpkg --remove --force-remove-reinstreq android-libcutils
+dpkg --remove --force-remove-reinstreq android-libbase
+</code></pre>
+
+<p>So this gave me a much more up-to-date system with the version 6 kernel.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2023-01-27-Learning-Go-Golang-to-compliment-PHP-and-Bash-for-web-and-devops</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-01-27-Learning-Go-Golang-to-compliment-PHP-and-Bash-for-web-and-devops" />
+    <title>Learning Go Golang to compliment PHP and Bash for web and devops</title>
+    <published>2023-01-27T00:00:00+00:00</published>
+    <updated>2023-01-27T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I wanted to start learning Go / Golang for 3 reasons, firstly to start work on a multi-threaded spider to download html for websites faster and concurrently. Also I wanted to play around with building GUI apps. Neither of these things are really possible......</summary>
+    <content type="html"><![CDATA[
+        <p>I wanted to start learning Go / Golang for 3 reasons, firstly to start work on a multi-threaded spider to download html for websites faster and concurrently. Also I wanted to play around with building GUI apps. Neither of these things are really possible with PHP. The third reason is Devops, many of the next generation Devops tools like Terraform, Docker and Kubernetes are written in GO.</p>
+
+<p>To install and setup GO on my debian machine was straightforward but the version of Go in my Debian repository was 1.15, where as version 1.19 is available on <a href="https://go.dev/dl/">https://go.dev/dl/</a></p>
+
+<pre><code>apt-get install -y golang
+</code></pre>
+
+<p>edit ~/.bashrc</p>
+
+<pre><code># Golang paths in bashrc
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+</code></pre>
+
+<p>so my go files go in /home/andy/go/src</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2023-01-19-Mysql-speed-improvements-and-query-optimisation</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-01-19-Mysql-speed-improvements-and-query-optimisation" />
     <title>Mysql speed improvements and query optimisation</title>
@@ -148,6 +219,58 @@ sudo service apache2 restart
 <p><img src="/assets/images/php82.png" alt="Image of php 8.2 phpinfo page" /></p>
 
 <p>Now to test that my apps work and see what new error messages have been added.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2023-01-14-Typesense-Part-3-adding-an-id-field-for-each-record-and-more</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-01-14-Typesense-Part-3-adding-an-id-field-for-each-record-and-more" />
+    <title>Typesense Part 3 adding an id field for each record and more</title>
+    <published>2023-01-14T00:00:00+00:00</published>
+    <updated>2023-01-14T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I saw an update to version 0.24 of typesense and I have built a new database of around 300,000 websites so it was time to install it on a live server!
+
+
+
+check the status:
+
+
+
+and do a healthcheck
+
+
+
+all ok!
+
+One suggestion I saw to improve the typesense......</summary>
+    <content type="html"><![CDATA[
+        <p>I saw an update to version 0.24 of typesense and I have built a new database of around 300,000 websites so it was time to install it on a live server!</p>
+
+<pre><code>curl -O https://dl.typesense.org/releases/0.24.0/typesense-server-0.24.0-amd64.deb
+sudo apt install ./typesense-server-0.24.0-amd64.deb
+</code></pre>
+
+<p>check the status:</p>
+
+<pre><code>sudo systemctl status typesense-server.service
+</code></pre>
+
+<p>and do a healthcheck</p>
+
+<pre><code>curl http://localhost:8108/health
+</code></pre>
+
+<p>all ok!</p>
+
+<p>One suggestion I saw to improve the typesense database import, is to give each entry a unique id, to make updating easier. So I have added an id field like so to the database query</p>
+
+<pre><code>    nwr
+    -&gt;selectRaw("CONCAT( points.nwr, '/', points.id)  AS id)
+    londinium
+    -&gt;selectRaw(" CONCAT( seo.route)  AS id")
+</code></pre>
     ]]></content>
 </entry>
             <entry>
