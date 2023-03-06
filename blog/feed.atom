@@ -3,12 +3,50 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2023-03-01T10:07:03+00:00</updated>
+    <updated>2023-03-06T13:04:48+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2023-03-06-Analyse-a-website-for-seo-errors-malware-domain-rank</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-03-06-Analyse-a-website-for-seo-errors-malware-domain-rank" />
+    <title>Analyse a website for seo errors malware domain rank</title>
+    <published>2023-03-06T00:00:00+00:00</published>
+    <updated>2023-03-06T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">As part of my job search, I began looking at ways to analyse and test a company website to see how good it is. I am looking at a number of criteria.
+
+Firstly, I use Wappalyzer to see what technologies the site uses and also take a look at the source code......</summary>
+    <content type="html"><![CDATA[
+        <p>As part of my job search, I began looking at ways to analyse and test a company website to see how good it is. I am looking at a number of criteria.</p>
+
+<p>Firstly, I use <a href="https://www.wappalyzer.com/" target="_blank">Wappalyzer</a> to see what technologies the site uses and also take a look at the source code to see what state it is in. I come from a PHP Laravel background, but like to see what technologies a website is run on.</p>
+
+<p>I also like to use tools to quantify how good a websites is. In days gone past, there was Alexa ranking, Google Pagerank and a number of other ranking tools that no longer work or exist in the same way. Now we have Domain Authority, but other tools have stepped in to replace them.</p>
+
+<p>A great tool I have recently discovered is the <a href="https://github.com/vormkracht10/laravel-seo-scanner" target="_blank">Laravel SEO Scanner</a> from a dutch team called VormKracht. This is an PHP Laravel Artisan comman which scans a website for a number of issues with SEO. I like it a lot.</p>
+
+<p>A nice allround tool for analysing a website is <a href="https://www.rankwatch.com/tools/web-analyzer.html" target="_blank">rankwatch.com/tools/web-analyzer</a>. This gives a fairly comprenhsive summary of the key SEO criteria.</p>
+
+<p>This tool from <a href="https://moz.com/domain-analysis" target="_blank">moz.com/domain-analysis</a> provides a simple value as a domain authority.</p>
+
+<p>Check the <a href="https://sitecheck.sucuri.net/" target="_blank">sitecheck.sucuri.net</a> for malware and if a domain is listed in 9 security websites.</p>
+
+<p>And check the pagerank for a url. <a href="https://dnschecker.org/pagerank.php" target="_blank">dnschecker.org/pagerank</a></p>
+
+<p>This is a good tool for finding keyword related positions for a url. <a href="https://ahrefs.com/keyword-rank-checker" target="_blank">ahrefs.com/keyword-rank-checker</a></p>
+
+<p>I also like to use command line tools and a great one is <a href="https://www.morningstarsecurity.com/research/whatweb">whatweb</a> which will show the technologies a website uses in the command line.</p>
+
+<p>This is a set of tools I use alongside looking at the source code and my own londinium scoring system.</p>
+
+<p>What else do you use? I would like to edit this and add more tools, please comment if you use and like any.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2023-02-27-Debian-unstable-apt-get-update-kernel-and-force-remove-errors</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-02-27-Debian-unstable-apt-get-update-kernel-and-force-remove-errors" />
     <title>Debian unstable apt get, update kernel and force remove apt errors</title>
