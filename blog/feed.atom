@@ -3,12 +3,55 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2023-03-06T13:04:48+00:00</updated>
+    <updated>2023-05-03T14:56:24+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2023-04-28-installing-a-Wordpress-blog-locally-with-https-ssh-and-plugins</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-04-28-installing-a-Wordpress-blog-locally-with-https-ssh-and-plugins" />
+    <title>Installing a Wordpress blog locally with https ssh and plugins</title>
+    <published>2023-04-28T01:00:00+01:00</published>
+    <updated>2023-04-28T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I recently inherited a Wordpress website that needed updating to the latest version of Wordpress and a general cleanup.
+
+Wordpress has gone through a lot of changes in the past few months and one thing I had to get my head around was a totally new......</summary>
+    <content type="html"><![CDATA[
+        <p>I recently inherited a Wordpress website that needed updating to the latest version of Wordpress and a general cleanup.</p>
+
+<p>Wordpress has gone through a lot of changes in the past few months and one thing I had to get my head around was a totally new editor.</p>
+
+<p>But the users of the site find the new editor difficult to use so asked me to reinstall the old 'classic' editor.</p>
+
+<p>But first I had to download the site and the database and install it locally.</p>
+
+<p>One thing that I had to workaround was the site uses https redirects which wernt available on my localhost/127.0.0.1 so these are the settings i had to alter to get it to work.</p>
+
+<pre><code>ini_set('display_errors', 0);
+define('WP_CACHE', false);
+define('WPCACHEHOME', '/home/andy/www/wordpress/wp-content/plugins/wp-super-cache/' );
+define('DB_NAME', 'wp1');
+define('WP_DEBUG', false);
+define('FS_METHOD', 'direct' );
+define('FORCE_SSL_ADMIN', false);
+</code></pre>
+
+<p>also in the database are 2 settings which I needed to change to get the site to work</p>
+
+<pre><code>siteurl http://127.0.0.1:86
+home http://127.0.0.1:86
+</code></pre>
+
+<p>Once these were set, the site worked, but it was a struggle to work this out.</p>
+
+<p>Next up, updating all the plugins, finding a new theme and disabling unused plugins. Also learning the difference with Elementor, Gutenberg and other things that have changed.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2023-03-06-Analyse-a-website-for-seo-errors-malware-domain-rank</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-03-06-Analyse-a-website-for-seo-errors-malware-domain-rank" />
     <title>Analyse a website for seo errors malware domain rank</title>
@@ -1568,8 +1611,8 @@ Route::get('/Somerset_Ilminster', ['uses' =&gt;'PlaceController@index'])-&gt;whe
     <id>https://allotmentandy.github.io/blog/2022-10-28-PHPStan-static-analysis</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-10-28-PHPStan-static-analysis" />
     <title>PHPStan static analysis</title>
-    <published>2022-10-28T00:00:00+00:00</published>
-    <updated>2022-10-28T00:00:00+00:00</updated>
+    <published>2022-10-28T01:00:00+01:00</published>
+    <updated>2022-10-28T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -1679,8 +1722,8 @@ class NWRController extends Controller
     <id>https://allotmentandy.github.io/blog/2022-10-12-Upgrade-Apache-To-PHP-81-with-Ansible-on-Debian</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-10-12-Upgrade-Apache-To-PHP-81-with-Ansible-on-Debian" />
     <title>Upgrade Apache To PHP 8.1 with Ansible on Debian</title>
-    <published>2022-10-12T00:00:00+00:00</published>
-    <updated>2022-10-12T00:00:00+00:00</updated>
+    <published>2022-10-12T01:00:00+01:00</published>
+    <updated>2022-10-12T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -1782,8 +1825,8 @@ sudo systemctl enable php8.1-fpm
     <id>https://allotmentandy.github.io/blog/2022-10-10-Upgrading-Laravel-7-to-Laravel-9</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-10-10-Upgrading-Laravel-7-to-Laravel-9" />
     <title>Upgrading Laravel 7 to Laravel 9</title>
-    <published>2022-10-10T00:00:00+00:00</published>
-    <updated>2022-10-10T00:00:00+00:00</updated>
+    <published>2022-10-10T01:00:00+01:00</published>
+    <updated>2022-10-10T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -1853,8 +1896,8 @@ public function boot()
     <id>https://allotmentandy.github.io/blog/2022-10-05-Adding-Lat-Long-Map-links-For-Photos-To-Londinium</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-10-05-Adding-Lat-Long-Map-links-For-Photos-To-Londinium" />
     <title>Adding Lat Long Map links For Photos To Londinium</title>
-    <published>2022-10-05T00:00:00+00:00</published>
-    <updated>2022-10-05T00:00:00+00:00</updated>
+    <published>2022-10-05T01:00:00+01:00</published>
+    <updated>2022-10-05T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -1893,8 +1936,8 @@ public function boot()
     <id>https://allotmentandy.github.io/blog/2022-10-03-Adding-Blog-Post-Comments</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-10-03-Adding-Blog-Post-Comments" />
     <title>Adding Blog Post Comments</title>
-    <published>2022-10-03T00:00:00+00:00</published>
-    <updated>2022-10-03T00:00:00+00:00</updated>
+    <published>2022-10-03T01:00:00+01:00</published>
+    <updated>2022-10-03T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -1909,8 +1952,8 @@ public function boot()
     <id>https://allotmentandy.github.io/blog/2022-09-12-August-2022-Allotment-Andy-Update</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-09-12-August-2022-Allotment-Andy-Update" />
     <title>August 2022 Allotment Andy Update</title>
-    <published>2022-09-12T00:00:00+00:00</published>
-    <updated>2022-09-12T00:00:00+00:00</updated>
+    <published>2022-09-12T01:00:00+01:00</published>
+    <updated>2022-09-12T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -1941,8 +1984,8 @@ Planted a green manure on a 10m sqare plot. Never tried......</summary>
     <id>https://allotmentandy.github.io/blog/2022-09-11-September-2022-Allotment-Andy-Update</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-09-11-September-2022-Allotment-Andy-Update" />
     <title>Allotment Andy Update</title>
-    <published>2022-09-11T00:00:00+00:00</published>
-    <updated>2022-09-11T00:00:00+00:00</updated>
+    <published>2022-09-11T01:00:00+01:00</published>
+    <updated>2022-09-11T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -1965,8 +2008,8 @@ Planning to write a monthly allotment blog and focus the blog more on......</sum
     <id>https://allotmentandy.github.io/blog/2022-04-16-Making-website-screenshot-images-with-spatie-browsershot</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-16-Making-website-screenshot-images-with-spatie-browsershot" />
     <title>Making website screenshot images with spatie browsershot</title>
-    <published>2022-04-16T00:00:00+00:00</published>
-    <updated>2022-04-16T00:00:00+00:00</updated>
+    <published>2022-04-16T01:00:00+01:00</published>
+    <updated>2022-04-16T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -2024,8 +2067,8 @@ apt install -y chromium-browser
     <id>https://allotmentandy.github.io/blog/2022-04-13-Website-metrics</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-13-Website-metrics" />
     <title>Website metrics</title>
-    <published>2022-04-13T13:20:00+00:00</published>
-    <updated>2022-04-13T13:20:00+00:00</updated>
+    <published>2022-04-13T14:20:00+01:00</published>
+    <updated>2022-04-13T14:20:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -2054,8 +2097,8 @@ apt install -y chromium-browser
     <id>https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images" />
     <title>Twitter card and Facebook og:image meta tags for sharing images</title>
-    <published>2022-04-13T00:00:00+00:00</published>
-    <updated>2022-04-13T00:00:00+00:00</updated>
+    <published>2022-04-13T01:00:00+01:00</published>
+    <updated>2022-04-13T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -2117,8 +2160,8 @@ php artisan image:twittercard
     <id>https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin" />
     <title>Adding share buttons for Twitter, Facebook and LinkedIn</title>
-    <published>2022-04-12T00:00:00+00:00</published>
-    <updated>2022-04-12T00:00:00+00:00</updated>
+    <published>2022-04-12T01:00:00+01:00</published>
+    <updated>2022-04-12T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -2178,8 +2221,8 @@ php artisan image:twittercard
     <id>https://allotmentandy.github.io/blog/2022-04-11-Adding-social-media-share-buttons-with-meta-tags-for-facebook-and-twitter</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-11-Adding-social-media-share-buttons-with-meta-tags-for-facebook-and-twitter" />
     <title>Adding social media share buttons with meta tags for facebook and twitter</title>
-    <published>2022-04-11T00:00:00+00:00</published>
-    <updated>2022-04-11T00:00:00+00:00</updated>
+    <published>2022-04-11T01:00:00+01:00</published>
+    <updated>2022-04-11T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -4798,8 +4841,8 @@ phpinfo();
     <id>https://allotmentandy.github.io/blog/2021-10-21-Taking-Devops-Full-Circle-With-Packer-AMI-images-For-AWS</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-10-21-Taking-Devops-Full-Circle-With-Packer-AMI-images-For-AWS" />
     <title>Taking Devops Full Circle With Packer AMI images For AWS</title>
-    <published>2021-10-21T00:00:00+00:00</published>
-    <updated>2021-10-21T00:00:00+00:00</updated>
+    <published>2021-10-21T01:00:00+01:00</published>
+    <updated>2021-10-21T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -4820,8 +4863,8 @@ I have learnt to configure the cloud......</summary>
     <id>https://allotmentandy.github.io/blog/2021-10-02-Laravel-Commands-Using-TailwindCSS-and-Termwind</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-10-02-Laravel-Commands-Using-TailwindCSS-and-Termwind" />
     <title>Laravel Commands Using Tailwind CSS and Termwind</title>
-    <published>2021-10-02T00:00:00+00:00</published>
-    <updated>2021-10-02T00:00:00+00:00</updated>
+    <published>2021-10-02T01:00:00+01:00</published>
+    <updated>2021-10-02T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -4846,8 +4889,8 @@ It is a demo of a number of features of using termwind to make the command line 
     <id>https://allotmentandy.github.io/blog/2021-06-15-Open-Ports-On-Debian-and-installing-ssh</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-06-15-Open-Ports-On-Debian-and-installing-ssh" />
     <title>Open Ports &amp; Installing SSH</title>
-    <published>2021-06-15T10:29:57+00:00</published>
-    <updated>2021-06-15T10:29:57+00:00</updated>
+    <published>2021-06-15T11:29:57+01:00</published>
+    <updated>2021-06-15T11:29:57+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -4915,8 +4958,8 @@ systemctl disable ssh
     <id>https://allotmentandy.github.io/blog/2021-05-17-Openstreetmap-part3</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-05-17-Openstreetmap-part3" />
     <title>Openstreetmap / Overpass Part 3</title>
-    <published>2021-05-17T00:00:00+00:00</published>
-    <updated>2021-05-17T00:00:00+00:00</updated>
+    <published>2021-05-17T01:00:00+01:00</published>
+    <updated>2021-05-17T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -4939,8 +4982,8 @@ out;
     <id>https://allotmentandy.github.io/blog/2021-05-16-Openstreetmap-contd</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-05-16-Openstreetmap-contd" />
     <title>Openstreetmap / Overpass Part 2</title>
-    <published>2021-05-16T00:00:00+00:00</published>
-    <updated>2021-05-16T00:00:00+00:00</updated>
+    <published>2021-05-16T01:00:00+01:00</published>
+    <updated>2021-05-16T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -5020,8 +5063,8 @@ leicestersquare@allbarone.co.uk
     <id>https://allotmentandy.github.io/blog/2021-05-15-Openstreetmap-overpass-mapping-idea</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-05-15-Openstreetmap-overpass-mapping-idea" />
     <title>Openstreetmap/Overpass Mapping Project</title>
-    <published>2021-05-15T00:00:00+00:00</published>
-    <updated>2021-05-15T00:00:00+00:00</updated>
+    <published>2021-05-15T01:00:00+01:00</published>
+    <updated>2021-05-15T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -5080,8 +5123,8 @@ I have created a demo page to show the map features from the list above. Try ent
     <id>https://allotmentandy.github.io/blog/2021-04-16-Looking-for-work</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-04-16-Looking-for-work" />
     <title>Looking for work</title>
-    <published>2021-04-16T00:00:00+00:00</published>
-    <updated>2021-04-16T00:00:00+00:00</updated>
+    <published>2021-04-16T01:00:00+01:00</published>
+    <updated>2021-04-16T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -5143,8 +5186,8 @@ read more <a href="/blog/categories/devops">Devops</a> posts</p>
     <id>https://allotmentandy.github.io/blog/2021-04-15-Upgrading-to-php-8</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-04-15-Upgrading-to-php-8" />
     <title>Upgrading to PHP 8</title>
-    <published>2021-04-15T00:00:00+00:00</published>
-    <updated>2021-04-15T00:00:00+00:00</updated>
+    <published>2021-04-15T01:00:00+01:00</published>
+    <updated>2021-04-15T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -5225,8 +5268,8 @@ systemctl restart apache2
     <id>https://allotmentandy.github.io/blog/2021-04-14-debian-commands-to-clean-up-after-apt-get</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2021-04-14-debian-commands-to-clean-up-after-apt-get" />
     <title>Debian commands to clean up after apt-get</title>
-    <published>2021-04-14T00:00:00+00:00</published>
-    <updated>2021-04-14T00:00:00+00:00</updated>
+    <published>2021-04-14T01:00:00+01:00</published>
+    <updated>2021-04-14T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -5606,8 +5649,8 @@ The two tools i really liked and have found really useful are &lt;code&gt;fzf&lt
     <id>https://allotmentandy.github.io/blog/2020-08-25-bash-scripts-for-laravel-php-linux-devops</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-08-25-bash-scripts-for-laravel-php-linux-devops" />
     <title>Bash Scripts for Laravel PHP Linux Devops</title>
-    <published>2020-08-25T00:00:00+00:00</published>
-    <updated>2020-08-25T00:00:00+00:00</updated>
+    <published>2020-08-25T01:00:00+01:00</published>
+    <updated>2020-08-25T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -5695,8 +5738,8 @@ php artisan up
     <id>https://allotmentandy.github.io/blog/2020-07-27-moving-into-devops</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-07-27-moving-into-devops" />
     <title>Moving into Devops</title>
-    <published>2020-07-27T00:00:00+00:00</published>
-    <updated>2020-07-27T00:00:00+00:00</updated>
+    <published>2020-07-27T01:00:00+01:00</published>
+    <updated>2020-07-27T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -5811,8 +5854,8 @@ vagrant ssh
     <id>https://allotmentandy.github.io/blog/2020-07-16-general-thoughts</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-07-16-general-thoughts" />
     <title>General Thoughts about getting some work.</title>
-    <published>2020-07-16T00:00:00+00:00</published>
-    <updated>2020-07-16T00:00:00+00:00</updated>
+    <published>2020-07-16T01:00:00+01:00</published>
+    <updated>2020-07-16T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -5833,8 +5876,8 @@ vagrant ssh
     <id>https://allotmentandy.github.io/blog/2020-06-25-laravel-starter-projects</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-06-25-laravel-starter-projects" />
     <title>Laravel starter projects</title>
-    <published>2020-07-06T00:00:00+00:00</published>
-    <updated>2020-07-06T00:00:00+00:00</updated>
+    <published>2020-07-06T01:00:00+01:00</published>
+    <updated>2020-07-06T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -5883,8 +5926,8 @@ vagrant ssh
     <id>https://allotmentandy.github.io/blog/2020-07-04-pdf-making-pdfs-extracting-pages-from-pdfs</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-07-04-pdf-making-pdfs-extracting-pages-from-pdfs" />
     <title>Playing with PDFs</title>
-    <published>2020-07-04T00:00:00+00:00</published>
-    <updated>2020-07-04T00:00:00+00:00</updated>
+    <published>2020-07-04T01:00:00+01:00</published>
+    <updated>2020-07-04T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -5897,8 +5940,8 @@ vagrant ssh
     <id>https://allotmentandy.github.io/blog/2020-06-25-getting-your-github-pages-sites-into-google</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-06-25-getting-your-github-pages-sites-into-google" />
     <title>Getting your Github Pages site into Google</title>
-    <published>2020-06-25T20:52:00+00:00</published>
-    <updated>2020-06-25T20:52:00+00:00</updated>
+    <published>2020-06-25T21:52:00+01:00</published>
+    <updated>2020-06-25T21:52:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -5923,8 +5966,8 @@ vagrant ssh
     <id>https://allotmentandy.github.io/blog/2020-06-24-relaunching-my-directory</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-06-24-relaunching-my-directory" />
     <title>Relaunching my directory</title>
-    <published>2020-06-24T00:00:00+00:00</published>
-    <updated>2020-06-24T00:00:00+00:00</updated>
+    <published>2020-06-24T01:00:00+01:00</published>
+    <updated>2020-06-24T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -5978,8 +6021,8 @@ vagrant ssh
     <id>https://allotmentandy.github.io/blog/2020-06-06-rss-feeds-debian</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-06-06-rss-feeds-debian" />
     <title>RSS Feeds with Debian Linux</title>
-    <published>2020-06-06T10:29:57+00:00</published>
-    <updated>2020-06-06T10:29:57+00:00</updated>
+    <published>2020-06-06T11:29:57+01:00</published>
+    <updated>2020-06-06T11:29:57+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6035,8 +6078,8 @@ If you can share your feeds via .OPML files I would love to see what you read.</
     <id>https://allotmentandy.github.io/blog/2020-06-05-looking-for-work</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-06-05-looking-for-work" />
     <title>Looking for work</title>
-    <published>2020-06-05T00:00:00+00:00</published>
-    <updated>2020-06-05T00:00:00+00:00</updated>
+    <published>2020-06-05T01:00:00+01:00</published>
+    <updated>2020-06-05T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6049,8 +6092,8 @@ If you can share your feeds via .OPML files I would love to see what you read.</
     <id>https://allotmentandy.github.io/blog/2020-05-30-testing</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-30-testing" />
     <title>Testing</title>
-    <published>2020-05-30T00:00:00+00:00</published>
-    <updated>2020-05-30T00:00:00+00:00</updated>
+    <published>2020-05-30T01:00:00+01:00</published>
+    <updated>2020-05-30T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6075,8 +6118,8 @@ I have also used......</summary>
     <id>https://allotmentandy.github.io/blog/2020-05-23-idea-days-work-days</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-23-idea-days-work-days" />
     <title>Idea Days Work Days</title>
-    <published>2020-05-23T00:00:00+00:00</published>
-    <updated>2020-05-23T00:00:00+00:00</updated>
+    <published>2020-05-23T01:00:00+01:00</published>
+    <updated>2020-05-23T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6095,8 +6138,8 @@ Today I started an article on RSS viewers......</summary>
     <id>https://allotmentandy.github.io/blog/2020-05-17-tailwind-css</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-tailwind-css" />
     <title>Tailwind CSS</title>
-    <published>2020-05-17T11:42:57+00:00</published>
-    <updated>2020-05-17T11:42:57+00:00</updated>
+    <published>2020-05-17T12:42:57+01:00</published>
+    <updated>2020-05-17T12:42:57+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6115,8 +6158,8 @@ Tailwind CSS is much more like coding CSS / HTML about 20 years ago. But the dif
     <id>https://allotmentandy.github.io/blog/2020-05-17-my-newPost-bash-script</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-my-newPost-bash-script" />
     <title>My New Post Bash Shell Script</title>
-    <published>2020-05-17T10:46:57+00:00</published>
-    <updated>2020-05-17T10:46:57+00:00</updated>
+    <published>2020-05-17T11:46:57+01:00</published>
+    <updated>2020-05-17T11:46:57+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6163,8 +6206,8 @@ EOF
     <id>https://allotmentandy.github.io/blog/2020-05-17-highlight-js</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-highlight-js" />
     <title>Using highlight.js</title>
-    <published>2020-05-17T02:02:02+00:00</published>
-    <updated>2020-05-17T02:02:02+00:00</updated>
+    <published>2020-05-17T03:02:02+01:00</published>
+    <updated>2020-05-17T03:02:02+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6216,8 +6259,8 @@ Available commands:
     <id>https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site" />
     <title>Internationalization Of A Jigsaw Static Site</title>
-    <published>2020-05-17T00:00:00+00:00</published>
-    <updated>2020-05-17T00:00:00+00:00</updated>
+    <published>2020-05-17T01:00:00+01:00</published>
+    <updated>2020-05-17T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6242,8 +6285,8 @@ I would like a language switcher to swap between EN and PT at first. This would 
     <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
     <title>Testing a blade.md template for a post</title>
-    <published>2020-05-17T00:00:00+00:00</published>
-    <updated>2020-05-17T00:00:00+00:00</updated>
+    <published>2020-05-17T01:00:00+01:00</published>
+    <updated>2020-05-17T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6256,8 +6299,8 @@ I would like a language switcher to swap between EN and PT at first. This would 
     <id>https://allotmentandy.github.io/blog/2020-05-13-jigsaw-experiment</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-13-jigsaw-experiment" />
     <title>Jigsaw experiment with ~20,000 pages</title>
-    <published>2020-05-13T00:00:00+00:00</published>
-    <updated>2020-05-13T00:00:00+00:00</updated>
+    <published>2020-05-13T01:00:00+01:00</published>
+    <updated>2020-05-13T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6276,8 +6319,8 @@ My idea is to output markdown pages for the 20,000 private jets in my laravel54 
     <id>https://allotmentandy.github.io/blog/2020-05-09-jigsaw-ideas</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-jigsaw-ideas" />
     <title>Jigsaw Ideas</title>
-    <published>2020-05-09T14:00:00+00:00</published>
-    <updated>2020-05-09T14:00:00+00:00</updated>
+    <published>2020-05-09T15:00:00+01:00</published>
+    <updated>2020-05-09T15:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6302,8 +6345,8 @@ The collection in the config.php file......</summary>
     <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
     <title>GRR, Duplicate Github Pages</title>
-    <published>2020-05-09T00:00:00+00:00</published>
-    <updated>2020-05-09T00:00:00+00:00</updated>
+    <published>2020-05-09T01:00:00+01:00</published>
+    <updated>2020-05-09T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6324,8 +6367,8 @@ I deleted that repo and now it is working as expected....</summary>
     <id>https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked" />
     <title>Yesterday I Cooked</title>
-    <published>2020-05-09T00:00:00+00:00</published>
-    <updated>2020-05-09T00:00:00+00:00</updated>
+    <published>2020-05-09T01:00:00+01:00</published>
+    <updated>2020-05-09T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6348,8 +6391,8 @@ Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabb
     <id>https://allotmentandy.github.io/blog/2020-04-30-laravel</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30-laravel" />
     <title>Laravel</title>
-    <published>2020-05-08T00:00:00+00:00</published>
-    <updated>2020-05-08T00:00:00+00:00</updated>
+    <published>2020-05-08T01:00:00+01:00</published>
+    <updated>2020-05-08T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6378,8 +6421,8 @@ I am looking to create a dual language website in English and Portuguese to.....
     <id>https://allotmentandy.github.io/blog/2020-05-08-markdown</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-08-markdown" />
     <title>Markdown</title>
-    <published>2020-05-08T00:00:00+00:00</published>
-    <updated>2020-05-08T00:00:00+00:00</updated>
+    <published>2020-05-08T01:00:00+01:00</published>
+    <updated>2020-05-08T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6510,8 +6553,8 @@ Any word wrapped with two tildes (like ~~this~~) will appear crossed out.
     <id>https://allotmentandy.github.io/blog/2020-04-30</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30" />
     <title>Cooking Day</title>
-    <published>2020-04-30T00:00:00+00:00</published>
-    <updated>2020-04-30T00:00:00+00:00</updated>
+    <published>2020-04-30T01:00:00+01:00</published>
+    <updated>2020-04-30T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6532,8 +6575,8 @@ overnight and today i will make bread and freeze a load of these.</p>
     <id>https://allotmentandy.github.io/blog/2020-04-29</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
     <title>Jigsaw Templates</title>
-    <published>2020-04-29T00:00:00+00:00</published>
-    <updated>2020-04-29T00:00:00+00:00</updated>
+    <published>2020-04-29T01:00:00+01:00</published>
+    <updated>2020-04-29T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6582,8 +6625,8 @@ working.</p>
     <id>https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29-jigsaw-static-site-thoughts" />
     <title>Jigsaw Static Site Thoughts</title>
-    <published>2020-04-29T00:00:00+00:00</published>
-    <updated>2020-04-29T00:00:00+00:00</updated>
+    <published>2020-04-29T01:00:00+01:00</published>
+    <updated>2020-04-29T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
@@ -6665,8 +6708,8 @@ Shell Scripts for Jigsaw"> ← Templates, Markdown and Shell Scripts for Jigsaw
     <id>https://allotmentandy.github.io/blog/2020-04-28-raining</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-28-raining" />
     <title>Rainy Day - Thoughts about Debian</title>
-    <published>2020-04-28T00:00:00+00:00</published>
-    <updated>2020-04-28T00:00:00+00:00</updated>
+    <published>2020-04-28T01:00:00+01:00</published>
+    <updated>2020-04-28T01:00:00+01:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
