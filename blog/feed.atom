@@ -3,12 +3,28 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2023-05-03T14:56:24+01:00</updated>
+    <updated>2023-09-30T10:34:50+01:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2023-09-29-fixing-the-twitter-100-cpu-issue-in-the-chrome-browser</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-09-29-fixing-the-twitter-100-cpu-issue-in-the-chrome-browser" />
+    <title>Fixing the twitter 100% cpu issue in the chrome browser</title>
+    <published>2023-09-29T01:00:00+01:00</published>
+    <updated>2023-09-29T01:00:00+01:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Since tweetdeck was put behind the paywall of Twitter, I have been using the vanilla Twitter which is awful, but the only way to access the twitter site. One thing I found straight away is that it seemed to use a lot more resources and max the CPU at......</summary>
+    <content type="html"><![CDATA[
+        <p>Since tweetdeck was put behind the paywall of Twitter, I have been using the vanilla <a href="https://twitter.com/home">Twitter</a> which is awful, but the only way to access the twitter site. One thing I found straight away is that it seemed to use a lot more resources and max the CPU at 100%. This mean't i had to shut the browser tab when not using it, which isn't something I would have done with tweetdeck.</p>
+
+<p>Today, I had a little investigation and discovered a tweet which suggested it was the 'Listen live in Spaces' part which was maxing the CPU. The <a href="https://chrome.google.com/webstore/detail/twitter-cpu-optimizer/eeeaaoidkpndlpdljifdpkemliihcebh?hl=en">Twitter CPU Optimizer</a> solved this problem and removed the Spaces html.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2023-04-28-installing-a-Wordpress-blog-locally-with-https-ssh-and-plugins</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-04-28-installing-a-Wordpress-blog-locally-with-https-ssh-and-plugins" />
     <title>Installing a Wordpress blog locally with https ssh and plugins</title>
