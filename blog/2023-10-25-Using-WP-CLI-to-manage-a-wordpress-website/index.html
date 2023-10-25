@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-    <meta property="og:title" content="Wordpress | Allotment Andy" />
+    <meta property="og:title" content="Using WP CLI to manage a Wordpress website | Allotment Andy" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/categories/wordpress" />
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2023-10-25-Using-WP-CLI-to-manage-a-wordpress-website" />
     <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
     <meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
     <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
     <link rel="home" href="https://allotmentandy.github.io/">
     <link rel="icon" href="/favicon.ico">
     <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-        <meta property="og:title" content="Wordpress" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/categories/wordpress"/>
-    <meta property="og:description" content="All posts that are about Wordpress." />
-    <title>Allotment Andy | Wordpress</title>
+    <meta property="og:title" content="Using WP CLI to manage a Wordpress website" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2023-10-25-Using-WP-CLI-to-manage-a-wordpress-website" />
+<meta property="og:description" content="" />
+<meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
+    <title>Allotment Andy | Using WP CLI to manage a Wordpress website</title>
         <!-- Insert analytics code here -->
         <link rel="stylesheet" href="/assets/build/css/main.css?id=acda16fbc98d9b4fa675d9160e4e3993">
     <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -120,66 +121,82 @@
 
     <div class="flex">
         <main role="main" class="flex-auto w-full container mx-auto py-4 px-6">
-            
-    <h1><img class="h-12 md:h-14 mr-3 inline-block" src="/assets/img/Wordpress.svg" alt="" />Wordpress (2 posts)</h1>
+            <div class=" mb-4 mt-2 bg-gray-100 px-4 py-4 rounded-lg">
 
-    <div class="text-2xl border-b border-blue-200 mb-6 pb-10">
-            </div>
+    
+    <h1 class="leading-none mb-2">
+                <img src="/assets/img/Wordpress.svg" alt="Using WP CLI to manage a Wordpress website" class=" w-16 h-16 inline-block">
+                Using WP CLI to manage a Wordpress website
+    </h1>
 
-            <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
+    <p class="text-gray-700 text-sm md:mt-0">October 25, 2023</p>
 
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2023-10-18-Wordpress-Theme-using-Underscores"
-            title="Read more - Wordpress Theme using Underscores"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Wordpress.svg" alt="Wordpress" class=" w-8 h-8 inline-block">
-                Wordpress Theme using Underscores</a>
-    </h2>
+            <a href="/blog/categories/Wordpress" title="View posts in Wordpress"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">Wordpress</a>
+        <a href="/blog/categories/bash" title="View posts in bash"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">bash</a>
+        
+    <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
+        <p>I am a big fan of the command line and often have 7 terminal tabs open on my computer. I found the wp-cli tool to manage a Worpdress website from the command line and i love it. It is much faster to use and the WP-CLI tool offers great improvements to manage my wordpress websites from the command-line.</p>
 
-    <p class="text-gray-700 font-medium my-2">
-        October 18, 2023
-    </p>
+<pre><code class="language-sh"># update the wp-cli tool itself
+wp cli update
 
-    <p class="mb-4 mt-0">WordPress, with its user-friendly interface and endless possibilities, has become the platform of choice for many website owners and developers. When it comes to creating a unique, tailor-made...</p>
+# update wordpress core
+wp core update
 
-    <a
-        href="https://allotmentandy.github.io/blog/2023-10-18-Wordpress-Theme-using-Underscores"
-        title="Read more - Wordpress Theme using Underscores"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
+# update all the plugins
+wp plugin update --all
+
+# update all the themes
+wp theme update --all
+
+# export database (to directory)
+wp db export /home/andy/wp.sql
+
+# install plugin
+wp plugin install wp-statistics
+
+# activate plugin
+wp plugin activate wp-statistics
+
+</code></pre>
+
+<p>you can see extensive documentation <a href="https://developer.wordpress.org/cli/commands/">here</a></p>
+
+<p>It is also possible to extend the wp-cli tool and I have added these 2 tools as well which provide background as to potential problems.</p>
+
+<h3>wp doctor</h3>
+
+<p><a href="https://managingwp.io/2023/03/31/wp-cli-doctor-command-an-essential-tool-for-wordpress-troubleshooting/">https://managingwp.io/2023/03/31/wp-cli-doctor-command-an-essential-tool-for-wordpress-troubleshooting/</a></p>
+
+<h3>wp vunerability</h3>
+
+<p><a href="https://github.com/javiercasares/wpvulnerability">https://github.com/javiercasares/wpvulnerability</a></p>
+
+<p>all round it is a great tool to manage the wordpress site from the command line.</p>
+        <hr>
+        <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
+    </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                        <a href="https://allotmentandy.github.io/blog/2023-10-18-Wordpress-Theme-using-Underscores" title="Older Post: Wordpress Theme using Underscores">
+                &LeftArrow; Wordpress Theme using Underscores
+            </a>
+                    </div>
+
+        <div>
+                    </div>
+    </nav>
 </div>
-
-                    <hr class="w-full border-b mt-2 mb-6">
-                    <div class="flex flex-col mb-4 bg-gray-100 px-4 py-4 rounded-lg">
-
-    <h2 class="text-2xl mt-0">
-        <a
-            href="https://allotmentandy.github.io/blog/2023-04-28-installing-a-Wordpress-blog-locally-with-https-ssh-and-plugins"
-            title="Read more - Installing a Wordpress blog locally with https ssh and plugins"
-            class="text-gray-900 font-extrabold"
-        >
-                    <img src="/assets/img/Wordpress.svg" alt="Wordpress" class=" w-8 h-8 inline-block">
-                Installing a Wordpress blog locally with https ssh and plugins</a>
-    </h2>
-
-    <p class="text-gray-700 font-medium my-2">
-        April 28, 2023
-    </p>
-
-    <p class="mb-4 mt-0">I recently inherited a Wordpress website that needed updating to the latest version of Wordpress and a general cleanup.
-
-Wordpress has gone through a lot of changes in the past few months and one...</p>
-
-    <a
-        href="https://allotmentandy.github.io/blog/2023-04-28-installing-a-Wordpress-blog-locally-with-https-ssh-and-plugins"
-        title="Read more - Installing a Wordpress blog locally with https ssh and plugins"
-        class="font-semibold tracking-wide mb-2"
-    >Read this post ...</a>
-</div>
-
-            
+<script src="https://utteranc.es/client.js"
+        repo="allotmentandy/blog_comments"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
         </main>
     </div>
     <!-- footer -->
