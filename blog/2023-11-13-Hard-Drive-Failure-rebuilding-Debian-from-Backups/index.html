@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-    <meta property="og:title" content="Twitter card and Facebook og:image meta tags for sharing images | Allotment Andy" />
+    <meta property="og:title" content="Hard Drive Failure rebuilding Debian from Backups | Allotment Andy" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images" />
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2023-11-13-Hard-Drive-Failure-rebuilding-Debian-from-Backups" />
     <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
     <meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
     <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
     <link rel="home" href="https://allotmentandy.github.io/">
     <link rel="icon" href="/favicon.ico">
     <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-    <meta property="og:title" content="Twitter card and Facebook og:image meta tags for sharing images" />
+    <meta property="og:title" content="Hard Drive Failure rebuilding Debian from Backups" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2023-11-13-Hard-Drive-Failure-rebuilding-Debian-from-Backups" />
 <meta property="og:description" content="" />
 <meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
-    <title>Allotment Andy | Twitter card and Facebook og:image meta tags for sharing images</title>
+    <title>Allotment Andy | Hard Drive Failure rebuilding Debian from Backups</title>
         <!-- Insert analytics code here -->
         <link rel="stylesheet" href="/assets/build/css/main.css?id=acda16fbc98d9b4fa675d9160e4e3993">
     <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -124,77 +124,71 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/londinium.svg" alt="Twitter card and Facebook og:image meta tags for sharing images" class=" w-16 h-16 inline-block">
-                Twitter card and Facebook og:image meta tags for sharing images
+                <img src="/assets/img/Debian.svg" alt="Hard Drive Failure rebuilding Debian from Backups" class=" w-16 h-16 inline-block">
+                Hard Drive Failure rebuilding Debian from Backups
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">April 13, 2022</p>
+    <p class="text-gray-700 text-sm md:mt-0">November 13, 2023</p>
 
-            <a href="/blog/categories/laravel" title="View posts in laravel"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
-        <a href="/blog/categories/londinium" title="View posts in londinium"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">londinium</a>
+            <a href="/blog/categories/debian" title="View posts in debian"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">debian</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>To further improve the metatags for social media, I created a laravel artisan command to create a Twitter Card Image.</p>
+        <p>Yesterday afternoon, my hard drive failed. I had made a comprehensive backup the day before, but it is still a pain to build a new system from scratch. The hard drive had been quite noisy and I had been toying with the idea of starting a new machine, but this event forced me to.</p>
 
-<p>The recommended size for a Twitter Card image size should be 1024 pixels by 512 pixels.</p>
+<p>Starting with a new hard drive, i installed the latest Debian 12 os with a usb stick. It is far quicker than years ago, and i had an OS installed in less than an hour.</p>
 
-<pre><code>&lt;meta property="og:image" content="https://mywebsite.net/assets/opengraph/theogimage.jpg"/&gt;
-&lt;meta property="og:image:width" content="1024"/&gt;
-&lt;meta property="og:image:height" content="512"/&gt;
-&lt;meta name="twitter:image" content="http://www.yoursite.com/yourimage.jpg"/&gt;
+<p>I also used an <a href="https://github.com/allotmentandy/ansible-debian-install-desktop">ansible playbook</a> I made in the past, which installed browsers, text editors, games and more. This makes the process much easier, but I had to update it a little to add a few more apps to be installed and remove a couple that have disappeared from the debian repo. Another example is the rapid rate of new php versions. I have been using php 8.1 but now version 8.3 of php is available in the debian repo.</p>
+
+<p>So after about an hour, ansible had installed all the software including a lamp server stack, including php versions 8.0, 8.1 and 8.2, apache and a maria/mysql database.</p>
+
+<p>I keep regular backups of the /www directory with the 4 main projects I work on and backups of the databases are easy to reimport.</p>
+
+<p>But one problem I found was the computer didnt sleep / suspend properly. I noticed that the kernel image was only 6.1 so I have decided to add a Kali Linux repo into the apt sources which should give me a 6.5 kernel which hopefully will let me fix the suspend problem. This was solved by changing the default display manager to gdm3 from lightdm as this was set in the install and it did work as I wanted</p>
+
+<p>edit '/etc/X11/default-display-manager' and change it to</p>
+
+<pre><code>/usr/sbin/gdm3
 </code></pre>
 
-<p>To install the reuqired php mods I ran:</p>
+<p>in the setup process i had to chose between the window manager lightdm and gdm3. changing it to gdm3 fixed my shutdown, brightness and boot issue.</p>
 
-<pre><code>apt-get install php8.0-imagick
-apt-get install php8.0-gd
-composer require intervention/image
-</code></pre>
+<h2>Ansible playbook improvements to look into</h2>
 
-<p>After you have installed Intervention Image, open your Laravel config file config/app.php and add the following lines.</p>
+<ul>
+<li>check for deb repos existing in the sources. (duplicates seem to appear)</li>
+<li>install more browsers, opera, microsoft edge, palemoon</li>
+<li>add php 8.3</li>
+<li>browser extensions</li>
+<li>VS code extensions</li>
+<li>add mysql root user to the mysql setup<br />
+<code>ALTER USER 'root'@'localhost' IDENTIFIED BY 'newPassword';
+flush privileges;
+exit;</code></li>
+</ul>
 
-<p>In the $providers array add the service providers for this package.</p>
+<h2>Backup improvements to do</h2>
 
-<pre><code>Intervention\Image\ImageServiceProvider::class
-</code></pre>
-
-<p>Add the facade of this package to the $aliases array.</p>
-
-<pre><code>'Image' =&gt; Intervention\Image\Facades\Image::class
-</code></pre>
-
-<pre><code>php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
-php artisan storage:link
-php artisan image:twittercard
-</code></pre>
-
-<p>And here is the code for the command:</p>
-
-<script src="https://gist.github.com/allotmentandy/3ae4943a97b303b7a8f4ba41e90a9f5b.js"></script>
-
-<p>Which creates an image like this:</p>
-
-<p><img src="https://londinium.com/images/londinumTwitterCard.jpg" /></p>
-
-<p>To test the card use the 
-<a href="https://cards-dev.twitter.com/validator" target="_blank">twitter.com/validator</a></p>
+<ul>
+<li>zip up the thunderbird archive, instead of thousands of files.</li>
+<li>browser extensions, install for each browser</li>
+<li>dump bookmarks from each browser</li>
+<li>automate a db dump of the key mysql dbs/tables</li>
+<li>create zips of the web server files without the 'node_modules' and 'vendor' directories</li>
+<li>ssh keys</li>
+</ul>
         <hr>
         <p>If you would like to contact me you can either use this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin" title="Older Post: Adding share buttons for Twitter, Facebook and LinkedIn">
-                &LeftArrow; Adding share buttons for Twitter, Facebook and LinkedIn
+                        <a href="https://allotmentandy.github.io/blog/2023-10-31-Using-Linkedin-for-social-interaction-and-Wordpress-part-time-or-contract-job-hunting" title="Older Post: Using Linkedin for social interaction and Wordpress part time or contract job hunting">
+                &LeftArrow; Using Linkedin for social interaction and Wordpress part time or contract job hunting
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2022-04-13-Website-metrics" title="Newer Post: Website metrics">
-                Website metrics &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>

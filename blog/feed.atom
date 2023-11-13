@@ -3,12 +3,68 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2023-10-31T14:07:48+00:00</updated>
+    <updated>2023-11-13T09:03:44+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2023-11-13-Hard-Drive-Failure-rebuilding-Debian-from-Backups</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-11-13-Hard-Drive-Failure-rebuilding-Debian-from-Backups" />
+    <title>Hard Drive Failure rebuilding Debian from Backups</title>
+    <published>2023-11-13T00:00:00+00:00</published>
+    <updated>2023-11-13T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Yesterday afternoon, my hard drive failed. I had made a comprehensive backup the day before, but it is still a pain to build a new system from scratch. The hard drive had been quite noisy and I had been toying with the idea of starting a new machine, but......</summary>
+    <content type="html"><![CDATA[
+        <p>Yesterday afternoon, my hard drive failed. I had made a comprehensive backup the day before, but it is still a pain to build a new system from scratch. The hard drive had been quite noisy and I had been toying with the idea of starting a new machine, but this event forced me to.</p>
+
+<p>Starting with a new hard drive, i installed the latest Debian 12 os with a usb stick. It is far quicker than years ago, and i had an OS installed in less than an hour.</p>
+
+<p>I also used an <a href="https://github.com/allotmentandy/ansible-debian-install-desktop">ansible playbook</a> I made in the past, which installed browsers, text editors, games and more. This makes the process much easier, but I had to update it a little to add a few more apps to be installed and remove a couple that have disappeared from the debian repo. Another example is the rapid rate of new php versions. I have been using php 8.1 but now version 8.3 of php is available in the debian repo.</p>
+
+<p>So after about an hour, ansible had installed all the software including a lamp server stack, including php versions 8.0, 8.1 and 8.2, apache and a maria/mysql database.</p>
+
+<p>I keep regular backups of the /www directory with the 4 main projects I work on and backups of the databases are easy to reimport.</p>
+
+<p>But one problem I found was the computer didnt sleep / suspend properly. I noticed that the kernel image was only 6.1 so I have decided to add a Kali Linux repo into the apt sources which should give me a 6.5 kernel which hopefully will let me fix the suspend problem. This was solved by changing the default display manager to gdm3 from lightdm as this was set in the install and it did work as I wanted</p>
+
+<p>edit '/etc/X11/default-display-manager' and change it to</p>
+
+<pre><code>/usr/sbin/gdm3
+</code></pre>
+
+<p>in the setup process i had to chose between the window manager lightdm and gdm3. changing it to gdm3 fixed my shutdown, brightness and boot issue.</p>
+
+<h2>Ansible playbook improvements to look into</h2>
+
+<ul>
+<li>check for deb repos existing in the sources. (duplicates seem to appear)</li>
+<li>install more browsers, opera, microsoft edge, palemoon</li>
+<li>add php 8.3</li>
+<li>browser extensions</li>
+<li>VS code extensions</li>
+<li>add mysql root user to the mysql setup<br />
+<code>ALTER USER 'root'@'localhost' IDENTIFIED BY 'newPassword';
+flush privileges;
+exit;</code></li>
+</ul>
+
+<h2>Backup improvements to do</h2>
+
+<ul>
+<li>zip up the thunderbird archive, instead of thousands of files.</li>
+<li>browser extensions, install for each browser</li>
+<li>dump bookmarks from each browser</li>
+<li>automate a db dump of the key mysql dbs/tables</li>
+<li>create zips of the web server files without the 'node_modules' and 'vendor' directories</li>
+<li>ssh keys</li>
+</ul>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2023-10-31-Using-Linkedin-for-social-interaction-and-Wordpress-part-time-or-contract-job-hunting</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-10-31-Using-Linkedin-for-social-interaction-and-Wordpress-part-time-or-contract-job-hunting" />
     <title>Using Linkedin for social interaction and Wordpress part time or contract job hunting</title>
@@ -2325,69 +2381,6 @@ apt install -y chromium-browser
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-12-Twitter-card-and-Facebook-og:image-meta-tags-for-sharing-images" />
-    <title>Twitter card and Facebook og:image meta tags for sharing images</title>
-    <published>2022-04-13T00:00:00+00:00</published>
-    <updated>2022-04-13T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">To further improve the metatags for social media, I created a laravel artisan command to create a Twitter Card Image.
-
-The recommended size for a Twitter Card image size should be 1024 pixels by 512 pixels.
-
-
-
-To install the reuqired php mods I ran:......</summary>
-    <content type="html"><![CDATA[
-        <p>To further improve the metatags for social media, I created a laravel artisan command to create a Twitter Card Image.</p>
-
-<p>The recommended size for a Twitter Card image size should be 1024 pixels by 512 pixels.</p>
-
-<pre><code>&lt;meta property="og:image" content="https://mywebsite.net/assets/opengraph/theogimage.jpg"/&gt;
-&lt;meta property="og:image:width" content="1024"/&gt;
-&lt;meta property="og:image:height" content="512"/&gt;
-&lt;meta name="twitter:image" content="http://www.yoursite.com/yourimage.jpg"/&gt;
-</code></pre>
-
-<p>To install the reuqired php mods I ran:</p>
-
-<pre><code>apt-get install php8.0-imagick
-apt-get install php8.0-gd
-composer require intervention/image
-</code></pre>
-
-<p>After you have installed Intervention Image, open your Laravel config file config/app.php and add the following lines.</p>
-
-<p>In the $providers array add the service providers for this package.</p>
-
-<pre><code>Intervention\Image\ImageServiceProvider::class
-</code></pre>
-
-<p>Add the facade of this package to the $aliases array.</p>
-
-<pre><code>'Image' =&gt; Intervention\Image\Facades\Image::class
-</code></pre>
-
-<pre><code>php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
-php artisan storage:link
-php artisan image:twittercard
-</code></pre>
-
-<p>And here is the code for the command:</p>
-
-<script src="https://gist.github.com/allotmentandy/3ae4943a97b303b7a8f4ba41e90a9f5b.js"></script>
-
-<p>Which creates an image like this:</p>
-
-<p><img src="https://londinium.com/images/londinumTwitterCard.jpg" /></p>
-
-<p>To test the card use the 
-<a href="https://cards-dev.twitter.com/validator" target="_blank">twitter.com/validator</a></p>
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-04-12-Adding-share-buttons-for-twitter-facebook-and-linkedin" />
     <title>Adding share buttons for Twitter, Facebook and LinkedIn</title>
@@ -3665,38 +3658,6 @@ $browser-&gt;resize(320, 720);
 $browser-&gt;screenshot('home-320');
 
 </code></pre>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2022-01-23-Adding-an-artisan-command-route:check-for-duplicate-routes</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2022-01-23-Adding-an-artisan-command-route:check-for-duplicate-routes" />
-    <title>Adding an artisan command route:check for duplicate routes</title>
-    <published>2022-01-23T00:00:00+00:00</published>
-    <updated>2022-01-23T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">My attempt to add a new route:check command failed as the core getRoutes function removes duplicates. So i wrote it using AWK....</summary>
-    <content type="html"><![CDATA[
-        <p>Today I tried to create a new subcommand for the <code>php artisan route:list</code> command by adding a <code>--duplicates</code> option.</p>
-
-<p>I edited the command in <code>/vendor/laravel/framework/src/Illuminate/Foundation/Console/RouteListCommand.php</code>
-adding an option and a sub function into getRoutes for duplicates. But it seemed to only have a single entry for each route. The problem is the getRoutes function removes all duplicates, so my array function only counted 1 for each.</p>
-
-<p>So i gave up and wrote this awk command line script to find duplicates in the web.php routes file:</p>
-
-<pre><code>awk -F"'" '$1 ~ /^Route::/ {print $2}' routes/web.php | awk 'NF &gt; 0' | sort | uniq -c -d 
-</code></pre>
-
-<p>It finds all lines starting with "Route::" and prints the second awk column $2 which is then sorted and the -d on uniq show duplicates.</p>
-
-<p>it outputs a list of routes with a count higher than 1, like so.</p>
-
-<pre><code>2 contact
-2 az
-</code></pre>
-
-<p>I am sure it could be improved, but it solved the problem for me and helped me find the duplicates in a sinlge line.</p>
     ]]></content>
 </entry>
             <entry>
@@ -5789,6 +5750,44 @@ xdotool windowactivate $CURRENT_WID
     ]]></content>
 </entry>
             <entry>
+    <id>https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger" />
+    <title>Bash fwf ranger</title>
+    <published>2020-11-08T00:00:00+00:00</published>
+    <updated>2020-11-08T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle Fun tools to simplify your life in the command line
+
+The two tools i really liked and have found really useful are &lt;code&gt;fzf&lt;/code&gt;......</summary>
+    <content type="html"><![CDATA[
+        <p>I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle <a href="https://www.youtube.com/watch?v=BFKT7aj-i80" target="_blank">Fun tools to simplify your life in the command line</a></p>
+
+<p>The two tools i really liked and have found really useful are <code>fzf</code> and <code>ranger</code>.</p>
+
+<h3>fzf</h3>
+
+<p>fzf is a fuzzy search for the terminal. To search for docs in the directory which contain ansible  run <code>ls | fzf</code> and i can type ansible and it shows the files that contain ansible.</p>
+
+<p>To search for ansible only use:</p>
+
+<pre><code>ls | fzf -e -q "ansible"
+</code></pre>
+
+<h3>ranger</h3>
+
+<p><code>ranger</code> is a terminal file manager that is nice and quick and lets me navigate and view the file content.</p>
+
+<p>both of these tools can be installed with</p>
+
+<pre><code>apt-get install fzf ranger
+</code></pre>
+
+<p>I am always on the lookout for more tools that improve and speed up the workflow.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-11-08-Offline-documentation-on-debian" />
     <title>Offline Documentation on Debian</title>
@@ -5836,44 +5835,6 @@ One thing i really like to use is offline tools to help me access info offline. 
 <hr />
 
 <p>I would be interested in anymore tools people use for offline documentation, especially one that covers Tailwind CSS.</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-11-08-Bash-fwf-ranger" />
-    <title>Bash fwf ranger</title>
-    <published>2020-11-08T00:00:00+00:00</published>
-    <updated>2020-11-08T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle Fun tools to simplify your life in the command line
-
-The two tools i really liked and have found really useful are &lt;code&gt;fzf&lt;/code&gt;......</summary>
-    <content type="html"><![CDATA[
-        <p>I was recently looking for videos to help me improve my bash terminal skills and found this video by Marie-Helene Burle <a href="https://www.youtube.com/watch?v=BFKT7aj-i80" target="_blank">Fun tools to simplify your life in the command line</a></p>
-
-<p>The two tools i really liked and have found really useful are <code>fzf</code> and <code>ranger</code>.</p>
-
-<h3>fzf</h3>
-
-<p>fzf is a fuzzy search for the terminal. To search for docs in the directory which contain ansible  run <code>ls | fzf</code> and i can type ansible and it shows the files that contain ansible.</p>
-
-<p>To search for ansible only use:</p>
-
-<pre><code>ls | fzf -e -q "ansible"
-</code></pre>
-
-<h3>ranger</h3>
-
-<p><code>ranger</code> is a terminal file manager that is nice and quick and lets me navigate and view the file content.</p>
-
-<p>both of these tools can be installed with</p>
-
-<pre><code>apt-get install fzf ranger
-</code></pre>
-
-<p>I am always on the lookout for more tools that improve and speed up the workflow.</p>
     ]]></content>
 </entry>
             <entry>
@@ -6573,28 +6534,6 @@ The collection in the config.php file......</summary>
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
-    <title>GRR, Duplicate Github Pages</title>
-    <published>2020-05-09T00:00:00+00:00</published>
-    <updated>2020-05-09T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">12.26pm
-
-It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
-
-I deleted that repo and now it is working as expected....</summary>
-    <content type="html"><![CDATA[
-        <p>12.26pm</p>
-
-<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
-
-<p>I deleted that repo and now it is working as expected.</p>
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked" />
     <title>Yesterday I Cooked</title>
@@ -6619,33 +6558,25 @@ Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabb
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-30-laravel</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30-laravel" />
-    <title>Laravel</title>
-    <published>2020-05-08T00:00:00+00:00</published>
-    <updated>2020-05-08T00:00:00+00:00</updated>
+    <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
+    <title>GRR, Duplicate Github Pages</title>
+    <published>2020-05-09T00:00:00+00:00</published>
+    <updated>2020-05-09T00:00:00+00:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
-    <summary type="html">Laravel is a great PHP Framework which i have used for many years.
+    <summary type="html">12.26pm
 
-There are a number of Laravel projects I am enjoying using at the moment
+It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
 
-Laravel Boilerplate
-
-Laravel Auth
-
-I am looking to create a dual language website in English and Portuguese to......</summary>
+I deleted that repo and now it is working as expected....</summary>
     <content type="html"><![CDATA[
-        <p>Laravel is a great PHP Framework which i have used for many years.</p>
+        <p>12.26pm</p>
 
-<p>There are a number of Laravel projects I am enjoying using at the moment</p>
+<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
 
-<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
-
-<p><a href="https://github.com/jeremykenedy/laravel-auth/">Laravel Auth</a></p>
-
-<p>I am looking to create a dual language website in English and Portuguese to help me learn portuguese and as a playground to learn about internationalization and multi-language websites.</p>
+<p>I deleted that repo and now it is working as expected.</p>
     ]]></content>
 </entry>
             <entry>
@@ -6778,6 +6709,36 @@ Any word wrapped with two tildes (like ~~this~~) will appear crossed out.
   - Like this
   - And this
 </code></pre>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-04-30-laravel</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30-laravel" />
+    <title>Laravel</title>
+    <published>2020-05-08T00:00:00+00:00</published>
+    <updated>2020-05-08T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Laravel is a great PHP Framework which i have used for many years.
+
+There are a number of Laravel projects I am enjoying using at the moment
+
+Laravel Boilerplate
+
+Laravel Auth
+
+I am looking to create a dual language website in English and Portuguese to......</summary>
+    <content type="html"><![CDATA[
+        <p>Laravel is a great PHP Framework which i have used for many years.</p>
+
+<p>There are a number of Laravel projects I am enjoying using at the moment</p>
+
+<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
+
+<p><a href="https://github.com/jeremykenedy/laravel-auth/">Laravel Auth</a></p>
+
+<p>I am looking to create a dual language website in English and Portuguese to help me learn portuguese and as a playground to learn about internationalization and multi-language websites.</p>
     ]]></content>
 </entry>
             <entry>
