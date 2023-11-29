@@ -3,12 +3,56 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2023-11-13T09:03:44+00:00</updated>
+    <updated>2023-11-29T09:56:46+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2023-11-28-The-sort-of-jobs-I-am-looking-for</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-11-28-The-sort-of-jobs-I-am-looking-for" />
+    <title>The sort of work I am looking for</title>
+    <published>2023-11-28T00:00:00+00:00</published>
+    <updated>2023-11-28T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Skills I have to offer employers and the sort of roles I am available for....</summary>
+    <content type="html"><![CDATA[
+        <p>I am an all rounder with a wide range of skills acquired over 25 years working in the IT world and online. I enjoy using computers and support a number of people locally using Macs, Windows and Linux. I am looking for more work and would like to describe some of the things I am good at, so the sort of job I would like to find involves some of the following:</p>
+
+<h2>Website Management</h2>
+
+<p>I can assist you in running your website in several ways. I can help you create content for your website, such as blog posts, articles, and marketing materials. I can also help you optimize your website for search engines so that it appears higher in search results. Additionally, I can help you monitor your website's traffic and performance so that you can make data-driven decisions about how to improve your website.</p>
+
+<h2>IT Support</h2>
+
+<p>I have used Macs, Windows and Linux for over 25 years and have a vast range of knowledge which can be useful to any firm. I can fix most problems and get you up and running. visit my <a href="https://ilminster.net/it-support/">IT Support page on ilminster.net</a></p>
+
+<h2>Ansible &amp; Terraform</h2>
+
+<p>This is a configuration tool which allows you to run a command to setup 1 or more computers in a logical and systematic way. I really like it and have used it to setup my main computer. Here is a link to my <a href="https://github.com/allotmentandy/ansible-debian-install-desktop">ansible playbook on github</a></p>
+
+<h2>Bash Shell Scripting</h2>
+
+<p>Bash shell scripting is a powerful tool for DevOps engineers and system administrators to automate tasks, manage infrastructure, and perform backups. Bash scripts are simple text files that contain a series of commands that are executed by the Bash shell. They can be used to perform a wide variety of tasks, such as installing software, configuring servers, and backing up data.</p>
+
+<h2>PHP, Laravel &amp; Wordpress website management</h2>
+
+<p>My main language is PHP and I have used Laravel and Wordpress for many years. Get in touch if you need help with your website.</p>
+
+<h2>Web Design and Development</h2>
+
+<p>I am comfortable with PHP and Laravel, CSS, Bootstrap, Tailwind CSS and understand web technologies.</p>
+
+<h2>Linux, Devops, AWS and the Cloud</h2>
+
+<p>I moved to using Debian Linux as my main computer many years ago, and have a fair amount of knowledge of running linux as a desktop. As part of my focus on Devops, I have also experience with Centos, Ubuntu and other Linux systems (alongside Windows and Apple Mac)</p>
+
+<p>If you need any of these services I am available to work at the moment. Get in touch...</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2023-11-13-Hard-Drive-Failure-rebuilding-Debian-from-Backups</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-11-13-Hard-Drive-Failure-rebuilding-Debian-from-Backups" />
     <title>Hard Drive Failure rebuilding Debian from Backups</title>
