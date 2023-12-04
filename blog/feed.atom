@@ -3,12 +3,129 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2023-11-29T09:56:46+00:00</updated>
+    <updated>2023-12-04T11:58:22+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2023-12-04-Scraping-Racing-Post-Horse-Prediction-System-Tips</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-12-04-Scraping-Racing-Post-Horse-Prediction-System-Tips" />
+    <title>Scraping Racing Post Horse Prediction System Tips</title>
+    <published>2023-12-04T00:00:00+00:00</published>
+    <updated>2023-12-04T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I discovered a tool for scraping the racing post on github and it worked. It was simple to download the entire days racing cards into a json file with the command
+
+
+
+So my weekends coding project was a php parser to analyse this json and suggest the......</summary>
+    <content type="html"><![CDATA[
+        <p>I discovered a tool for <a href="https://github.com/joenano/rpscrape/">scraping the racing post</a> on github and it worked. It was simple to download the entire days racing cards into a json file with the command</p>
+
+<pre><code>./racecards.py today
+</code></pre>
+
+<p>So my weekends coding project was a php parser to analyse this json and suggest the horses who will win.</p>
+
+<p>I installed 2 packages with composer</p>
+
+<pre><code>composer require cerbero/json-parser
+composer require nunomaduro/termwind
+</code></pre>
+
+<p>The parser was to simplify the json parsing and the termwind to colorize the output.</p>
+
+<pre><code>&lt;?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Cerbero\JsonParser\JsonParser;
+use function Termwind\{render};
+
+$source = '../racecards/2023-12-04.json';
+
+$json = JsonParser::parse($source);
+
+foreach ($json as $key =&gt; $value) {
+
+    if ($key == "GB"){
+
+        foreach ($value as $key =&gt; $value) {
+
+        echo "-----------------------" . PHP_EOL;
+        render('&lt;div class="px-1 text-red"&gt;' . $key . '&lt;/div&gt;');
+        echo "-----------------------" . PHP_EOL;
+
+            foreach ($value as $key =&gt; $value) {
+                render("&lt;p class='text-blue'&gt;". $key ." " . $value['race_name'] ." ". "&lt;span class='text-green'&gt;". $value['prize']. "&lt;/span&gt;&lt;/p&gt;"); // time
+                    foreach ($value as $key =&gt; $value) {
+                        if ($key == "runners"){
+                            foreach ( $value as $horse) {
+
+                                $firstOrSecondOrThird = substr_count($horse['form'], '1') + substr_count($horse['form'], '2') + substr_count($horse['form'], '3')  ;
+                                $BadForm = substr_count($horse['form'], 'P');
+                                $negs = - $BadForm;
+                                if (!$horse['rpr']) {$negs--;}
+                                if (!$horse['ts']) {$negs--;}
+                                if (!$horse['trainer_rtf']) {$negs--;}
+
+                                $score =  $horse['ofr'] + $horse['rpr'] + $horse['ts']; 
+
+                                $darkout = "";
+                                if ($negs &lt; 0){$darkout = "text-gray-700";}
+                                if ($firstOrSecondOrThird &lt; 1){$darkout = "text-gray-700";}
+
+                                render(" &lt;p class='p-0 pl-1 m-0 ".$darkout ." '&gt; ". 
+                                        str_pad($horse['number'], 2, ".", STR_PAD_LEFT) . " " . 
+                                        str_pad($horse['form'], 6, ".", STR_PAD_LEFT) . " " . 
+                                        '&lt;span class="text-yellow"&gt;' . str_pad( $horse['name'], 20, ".", STR_PAD_RIGHT ) . '&lt;/span&gt; ' . " " .  
+
+                                        str_pad($horse['age'], 2, ".", STR_PAD_LEFT) . " " . 
+                                        str_pad($horse['lbs'], 3, ".", STR_PAD_LEFT) . " " . 
+
+                                        str_pad($horse['ofr'], 3, ".", STR_PAD_LEFT) . " " . 
+                                        str_pad($horse['rpr'], 3, ".", STR_PAD_LEFT) . " " . 
+                                        str_pad($horse['ts'], 3, ".", STR_PAD_LEFT) . " " . 
+                                        str_pad($horse['last_run'], 10, ".", STR_PAD_LEFT) . " " . 
+
+                                        str_pad($horse['jockey'], 22, ".", STR_PAD_RIGHT) . " " . 
+
+                                        str_pad($horse['trainer'], 34, ".", STR_PAD_RIGHT) . " " . 
+                                        str_pad($horse['trainer_location'], 28, ".", STR_PAD_RIGHT) . " " . 
+                                        str_pad($horse['trainer_rtf'], 3, ".", STR_PAD_LEFT) . " " . 
+
+                                        $firstOrSecondOrThird . " " .
+                                        $score . " " .
+                                        $negs .
+
+                                        "&lt;/p&gt;". PHP_EOL);
+                            }
+                        }
+                    }
+            }
+        }
+    }
+}
+
+</code></pre>
+
+<p>This provided a pretty output with a basic value to predict the best horses judging by the form.</p>
+
+<p><img src="/assets/images/horse-racing-system-tips.jpg" alt="racing post horse racing tip system" /></p>
+
+<p>the last 3 columns are a positive factor, total ratings and a negative factor. The greyed out horses are those that failed the basic tests I have coded which are rather basic, but a start.</p>
+
+<p>The next version will load the horses for the race into and array and output them in the order of the score, also it will fade out non-runners and calculate the score in a function. I would also like to output a header for the columns/</p>
+
+<p>I couldn't get the str_pad function to work with spaces, so I used dots which is ok.</p>
+
+<p>I am interested in how people weight the factors, at the moment, it is all a factor of 1, with a negative sign being a missing value. I am going to test it out over the next few days and see how it works.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2023-11-28-The-sort-of-jobs-I-am-looking-for</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-11-28-The-sort-of-jobs-I-am-looking-for" />
     <title>The sort of work I am looking for</title>
