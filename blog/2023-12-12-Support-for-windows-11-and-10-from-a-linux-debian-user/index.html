@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-    <meta property="og:title" content="Using WP CLI to manage a Wordpress website | Allotment Andy" />
+    <meta property="og:title" content="Support for Windows 11 and 10 from a Linux Debian user | Allotment Andy" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2023-10-25-Using-WP-CLI-to-manage-a-wordpress-website" />
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2023-12-12-Support-for-windows-11-and-10-from-a-linux-debian-user" />
     <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
     <meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
     <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
     <link rel="home" href="https://allotmentandy.github.io/">
     <link rel="icon" href="/favicon.ico">
     <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-    <meta property="og:title" content="Using WP CLI to manage a Wordpress website" />
+    <meta property="og:title" content="Support for Windows 11 and 10 from a Linux Debian user" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2023-10-25-Using-WP-CLI-to-manage-a-wordpress-website" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2023-12-12-Support-for-windows-11-and-10-from-a-linux-debian-user" />
 <meta property="og:description" content="" />
 <meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
-    <title>Allotment Andy | Using WP CLI to manage a Wordpress website</title>
+    <title>Allotment Andy | Support for Windows 11 and 10 from a Linux Debian user</title>
         <!-- Insert analytics code here -->
         <link rel="stylesheet" href="/assets/build/css/main.css?id=acda16fbc98d9b4fa675d9160e4e3993">
     <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -124,71 +124,65 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/Wordpress.svg" alt="Using WP CLI to manage a Wordpress website" class=" w-16 h-16 inline-block">
-                Using WP CLI to manage a Wordpress website
+                <img src="/assets/img/laptop.svg" alt="Support for Windows 11 and 10 from a Linux Debian user" class=" w-16 h-16 inline-block">
+                Support for Windows 11 and 10 from a Linux Debian user
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">October 25, 2023</p>
+    <p class="text-gray-700 text-sm md:mt-0">December 12, 2023</p>
 
-            <a href="/blog/categories/wordpress" title="View posts in wordpress"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">wordpress</a>
-        <a href="/blog/categories/bash" title="View posts in bash"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">bash</a>
-        
+    
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>I am a big fan of the command line and often have 7 terminal tabs open on my computer. I found the wp-cli tool to manage a Worpdress website from the command line and i love it. It is much faster to use and the WP-CLI tool offers great improvements to manage my wordpress websites from the command-line.</p>
+        <p>I have been using Debian Linux and similar flavours of Linux for many years as my main desktop, but supporting ordinary people, I have to use windows too. So i decided i needed a new windows machine to experiment with and I got one. It is a lovely Dell XPS which is much lighter than this Acer laptop, and today I set it up.</p>
 
-<pre><code class="language-sh"># update the wp-cli tool itself
-wp cli update
+<p>One of the best features of the Debian Linux environment is apt-get, apt or aptitude. You can search for and install software with ease, you can update the system when you want and it is reliable. With this in mind, I have discovered <a href="https://chocolatey.org/">Chocolatey</a> the package manager for windows and it is great.</p>
 
-# update wordpress core
-wp core update
+<p>So far i have installed Filezilla, Firefox, QuiteRss, Sublime Text and VS Code with this sort of command I will use to install some more</p>
 
-# update all the plugins
-wp plugin update --all
-
-# update all the themes
-wp theme update --all
-
-# export database (to directory)
-wp db export /home/andy/wp.sql
-
-# install plugin
-wp plugin install wp-statistics
-
-# activate plugin
-wp plugin activate wp-statistics
-
+<pre><code>choco install chocolateygui
+choco install libreoffice-fresh
+choco install opera
+choco install zeal
 </code></pre>
 
-<p>you can see extensive documentation <a href="https://developer.wordpress.org/cli/commands/">here</a></p>
+<p>There is a <a href="https://community.chocolatey.org/packages">chocolatey search engine</a> where you can search for software. or you can search with</p>
 
-<p>It is also possible to extend the wp-cli tool and I have added these 2 tools as well which provide background as to potential problems.</p>
+<pre><code>choco search wordpress
+</code></pre>
 
-<h3>wp doctor</h3>
+<p>which provides a similar search to 'apt-cache search wordpress'</p>
 
-<p><a href="https://managingwp.io/2023/03/31/wp-cli-doctor-command-an-essential-tool-for-wordpress-troubleshooting/">https://managingwp.io/2023/03/31/wp-cli-doctor-command-an-essential-tool-for-wordpress-troubleshooting/</a></p>
+<p>I tried to install 'googlechrome' but there was an error with the checksum, so that didn't work, but i have Edge, Firefox, Brave and Opera Browsers to use too, so thats no biggie!</p>
 
-<h3>wp vunerability</h3>
+<p>I have used Windows a lot in the past and after installing Git, I managed to use Git Bash, which is more like a normal linux terminal.</p>
 
-<p><a href="https://github.com/javiercasares/wpvulnerability">https://github.com/javiercasares/wpvulnerability</a></p>
+<p>It would be nice to have a WAMP type PHP and mysql server to play with too, i wonder what is installed with just composer, will it install dependencies?</p>
 
-<p>all round it is a great tool to manage the wordpress site from the command line.</p>
+<pre><code>choco install composer
+</code></pre>
+
+<p>There are also windows only tools, so I can also install this seo tool:</p>
+
+<pre><code>choco install screamingfrog
+</code></pre>
+
+<p>and also try this</p>
+
+<pre><code>choco install photogimp
+</code></pre>
+
+<p>This all makes it a breeze to install software in a predictable manner.</p>
         <hr>
         <p>If you would like to contact me with this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a>, <a href="https://ilminster.net/contact" target="_blank">ilminster.net</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2023-10-18-Wordpress-Theme-using-Underscores" title="Older Post: Wordpress Theme using Underscores">
-                &LeftArrow; Wordpress Theme using Underscores
+                        <a href="https://allotmentandy.github.io/blog/2023-12-04-Scraping-Racing-Post-Horse-Prediction-System-Tips" title="Older Post: Scraping Racing Post Horse Prediction System Tips">
+                &LeftArrow; Scraping Racing Post Horse Prediction System Tips
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2023-10-31-Using-Linkedin-for-social-interaction-and-Wordpress-part-time-or-contract-job-hunting" title="Newer Post: Using Linkedin for social interaction and Wordpress part time or contract job hunting">
-                Using Linkedin for social interaction and Wordpress part time or contract job hunting &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>
