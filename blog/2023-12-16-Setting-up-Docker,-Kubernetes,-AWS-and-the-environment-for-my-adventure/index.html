@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-    <meta property="og:title" content="Support for Windows 11 and 10 from a Linux Debian user | Allotment Andy" />
+    <meta property="og:title" content="Setting up Docker, Kubernetes and AWS | Allotment Andy" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2023-12-12-Support-for-windows-11-and-10-from-a-linux-debian-user" />
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2023-12-16-Setting-up-Docker,-Kubernetes,-AWS-and-the-environment-for-my-adventure" />
     <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
     <meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
     <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
     <link rel="home" href="https://allotmentandy.github.io/">
     <link rel="icon" href="/favicon.ico">
     <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
-    <meta property="og:title" content="Support for Windows 11 and 10 from a Linux Debian user" />
+    <meta property="og:title" content="Setting up Docker, Kubernetes and AWS" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allotmentandy.github.io/blog/2023-12-12-Support-for-windows-11-and-10-from-a-linux-debian-user" />
+<meta property="og:url" content="https://allotmentandy.github.io/blog/2023-12-16-Setting-up-Docker,-Kubernetes,-AWS-and-the-environment-for-my-adventure" />
 <meta property="og:description" content="" />
 <meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
-    <title>Allotment Andy | Support for Windows 11 and 10 from a Linux Debian user</title>
+    <title>Allotment Andy | Setting up Docker, Kubernetes and AWS</title>
         <!-- Insert analytics code here -->
         <link rel="stylesheet" href="/assets/build/css/main.css?id=acda16fbc98d9b4fa675d9160e4e3993">
     <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -124,68 +124,108 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/laptop.svg" alt="Support for Windows 11 and 10 from a Linux Debian user" class=" w-16 h-16 inline-block">
-                Support for Windows 11 and 10 from a Linux Debian user
+                <img src="/assets/img/Docker.svg" alt="Setting up Docker, Kubernetes and AWS" class=" w-16 h-16 inline-block">
+                Setting up Docker, Kubernetes and AWS
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">December 12, 2023</p>
+    <p class="text-gray-700 text-sm md:mt-0">December 16, 2023</p>
 
-    
+            <a href="/blog/categories/devops" title="View posts in devops"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">devops</a>
+        
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>I have been using Debian Linux and similar flavours of Linux for many years as my main desktop, but supporting ordinary people, I have to use windows too. So i decided i needed a new windows machine to experiment with and I got one. It is a lovely Dell XPS which is much lighter than this Acer laptop, and today I set it up.</p>
+        <p>The first task I have undertaken is to update my <a href="https://github.com/allotmentandy/ansible-debian-install-desktop/blob/main/roles/aws/tasks/main.yml">Ansible repo</a> to install the Docker and Kubernetes software I will need for this adventure.</p>
 
-<p>One of the best features of the Debian Linux environment is apt-get, apt or aptitude. You can search for and install software with ease, you can update the system when you want and it is reliable. With this in mind, I have discovered <a href="https://chocolatey.org/">Chocolatey</a> the package manager for windows and it is great.</p>
+<p>I have used Docker quite a bit in the past and it allows one to create a Dockerfile which is a set of instructions to build an image which should work in any docker environment. I come from a PHP / Laravel background, so I think my first project will be to get a Kubernetes install to serve a Laravel app on AWS with a single node.</p>
 
-<p>So far i have installed Filezilla, Firefox, QuiteRss, Sublime Text and VS Code with this sort of command I will use to install some more</p>
+<iframe src="https://youtube.com/embed/T6C4EuVtYbw" style="width:600px; height:400px;"></iframe>
 
-<pre><code>choco install chocolateygui
-choco install libreoffice-fresh
-choco install opera
-choco install zeal
+<p>This is the <a href="https://github.com/LeVadim/kubernetes-react-js/blob/master/Dockerfile">corresponding github repo</a> and is the dockerfile i will use as i follow <a href="https://www.youtube.com/playlist?list=PLThHiP8CCGTKjQzqGrPyOWAvSWM_7ty0f">this video series</a>.</p>
+
+<p>To get up and running with kubernetes, i decided to try minikube. I have added this to the ansible playbook but the first run of the <code>minikube start</code> command compalined that there was no driver</p>
+
+<p>then i used <code>minikube start --driver=docker</code> which resulted in a permission error like so:</p>
+
+<pre><code>Exiting due to PROVIDER_DOCKER_NEWGRP: "docker version --format -:" exit status 1: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/version": dial unix /var/run/docker.sock: connect: permission denied
+
+Suggestion: Add your user to the 'docker' group: 'sudo usermod -aG docker $USER &amp;&amp; newgrp docker'
 </code></pre>
 
-<p>There is a <a href="https://community.chocolatey.org/packages">chocolatey search engine</a> where you can search for software. or you can search with</p>
+<p>so i added the user, but this didnt fix the issue, but this did</p>
 
-<pre><code>choco search wordpress
+<pre><code>chmod 666 /var/run/docker.sock
 </code></pre>
 
-<p>which provides a similar search to 'apt-cache search wordpress'</p>
+<p>now i can set the default to docker with <code>minikube config set driver docker</code> so now starting minikube produced:</p>
 
-<p>I tried to install 'googlechrome' but there was an error with the checksum, so that didn't work, but i have Edge, Firefox, Brave and Opera Browsers to use too, so thats no biggie!</p>
+<pre><code>😄  minikube v1.30.1 on Debian kali-rolling
+✨  Using the docker driver based on user configuration
+📌  Using Docker driver with root privileges
+👍  Starting control plane node minikube in cluster minikube
+🚜  Pulling base image ...
+💾  Downloading Kubernetes v1.26.3 preload ...
+    &gt; preloaded-images-k8s-v18-v1...:  397.02 MiB / 397.02 MiB  100.00% 4.14 Mi
+    &gt; gcr.io/k8s-minikube/kicbase...:  373.53 MiB / 373.53 MiB  100.00% 3.09 Mi
 
-<p>I have used Windows a lot in the past and after installing Git, I managed to use Git Bash, which is more like a normal linux terminal.</p>
 
-<p>It would be nice to have a WAMP type PHP and mysql server to play with too, i wonder what is installed with just composer, will it install dependencies?</p>
 
-<pre><code>choco install composer
+🔥  Creating docker container (CPUs=2, Memory=2800MB) ...
+🐳  Preparing Kubernetes v1.26.3 on Docker 23.0.2 ...
+    ▪ Generating certificates and keys ...
+    ▪ Booting up control plane ...
+    ▪ Configuring RBAC rules ...
+🔗  Configuring bridge CNI (Container Networking Interface) ...
+🔎  Verifying Kubernetes components...
+❗  Executing "docker container inspect minikube --format={{.State.Status}}" took an unusually long time: 18.517914147s
+💡  Restarting the docker service may improve performance.
+🌟  Enabled addons: storage-provisioner, default-storageclass
+
+❗  /usr/bin/kubectl is version 1.28.2, which may have incompatibilities with Kubernetes 1.26.3.
+    ▪ Want kubectl v1.26.3? Try 'minikube kubectl -- get pods -A'
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
 </code></pre>
 
-<p>There are also windows only tools, so I can also install this seo tool:</p>
+<p>but  <code>minikube dashboard</code> didnt fancy it.</p>
 
-<pre><code>choco install screamingfrog
+<pre><code>❗  Executing "docker container inspect minikube --format={{.State.Status}}" took an unusually long time: 2.222619049s
+💡  Restarting the docker service may improve performance.
+🔌  Enabling dashboard ...
+    ▪ Using image docker.io/kubernetesui/dashboard:v2.7.0
+    ▪ Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+💡  Some dashboard features require the metrics-server addon. To enable all features please run:
+
+    minikube addons enable metrics-server
+
+
+🤔  Verifying dashboard health ...
+🚀  Launching proxy ...
+🤔  Verifying proxy health ...
+panic: send on closed channel
+
+goroutine 107 [running]:
+k8s.io/minikube/cmd/minikube/cmd.readByteWithTimeout.func2()
+    /app/cmd/minikube/cmd/dashboard.go:192 +0x67
+created by k8s.io/minikube/cmd/minikube/cmd.readByteWithTimeout
+    /app/cmd/minikube/cmd/dashboard.go:187 +0x158
 </code></pre>
 
-<p>and also try this</p>
+<p>I think there was an issue with the ram, as i had so many browser windows searching for the answers, but shutting most of them down, allowed me to start the dashboard and i saw this</p>
 
-<pre><code>choco install photogimp
-</code></pre>
+<p><img src="/assets/images/minikube_dashboard.png" alt="Minikube dashboard" /></p>
 
-<p>This all makes it a breeze to install software in a predictable manner.</p>
+<p>Which is a great start, I am now going to work out how to deploy a Dockerfile app! wish me luck</p>
         <hr>
         <p>If you would like to contact me with this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a>, <a href="https://ilminster.net/contact" target="_blank">ilminster.net</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2023-12-04-Scraping-Racing-Post-Horse-Prediction-System-Tips" title="Older Post: Scraping Racing Post Horse Prediction System Tips">
-                &LeftArrow; Scraping Racing Post Horse Prediction System Tips
+                        <a href="https://allotmentandy.github.io/blog/2023-12-15-The-Mysteries-of-Docker-and-Kubernetes-A-Christmas-Learning-Adventure" title="Older Post: The Mysteries of Docker and Kubernetes A Christmas Learning Adventure">
+                &LeftArrow; The Mysteries of Docker and Kubernetes A Christmas Learning Adventure
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2023-12-15-The-Mysteries-of-Docker-and-Kubernetes-A-Christmas-Learning-Adventure" title="Newer Post: The Mysteries of Docker and Kubernetes A Christmas Learning Adventure">
-                The Mysteries of Docker and Kubernetes A Christmas Learning Adventure &RightArrow;
-            </a>
                     </div>
     </nav>
 </div>

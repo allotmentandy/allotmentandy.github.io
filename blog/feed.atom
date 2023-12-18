@@ -3,12 +3,147 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2023-12-12T16:25:58+00:00</updated>
+    <updated>2023-12-18T17:30:55+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2023-12-16-Setting-up-Docker,-Kubernetes,-AWS-and-the-environment-for-my-adventure</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-12-16-Setting-up-Docker,-Kubernetes,-AWS-and-the-environment-for-my-adventure" />
+    <title>Setting up Docker, Kubernetes and AWS</title>
+    <published>2023-12-16T00:00:00+00:00</published>
+    <updated>2023-12-16T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">The first task I have undertaken is to update my Ansible repo to install the Docker and Kubernetes software I will need for this adventure.
+
+I have used Docker quite a bit in the past and it allows one to create a Dockerfile which is a set of......</summary>
+    <content type="html"><![CDATA[
+        <p>The first task I have undertaken is to update my <a href="https://github.com/allotmentandy/ansible-debian-install-desktop/blob/main/roles/aws/tasks/main.yml">Ansible repo</a> to install the Docker and Kubernetes software I will need for this adventure.</p>
+
+<p>I have used Docker quite a bit in the past and it allows one to create a Dockerfile which is a set of instructions to build an image which should work in any docker environment. I come from a PHP / Laravel background, so I think my first project will be to get a Kubernetes install to serve a Laravel app on AWS with a single node.</p>
+
+<iframe src="https://youtube.com/embed/T6C4EuVtYbw" style="width:600px; height:400px;"></iframe>
+
+<p>This is the <a href="https://github.com/LeVadim/kubernetes-react-js/blob/master/Dockerfile">corresponding github repo</a> and is the dockerfile i will use as i follow <a href="https://www.youtube.com/playlist?list=PLThHiP8CCGTKjQzqGrPyOWAvSWM_7ty0f">this video series</a>.</p>
+
+<p>To get up and running with kubernetes, i decided to try minikube. I have added this to the ansible playbook but the first run of the <code>minikube start</code> command compalined that there was no driver</p>
+
+<p>then i used <code>minikube start --driver=docker</code> which resulted in a permission error like so:</p>
+
+<pre><code>Exiting due to PROVIDER_DOCKER_NEWGRP: "docker version --format -:" exit status 1: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/version": dial unix /var/run/docker.sock: connect: permission denied
+
+Suggestion: Add your user to the 'docker' group: 'sudo usermod -aG docker $USER &amp;&amp; newgrp docker'
+</code></pre>
+
+<p>so i added the user, but this didnt fix the issue, but this did</p>
+
+<pre><code>chmod 666 /var/run/docker.sock
+</code></pre>
+
+<p>now i can set the default to docker with <code>minikube config set driver docker</code> so now starting minikube produced:</p>
+
+<pre><code>😄  minikube v1.30.1 on Debian kali-rolling
+✨  Using the docker driver based on user configuration
+📌  Using Docker driver with root privileges
+👍  Starting control plane node minikube in cluster minikube
+🚜  Pulling base image ...
+💾  Downloading Kubernetes v1.26.3 preload ...
+    &gt; preloaded-images-k8s-v18-v1...:  397.02 MiB / 397.02 MiB  100.00% 4.14 Mi
+    &gt; gcr.io/k8s-minikube/kicbase...:  373.53 MiB / 373.53 MiB  100.00% 3.09 Mi
+
+
+
+🔥  Creating docker container (CPUs=2, Memory=2800MB) ...
+🐳  Preparing Kubernetes v1.26.3 on Docker 23.0.2 ...
+    ▪ Generating certificates and keys ...
+    ▪ Booting up control plane ...
+    ▪ Configuring RBAC rules ...
+🔗  Configuring bridge CNI (Container Networking Interface) ...
+🔎  Verifying Kubernetes components...
+❗  Executing "docker container inspect minikube --format={{.State.Status}}" took an unusually long time: 18.517914147s
+💡  Restarting the docker service may improve performance.
+🌟  Enabled addons: storage-provisioner, default-storageclass
+
+❗  /usr/bin/kubectl is version 1.28.2, which may have incompatibilities with Kubernetes 1.26.3.
+    ▪ Want kubectl v1.26.3? Try 'minikube kubectl -- get pods -A'
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+</code></pre>
+
+<p>but  <code>minikube dashboard</code> didnt fancy it.</p>
+
+<pre><code>❗  Executing "docker container inspect minikube --format={{.State.Status}}" took an unusually long time: 2.222619049s
+💡  Restarting the docker service may improve performance.
+🔌  Enabling dashboard ...
+    ▪ Using image docker.io/kubernetesui/dashboard:v2.7.0
+    ▪ Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+💡  Some dashboard features require the metrics-server addon. To enable all features please run:
+
+    minikube addons enable metrics-server
+
+
+🤔  Verifying dashboard health ...
+🚀  Launching proxy ...
+🤔  Verifying proxy health ...
+panic: send on closed channel
+
+goroutine 107 [running]:
+k8s.io/minikube/cmd/minikube/cmd.readByteWithTimeout.func2()
+    /app/cmd/minikube/cmd/dashboard.go:192 +0x67
+created by k8s.io/minikube/cmd/minikube/cmd.readByteWithTimeout
+    /app/cmd/minikube/cmd/dashboard.go:187 +0x158
+</code></pre>
+
+<p>I think there was an issue with the ram, as i had so many browser windows searching for the answers, but shutting most of them down, allowed me to start the dashboard and i saw this</p>
+
+<p><img src="/assets/images/minikube_dashboard.png" alt="Minikube dashboard" /></p>
+
+<p>Which is a great start, I am now going to work out how to deploy a Dockerfile app! wish me luck</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2023-12-15-The-Mysteries-of-Docker-and-Kubernetes-A-Christmas-Learning-Adventure</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-12-15-The-Mysteries-of-Docker-and-Kubernetes-A-Christmas-Learning-Adventure" />
+    <title>The Mysteries of Docker and Kubernetes A Christmas Learning Adventure</title>
+    <published>2023-12-15T00:00:00+00:00</published>
+    <updated>2023-12-15T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">As the festive season approaches, bringing with it a lull in the usual hustle and bustle of work and life, it&#039;s the perfect time to embark on a journey of learning and self-improvement. And what better way to enhance tech skills and prepare for the......</summary>
+    <content type="html"><![CDATA[
+        <p>As the festive season approaches, bringing with it a lull in the usual hustle and bustle of work and life, it's the perfect time to embark on a journey of learning and self-improvement. And what better way to enhance tech skills and prepare for the future of software development than by diving into the world of Kubernetes?</p>
+
+<p>Kubernetes, a container orchestration platform, has revolutionized the way applications are deployed, managed, and scaled. Its popularity has soared in recent years, making it an essential skill for anyone seeking to advance their career in DevOps or cloud computing.</p>
+
+<p>Why Choose Christmas for Kubernetes Learning?</p>
+
+<p>The Christmas break offers a unique opportunity to delve into the intricacies of Kubernetes without the distractions of everyday commitments. With ample time on your hands, you can dedicate yourself to learning at your own pace and focus on mastering the core concepts without the pressure of deadlines or meetings.</p>
+
+<p>Benefits of Learning Kubernetes This Winter</p>
+
+<p>Enhance Your Tech Skills: Kubernetes is a complex technology, but mastering it can significantly elevate your skillset. Learning Kubernetes will make you a more valuable asset to any organization, opening up new career opportunities and earning potential.</p>
+
+<p>Stay Ahead of the Curve: Kubernetes is the de-facto standard for container orchestration, and its adoption is only going to grow in the years to come. By learning Kubernetes now, you'll be well-positioned to ride this wave of technological innovation.</p>
+
+<p>Personal Accomplishment: Mastering a challenging technology like Kubernetes is a significant personal achievement. It will boost your confidence and resilience, preparing you for future learning and professional challenges.</p>
+
+<p>How to Embark on Your Kubernetes Learning Journey</p>
+
+<p>Start with the Basics: Begin by understanding the fundamentals of containers and Docker, the foundation upon which Kubernetes is built.</p>
+
+<p>Explore Online Courses and Tutorials: There are numerous high-quality online resources available to guide you through the learning process. Choose courses that align with your learning style and experience level.</p>
+
+<p>Practice and Experiment: Hands-on practice is essential for solidifying your understanding of Kubernetes. Set up a personal Kubernetes cluster and experiment with deploying, managing, and scaling applications.</p>
+
+<p>Join the Kubernetes Community: Engage with the active Kubernetes community through forums, online groups, and social media. Seek help, share knowledge, and contribute to the open-source project.</p>
+
+<p>Learning Kubernetes during the Christmas break is an excellent way to invest in your future and prepare for the ever-evolving landscape of software development. With dedication and perseverance, you can master this powerful technology and reap the rewards of a rewarding career in cloud computing and DevOps. So, grab your laptop, embrace the spirit of learning, and embark on your Kubernetes journey today!</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2023-12-12-Support-for-windows-11-and-10-from-a-linux-debian-user</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-12-12-Support-for-windows-11-and-10-from-a-linux-debian-user" />
     <title>Support for Windows 11 and 10 from a Linux Debian user</title>
