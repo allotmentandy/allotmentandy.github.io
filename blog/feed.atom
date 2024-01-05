@@ -3,12 +3,197 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2023-12-20T15:11:49+00:00</updated>
+    <updated>2024-01-05T17:23:13+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2024-01-05-Finding-work-via-SEO-Ansible-Linux-Devops-PHP-CSS</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2024-01-05-Finding-work-via-SEO-Ansible-Linux-Devops-PHP-CSS" />
+    <title>Finding work via SEO Ansible Linux Devops PHP CSS</title>
+    <published>2024-01-05T00:00:00+00:00</published>
+    <updated>2024-01-05T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">SEO terms and what people search for when looking for a Ansible Linux Devops PHP CSS worker...</summary>
+    <content type="html"><![CDATA[
+        <p>One thing that interests me today is the idea of the industry and the market. The industry is what is on offer to the world and the market is the people looking for a product or service. These dont really match as the industry tries to provide things they think will be in demand, and the market wants things that isnt exactly produced.</p>
+
+<p>This blog is an attempt by me to match what i can offer to those that want some sort of service that i offer.</p>
+
+<p>I have written about the things I can offer on <a href="https://allotmentandy.github.io/blog/2023-11-28-The-sort-of-jobs-I-am-looking-for/">this blog</a> which is currently linked from each of these pages in the icon bar at the top of the page.</p>
+
+<p>What this blog is about is exploring how people search for people who use these technologies and try and get them to find me. A fair number of these skillsets overlap, but I have tried to focus on logical units</p>
+
+<h2>Ansible Terraform</h2>
+
+<details>
+<summary>Ansible Terraform SEO keywords</summary>
+<pre>
+Infrastructure as Code 
+Cloud automation
+Ansible freelancer
+Ansible consultant
+DevOps automation freelancer
+Infrastructure automation freelancer
+Configuration management freelancer
+Ansible playbooks
+Ansible roles
+Ansible modules
+Ansible Galaxy
+Ansible Tower
+Terraform providers
+Terraform modules
+Terraform state
+Terraform Cloud
+Terraform freelancer UK
+Terraform consultant 
+Terraform infrastructure as code expert
+DevOps with Terraform
+Cloud automation with Terraform
+AWS Terraform freelancer
+Azure Terraform consultant
+GCP Terraform specialist
+Multi-cloud Terraform expertise
+Terraform security best practices
+</pre>
+</details>
+
+<h2>AWS Debian Linux</h2>
+
+<details>
+<summary>Debian Linux SEO keywords</summary>
+<pre>
+AWS Linux freelance
+AWS Linux consulting
+Linux on AWS
+AWS for startups
+Cloud migration Linux
+AWS DevOps
+AWS automation
+Security hardening AWS Linux
+AWS CloudFormation consulting
+Ansible automation Linux on AWS
+Terraform configuration for AWS Linux
+Jenkins configuration for AWS
+Cloudwatch monitoring for AWS Linux
+AWS Lambda development
+Cloudtrail logging configuration
+AWS security groups and IAM roles
+Troubleshooting AWS Linux issues
+AWS Linux for healthcare
+AWS Linux for SaaS
+</pre>
+</details>
+
+<h2>Linux Bash Shell Scripting</h2>
+
+<details>
+<summary>Linux Bash Shell SEO keywords</summary>
+<pre>
+Linux Bash shell scripting
+Bash shell scripting freelancer
+Bash scripting expert
+Automation scripting Linux
+Shell scripting services
+Hire Bash scripter
+Linux script writer
+Shell scripting for DevOps
+System administration scripting
+Bash scripting for automation
+Cloud automation scripting
+Network automation scripting
+Security scripting Linux
+Big data scripting Bash
+Scripting for web development
+</pre>
+</details>
+
+<h2>Docker Kubernetes Devops</h2>
+
+<details>
+<summary>Devops SEO keywords</summary>
+<pre>
+DevOps freelancer
+DevOps Engineer 
+Automation Specialist
+IT automation
+Infrastructure as code
+AWS Devops
+Azure Devops
+GCP Devops 
+</pre>
+</details>
+
+<h2>PHP Laravel</h2>
+
+<details>
+<summary>PHP Laravel SEO keywords</summary>
+<pre>
+Laravel developer freelance
+PHP freelance developer
+Web development freelance Laravel
+Hire Laravel freelancer
+Expert Laravel programmer freelance
+PHP/Laravel consultant
+</pre>
+</details>
+
+<h2>Tailwind CSS</h2>
+
+<details>
+<summary>Tailwind CSS SEO keywords</summary>
+<pre>
+Tailwind CSS developer
+Tailwind CSS designer
+Front-end developer
+UI/UX designer 
+Responsive web design 
+Pixel-perfect development 
+Custom website design 
+Landing page design 
+Web app development 
+Shopify website development 
+WordPress website development 
+CSS framework
+Utility-first CSS
+Rapid prototyping
+Performance optimization
+Pixel perfect design
+Mobile-first design
+</pre>
+</details>
+
+<h2>Wordpress</h2>
+
+<details>
+<summary>Wordpress SEO Keywords</summary>
+<pre>
+WordPress freelancer
+WordPress developer
+WordPress designer
+Hire a WordPress expert
+WordPress website development
+WordPress website maintenance
+WordPress e-commerce development
+WordPress theme customization
+WordPress plugin development
+WordPress security
+WordPress SEO optimization
+WordPress speed optimization
+WordPress website migration
+WordPress content creation
+WordPress backup and recovery
+WordPress troubleshooting
+</pre>
+</details>
+
+<p>What I am actually interested in, is what people ACTUALLY type into search engines when looking for roles in these areas.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2023-12-16-Setting-up-Docker,-Kubernetes,-AWS-and-the-environment-for-my-adventure</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2023-12-16-Setting-up-Docker,-Kubernetes,-AWS-and-the-environment-for-my-adventure" />
     <title>Setting up Docker, Kubernetes and AWS</title>
