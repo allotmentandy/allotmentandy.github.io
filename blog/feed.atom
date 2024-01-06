@@ -3,12 +3,42 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2024-01-06T11:28:49+00:00</updated>
+    <updated>2024-01-06T12:05:17+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2024-01-06-Update-on-yesterdays-article-about-seo-301-redirect-issue</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2024-01-06-Update-on-yesterdays-article-about-seo-301-redirect-issue" />
+    <title>Update on yesterdays article about seo 301 redirect issue</title>
+    <published>2024-01-06T00:00:00+00:00</published>
+    <updated>2024-01-06T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Yesterdays post on SEO terms that I wrote about keyword targetting has been indexed by Google, Bing and DuckDuckGo, but there are issues with a 301 redirect.
+
+
+
+
+
+It is good that it has been indexed so quickly and is the top result for this search, but......</summary>
+    <content type="html"><![CDATA[
+        <p>Yesterdays post on SEO terms that I wrote about keyword targetting has been indexed by Google, Bing and DuckDuckGo, but there are issues with a 301 redirect.</p>
+
+<p><img src="/assets/images/ddg301.png" alt="ddg 301 redirect error" /></p>
+
+<p><img src="/assets/images/bing301.png" alt="bing 301 redirect" /></p>
+
+<p>It is good that it has been indexed so quickly and is the top result for this search, but the fix seems to be adding the end slash to the url.</p>
+
+<p>the <a href="https://github.com/tighten/jigsaw/issues/679">last github issue</a> was an issue about trailing slashes, so my fix is to hardcode the endslash in the blog list and the pagination which i think is the problem.</p>
+
+<p>I will monitor the situation with these links and see what happens as this is indexed over the next 24 hours.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2024-01-05-Finding-work-via-SEO-Ansible-Linux-Devops-PHP-CSS</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2024-01-05-Finding-work-via-SEO-Ansible-Linux-Devops-PHP-CSS" />
     <title>Finding work via SEO Ansible Linux Devops PHP CSS</title>
