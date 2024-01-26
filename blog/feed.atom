@@ -3,12 +3,42 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2024-01-11T12:11:00+00:00</updated>
+    <updated>2024-01-26T18:04:11+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2024-01-26-Awesome-perplexity-ai</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2024-01-26-Awesome-perplexity-ai" />
+    <title>Awesome perplexity ai</title>
+    <published>2024-01-26T00:00:00+00:00</published>
+    <updated>2024-01-26T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Today I have been using perplexity.ai which is a LLM ai tool which is a lot better than a search engine.
+
+I have made an &#039;Awesome perplexity.ai&#039; page on github which is a list of awesome links to perplexity.ai and the world it is creating.
+
+I have......</summary>
+    <content type="html"><![CDATA[
+        <p>Today I have been using perplexity.ai which is a LLM ai tool which is a lot better than a search engine.</p>
+
+<p>I have made an <a href="https://github.com/allotmentandy/Awesome-perplexity.ai">'Awesome perplexity.ai'</a> page on github which is a list of awesome links to perplexity.ai and the world it is creating.</p>
+
+<p>I have changed the default search engine in my broswer to perplexity.ai</p>
+
+<p>and made a <a href="https://twitter.com/i/lists/1750921775251071019">twitter list</a> with links to twitter perplexity staff</p>
+
+<p>and now i want to know how long it will take until perplexity.ai knows about the <a href="https://github.com/allotmentandy/Awesome-perplexity.ai">'Awesome perplexity.ai'</a> page on github</p>
+
+<p>Here is a link to a search looking for the <a href="https://www.perplexity.ai/search/is-there-an-07.GAJrgQvarajPdxYItcA?s=c#d3bf8600-9ae0-42f6-ab6a-33ddc5822d70">awesome perplexity.ai</a> page, but i am not sure if it will update in realtime.</p>
+
+<p>very cool</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2024-01-06-Update-on-yesterdays-article-about-seo-301-redirect-issue</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2024-01-06-Update-on-yesterdays-article-about-seo-301-redirect-issue" />
     <title>Update on yesterdays article about seo 301 redirect issue</title>
