@@ -3,12 +3,42 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2024-01-26T18:24:52+00:00</updated>
+    <updated>2024-02-02T12:13:41+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2024-02-02-Seo-Awesome-Perplexity-ai-github-repo</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2024-02-02-Seo-Awesome-Perplexity-ai-github-repo" />
+    <title>Seo Awesome Perplexity.ai Github Repo</title>
+    <published>2024-02-02T00:00:00+00:00</published>
+    <updated>2024-02-02T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">My last post was about making the &#039;Awesome perplexity.ai&#039; page on Github.
+
+It was indexed within an hour on both DuckDuckGo and Bing, but still not indexed directly on Google.
+
+I have written a tweet about it, but wanted to try out the different AI&#039;s to......</summary>
+    <content type="html"><![CDATA[
+        <p>My last post was about making the <a href="https://github.com/allotmentandy/Awesome-perplexity.ai">'Awesome perplexity.ai'</a> page on Github.</p>
+
+<p>It was indexed within an hour on both DuckDuckGo and Bing, but still not indexed directly on Google.</p>
+
+<p>I have written a tweet about it, but wanted to try out the different AI's to try and solve why it isnt featured in Google.</p>
+
+<p><img src="/assets/images/awesome_perplexity-ai.jpg" alt="twitter post" /></p>
+
+<p>So firstly I asked Google Bard and it couldnt see the page</p>
+
+<p><img src="/assets/images/bard_awesome_perplexity_ai.png" alt="google bard" /></p>
+
+<p>After having a good search, I basically discovered I cannot submit a github repo and will have to wait for google to index it with time.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2024-01-26-Awesome-perplexity-ai</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2024-01-26-Awesome-perplexity-ai" />
     <title>Awesome perplexity ai</title>
