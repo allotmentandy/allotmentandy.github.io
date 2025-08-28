@@ -3,12 +3,456 @@
     <title>Allotment Andy</title>
     <link href="https://allotmentandy.github.io/blog" />
     <link type="application/atom+xml" rel="self" href="https://allotmentandy.github.io/blog/feed.atom" />
-    <updated>2024-03-17T08:57:12+00:00</updated>
+    <updated>2025-08-28T11:06:33+00:00</updated>
     <id>https://allotmentandy.github.io/blog/feed.atom</id>
     <author>
         <name>Allotment Andy</name>
     </author>
                 <entry>
+    <id>https://allotmentandy.github.io/blog/2025-08-28-New-Laptop-Ansible-Setup</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2025-08-28-New-Laptop-Ansible-Setup" />
+    <title>New Laptop Ansible Setup</title>
+    <published>2025-08-28T00:00:00+00:00</published>
+    <updated>2025-08-28T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">It was about time to get a new laptop and upgrade my main computer. My requirements were for a SSD hard drive for speed, 32 Gigs of RAM, a HD  resolution for the screen alongside a recomended brand for Debian linux. So I ended up buying a Dell XPS 15......</summary>
+    <content type="html"><![CDATA[
+        <p>It was about time to get a new laptop and upgrade my main computer. My requirements were for a SSD hard drive for speed, 32 Gigs of RAM, a HD  resolution for the screen alongside a recomended brand for Debian linux. So I ended up buying a Dell XPS 15 9560 from ebay for around £250 with delivery. It arrived promptly and I soon set it up, pressing F2 to enter the BIOS and changing the boot order to USB first.</p>
+
+<p>I made a bootable USB stick with the latest version of Debian, number 13 codename Trixie, and was installing it in what seemed like minutes. A full partition of the 1 TB Hard drive and windows was removed, the only slight issue was the need for the non-free firmware for the Wireless car, but I have a USB Stick with this on from previous installs, so I was booting into the latest version of Debian.</p>
+
+<p>My setup process plan was to update my <a href="https://github.com/allotmentandy/ansible-debian-install-desktop" target="_blank">Ansible repository</a> to install as much as possible. I started this repo 2 years ago, and in the meantime a number of apps have been removed from the debian repo, I have also changed the way I work a lot and the new world of AI has really taken off.</p>
+
+<p>The biggest change with Debian 13 and my Ansible repo, is the end of the 'apt-key' install method. So I have updated the Ansible repo with a new tasks list with the new way of installing apps <a href="https://github.com/allotmentandy/ansible-debian-install-desktop/blob/main/roles/new/tasks/main.yml" target="_blank">Ansible New Roles without apt-key</a>. I also created a new <a href="https://github.com/allotmentandy/ansible-debian-install-desktop/blob/main/roles/allPackages/tasks/main.yaml" target="_blank">All Packages Yaml</a> file to install everything from my Debian 12 previous install, which required me to remove a number of apps which have been removed.</p>
+
+<p>One of the big changes was setting up the new High definition 3840x2160 pixel screen which is far larger than the previous 1920x1080 pixel screen. This included chaning the defaults in the Appearance, Display, Desktop and QT5/QT6 settings as the defaults were tiny.</p>
+
+<p>Copying over the files from the old laptop to the new Dell laptop took a while from the backup, but I am almost there.</p>
+
+<p>Now I have a far more powerful laptop running with Debian 13 and have really enjoyed the process to setup my new laptop. There are a few more things to install, like teamviewer, Zed editor and mysql, which i havent got to install with ansible. but i hope this helps you if you have discovered this post.</p>
+
+<p>Please comment if you find this Ansible repo useful, what else should I add to it and what should I remove?</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2025-03-06-Image-sizes-every-website-needs</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2025-03-06-Image-sizes-every-website-needs" />
+    <title>Image sizes every website needs</title>
+    <published>2025-03-06T00:00:00+00:00</published>
+    <updated>2025-03-06T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Have recently been working making images for a festival and events and have been making a number of different graphics for both printing and online graphics. And it got me thinking about the number of different image sizes and more modern formats.......</summary>
+    <content type="html"><![CDATA[
+        <p>Have recently been working making images for a festival and events and have been making a number of different graphics for both printing and online graphics. And it got me thinking about the number of different image sizes and more modern formats.</p>
+
+<h2>Things to consider when making images</h2>
+
+<h3>landscape versus portrait versus square images.</h3>
+
+<h3>file formats - pdf, jpeg, png,</h3>
+
+<h3>software versus online editing</h3>
+
+<ul>
+<li>logo (multiple formats)</li>
+<li>thumbnail</li>
+<li>small favicon</li>
+<li>shop front / business front</li>
+<li>website screenshot</li>
+<li>twitter card</li>
+<li>main background</li>
+<li>map</li>
+<li>icons
+
+<ul>
+<li>svg</li>
+</ul></li>
+<li>website header / footer
+
+<ul>
+<li>across multiple domains)</li>
+</ul></li>
+</ul>
+
+<p>Staying updated on social media image sizes is crucial for optimal engagement and visual appeal. Below is a comprehensive guide to the recommended image dimensions for various social media and online platforms.</p>
+
+<h3><strong>1. Facebook</strong></h3>
+
+<ul>
+<li><strong>Profile Photo</strong>: 170 x 170 pixels</li>
+<li><strong>Cover Photo</strong>: 851 x 315 pixels</li>
+<li><strong>Feed Post (Link)</strong>: 1080 x 1350 pixels</li>
+<li><strong>Event Cover Image</strong>: 1200 x 628 pixels</li>
+</ul>
+
+<h3><strong>2. Instagram</strong></h3>
+
+<ul>
+<li><strong>Profile Photo</strong>: 320 x 320 pixels</li>
+<li><strong>Square Post</strong>: 1080 x 1080 pixels</li>
+<li><strong>Portrait Post</strong>: 1080 x 1350 pixels</li>
+<li><strong>Landscape Post</strong>: 1080 x 566 pixels</li>
+<li><strong>Story</strong>: 1080 x 1920 pixels</li>
+</ul>
+
+<h3><strong>3. Twitter (X)</strong></h3>
+
+<ul>
+<li><strong>Profile Photo</strong>: 400 x 400 pixels</li>
+<li><strong>Header Photo</strong>: 1500 x 500 pixels</li>
+<li><strong>In-Stream Photos</strong>:
+
+<ul>
+<li>Recommended: 1600 x 900 pixels</li>
+<li>Minimum: 600 x 335 pixels</li>
+</ul></li>
+</ul>
+
+<h3><strong>4. LinkedIn</strong></h3>
+
+<ul>
+<li><strong>Profile Photo</strong>: Minimum of 400 x 400 pixels</li>
+<li><strong>Company Page Logo</strong>: Minimum of 300 x 300 pixels</li>
+<li><strong>Cover Image</strong>: 1128 x 191 pixels</li>
+<li><strong>Post Image</strong>: Recommended size of 1200 x 627 pixels</li>
+</ul>
+
+<h3><strong>5. Pinterest</strong></h3>
+
+<ul>
+<li><strong>Standard Pin</strong>: Recommended size of 1000 x 1500 pixels (aspect ratio of 2:3)</li>
+<li><strong>Story Pin</strong>: Recommended size of 1080 x 1920 pixels (aspect ratio of 9:16)</li>
+</ul>
+
+<h3><strong>6. TikTok</strong></h3>
+
+<ul>
+<li><strong>Profile Photo</strong>: Minimum of 200 x 200 pixels</li>
+<li><strong>Video Size</strong>: Recommended resolution of at least 1080 x 1920 pixels</li>
+</ul>
+
+<h3>Summary Table</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Platform</th>
+  <th>Type</th>
+  <th>Recommended Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Facebook</td>
+  <td>Profile Photo</td>
+  <td>170 x 170</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Cover Photo</td>
+  <td>851 x 315</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Feed Post</td>
+  <td>1080 x 1350</td>
+</tr>
+<tr>
+  <td>Instagram</td>
+  <td>Profile Photo</td>
+  <td>320 x320</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Square Post</td>
+  <td>1080 x1080</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Portrait Post</td>
+  <td>1080 x1350</td>
+</tr>
+<tr>
+  <td>Twitter</td>
+  <td>Profile Photo</td>
+  <td>400 x400</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Header Photo</td>
+  <td>1500 x500</td>
+</tr>
+<tr>
+  <td></td>
+  <td>In-Stream Photos</td>
+  <td>1600 x900</td>
+</tr>
+<tr>
+  <td>LinkedIn</td>
+  <td>Profile Photo</td>
+  <td>400x400</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Cover Image</td>
+  <td>1128x191</td>
+</tr>
+<tr>
+  <td>Pinterest</td>
+  <td>Standard Pin</td>
+  <td>1000x1500</td>
+</tr>
+</tbody>
+</table>
+
+<p>This cheat sheet provides a quick reference to ensure your images meet the specifications required for effective social media marketing and engagement across various platforms</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2024-11-29-Learning-Rust</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2024-11-29-Learning-Rust" />
+    <title>Learning Rust</title>
+    <published>2024-11-29T00:00:00+00:00</published>
+    <updated>2024-11-29T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I have been using Bash Shell scripts for many years, but wanted something to learn that would give me more power. I have looked at Golang, Typescript and Python but decided to give Rust a whirl.
+
+The first reason was to be able to make powerful......</summary>
+    <content type="html"><![CDATA[
+        <p>I have been using Bash Shell scripts for many years, but wanted something to learn that would give me more power. I have looked at Golang, Typescript and Python but decided to give Rust a whirl.</p>
+
+<p>The first reason was to be able to make powerful asynchronous commands to download and check websites, but I also wanted a language that offered more than php and bash shell scripting do.</p>
+
+<p>As a PHP developer venturing into the world of Rust, understanding how familiar PHP types translate to Rust types is crucial. This guide will help you bridge the gap between these two languages, focusing on type conversions and key differences.</p>
+
+<h2>Basic Types</h2>
+
+<h3>Integers</h3>
+
+<p>PHP's integer type can be represented by several Rust integer types, depending on the size and signedness:</p>
+
+<table>
+<thead>
+<tr>
+  <th>PHP</th>
+  <th>Rust</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>int</td>
+  <td>i32, i64, u32, u64</td>
+</tr>
+</tbody>
+</table>
+
+<p>In Rust, you need to be more specific about the integer size and whether it's signed or unsigned. For most cases, <code>i32</code> (32-bit signed integer) is a good default choice.</p>
+
+<h3>Floating-Point Numbers</h3>
+
+<p>PHP's float type corresponds to Rust's f32 and f64:</p>
+
+<table>
+<thead>
+<tr>
+  <th>PHP</th>
+  <th>Rust</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>float</td>
+  <td>f32, f64</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>f64</code> is typically used as the default float type in Rust, offering higher precision.</p>
+
+<h3>Booleans</h3>
+
+<p>Booleans are straightforward:</p>
+
+<table>
+<thead>
+<tr>
+  <th>PHP</th>
+  <th>Rust</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>bool</td>
+  <td>bool</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Strings</h3>
+
+<p>PHP strings are more complex to translate due to Rust's distinction between string slices and owned strings:</p>
+
+<table>
+<thead>
+<tr>
+  <th>PHP</th>
+  <th>Rust</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>string</td>
+  <td>String, &amp;str</td>
+</tr>
+</tbody>
+</table>
+
+<p>In Rust, <code>String</code> is the owned, growable string type, while <code>&amp;str</code> is a string slice (a reference to a string).</p>
+
+<h2>Compound Types</h2>
+
+<h3>Arrays</h3>
+
+<p>PHP's arrays are versatile and can be translated to different Rust types depending on usage:</p>
+
+<table>
+<thead>
+<tr>
+  <th>PHP</th>
+  <th>Rust</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>array (indexed)</td>
+  <td>Vec<T></td>
+</tr>
+<tr>
+  <td>array (associative)</td>
+  <td>HashMap&lt;K, V></td>
+</tr>
+</tbody>
+</table>
+
+<p>Rust's <code>Vec&lt;T&gt;</code> is similar to PHP's indexed arrays, while <code>HashMap&lt;K, V&gt;</code> is more akin to associative arrays.</p>
+
+<h3>Objects</h3>
+
+<p>PHP's objects don't have a direct equivalent in Rust. Instead, you'll typically use structs and enums:</p>
+
+<table>
+<thead>
+<tr>
+  <th>PHP</th>
+  <th>Rust</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>object</td>
+  <td>struct, enum</td>
+</tr>
+</tbody>
+</table>
+
+<p>Rust's structs and enums provide more control over data representation and behavior.</p>
+
+<h2>Special Types</h2>
+
+<h3>Null</h3>
+
+<p>PHP's null doesn't exist in Rust. Instead, Rust uses the <code>Option&lt;T&gt;</code> enum:</p>
+
+<table>
+<thead>
+<tr>
+  <th>PHP</th>
+  <th>Rust</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>null</td>
+  <td>Option<T></td>
+</tr>
+</tbody>
+</table>
+
+<p><code>Option&lt;T&gt;</code> can be either <code>Some(value)</code> or <code>None</code>, providing a safer way to handle the absence of a value.</p>
+
+<h3>Resource</h3>
+
+<p>PHP's resource type doesn't have a direct equivalent in Rust. Instead, Rust uses specific types for handling resources, often wrapped in smart pointers or custom types.</p>
+
+<h2>Type Conversion</h2>
+
+<p>In Rust, type conversion is more explicit than in PHP. You can use the <code>as</code> keyword for simple conversions, or implement the <code>From</code> and <code>Into</code> traits for more complex conversions[5].</p>
+
+<pre><code class="language-rust">let num: u8 = 10;
+let float_num: f32 = num as f32;
+</code></pre>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2024-10-30-From-wordpress-to-a-static-site-for-ilminster_net</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2024-10-30-From-wordpress-to-a-static-site-for-ilminster_net" />
+    <title>From wordpress to a static site for ilminster.net</title>
+    <published>2024-10-30T00:00:00+00:00</published>
+    <updated>2024-10-30T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">I have found the WordPress website I have been using for ilminster.net frustrating to work with. It is complex to change the theme and plugins to work exactly as I desire. It is also slower than I&#039;d like to see and I dont really enjoy the entire......</summary>
+    <content type="html"><![CDATA[
+        <p>I have found the WordPress website I have been using for <a href="https://ilminster.net/">ilminster.net</a> frustrating to work with. It is complex to change the theme and plugins to work exactly as I desire. It is also slower than I'd like to see and I dont really enjoy the entire Wordpress infrastructure. There seems to be 3 or 4 page editors where I prefer to write in something that looks like it was built in 2001, the Classic Editor!</p>
+
+<p>So I decided to rebuild the entire site as a static site, using the same system i use for my <a href="https://allotmentandy.github.io">allotmentandy.github.io</a> website. The glorious <a href="https://github.com/tighten/jigsaw">Jigsaw by Tighten</a></p>
+
+<p>It allows me to use Tailwind CSS in a sensible way, where I can purge unused CSS to make a smaller file and edit template files in my editor(s) of choice: I like to write my blog/pages in Sublime Text, but edit the site files in VS Code, weird i know, but that's the way i roll.</p>
+
+<p>Enter Jigsaw: A Breath of Fresh Air</p>
+
+<p>Jigsaw, a static site generator by Tighten, caught my attention as a modern, Laravel-based solution. Here's why it won me over:
+Blazing Fast Performance: With Jigsaw, my pages are pre-built and served as static HTML. This has resulted in lightning-fast load times and improved SEO rankings.</p>
+
+<p>Enhanced Security: By eliminating the database and dynamic content generation, my site is now far less vulnerable to common web attacks. There's simply no backend to hack.</p>
+
+<p>Simplified Workflow: I can now write my content in Markdown, push changes to Git, and let my CI/CD pipeline handle the rest. This streamlined process has freed up more time for actual writing.</p>
+
+<p>Cost-Effective Hosting: Static sites can be hosted for free or at a fraction of the cost of traditional hosting. I'm now using Netlify, which offers seamless deployments and a generous free tier.</p>
+
+<p>The Migration Process</p>
+
+<ul>
+<li>Transitioning to Jigsaw was surprisingly smooth:</li>
+<li>Content Export: I used WordPress's export tool to get my content out as XML.</li>
+<li>Markdown Conversion: I converted my posts to Markdown format, which Jigsaw uses natively.</li>
+<li>Template Creation: I recreated my site's design using Jigsaw's Blade templating engine.</li>
+<li>Asset Management: I moved my images and other assets to a CDN for improved performance.</li>
+<li>Build and Deploy: I set up a build process that compiles my site and deploys it to Netlify whenever I push changes to GitHub.</li>
+</ul>
+
+<p>The Results</p>
+
+<p>The switch to a static site with Jigsaw has been transformative:
+- My site now loads in milliseconds, providing a much better user experience.
+- I've seen a noticeable boost in search engine rankings due to improved performance.
+- My hosting costs have plummeted, while reliability has increased.
+- I sleep better at night knowing my site is inherently more secure.
+- Writing and publishing feel more streamlined and enjoyable.</p>
+
+<p>Conclusion</p>
+
+<p>While WordPress remains a powerful platform for many, the move to a static site with Jigsaw has been the right choice for my needs. It's allowed me to create a faster, more secure, and easier-to-maintain website. If you're facing similar challenges with your WordPress site, consider giving Jigsaw a try. The learning curve is gentle, and the benefits are substantial.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2024-03-05-Changing-my-Wordpress-theme-to-Go-by-Godaddy</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2024-03-05-Changing-my-Wordpress-theme-to-Go-by-Godaddy" />
     <title>Changing my Wordpress theme to Go from Go Daddy</title>
@@ -7135,6 +7579,20 @@ Available commands:
     ]]></content>
 </entry>
             <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
+    <title>Testing a blade.md template for a post</title>
+    <published>2020-05-17T00:00:00+00:00</published>
+    <updated>2020-05-17T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Trying to get a blade.md template to work as i expect....</summary>
+    <content type="html"><![CDATA[
+        
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-internationalization_of_this_jigsaw_static_site" />
     <title>Internationalization Of A Jigsaw Static Site</title>
@@ -7158,20 +7616,6 @@ I would like a language switcher to swap between EN and PT at first. This would 
 <p>I have created an <a href="/about-pt/">/about_pt</a> page to experiment with this</p>
 
 <p>https://lokalise.com/blog/localizing-apps-jquery/</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-17-blade</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-17-blade" />
-    <title>Testing a blade.md template for a post</title>
-    <published>2020-05-17T00:00:00+00:00</published>
-    <updated>2020-05-17T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Trying to get a blade.md template to work as i expect....</summary>
-    <content type="html"><![CDATA[
-        
     ]]></content>
 </entry>
             <entry>
@@ -7221,6 +7665,28 @@ The collection in the config.php file......</summary>
     ]]></content>
 </entry>
             <entry>
+    <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
+    <title>GRR, Duplicate Github Pages</title>
+    <published>2020-05-09T00:00:00+00:00</published>
+    <updated>2020-05-09T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">12.26pm
+
+It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
+
+I deleted that repo and now it is working as expected....</summary>
+    <content type="html"><![CDATA[
+        <p>12.26pm</p>
+
+<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
+
+<p>I deleted that repo and now it is working as expected.</p>
+    ]]></content>
+</entry>
+            <entry>
     <id>https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-yesterday-i-cooked" />
     <title>Yesterday I Cooked</title>
@@ -7245,25 +7711,33 @@ Dinner was a large stir-fry of the first pak choi leaves with kale, chinese cabb
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-05-09-grr-duplicate-github-pages" />
-    <title>GRR, Duplicate Github Pages</title>
-    <published>2020-05-09T00:00:00+00:00</published>
-    <updated>2020-05-09T00:00:00+00:00</updated>
+    <id>https://allotmentandy.github.io/blog/2020-04-30-laravel</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30-laravel" />
+    <title>Laravel</title>
+    <published>2020-05-08T00:00:00+00:00</published>
+    <updated>2020-05-08T00:00:00+00:00</updated>
     <author>
         <name>Allotment Andy</name>
     </author>
-    <summary type="html">12.26pm
+    <summary type="html">Laravel is a great PHP Framework which i have used for many years.
 
-It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.
+There are a number of Laravel projects I am enjoying using at the moment
 
-I deleted that repo and now it is working as expected....</summary>
+Laravel Boilerplate
+
+Laravel Auth
+
+I am looking to create a dual language website in English and Portuguese to......</summary>
     <content type="html"><![CDATA[
-        <p>12.26pm</p>
+        <p>Laravel is a great PHP Framework which i have used for many years.</p>
 
-<p>It took me all morning to fix this website deploy issue, there was an old old repo that was setup years ago as an experiment.</p>
+<p>There are a number of Laravel projects I am enjoying using at the moment</p>
 
-<p>I deleted that repo and now it is working as expected.</p>
+<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
+
+<p><a href="https://github.com/jeremykenedy/laravel-auth/">Laravel Auth</a></p>
+
+<p>I am looking to create a dual language website in English and Portuguese to help me learn portuguese and as a playground to learn about internationalization and multi-language websites.</p>
     ]]></content>
 </entry>
             <entry>
@@ -7399,36 +7873,6 @@ Any word wrapped with two tildes (like ~~this~~) will appear crossed out.
     ]]></content>
 </entry>
             <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-30-laravel</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30-laravel" />
-    <title>Laravel</title>
-    <published>2020-05-08T00:00:00+00:00</published>
-    <updated>2020-05-08T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Laravel is a great PHP Framework which i have used for many years.
-
-There are a number of Laravel projects I am enjoying using at the moment
-
-Laravel Boilerplate
-
-Laravel Auth
-
-I am looking to create a dual language website in English and Portuguese to......</summary>
-    <content type="html"><![CDATA[
-        <p>Laravel is a great PHP Framework which i have used for many years.</p>
-
-<p>There are a number of Laravel projects I am enjoying using at the moment</p>
-
-<p><a href="https://github.com/rappasoft/laravel-boilerplate">Laravel Boilerplate</a></p>
-
-<p><a href="https://github.com/jeremykenedy/laravel-auth/">Laravel Auth</a></p>
-
-<p>I am looking to create a dual language website in English and Portuguese to help me learn portuguese and as a playground to learn about internationalization and multi-language websites.</p>
-    ]]></content>
-</entry>
-            <entry>
     <id>https://allotmentandy.github.io/blog/2020-04-30</id>
     <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-30" />
     <title>Cooking Day</title>
@@ -7448,56 +7892,6 @@ overnight and today i will make bread and freeze a load of these....</summary>
 
 <p>This create 27 yeast blocks of around 0.6 ounces each. I left these drying
 overnight and today i will make bread and freeze a load of these.</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
-    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
-    <title>Jigsaw Templates</title>
-    <published>2020-04-29T00:00:00+00:00</published>
-    <updated>2020-04-29T00:00:00+00:00</updated>
-    <author>
-        <name>Allotment Andy</name>
-    </author>
-    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
-working.
-
-
-
-[ ] Daily page - template for each day, with a shell script to create it
-
-[ ] Code page - with examples of code blocks
-
-[ ] Markdown Examples
-
-
-
-[x] Build.sh - build......</summary>
-    <content type="html"><![CDATA[
-        <h3>7.35 am</h3>
-
-<p>Working on templates for this static site. The mix of markdown and HTML isnt
-working.</p>
-
-<h4>Templates to make</h4>
-
-<p>[ ] Daily page - template for each day, with a shell script to create it</p>
-
-<p>[ ] Code page - with examples of code blocks</p>
-
-<p>[ ] Markdown Examples</p>
-
-<h4>Shell Scripts</h4>
-
-<p>[x] Build.sh - build both the local and production sites</p>
-
-<p>[ ] Deploy to github.io</p>
-
-<p>[ ] Create daily post page</p>
-
-<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
-
-<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
     ]]></content>
 </entry>
             <entry>
@@ -7581,6 +7975,56 @@ like this <code>php artisan make:post 'title of post'</code> but i will make it 
 <p><a href="http://localhost:3000/blog/2020-04-29" title="Older Post: Templates, Markdown and
 Shell Scripts for Jigsaw"> ← Templates, Markdown and Shell Scripts for Jigsaw
 </a></p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://allotmentandy.github.io/blog/2020-04-29</id>
+    <link type="text/html" rel="alternate" href="https://allotmentandy.github.io/blog/2020-04-29" />
+    <title>Jigsaw Templates</title>
+    <published>2020-04-29T00:00:00+00:00</published>
+    <updated>2020-04-29T00:00:00+00:00</updated>
+    <author>
+        <name>Allotment Andy</name>
+    </author>
+    <summary type="html">Working on templates for this static site. The mix of markdown and HTML isnt
+working.
+
+
+
+[ ] Daily page - template for each day, with a shell script to create it
+
+[ ] Code page - with examples of code blocks
+
+[ ] Markdown Examples
+
+
+
+[x] Build.sh - build......</summary>
+    <content type="html"><![CDATA[
+        <h3>7.35 am</h3>
+
+<p>Working on templates for this static site. The mix of markdown and HTML isnt
+working.</p>
+
+<h4>Templates to make</h4>
+
+<p>[ ] Daily page - template for each day, with a shell script to create it</p>
+
+<p>[ ] Code page - with examples of code blocks</p>
+
+<p>[ ] Markdown Examples</p>
+
+<h4>Shell Scripts</h4>
+
+<p>[x] Build.sh - build both the local and production sites</p>
+
+<p>[ ] Deploy to github.io</p>
+
+<p>[ ] Create daily post page</p>
+
+<p><a href="https://allotmentandy.github.io/">AllotmentAndy.github.io</a></p>
+
+<p><a href="https://www.github.com/allotmentandy">AllotmentAndy at Github</a></p>
     ]]></content>
 </entry>
             <entry>
