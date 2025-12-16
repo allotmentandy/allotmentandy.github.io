@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology.">
-    <meta property="og:title" content="Openstreetmap / Overpass Part 3 | Allotment Andy" />
+    <meta property="og:title" content="From Laravel Dusk Testing To Pest | Allotment Andy" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://allotmentandy.github.io/blog/2021-05-17-Openstreetmap-part3" />
+    <meta property="og:url" content="https://allotmentandy.github.io/blog/2025-08-29-From-Laravel-Dusk-Testing-To-Pest" />
     <meta property="og:description" content="Writing about Debian Linux, Bash scripting , PHP, CSS, Laravel, Jigsaw Static sites, cooking, aviation and a place for general thoughts on technology." />
     <meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
     <meta name="google-site-verification" content="ZH9Z0xbqqvqRaISL7eWBgM8MDrG64srr_8-KtI1ZGl8" />
@@ -15,7 +15,7 @@
     <link rel="icon" href="/favicon.ico">
     <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Allotment Andy Atom Feed">
     <meta name="twitter:image" content="https://allotmentandy.github.io/assets/images/TwitterCard.jpg" />
-    <title>Allotment Andy | Openstreetmap / Overpass Part 3</title>
+    <title>Allotment Andy | From Laravel Dusk Testing To Pest</title>
         <!-- Insert analytics code here -->
         <link rel="stylesheet" href="/assets/build/css/main.css?id=fd3b4fd490439a6812511af2a43d2c5c">
     <link rel="stylesheet" href="/assets/build/css/font-awesome.min.css">
@@ -117,37 +117,63 @@
 
     
     <h1 class="leading-none mb-2">
-                <img src="/assets/img/UK.svg" alt="Openstreetmap / Overpass Part 3" class=" w-16 h-16 inline-block">
-                Openstreetmap / Overpass Part 3
+                <img src="/assets/img/Laravel.svg" alt="From Laravel Dusk Testing To Pest" class=" w-16 h-16 inline-block">
+                From Laravel Dusk Testing To Pest
     </h1>
 
-    <p class="text-gray-700 text-sm md:mt-0">May 17, 2021</p>
+    <p class="text-gray-700 text-sm md:mt-0">August 29, 2025</p>
 
-            <a href="/blog/categories/openstreetmap" title="View posts in openstreetmap"
-        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">openstreetmap</a>
+            <a href="/blog/categories/laravel" title="View posts in laravel"
+        class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-900 uppercase text-sm font-semibold rounded m-6 p-4">laravel</a>
         
     <div class="border-b border-blue-200 mb-10 ml-4 pb-4 mt-8" v-pre>
-        <p>I noticed that more entries were using the <strong>contact:website</strong> links for each of these 3 entities, so i added them to the <a href="https://overpass-turbo.eu/" target="_blank">overpass-turbo</a> query.</p>
+        <p>I recently saw that Laravel Dusk was being sunsetted :) and the modern way to test laravel (and any websites) was with Pest 4. It uses Playwright under the hood, and this video by <a href="https://www.youtube.com/watch?v=f5gAgwwwwOI">Nuno Maduro at Laracon US 2025</a> really shows its power.</p>
 
-<pre><code>node[~"^(website|twitter|facebook|contact:website|contact:twitter|contact:facebook)$"~"."]  ({{bbox}});
-out;
+<iframe width="560" height="315" src="https://www.youtube.com/embed/f5gAgwwwwOI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>To install in an existing laravel 12 repository, i ran these commands to remove the old phpunit, install pest and upgrade and initialise the pest testing framework.</p>
+
+<pre><code>composer remove phpunit/phpunit
+composer require pestphp/pest --dev --with-all-dependencies
+./vendor/bin/pest --init 
+composer upgrade # i needed to update the packages
+./vendor/bin/pest # run the tests
 </code></pre>
 
-<p>This provided 17406 features with at least 1 of the 3 links, with 202 for twitter and 260 for facebook. Here is the list of the full contact details <a href="https://wiki.openstreetmap.org/wiki/Key:contact">https://wiki.openstreetmap.org/wiki/Key:contact</a></p>
+<p>the output of the first run was thus:</p>
+
+<pre><code><br />   PASS  Tests\Unit\ExampleTest
+  ✓ that true is true
+
+   PASS  Tests\Feature\ExampleTest
+  ✓ the application returns a successful response                                                                                                                                                                                       0.11s
+
+  Tests:    2 passed (2 assertions)
+  Duration: 0.16s
+
+</code></pre>
+
+<p>now to install the browser test bits</p>
+
+<pre><code>composer require pestphp/pest-plugin-browser --dev
+npm install playwright@latest
+npx playwright install
+
+</code></pre>
         <hr>
         <p>If you would like to contact me with this form on <a href="https://londinium.com/contact" target="_blank">londinium.com</a>, <a href="https://ilminster.net/contact" target="_blank">ilminster.net</a> or via Twitter <a href="https://www.twitter.com/andylondon" target="_blank">@andylondon</a></p>
     </div>
 
     <nav class="flex justify-between text-sm md:text-base">
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2021-05-16-Openstreetmap-contd/" title="Older Post: Openstreetmap / Overpass Part 2">
-                &LeftArrow; Openstreetmap / Overpass Part 2
+                        <a href="https://allotmentandy.github.io/blog/2025-08-28-New-Laptop-Ansible-Setup/" title="Older Post: New Laptop Ansible Setup">
+                &LeftArrow; New Laptop Ansible Setup
             </a>
                     </div>
 
         <div>
-                        <a href="https://allotmentandy.github.io/blog/2021-06-15-Open-Ports-On-Debian-and-installing-ssh/" title="Newer Post: Open Ports &amp; Installing SSH">
-                Open Ports &amp; Installing SSH &RightArrow;
+                        <a href="https://allotmentandy.github.io/blog/2025-12-16-Building-a-Landing-Page-Template/" title="Newer Post: Building a Landing Page Template">
+                Building a Landing Page Template &RightArrow;
             </a>
                     </div>
     </nav>
